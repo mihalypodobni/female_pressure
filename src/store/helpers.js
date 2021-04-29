@@ -3,6 +3,8 @@ const getDefaultState = () => {
     return {
         isMobile: false,
         currentTab: null,
+        admin: null,
+        activeApp : null,
     }
 }
 
