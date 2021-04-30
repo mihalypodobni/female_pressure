@@ -5,17 +5,19 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 
 export default {
   data() {
     return {
       window: {
-        width: 0
+        width: 0,
+        breakpointWidth: 768
       }
     }
   },
   created() {
-    this.$store.commit('SET_MOBILE', window.innerWidth < 1100)
+    this.SET_MOBILE(window.innerWidth < this.breakpointWidth)
     window.addEventListener('resize', this.handleResize)
     this.handleResize()
   },
@@ -23,11 +25,14 @@ export default {
     window.removeEventListener('resize', this.handleResize)
   },
   methods: {
+    ...mapMutations([
+      'SET_MOBILE'
+    ]),
     handleResize() {
       this.window = window.innerWidth
       this.window < 1100 ?
-          this.$store.commit('SET_MOBILE', true) :
-          this.$store.commit('SET_MOBILE', false)
+          this.SET_MOBILE(true) :
+          this.SET_MOBILE(false)
     }
   }
 }
