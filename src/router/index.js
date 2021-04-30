@@ -11,6 +11,11 @@ let router = new Router({
             name: 'Home',
             component: () => import('@/components/homePage/Home'),
         },
+        {
+            path: '/special_projects',
+            name: 'Special Projects',
+            component: () => import('@/components/specialProjects/SpecialProjects'),
+        },
     ]
 })
 

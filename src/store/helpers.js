@@ -4,7 +4,6 @@ const getDefaultState = () => {
         isMobile: false,
         currentTab: null,
         admin: null,
-        activeApp : null,
     }
 }
 
