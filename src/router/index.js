@@ -9,12 +9,32 @@ let router = new Router({
         {
             path: '/',
             name: 'Home',
-            component: () => import('@/components/homePage/Home'),
+            component: () => import('@/components/home/Home'),
+        },
+        {
+            path: '/search',
+            name: 'Search',
+            component: () => import('@/components/search/SearchHome'),
         },
         {
             path: '/special_projects',
             name: 'Special Projects',
-            component: () => import('@/components/specialProjects/SpecialProjects'),
+            component: () => import('@/components/specialProjects/SpecialProjectsHome'),
+        },
+        {
+            path: '/merch',
+            name: 'Merch',
+            component: () => import('@/components/merch/MerchHome'),
+        },
+        {
+            path: '/links',
+            name: 'Links',
+            component: () => import('@/components/links/LinksHome'),
+        },
+        {
+            path: '/about',
+            name: 'About',
+            component: () => import('@/components/about/AboutHome'),
         },
     ]
 })

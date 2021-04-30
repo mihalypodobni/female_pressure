@@ -9,27 +9,42 @@
 import NavigationMobile from './NavigationMobile'
 import NavigationDesktop from './NavigationDesktop'
 import axios from "axios";
-//TODO getting an error when i replace axios below with this.$http
+import {mapMutations, mapState} from 'vuex';
 
 export default {
+  computed: mapState([
+    'currentTab'
+  ]),
   methods: {
+    ...mapMutations([
+        "SET_TAB"
+    ]),
     logout() {
-      this.$store.dispatch("logout")
+      // this.logout()
       delete axios.defaults.headers.common['Authorization']
       this.$router.push('/')
     },
     navigate(route) {
-      if (this.activeApp !== route) {
-        this.activeApp = route
-        switch (this.activeApp) {
-          case 'dashboard':
-            this.$router.push('/dashboard')
+      if (this.currentTab !== route) {
+        this.SET_TAB(route)
+        switch (route) {
+          case 'home':
+            this.$router.push({name: 'Home'})
             break;
-          case 'orders':
-            this.$router.push('/orders')
+          case 'search':
+            this.$router.push({name: 'Search'})
             break;
-          case 'classification':
-            this.$router.push('/classification')
+          case 'special_projects':
+            this.$router.push({name: 'Special Projects'})
+            break;
+          case 'merch':
+            this.$router.push({name: 'Merch'})
+            break;
+          case 'links':
+            this.$router.push({name: 'Links'})
+            break;
+          case 'about':
+            this.$router.push({name: 'About'})
             break;
         }
       }

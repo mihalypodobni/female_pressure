@@ -2,7 +2,7 @@
 const getDefaultState = () => {
     return {
         isMobile: false,
-        currentTab: null,
+        currentTab: 'home',
         admin: null,
     }
 }

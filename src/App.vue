@@ -1,11 +1,13 @@
 <template>
   <div id="app">
+    <Navigation />
     <router-view />
   </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
+import Navigation from "./components/navigation/Navigation";
 
 export default {
   data() {
@@ -15,6 +17,9 @@ export default {
         breakpointWidth: 768
       }
     }
+  },
+  components: {
+    Navigation
   },
   created() {
     this.SET_MOBILE(window.innerWidth < this.breakpointWidth)
