@@ -13,7 +13,20 @@
                     <b-col cols="8">
                         <h3>{{project.title}}</h3>
                         <p>{{project.text}}</p>
-                        <b-link>{{project.link}}</b-link>
+                        <b-link :src="project.link" class="link" target="_blank" >{{project.link}}</b-link>
+
+                        <!-- SOCIAL MEDIA LINKS -->
+                            <b-row>
+                                <b-button variant="link" 
+                                :href="link.link" 
+                                target="_blank" 
+                                v-for="(link,idx) in project.socialMedia" 
+                                :key="link.icon + idx"
+                                class="p-1 link">
+                                    <font-awesome-icon :icon="['fab', link.icon]" size="lg" class="mx-2 my-2"/>
+                                </b-button>
+                            </b-row>
+                        
                     </b-col>
                     </b-row>
                 </b-container>
@@ -30,16 +43,20 @@ export default {
     props:{
         projects: Array
     },
+    computed: {
+        console: () => console,
+    }
 }
 </script>
-console.log(projects);
 
 <style lang="sass" scoped>
 .project-container
-  border: 2px solid #3dffc5
+  border: 2px solid $borderlink
   padding: 30px
   box-shadow: 0px 0px 15px grey
   
+.link
+  @include blueLink
 
 .project-img
     border-radius: 50%
