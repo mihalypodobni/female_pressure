@@ -1,7 +1,7 @@
 <template>
   <div>
-    <NavigationMobile v-if="$store.state.isMobile" @logout="logout" @navigate="navigate"/>
-    <NavigationDesktop v-else @logout="logout" @navigate="navigate"/>
+    <NavigationMobile v-if="$store.state.isMobile" :menuItems="menuItems" @logout="logout" @navigate="navigate"/>
+    <NavigationDesktop v-else :menuItems="menuItems" @logout="logout" @navigate="navigate"/>
   </div>
 </template>
 
@@ -12,6 +12,17 @@ import axios from "axios";
 import {mapMutations, mapState} from 'vuex';
 
 export default {
+  data() {
+    return {
+      menuItems: [
+        {id: 'search', name: 'search'},
+        {id: 'special_projects', name: 'special projects'},
+        {id: 'events', name: 'events'},
+        {id: 'links', name: 'links'},
+        {id: 'about', name: 'about'}
+      ]
+    }
+  },
   computed: mapState([
     'currentTab'
   ]),
