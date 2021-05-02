@@ -60,28 +60,47 @@
         fp placeholder
       </b-col>
       <b-col class="text-center  link search_nav"
-             @click="$emit('navigate','search')">
+             @click="$emit('navigate','search')"
+             :class="currentTab === 'search' ? 'current-tab' : ''"
+      >
         search
       </b-col>
       <b-col class="text-center  link special_projects_nav"
-             @click="$emit('navigate','special_projects')">
+             @click="$emit('navigate','special_projects')"
+             :class="currentTab === 'special_projects' ? 'current-tab' : ''"
+      >
         special projects
       </b-col>
       <b-col class="text-center  link merch_nav"
-             @click="$emit('navigate','merch')">
-        merch
+             @click="$emit('navigate','events')"
+             :class="currentTab === 'events' ? 'current-tab' : ''"
+      >
+        events
       </b-col>
       <b-col class="text-center  link links_nav"
-             @click="$emit('navigate','links')">
+             @click="$emit('navigate','links')"
+             :class="currentTab === 'links' ? 'current-tab' : ''"
+      >
         links
       </b-col>
       <b-col class="text-center  link about_nav"
-             @click="$emit('navigate','about')">
+             @click="$emit('navigate','about')"
+             :class="currentTab === 'about' ? 'current-tab' : ''">
         about
       </b-col>
       <b-col class="text-center  link login_nav">login</b-col>
     </b-row>
 </template>
+
+<script>
+import {mapState} from "vuex";
+
+export default {
+  computed: mapState([
+    'currentTab'
+  ]),
+}
+</script>
 
 <style lang="sass" scoped>
 .link
@@ -111,4 +130,8 @@
 
 .login_nav
   background-color: $menu7
+
+.current-tab
+  font-weight: bolder
+  text-decoration: underline
 </style>

@@ -37,8 +37,8 @@ export default {
           case 'special_projects':
             this.$router.push({name: 'Special Projects'})
             break;
-          case 'merch':
-            this.$router.push({name: 'Merch'})
+          case 'events':
+            this.$router.push({name: 'Events'})
             break;
           case 'links':
             this.$router.push({name: 'Links'})

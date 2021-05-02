@@ -36,6 +36,11 @@ let router = new Router({
             name: 'About',
             component: () => import('@/components/about/AboutHome'),
         },
+        {
+            path: '/events',
+            name: 'Events',
+            component: () => import('@/components/events/EventsHome'),
+        },
     ]
 })
 
