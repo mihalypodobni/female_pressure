@@ -48,5 +48,5 @@ export default {
 
 .current-tab
   font-weight: bolder
-  text-decoration: underline
+  color: white //TODO talk to marine about this
 </style>
