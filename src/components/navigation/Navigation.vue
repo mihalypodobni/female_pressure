@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <b-container fluid="xl" class="px-0">
     <NavigationMobile v-if="$store.state.isMobile" :menuItems="menuItems" @logout="logout" @navigate="navigate"/>
     <NavigationDesktop v-else :menuItems="menuItems" @logout="logout" @navigate="navigate"/>
-  </div>
+  </b-container>
 </template>
 
 <script>
@@ -16,7 +16,7 @@ export default {
     return {
       menuItems: [
         {id: 'search', name: 'search'},
-        {id: 'special_projects', name: 'special projects'},
+        {id: 'projects', name: 'projects'},
         {id: 'events', name: 'events'},
         {id: 'links', name: 'links'},
         {id: 'about', name: 'about'}
@@ -45,8 +45,8 @@ export default {
           case 'search':
             this.$router.push({name: 'Search'})
             break;
-          case 'special_projects':
-            this.$router.push({name: 'Special Projects'})
+          case 'projects':
+            this.$router.push({name: 'Projects'})
             break;
           case 'events':
             this.$router.push({name: 'Events'})

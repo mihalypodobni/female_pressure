@@ -2,12 +2,14 @@
   <div id="app">
     <Navigation />
     <router-view />
+    <Footer class="footer"/>
   </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
 import Navigation from "./components/navigation/Navigation";
+import Footer from  "./components/footer/Footer"
 
 export default {
   data() {
@@ -19,7 +21,8 @@ export default {
     }
   },
   components: {
-    Navigation
+    Navigation,
+    Footer
   },
   created() {
     this.SET_MOBILE(window.innerWidth < this.breakpointWidth)
@@ -45,11 +48,18 @@ export default {
 
 <style lang="sass">
 #app
-  height: 100vh
+  min-height: 100vh
   width: 100vw
+  display: flex
+  flex-direction: column
   font-family: Avenir, Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   color: #2c3e50
 
+</style>
+
+<style lang="sass" scoped>
+.footer
+  margin-top: auto
 </style>

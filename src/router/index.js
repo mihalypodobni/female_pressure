@@ -17,8 +17,8 @@ let router = new Router({
             component: () => import('@/components/search/SearchHome'),
         },
         {
-            path: '/special_projects',
-            name: 'Special Projects',
+            path: '/projects',
+            name: 'Projects',
             component: () => import('@/components/specialProjects/SpecialProjectsHome'),
         },
         {
