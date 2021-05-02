@@ -1,7 +1,7 @@
 <template>
  <main>
    <b-container class="mt-3"> 
-    <h1>Special projects</h1>
+    <h1 class="page-title">Special projects</h1>
     <ProjectCard :projects="projectsData"/>
    </b-container>
     
@@ -91,3 +91,9 @@ export default {
 }
 </script>
 
+
+<style lang="sass" scoped>
+.page-title
+  @include  page-title
+
+</style>

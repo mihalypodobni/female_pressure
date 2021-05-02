@@ -56,7 +56,7 @@ export default {
   box-shadow: 0px 0px 15px grey
   
 .link
-  @include blueLink
+  @include blue-link
 
 .project-img
     border-radius: 50%
