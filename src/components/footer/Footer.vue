@@ -1,6 +1,6 @@
 <template>
   <div class="footer-background">
-    <b-container class="py-5 mt-5">
+    <b-container class="pt-5 pb-3 mt-5">
       <b-row>
         <b-col>
           <div class="font-weight-bolder">site navigation</div>
@@ -36,6 +36,13 @@
           </span>
         </b-col>
       </b-row>
+      <div class="text-center pt-3">
+        <b-img src="../../assets/fp_large.png" class="footer-logo"></b-img>
+        <span class="my-auto pl-4">&#169; 2019 - 2021 female:pressure -
+          <b-button variant="link" class="p-0 m-0 link" href="#">GDPR</b-button> -
+          <b-button variant="link" class="p-0 m-0 link" href="#">Impressum</b-button>
+        </span>
+      </div>
     </b-container>
   </div>
 </template>
@@ -87,4 +94,7 @@ export default {
 
 .link
   @include link
+
+.footer-logo
+  width: 45px
 </style>
