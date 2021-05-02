@@ -1,19 +1,10 @@
 <template>
-<<<<<<< HEAD
  <main>
    <b-container class="mt-3"> 
     <!-- <h1 class="page-title">Special projects</h1> -->
     <ProjectCard :projects="projectsData"/>
    </b-container>
     
-=======
-  <main>
-    <b-container class="mt-3">
-      <h1 class="page-title">Special projects</h1>
-      <ProjectCard :projects="projectsData"/>
-    </b-container>
-
->>>>>>> d60ff94048c7b5e03cf1ce0e108d0c3acb2948b0
   </main>
 </template>
 
