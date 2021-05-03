@@ -37,6 +37,11 @@ let router = new Router({
             component: () => import('@/components/about/AboutHome'),
         },
         {
+            path:'/press',
+            name:'Press',
+            component: ()=> import('@/components/about/Press'),
+        },
+        {
             path: '/events',
             name: 'Events',
             component: () => import('@/components/events/EventsHome'),
