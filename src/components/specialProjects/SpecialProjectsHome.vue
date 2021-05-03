@@ -33,7 +33,7 @@ export default {
         },
         {
           img: "https://picsum.photos/200",
-          title: "female:pressure podcast",
+          title: "female: pressure podcast",
           text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum esse nam aliquid exercitationem tempore architecto? Itaque nostrum impedit fugit asperiores.",
           link: "https://open.currents.fm/g/femalepressure",
           socialMedia: [
