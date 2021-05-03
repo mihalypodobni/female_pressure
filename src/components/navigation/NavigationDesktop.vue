@@ -1,4 +1,5 @@
 <template>
+  <div>
     <b-row class="justify-content-center w-100 mx-0">
       <b-col class="text-center link female_pressure_nav">
         fp placeholder
@@ -9,16 +10,36 @@
              @click="$emit('navigate',item.id)"
              :class="[ item.id + '_nav', currentTab === item.id ? 'current-tab' : '']"
       >
-        {{item.name}}
+        {{ item.name }}
       </b-col>
-      <b-col class="text-center link login_nav">login</b-col>
+      <b-col class="text-center link login_nav"
+             @click="showLogin = !showLogin"
+      >
+        <UserSettingsDesktop />
+      </b-col>
     </b-row>
+    <div class="woof dropdown" v-if="showLogin">Hello there</div>
+<!--    <b-row class="w-100 mx-0 woof" align-h="end" v-if="showLogin">-->
+<!--      <b-col class="dropdown" cols="auto">a menu is here</b-col>-->
+<!--    </b-row>-->
+
+  </div>
+
 </template>
 
 <script>
 import {mapState} from "vuex";
+import UserSettingsDesktop from "./UserSettingsDesktop";
 
 export default {
+  components: {
+    UserSettingsDesktop
+  },
+  data() {
+    return {
+      showLogin: false
+    }
+  },
   props: {
     menuItems: Array
   },
@@ -29,6 +50,13 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.dropdown
+  background-color: $menu7
+
+.woof
+  position: absolute
+  right: 0
+
 .link
   cursor: pointer
   padding-top: 20px
@@ -48,5 +76,6 @@ export default {
 
 .current-tab
   font-weight: bolder
-  color: white //TODO talk to marine about this
+  color: white
+//TODO talk to marine about this
 </style>
