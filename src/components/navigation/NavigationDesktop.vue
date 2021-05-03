@@ -1,30 +1,22 @@
 <template>
-  <div>
-    <b-row class="justify-content-center w-100 mx-0">
-      <b-col class="text-center link female_pressure_nav">
-        fp placeholder
-      </b-col>
-      <b-col v-for="(item, idx) in menuItems"
-             :key="item.id + idx"
-             class="text-center link"
-             @click="$emit('navigate',item.id)"
-             :class="[ item.id + '_nav', currentTab === item.id ? 'current-tab' : '']"
-      >
-        {{ item.name }}
-      </b-col>
-      <b-col class="text-center link login_nav"
-             @click="showLogin = !showLogin"
-      >
-        <UserSettingsDesktop />
-      </b-col>
-    </b-row>
-    <div class="woof dropdown" v-if="showLogin">Hello there</div>
-<!--    <b-row class="w-100 mx-0 woof" align-h="end" v-if="showLogin">-->
-<!--      <b-col class="dropdown" cols="auto">a menu is here</b-col>-->
-<!--    </b-row>-->
-
-  </div>
-
+  <b-row class="justify-content-center w-100 mx-0">
+    <b-col class="text-center link female_pressure_nav">
+      fp placeholder
+    </b-col>
+    <b-col v-for="(item, idx) in menuItems"
+           :key="item.id + idx"
+           class="text-center link"
+           @click="$emit('navigate',item.id)"
+           :class="[ item.id + '_nav', currentTab === item.id ? 'current-tab' : '']"
+    >
+      {{ item.name }}
+    </b-col>
+    <b-col class="text-center link login_nav"
+           @click="showLogin = !showLogin"
+    >
+      <UserSettingsDesktop/>
+    </b-col>
+  </b-row>
 </template>
 
 <script>

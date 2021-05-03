@@ -8,8 +8,6 @@
     <b-dropdown-item>First Action</b-dropdown-item>
     <b-dropdown-item>Second Action</b-dropdown-item>
     <b-dropdown-item>Third Action</b-dropdown-item>
-    <b-dropdown-item active>Active action</b-dropdown-item>
-    <b-dropdown-item disabled>Disabled action</b-dropdown-item>
   </b-dropdown>
 <!--  <form class="dropdown-menu p-4">-->
 <!--    <div class="form-group">-->
@@ -37,7 +35,10 @@
       padding: 0
     > .dropdown-menu
       top: 15px!important
-      right: 15px!important
+      margin-right: -15px!important
+      border-radius: 0
+      border: none
+      background-color: $menu7
 
 </style>
 
