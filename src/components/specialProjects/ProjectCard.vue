@@ -3,15 +3,17 @@
         <b-row align-v="center">
             <!-- PROJECT CONTAINER -->
             <b-col :key="project.id" v-for="project in projects" cols="12" lg="6" >
-                <b-container class="project-container mt-4" value="200px">
+                <b-container class="project-container mt-4">
                     <b-row >
                     <b-col cols="4">
                         <b-img :src="project.img" alt="common planet logo" class="project-img" ></b-img>
                     </b-col>
 
               <b-col cols="8">
-                <h3>{{ project.title }}</h3>
-                <p>{{ project.text }}</p>
+                <div class="project-text">
+                  <h3>{{ project.title }}</h3>
+                  <p >{{ project.text }}</p>
+                </div>
                 <b-link :src="project.link" class="link" target="_blank">{{ project.link }}</b-link>
 
                 <!-- SOCIAL MEDIA LINKS -->
@@ -49,12 +51,15 @@ export default {
 <style lang="sass" scoped>
 .project-container
   border: 2px solid $borderlink
-  padding: 50px
+  padding: 30px
   box-shadow: 0px 0px 15px grey
-  height: 450px
+  // height: 450px
   display: flex
   align-items: center
-  
+
+.project-text
+  min-height: 200px
+
 .link
   @include blue-link
 
