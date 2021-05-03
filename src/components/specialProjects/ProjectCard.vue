@@ -1,8 +1,8 @@
 <template>
     <div>
-        <b-row>
+        <b-row align-v="center">
             <!-- PROJECT CONTAINER -->
-            <b-col :key="project.id" v-for="project in projects" cols="12" md="6" >
+            <b-col :key="project.id" v-for="project in projects" cols="12" lg="6" >
                 <b-container class="project-container mt-4" value="200px">
                     <b-row >
                     <b-col cols="4">
@@ -49,9 +49,11 @@ export default {
 <style lang="sass" scoped>
 .project-container
   border: 2px solid $borderlink
-  padding: 30px
+  padding: 50px
   box-shadow: 0px 0px 15px grey
-  height: 300px
+  height: 450px
+  display: flex
+  align-items: center
   
 .link
   @include blue-link
