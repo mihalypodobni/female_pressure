@@ -31,11 +31,11 @@ let router = new Router({
             name: 'About',
             component: () => import('@/components/about/AboutHome'),
         },
-        {
-            path:'/press_text', //TODO combine this page with press release
+      /*   {
+            path:'/press_text', //This is going to be on the special projects
             name:'Press Text',
             component: ()=> import('@/components/press/PressText'),
-        },
+        }, */
 
         {
             path: '/events',

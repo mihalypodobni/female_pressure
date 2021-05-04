@@ -7,7 +7,6 @@
             <!-- PROJECT CONTAINER -->
             <b-col :key="project.id" v-for="project in projects" cols="12" lg="6" >
                 <b-container class="project-container mt-4">
-                  {{console.log(project.img)}}
                     <b-row >
                     <b-col cols="4">
                         <b-img :src="getImgUrl(project.img)" :alt="project.title + ' logo'" class="project-img" ></b-img>
@@ -52,8 +51,8 @@ export default {
   },
   methods:{
     getImgUrl(pet) {
-      var images = require.context('../../assets/', false, /\.png$/)
-      return images('./' + pet + ".png")
+      var images = require.context('../../assets/', false, /\.svg$/)
+      return images('./' + pet + ".svg")
     }
   }
 }
