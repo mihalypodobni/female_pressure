@@ -52,8 +52,8 @@ export default {
   },
   methods:{
     getImgUrl(pet) {
-      var images = require.context('../../assets/', false, /\.png$/)
-      return images('./' + pet + ".png")
+      var images = require.context('../../assets/', false, /\.svg$/)
+      return images('./' + pet + ".svg")
     }
   }
 }
