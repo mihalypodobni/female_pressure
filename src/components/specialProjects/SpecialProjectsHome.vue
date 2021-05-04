@@ -22,13 +22,10 @@ export default {
       projectsData: [
         {
           img: "https://picsum.photos/200",
-          title: "common planet",
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum esse nam aliquid exercitationem tempore architecto? Itaque nostrum impedit fugit asperiores.",
-          link: "https://open.currents.fm/g/femalepressure",
+          title: " refuge radio show - since 2021",
+          text: "the latest addition to our monthly radio shows: on refuge worldwide, we present curated dj mixes in a wide variety of genres.",
+          link: "https://refugeworldwide.com/artists/female-pressure",
           socialMedia: [
-            {icon: "twitter", link: "https://twitter.com/female_pressure"},
-            {icon: "facebook", link: "https://www.facebook.com/femalepressure"},
-            {icon: "soundcloud", link: "https://soundcloud.com/femalepressure"},
           ]
         },
         {

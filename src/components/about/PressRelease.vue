@@ -33,7 +33,6 @@
             </b-tab>
             
             <b-tab title="Second"><p>I'm the second tab</p></b-tab>
-            <b-tab title="Disabled"><p>I'm a disabled tab!</p></b-tab>
           </b-tabs>
         </div>
     </b-container>
