@@ -1,3 +1,5 @@
+
+
 <template>
     <div>
         <b-row align-v="center">
@@ -5,9 +7,10 @@
             <!-- PROJECT CONTAINER -->
             <b-col :key="project.id" v-for="project in projects" cols="12" lg="6" >
                 <b-container class="project-container mt-4">
+                  {{console.log(project.img)}}
                     <b-row >
                     <b-col cols="4">
-                        <b-img :src="project.img" :alt="project.name" class="project-img" ></b-img>
+                        <b-img :src="getImgUrl(project.img)" :alt="project.title + ' logo'" class="project-img" ></b-img>
                     </b-col>
 
               <b-col cols="8">
@@ -46,6 +49,12 @@ export default {
   },
   computed: {
     console: () => console,
+  },
+  methods:{
+    getImgUrl(pet) {
+      var images = require.context('../../assets/', false, /\.png$/)
+      return images('./' + pet + ".png")
+    }
   }
 }
 </script>
