@@ -1,7 +1,7 @@
 <template>
   <b-dropdown variant="link" class="p-0 w-100" right text="Right align" toggle-class="text-decoration-none" no-caret>
     <template #button-content>
-            <div class="link">
+            <div class="menu-link">
               <span class="pr-2">login</span> <font-awesome-icon icon="user" />
             </div>
     </template>
@@ -23,12 +23,11 @@
         ></b-form-input>
       </b-form-group>
       <b-row>
-        <b-col class="text-left">forgot password?</b-col>
-        <b-col class="text-right" cols="auto"><b-button squared class="sign-in-button" @click="signIn">sign In</b-button></b-col>
+        <b-col class="text-left my-auto link"><span>forgot password?</span></b-col>
+        <b-col class="text-right" cols="auto"><b-button squared class="sign-in-button" @click="signIn">sign in</b-button></b-col>
       </b-row>
     </b-dropdown-form>
-    <b-dropdown-divider class="divider"></b-dropdown-divider>
-    <hr>
+    <hr class="divider mx-3">
     <b-dropdown-item-button class="text-center">not a member yet? join the network</b-dropdown-item-button>
   </b-dropdown>
 
@@ -59,13 +58,19 @@ export default {
 </style>
 
 <style lang="sass" scoped>
-.link
+.menu-link
   cursor: pointer
   color: black!important
   text-decoration: none!important
   &:hover
     text-decoration: none!important
     font-weight: bolder
+
+.link
+  color: $userLoginDropdown
+  text-decoration: none
+  &:hover
+    color: black
 
 .user-login
   width: 25vw!important
@@ -78,7 +83,7 @@ export default {
   color: white
   background-color: $userLoginDropdown
   border: 0
-//.divider
-//  color: white
-//  width: 4px
+
+.divider
+  border-top: 3px solid white
 </style>
