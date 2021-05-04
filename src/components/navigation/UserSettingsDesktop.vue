@@ -29,7 +29,7 @@
     </b-dropdown-form>
     <b-dropdown-divider class="divider"></b-dropdown-divider>
     <hr>
-    <b-dropdown-item-button class="text-center">not a memeber yet? join the network</b-dropdown-item-button>
+    <b-dropdown-item-button class="text-center">not a member yet? join the network</b-dropdown-item-button>
   </b-dropdown>
 
 </template>

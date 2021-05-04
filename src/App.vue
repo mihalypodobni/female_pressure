@@ -52,7 +52,7 @@ export default {
   width: 100vw
   display: flex
   flex-direction: column
-  font-family: Avenir, Helvetica, Arial, sans-serif
+  font-family: $font-main
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
