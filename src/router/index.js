@@ -22,11 +22,6 @@ let router = new Router({
             component: () => import('@/components/specialProjects/SpecialProjectsHome'),
         },
         {
-            path: '/merch',
-            name: 'Merch',
-            component: () => import('@/components/merch/MerchHome'),
-        },
-        {
             path: '/links',
             name: 'Links',
             component: () => import('@/components/links/LinksHome'),
@@ -37,19 +32,40 @@ let router = new Router({
             component: () => import('@/components/about/AboutHome'),
         },
         {
-            path:'/presstext',
+            path:'/press_text', //TODO combine this page with press release
             name:'Press Text',
-            component: ()=> import('@/components/about/PressText'),
+            component: ()=> import('@/components/press/PressText'),
         },
-        {
-            path:'/pressrelease',
-            name:'Press Release',
-            component: ()=> import('@/components/about/PressRelease'),
-        },
+
         {
             path: '/events',
             name: 'Events',
             component: () => import('@/components/events/EventsHome'),
+        },
+        {
+            path: '/merch',
+            name: 'Merch',
+            component: () => import('@/components/merch/MerchHome'),
+        },
+        {
+            path: '/code_of_conduct',
+            name: 'CoC',
+            component: () => import('@/components/codeOfConduct/CodeOfConductHome'),
+        },
+        {
+            path:'/press',
+            name:'Press',
+            component: ()=> import('@/components/press/PressHome'),
+        },
+        {
+            path:'/blog',
+            name:'Blog',
+            component: ()=> import('@/components/blog/BlogHome'),
+        },
+        {
+            path:'/safer_space',
+            name:'Safer Space',
+            component: ()=> import('@/components/saferSpace/SaferSpaceHome'),
         },
     ]
 })
