@@ -3,7 +3,7 @@
     <div>
       <b-tabs content-class="mt-3">
         <!-- Czech -->
-        <b-tab title="ČEŠTINA" background-color="$borderlink" active>
+        <b-tab title="ČEŠTINA" background-color="$blueBoxBorder" active>
           <p><b>Tiskové prohlášení – 8. března 2013 – Mezinárodní den žen</b></p>
           <p><b>Naléhavá výzva reprezentace žen v elektronické hudbě a na poli digitálního umění</b></p>
 
@@ -80,7 +80,7 @@
 
 <style lang="sass" scoped>
 .language-tab
-  border: 2px solid $borderlink
+  border: 2px solid $blueBoxBorder
   padding: 30px
   box-shadow: 0px 0px 15px grey
 </style>
