@@ -16,9 +16,10 @@ import {
     faTumblr,
     faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
+import {faUser} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
-library.add(faTwitter, faFacebook, faSoundcloud, faMixcloud, faInstagram, faVimeo, faTumblr, faYoutube)
+library.add(faTwitter, faFacebook, faSoundcloud, faMixcloud, faInstagram, faVimeo, faTumblr, faYoutube, faUser)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false

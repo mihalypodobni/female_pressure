@@ -1,32 +1,48 @@
 <template>
   <b-dropdown variant="link" class="p-0 w-100" right text="Right align" toggle-class="text-decoration-none" no-caret>
     <template #button-content>
-            <span class="link">
-              User Settings
-            </span>
+            <div class="link">
+              <span class="pr-2">login</span> <font-awesome-icon icon="user" />
+            </div>
     </template>
-    <b-dropdown-item>First Action</b-dropdown-item>
-    <b-dropdown-item>Second Action</b-dropdown-item>
-    <b-dropdown-item>Third Action</b-dropdown-item>
+    <b-dropdown-form class="user-login mx-4 mt-4 mb-2">
+      <b-form-group @submit.stop.prevent>
+        <b-form-input
+            class="user-login-input"
+            size="sm"
+            placeholder="email"
+        ></b-form-input>
+      </b-form-group>
+
+      <b-form-group>
+        <b-form-input
+            class="user-login-input"
+            type="password"
+            size="sm"
+            placeholder="password"
+        ></b-form-input>
+      </b-form-group>
+      <b-row>
+        <b-col class="text-left">forgot password?</b-col>
+        <b-col class="text-right" cols="auto"><b-button squared class="sign-in-button" @click="signIn">sign In</b-button></b-col>
+      </b-row>
+    </b-dropdown-form>
+    <b-dropdown-divider class="divider"></b-dropdown-divider>
+    <hr>
+    <b-dropdown-item-button class="text-center">not a member yet? join the network</b-dropdown-item-button>
   </b-dropdown>
-<!--  <form class="dropdown-menu p-4">-->
-<!--    <div class="form-group">-->
-<!--      <label for="exampleDropdownFormEmail2">Email address</label>-->
-<!--      <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">-->
-<!--    </div>-->
-<!--    <div class="form-group">-->
-<!--      <label for="exampleDropdownFormPassword2">Password</label>-->
-<!--      <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">-->
-<!--    </div>-->
-<!--    <div class="form-check">-->
-<!--      <input type="checkbox" class="form-check-input" id="dropdownCheck2">-->
-<!--      <label class="form-check-label" for="dropdownCheck2">-->
-<!--        Remember me-->
-<!--      </label>-->
-<!--    </div>-->
-<!--    <button type="submit" class="btn btn-primary">Sign in</button>-->
-<!--  </form>-->
+
 </template>
+
+<script>
+export default {
+  methods: {
+    signIn() {
+      console.log("signing in")
+    }
+  }
+}
+</script>
 
 <style lang="sass">
 .login_nav
@@ -49,4 +65,20 @@
   text-decoration: none!important
   &:hover
     text-decoration: none!important
+    font-weight: bolder
+
+.user-login
+  width: 25vw!important
+
+.user-login-input
+  border-radius: 0
+  border: 3px $userLoginDropdown solid
+
+.sign-in-button
+  color: white
+  background-color: $userLoginDropdown
+  border: 0
+//.divider
+//  color: white
+//  width: 4px
 </style>
