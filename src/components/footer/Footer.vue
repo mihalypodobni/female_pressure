@@ -18,7 +18,7 @@
           <div class="font-weight-bolder">resources</div>
           <div v-for="(link, idx) in resources"
                :key="link.name + idx">
-            <b-button variant="link" class="p-0 m-0 link">
+            <b-button variant="link" class="p-0 m-0 link" @click="$router.push({name: link.page}); SET_TAB('')">
               {{ link.name }}
             </b-button>
           </div>
@@ -62,11 +62,11 @@ export default {
         {name: "home", page: "Home"},
       ],
       resources: [
-        {name: "code of conduct"},
-        {name: "blog"},
-        {name: "merch"},
-        {name: "press"},
-        {name: "safe[r] space"},
+        {name: "code of conduct", page: "CoC"},
+        {name: "blog", page: "Blog"},
+        {name: "merch", page: "Merch"},
+        {name: "press", page: "Press"},
+        {name: "safe[r] space", page: "Safer Space"},
       ],
       links: [
         {icon: "twitter", link: "https://twitter.com/female_pressure"},
