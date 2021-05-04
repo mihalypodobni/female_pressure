@@ -1,90 +1,160 @@
 <template>
-  <b-container>
-    <div>
-      <b-tabs content-class="mt-3">
-        <!-- Czech -->
-        <b-tab title="ČEŠTINA" background-color="$blueBoxBorder" active>
-          <p><b>Tiskové prohlášení – 8. března 2013 – Mezinárodní den žen</b></p>
-          <p><b>Naléhavá výzva reprezentace žen v elektronické hudbě a na poli digitálního umění</b></p>
+  <b-container class="mt-5">
 
-          <p>V návaznosti na nedávnou veřejnou debatu o sexismu v německých médiích female:pressure volá po kolektivní
-            revizi zastoupení žen v elektronické hudbě a v digitálním umění. Chtěli bychom proto přispět s analýzou
-            našeho aktuálního pracovního klimatu.</p>
+    <div class="accordion" role="tablist">
 
-          <p>female:pressure je mezinárodní databáze podporující zájmovou skupinu žen v oblasti elektronické hudby a
-            digitálního umění: hudebnice, DJky, hudební producentky a umělkyně, zpěvačky, výtvarné umělkyně, booking
-            agentky, majitelky nahrávacích společností, výzkumné pracovnice a akademické pracovnice v těchto oblastech.
-            female:pressure sdružuje více než 1100 žen z 56 zemí, z nichž mnohé jsou mezinárodně aktivní profesionální
-            umělkyně ve specializovaných oborech.</p>
+      <!-- ENGLISH -->
+      <b-card no-body class="mb-1">
+        <b-card-header class="accordion-container" role="tab">
+          <b-card-text block v-b-toggle.accordion-1 class="accordion-button">press release english</b-card-text>
+        </b-card-header>
+        <b-collapse id="accordion-1" accordion="my-accordion" role="tabpanel">
+          <b-card-body>
+            <h3>visibility</h3>
+            <p> female:pressure is a transnational online database for database and network of women*, AFAB,
+              transgender, transfeminine, transmasculine, intersex (+gender optional), genderqueer, gender
+              nonconforming, a-gender or/and non-binary DJs, musicians, composers, producers, visual artists, agents,
+              journalists and researchers working in the realms of electronic music and digital arts. It can be searched
+              after criteria like location, profession, style or name and is a publicly accessible source of
+              information, a tool to disclose the existence and the work of women* in this seemingly male dominated
+              field. In 2019, female:pressure celebrated its 21st anniversary.</p>
 
-          <p>Členky sítě female:pressure pracují ve zdánlivě progresivní scéně elektronické hudby a její subkultury.
-            Nicméně, zjišťujeme, že ženy jsou notoricky nedostatečně zastoupeny ve světě současné hudební produkce a
-            performance. Skupina female:pressure by Vás proto ráda vyzvala, abyste jste si prohl´dli shromážděné údaje,
-            aby se mechanismy tohoto specifického trhu staly transparentnější.</p>
+            <p>Designed and founded by Vienna based Electric Indigo in 1998, female:pressure can be considered a
+              technological answer to the recurring complaints about the alleged lack of female artists in this field.
+              Viennese open source expert Andrea Mayr carried out the programming and continuous advancement of the
+              database. female:pressure can be proud of having over 2700 members from 81 countries [April 2021]. Most of
+              the members are hyperlinked to their webpages, many can be contacted via e-mail.</p>
 
-          <p>Podívali jsme se do statistik zaznamenávající nominace hudebníků na festivalech, vydávání desek u
-            nahrávacích společností a výskyt žen v několika top 100 seznamech. Výsledky jsou šokující a deprimující a to
-            i pro ty z nás, které jsou intenzivně zapojeny do dění na scéně. Většina festivalů ‐ ať již jsou financovány
-            z veřejných prostředků nebo ne ‐ jasně nepřikládá žádný význam zajištění odpovídajícího poměru v zastoupení
-            umělkyň, nebo rozmanitosti obecně. To platí taktéž pro hudební vydavatelství ‐ v Německu (epicentru
-            elektronické hudby a žen umělkyň), stejně jako v mnoha jiných zemích. V současné době, může být 10% podíl
-            zastoupení žen považován za nadprůměr. Cítíme, že je nepřijatelné, aby ve 21. století bylo praxí to, že na
-            velkém festivalu bude vystupovat jen jedna jediná žena. Naše kolegyně jsou pro nás inspirací a cítíme, že
-            diváci by je také rádi uslyšeli hrát a uviděli vystupovat. Výsledky našeho průzkumu naleznete zde:
-            female:pressure report 03 | 2013</p>
+            <p>"Why are there so few women* in the electronic music scene?" Each one of the listed artists has heard
+              this question countless times. However, experience shows that women* are hardly less active. In fact,
+              their activities are less recognized and also easily forgotten. The female:pressure project is
+              continuously growing and advancing. Initially planned as a mere insight into the status quo, it now also
+              serves as an archive. Over the years, we broadened the simple focus on women in favour of an explicit
+              inclusion of transgender and non-binary members. One e-mail to infoATfemalepressure.net with information
+              about a not yet listed artist and the artist’s confirmation with the necessary data is sufficient to
+              become a member.</p>
 
-          <p>Jako kolektivní seskupení věříme, že je důležité zvýšit povědomí o této problematice a budeme usilovat o
-            změnu line-upů na festivalech i na rozpisech hudebních labelů ‐ z hlediska pohlaví, věku, kulturního zázemí,
-            etnicity ale i (ne) schopnosti. Nepředpokládáme, že by se záměry organizátorů a kurátorů rezervovat téměř
-            výhradně mužské umělce zakládali na prosté nenávisti. Spíše se domníváme, že tak činí proto, že dodržují
-            nepsané společenské konvence, že chtějí podpořit jejich zájmovou skupinu a neuvažují o sociálně-politických
-            dimenzích jejich výběru. Oproti tomu festivaly financované například nadacemi umění, které pobírají finanční
-            dotace od státu, by měly být zodpovědnější a více se zabývat myšlenkou rovných příležitostí pro ženy.</p>
+            <h3>vision</h3>
+            <p> female:pressure emphasizes the practicality and necessity of networking and communication in this area.
+              It serves as a resource to obtain information about artists and activists from around the world who work
+              in the fields of electronic music and digital arts. All DJs, producers, musicians, composers, singers,
+              MCs, VJs, video artists, graphic designers, photographers, cultural workers, journalists and agents can
+              log in and individually change their entries to keep the provided information up-to-date.</p>
 
-          <p>Požadujeme informovanost, zaujetí jasného postoje, že nedostatek rozmanitosti je neinspirativní a pohodlný,
-            společensky zpátečnický a v žádném případě se nemůže považovat za vizionářský ‐ ne-li za prezentující
-            přehled těch nejzajímavějších umělců a umění současnosti, natož budoucnosti. Neniacut; zde žádná omluva pro
-            neustálé přehlížení schopných a zajímavých umělkyň. Při výběru účinkujících na festivaly (zejména pro ty,
-            které mají podporu z veřejných finančních prostředků) musí být cílem více reprezentativní poměr žen a mužů,
-            což bude i lépe odrážet situaci v populaci, které doufají sloužit.</p>
+            <p>In addition to the website, the artists can also subscribe to an internal mailinglist. The list gives the
+              opportunity for exchange, planning of new projects, help, information, sharing of experiences, and jobs.
+              Important results of the list’s activities were, amongst others, our FACTS Surveys [2013, 2015, 2017 and
+              2020], our press statement #female:pressure, the two-day Perspectives Festival in Berlin [both 2013], the
+              VISIBILITY tumblr, our #Rojava awareness & solidarity campaign [2016] and the female:pressure podcast
+              series [since 2018].</p>
+            <p>You never walk alone!</p>
+          </b-card-body>
+        </b-collapse>
+      </b-card>
 
-          <p>Naše práce je pro nás důležitá, je projevem vitální kultury, výrazem naší doby a tohle je náš příspěvek k
-            tomuto kulturního dialogu. Samozřejmě, že také klademe silný důraz na kvalitu, na zvládnutí našich nástrojů
-            produkce hudby a instrumentů, propracovanosti hudebních výrazových prostředků a stylu. Ale klíčový bod
-            kulturního pokroku a zlepšení spočívá v interakci s odborným publikem: výkon, výměna, zpětná vazba,
-            hodnocení, uvolnění, reprezentace, ale i pokusy a omyly jsou základní kroky v rozvoji řemesla a
-            tvořivosti.</p>
 
-          <p>Buďme upřímní ‐ už toho stačilo. female:pressure věří, že není žádný důvod pro dominanci mužů v hudebních
-            aktivitách. Potřebujeme ‐ a platící diváci si to zaslouží ‐ osvěžující a zábavnou rozmanitost!</p>
+      <!-- GERMAN -->
+      <b-card no-body class="mb-1">
+        <b-card-header class="accordion-container" role="tab">
+          <b-card-text block v-b-toggle.accordion-2 class="accordion-button">presstext deutsch</b-card-text>
+        </b-card-header>
+        <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
+          <b-card-body>
+            <h3>sichtbarkeit</h3>
 
-          <p>Kurátoři festivalů, sponzoři, majitelé hudebních nakladatelstvé, novináři: Dejte ženám více
-            příležitostí!Kurátorky ženských festival, sponzorkyně, majitelky hudebních nakladatelstvé, novinářky:
-            Nesnažte se být lepšími pouze “riskováním” zavedených mužských umělců! Dejte ženám více šancí!</p>
+            <p>female:pressure ist eine transnationale Online-Datenbank für weibliche, transgender und nicht-binäre DJs,
+              Musikerinnen*, Komponistinnen*, Produzentinnen*, bildende Künstlerinnen*, Journalistinnen*, Forscherinnen*
+              und Vermittlerinnen* aus den Bereichen elektronische Musik und digitale Kunst. Sie kann nach
+              verschiedenen, auch verknüpften Kriterien durchsucht werden und ist in erster Linie ein Werkzeug, um die
+              Existenz und das Schaffen der Künstlerinnen* in dieser scheinbar männerdominierten Szene zu verdeutlichen.
+              2019 feierte female:pressure 21-jähriges Jubiläum.</p>
 
-          <p>Těšíme se na Vaši odpověď a do budoucnosti na pozitivní vývoj v tomto sektoru kultury. Prosím, neváhejte
-            nás kontaktovat, pokud máte dotazy týkající se tohoto problému.</p>
+            <p>female:pressure dient als öffentlich zugängliche Informationsquelle, die 1998 von der Wienerin Electric
+              Indigo als technisch systematisierte Antwort auf die gängigen Kommentare, dass es so wenig Frauen in der
+              Szene gäbe, entworfen und gegründet und von der Open-Source-Expertin Andrea Mayr programmiert wurde. Sie
+              umfasst nun über 2700 Künstlerinnen* aus 81 Ländern [April 2021], von denen die meisten zu ihrer Homepage
+              verlinkt und viele auch per E-Mail erreichbar sind. Zusätzliche Angaben beziehen sich auf den Wohnort, die
+              Art der Tätigkeit und den Stil</p>.
 
-          <p>Pro světlejší budoucnost umění.</p>
+            <p>Die Erfahrung zeigt, dass Frauen* nicht untätiger sind, sondern ihre Aktivitäten weniger wahrgenommen
+              oder einfach auch vergessen werden. Das Projekt female:pressure wächst und entwickelt sich kontinuierlich
+              weiter. Anfangs als reiner Einblick in den Status Quo geplant, hat die Datenbank nach mehreren Jahrzehnten
+              auch Archivfunktion. Der einfache Fokus auf Frauen hat sich über die Jahre zugunsten einer expliziten
+              Einbindung von trans und nicht-binären Geschlechtern erweitert. Eine E-Mail an infoATfemalepressure.net
+              mit Informationen über eine noch nicht vertretene Künstlerin* und die Rückmeldung der Künstlerin* mit den
+              notwendigen Angaben genügen, um in der Datenbank gelistet zu werden.</p>
 
-          <p>female:pressure </p>
-        </b-tab>
+            <h3>vision</h3>
 
-        <b-tab title="Second"><p>I'm the second tab</p></b-tab>
-        <b-tab title="Disabled"><p>I'm a disabled tab!</p></b-tab>
-      </b-tabs>
+            <p>female:pressure betont die Nützlichkeit und Notwendigkeit der Vernetzung und Kommunikation in der Szene
+              und dient als Plattform zur Repräsentation nach "außen". Hier wurde ein Standard etabliert, auf den
+              verwiesen werden kann und den alle Interessierten jederzeit als Informationsquelle nutzen können. Die
+              Datenbank ist nach Regionen, Ländern, Stilen, Berufen und Namen durchsuchbar. So ist es möglich, sich über
+              bestimmte Künstlerinnen* zu informieren oder einfach mal zu schauen, wer wo was macht. Alle auf
+              female:pressure gelisteten Members können sich einloggen und ihren individuellen Datensatz online
+              aktualisieren. So soll die Wahrscheinlichkeit erhöht werden, mit den Informationen auf dem neuesten Stand
+              zu sein.</p>
+
+            <p>Parallel zum Webprojekt existiert eine interne Mailingliste, auf der etwas mehr als die Hälfte der
+              Aktivistinnen* subskribiert ist. Dort werden abseits von der allgemein zugänglichen Datenbank Jobs
+              angeboten, neue Projekte ausgeheckt, Kontakte gemacht und verstärkt, Hilfestellungen geleistet,
+              Erfahrungen diskutiert und Informationen ausgetauscht. Wichtige Resultate dieser Mailingliste sind z. B.
+              unsere FACTS Surveys [2013, 2015, 2017 und 2020], die gemeinsame Presseerklärung #female:pressure, das
+              zweitägige Perspectives Festival in Berlin [2013], der VISIBILITY tumblr, unsere #Rojava Awareness &
+              Solidarity Aktion [2016] und die female:pressure podcast Reihe [seit 2018].</p>
+
+            <p>You never walk alone!</p>
+          </b-card-body>
+        </b-collapse>
+      </b-card>
     </div>
+
+    <!-- LOGOS  -->
+    <b-card no-body class="mb-1">
+        <b-card-header class="accordion-container" role="tab">
+          <b-card-text block v-b-toggle.accordion-3 class="accordion-button">press review</b-card-text>
+        </b-card-header>
+        <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
+          <b-card-body>
+            <div>
+              <p><b>Groove (DE) Acid Maria (Ultraschall) – Groove Resident Podcast 16</b></p>
+              <p>by Kristoffer Cornils</p>
+            </div>
+
+           <div>
+              <p><b>Refuge Worldwide (DE) International Women’s Day on Refuge Worldwide</b></p>
+             <p> by Refuge Worldwide</p>
+           </div>
+          </b-card-body>
+        </b-collapse>
+      </b-card>
+
+
+    <!-- REVIEW -->
+    <b-card no-body class="mb-1">
+        <b-card-header class="accordion-container" role="tab">
+          <b-card-text block v-b-toggle.accordion-4 class="accordion-button">logos and images</b-card-text>
+        </b-card-header>
+        <b-collapse id="accordion-4" accordion="my-accordion" role="tabpanel">
+          <b-card-body>
+            <img src="../../assets/fp_large.png" alt="">
+          </b-card-body>
+        </b-collapse>
+    </b-card>
+    
+
+
   </b-container>
 </template>
 
-
 <style lang="sass" scoped>
-.language-tab
+.accordion-container
   border: 2px solid $blueBoxBorder
   padding: 30px
   box-shadow: 0px 0px 15px grey
+  height: 50px
+  display: flex
+  align-items: center
+
+
 </style>
-
-<script>
-
-</script>
