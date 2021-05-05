@@ -1,25 +1,40 @@
 <template>
- <main>
-   <b-container class="mt-3"> 
-    <!-- <h1 class="page-title">Special projects</h1> -->
-    <ProjectCard :projects="projectsData"/>
-   </b-container>
-    
-  </main>
+<!-- <main>-->
+<!--   <b-container class="mt-3"> -->
+<!--    &lt;!&ndash; <h1 class="page-title">Special projects</h1> &ndash;&gt;-->
+<!--    <ProjectCard :projects="projectsData"/>-->
+<!--   </b-container>-->
+<!--    -->
+<!--  </main>-->
+  <b-container fluid="xl">
+    <b-row>
+      <b-col
+          v-for="(project, idx) in projects"
+          :key="'project'+idx"
+          cols="12" lg="6"
+          class="my-3"
+      >
+        <SpecialProjectsCard :project="project" />
+      </b-col>
+    </b-row>
+
+  </b-container>
 </template>
 
 <script>
-import ProjectCard from "./ProjectCard"
+// import ProjectCard from "./ProjectCard"
+import SpecialProjectsCard from "./SpecialProjectsCard"
 
 export default {
-  name: "SpecialProjectsHome",
+  // name: "SpecialProjectsHome",
   components: {
-    ProjectCard
+    SpecialProjectsCard
+    // ProjectCard
   },
 
   data() {
     return {
-      projectsData: [
+      projects: [
         {
           img: "2015-FACTS",
           title: " refuge radio show - since 2021",

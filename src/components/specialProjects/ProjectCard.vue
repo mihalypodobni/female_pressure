@@ -1,43 +1,39 @@
-
-
 <template>
-    <div>
-        <b-row align-v="center">
-          <!-- <img src="../../assets/fp-podcast.png" alt=""> -->
-            <!-- PROJECT CONTAINER -->
-            <b-col :key="project.id" v-for="project in projects" cols="12" lg="6" >
-                <b-container class="project-container mt-4">
-                    <b-row >
-                    <b-col cols="4">
-                        <b-img :src="getImgUrl(project.img)" :alt="project.title + ' logo'" class="project-img" ></b-img>
-                    </b-col>
+  <b-row align-v="center">
+    <!-- <img src="../../assets/fp-podcast.png" alt=""> -->
+    <!-- PROJECT CONTAINER -->
+    <b-col :key="project.id" v-for="project in projects" cols="12" lg="6">
+      <b-container class="project-container mt-4">
+        <b-row>
+          <b-col cols="4">
+            <b-img :src="getImgUrl(project.img)" :alt="project.title + ' logo'" class="project-img"></b-img>
+          </b-col>
 
-              <b-col cols="8">
-                <div class="project-text">
-                  <h3>{{ project.title }}</h3>
-                  <p >{{ project.text }}</p>
-                </div>
-                <!-- <b-link :src="project.link" class="link" target="_blank">{{ project.link }}</b-link> -->
-                <b-link :src="project.link" class="link" target="_blank">More...</b-link>
+          <b-col cols="8">
+            <div class="project-text">
+              <h3>{{ project.title }}</h3>
+              <p>{{ project.text }}</p>
+            </div>
+            <!-- <b-link :src="project.link" class="link" target="_blank">{{ project.link }}</b-link> -->
+            <b-link :src="project.link" class="link" target="_blank">More...</b-link>
 
-                <!-- SOCIAL MEDIA LINKS -->
-                <b-row>
-                  <b-button variant="link"
-                            :href="link.link"
-                            target="_blank"
-                            v-for="(link,idx) in project.socialMedia"
-                            :key="link.icon + idx"
-                            class="p-1 link">
-                    <font-awesome-icon :icon="['fab', link.icon]" size="lg" class="mx-2 my-2"/>
-                  </b-button>
-                </b-row>
-
-              </b-col>
+            <!-- SOCIAL MEDIA LINKS -->
+            <b-row>
+              <b-button variant="link"
+                        :href="link.link"
+                        target="_blank"
+                        v-for="(link,idx) in project.socialMedia"
+                        :key="link.icon + idx"
+                        class="p-1 link">
+                <font-awesome-icon :icon="['fab', link.icon]" size="lg" class="mx-2 my-2"/>
+              </b-button>
             </b-row>
-          </b-container>
-        </b-col>
-      </b-row>
-  </div>
+
+          </b-col>
+        </b-row>
+      </b-container>
+    </b-col>
+  </b-row>
 </template>
 
 
@@ -49,7 +45,7 @@ export default {
   computed: {
     console: () => console,
   },
-  methods:{
+  methods: {
     getImgUrl(pet) {
       var images = require.context('../../assets/', false, /\.svg$/)
       return images('./' + pet + ".svg")
@@ -68,7 +64,7 @@ export default {
   min-height: 300px
 
 .project-text
-  // min-height: 150px
+// min-height: 150px
 
 .link
   @include link
