@@ -17,7 +17,7 @@
         obtain information about artists, contact them, and find out about other, maybe less known women in electronic
         music all around the globe. Every artist listed in this database is able to keep their personal entry
         up-to-date. The network comprises of over 2700 members from 81 countries as at February 2021. If you want to be
-        part of female:pressure don't hesitate to send an e-mail to: infoATfemalepressureDOTnet.<br/>
+        part of female:pressure don't hesitate to send an e-mail to: info@femalepressure.net<br/>
         You never walk alone!
       </p>
     </div>
