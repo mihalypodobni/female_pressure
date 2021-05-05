@@ -73,7 +73,7 @@ export default {
     color: black
 
 .user-login
-  width: 25vw!important
+  width: 300px!important
 
 .user-login-input
   border-radius: 0
