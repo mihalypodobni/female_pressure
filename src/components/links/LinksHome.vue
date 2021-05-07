@@ -136,13 +136,13 @@
 
 <style lang="sass" scoped>
 	.accordion-container
-	  border: 2px solid $blueBoxBorder
-	  padding: 30px
-	  box-shadow: 0px 0px 15px grey
-	  height: 50px
-	  display: flex
-	  align-items: center
+		border: 2px solid $blueBoxBorder
+		padding: 30px
+		box-shadow: 0px 0px 15px grey
+		height: 50px
+		display: flex
+		align-items: center
 
 	.link
-	     @include link
+		@include link
 </style>
