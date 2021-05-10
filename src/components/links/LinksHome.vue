@@ -14,9 +14,9 @@
             v-b-toggle="'accordion-' + idx"
             class="accordion-button"
           >
-            <h5>
+            <h6>
               <b>{{ category.categoryTitle }}</b>
-            </h5>
+            </h6>
           </b-card-text>
         </b-card-header>
 
@@ -151,6 +151,287 @@ export default {
               url: "https://www.fsk-hh.org/sendungen/doctore_xyramat",
               language: "DE",
             },
+          ],
+        },
+        {
+          categoryTitle: "online magazines, blogs and podcasts in english",
+          links: [
+            {
+              title: "anattitude",
+              url: "http://www.anattitude.net/",
+            },
+            {
+              title: "autogenesis",
+              url: "https://www.autogenesis.org/",
+            },
+            {
+              title: "b gyrl",
+              url: "www.b-gyrl.com",
+            },
+            {
+              title: "bit rosie",
+              url: "http://www.bitrosie.com/",
+            },
+            {
+              title: "bitch media",
+              url: "http://www.bitrosie.com/",
+            },
+            {
+              title: "black girl dangerous",
+              url: "www.blackgirldangerous.org",
+            },
+            {
+              title: "crack in the road",
+              url: "https://www.crackintheroad.com/",
+            },
+            {
+              title: "create digital music",
+              url: "https://cdm.link/",
+            },
+            {
+              title: "dbs berlin dialogues",
+              url: "https://catalyst-berlin.com/stories",
+            },
+            {
+              title: "dweller",
+              url: "https://dwellerforever.blog/",
+            },
+            {
+              title: "eql blog",
+              url: "https://makeiteql.com/blog",
+            },
+            {
+              title: "fembot5",
+              url: "https://fembot5.wordpress.com/",
+            },
+            {
+              title: "feminist music geek",
+              url: "https://djmusicgeek.com/",
+            },
+            {
+              title: "feministing",
+              url: "http://feministing.com/",
+            },
+            {
+              title: "femmecult - women in electronica",
+              url: "www.femmecult.com",
+            },
+            {
+              title: "femmusic",
+              url: "https://femmusic.com/wp/",
+            },
+            {
+              title: "grapefruits",
+              url: "http://grapefruits.online/",
+            },
+            {
+              title: "grrrl zine network",
+              url: "http://www.grrrlzines.net/",
+            },
+
+            {
+              title: "interdependence",
+              url: "https://interdependence.fm/",
+            },
+            {
+              title: "kitmonsters",
+              url: "http://kitmonsters.com/",
+            },
+            {
+              title: "lazy day deaf",
+              url: "http://lastdaydeaf.com/",
+            },
+            {
+              title: "listen",
+              url: "https://www.listenlistenlisten.org/",
+            },
+            {
+              title: "liz pelly",
+              url: "https://lizpelly.com/writing",
+            },
+            {
+              title: "mellowtown",
+              url: "http://www.mellowtown.de/",
+            },
+            {
+              title: "music is her passion",
+              url: "https://www.equality-empowerment.com/",
+            },
+            {
+              title: "nerd girls - herstory of eletronic music",
+              url: "https://poemproducer.com/nerdgirls/",
+            },
+            {
+              title: "nevertrust cockrock",
+              url: "https://nevertrustcockrock.wordpress.com/",
+            },
+            {
+              title: "ny times on godmothers in electronic music",
+              url:
+                "https://www.nytimes.com/2012/11/25/arts/music/rediscovering-the-electronic-music-godmothers.html?_r=0",
+            },
+            {
+              title: "pile rats",
+              url: "http://pilerats.com/",
+            },
+            {
+              title: "resonances and trasitions",
+              url: "https://resonancesandtransitions.wordpress.com/",
+            },
+            {
+              title: "right chord music",
+              url: "www.rightchordmusic.co.uk",
+            },
+            {
+              title: "texas and glory",
+              url: "https://www.texas-glory.com/blog/",
+            },
+            {
+              title: "the sampler",
+              url: "https://thesampler.org/",
+            },
+            {
+              title: "tom tom magazine",
+              url: "https://tomtommag.com/",
+            },
+            {
+              title: "worlds gone weird",
+              url: "https://worldsgoneweird.wordpress.com/",
+            },
+          ],
+        },
+        {
+          categoryTitle:
+            "online magazines, blogs and podcasts in other languages",
+          links: [
+            {
+              title: "pause musicale",
+              url: "http://pausemusicale.com/",
+              language: "FR",
+            },
+            {
+              title: "an.schläge",
+              url: "https://anschlaege.at/",
+              language: "DE",
+            },
+            {
+              title: "de:bug",
+              url: "https://de-bug.de/",
+              language: "DE",
+            },
+            {
+              title: "die standard",
+              url: "https://www.derstandard.at/consent/tcf/diestandard",
+              language: "DE",
+            },
+            {
+              title: "femgeeks",
+              url: "https://femgeeks.de/",
+              language: "DE",
+            },
+            {
+              title: "fiber",
+              url: "http://www.fibrig.net/",
+              language: "DE",
+            },
+            {
+              title: "kleinerdrei",
+              url: "http://kleinerdrei.org/",
+              language: "DE",
+            },
+            {
+              title: "malmoe",
+              url: "https://www.malmoe.org/",
+              language: "DE",
+            },
+            {
+              title: "melodiva",
+              url: "https://www.melodiva.de/",
+              language: "DE",
+            },
+            {
+              title: "missy magazine",
+              url: "https://missy-magazine.de/",
+              language: "DE",
+            },
+            {
+              title: "skug",
+              url: "https://skug.at/",
+              language: "DE",
+            },
+            {
+              title: "soulguru",
+              url: "https://soulgurusounds.com/",
+              language: "DE",
+            },
+            {
+              title: "prllmusic",
+              url: "https://www.prllmusic.com/",
+              language: "RU",
+            },
+            {
+              title: "transistora",
+              url: "https://transistora.com.es/",
+              language: "ES",
+            },
+            {
+              title: "hymn",
+              url: "https://hymn.se/",
+              language: "SE",
+            },
+          ],
+        },
+        {
+          categoryTitle: "music production, gear and tech stuff",
+          links: [
+            {
+              title: "čipke",
+              url: "https://cipkeen.wordpress.com/",
+              language: "ENG",
+            },
+            {
+              title: "cynthia- girls on synth",
+              url: "https://cipkeen.wordpress.com/",
+              language: "ENG",
+            },
+            {
+              title: "dbs music",
+              url: "https://catalyst-berlin.com/music",
+              language: "ENG",
+            },
+            {
+              title: "female audio youtubers you need to follow",
+              url:
+                "https://lnamusic.com/2020/04/15/female-audio-youtubers-you-need-to-follow/",
+              language: "ENG",
+            },
+            {
+              title: "fem synth lab",
+              url:
+                "https://womenscenterforcreativework.com/events/fem-synth-lab/",
+              language: "ENG",
+            },
+            {
+              title: "femme house",
+              url: "https://www.thisisfemmehouse.com/",
+              language: "ENG",
+            },
+            {
+              title: "flower electronics",
+              url: "https://flowerelectronics.com/",
+              language: "ENG",
+            },
+            {
+              title: "gender amplified",
+              url: "https://genderamplified.org/",
+              language: "ENG",
+            },
+            {
+              title: "girls make beats",
+              url: "https://www.girlsmakebeats.org/",
+              language: "ENG",
+            },
+            { title: "", url: "", language: "" },
           ],
         },
       ],
