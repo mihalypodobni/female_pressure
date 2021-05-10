@@ -174,7 +174,14 @@ export default {
 	border-bottom: 1px solid $blueBoxBorder
 	padding: 5px
 
+.link-container:hover
+	background-color: $blueBoxBorder
+	padding-left: 15px
 
 .link
-	@include link
+	color: black
+
+.link:hover
+	color: black
+	text-decoration: none
 </style>
