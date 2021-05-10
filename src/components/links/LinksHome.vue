@@ -387,49 +387,49 @@ export default {
             {
               title: "čipke",
               url: "https://cipkeen.wordpress.com/",
-              language: "ENG",
+              language: "EN",
             },
             {
               title: "cynthia- girls on synth",
               url: "https://cipkeen.wordpress.com/",
-              language: "ENG",
+              language: "EN",
             },
             {
               title: "dbs music",
               url: "https://catalyst-berlin.com/music",
-              language: "ENG",
+              language: "EN",
             },
             {
               title: "female audio youtubers you need to follow",
               url:
                 "https://lnamusic.com/2020/04/15/female-audio-youtubers-you-need-to-follow/",
-              language: "ENG",
+              language: "EN",
             },
             {
               title: "fem synth lab",
               url:
                 "https://womenscenterforcreativework.com/events/fem-synth-lab/",
-              language: "ENG",
+              language: "EN",
             },
             {
               title: "femme house",
               url: "https://www.thisisfemmehouse.com/",
-              language: "ENG",
+              language: "EN",
             },
             {
               title: "flower electronics",
               url: "https://flowerelectronics.com/",
-              language: "ENG",
+              language: "EN",
             },
             {
               title: "gender amplified",
               url: "https://genderamplified.org/",
-              language: "ENG",
+              language: "EN",
             },
             {
               title: "girls make beats",
               url: "https://www.girlsmakebeats.org/",
-              language: "ENG",
+              language: "EN",
             },
             { title: "", url: "", language: "" },
           ],
