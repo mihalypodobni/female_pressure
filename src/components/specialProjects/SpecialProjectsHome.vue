@@ -6,7 +6,8 @@
 				:key="'project' + idx"
 				cols="12"
 				lg="6"
-				class="my-3 mx-0 px-3"
+				class="my-3 mx-0"
+        :class="idx % 2 === 0 ? 'pl-lg-0 pr-lg-2' : 'pr-lg-0 pl-lg-2'"
 			>
 				<SpecialProjectsCard :project="project" />
 			</b-col>
