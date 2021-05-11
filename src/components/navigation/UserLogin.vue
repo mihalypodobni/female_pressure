@@ -26,7 +26,7 @@
       <b-row>
         <b-col class="text-left my-auto link"><span>forgot password?</span></b-col>
         <b-col class="text-right" cols="auto">
-          <b-button squared class="sign-in-button" @click="signIn">sign in</b-button>
+          <b-button squared class="sign-in-button" @click="userLogin">sign in</b-button>
         </b-col>
       </b-row>
     </b-dropdown-form>
@@ -47,7 +47,7 @@ export default {
     }
   },
   methods: {
-    signIn() {
+    userLogin() {
       console.log("signing in", this.login)
     }
   }
