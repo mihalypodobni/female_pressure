@@ -1,5 +1,5 @@
 <template>
-  <div class="footer-background">
+  <div>
     <b-container class="pt-5 pb-3 mt-5">
       <b-row>
         <b-col>
@@ -89,8 +89,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.footer-background
-  background-image: linear-gradient(white, $footer)
 
 .link
   @include link
