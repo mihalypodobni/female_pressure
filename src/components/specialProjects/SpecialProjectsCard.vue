@@ -1,9 +1,9 @@
 <template>
 	<a :href="project.link" class="card-link link">
-		<b-card class="p-0 project-card">
+		<b-card class="p-0 project-card ">
 			<b-card-body class="p-0">
 				<b-row>
-					<b-col class="text-left d-flex align-items-center" cols="3">
+					<b-col class="text-left d-flex align-items-center" cols="12" lg="3">
 						<div class="d-flex align-items-center">
 							<b-img
 								:src="getImgUrl(project.img)"
@@ -12,14 +12,15 @@
 							/>
 						</div>
 					</b-col>
-					<b-col cols="9">
+					<b-col cols="12" lg="9" class="h-70">
 						<h4>{{ project.title }}</h4>
 
 						<div>
 							{{ project.text }}
-						</div>
-						<div>
-							<small>[{{ project.year }}]</small>
+
+							<div>
+								<small>[{{ project.year }}]</small>
+							</div>
 						</div>
 					</b-col>
 				</b-row>
@@ -45,8 +46,9 @@
 <style lang="sass" scoped>
 	.project-img
 		width: 100px
+		margin: 10px
 	.project-card
-		height: 230px
+		min-height: 230px
 		border: 2px solid $blueBoxBorder
 		box-shadow: 0px 0px 15px grey
 		color:black
