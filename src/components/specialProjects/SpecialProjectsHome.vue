@@ -1,17 +1,15 @@
 <template>
-	<b-container fluid="xl">
-		<b-row>
-			<b-col
-				v-for="(project, idx) in projects"
-				:key="'project' + idx"
-				cols="12"
-				lg="6"
-				class="my-3"
-			>
-				<SpecialProjectsCard :project="project" />
-			</b-col>
-		</b-row>
-	</b-container>
+	<b-row class="justify-content-center w-100 mx-0 main-container">
+		<b-col
+			v-for="(project, idx) in projects"
+			:key="'project' + idx"
+			cols="12"
+			lg="6"
+			class="my-3"
+		>
+			<SpecialProjectsCard :project="project" />
+		</b-col>
+	</b-row>
 </template>
 
 <script>
@@ -26,7 +24,7 @@
 			return {
 				projects: [
 					{
-						img: "2015-FACTS",
+						img: "2021-refuge.svg",
 						title: " refuge radio show",
 						text:
 							"the latest addition to our monthly radio shows: on refuge worldwide, we present curated dj mixes in a wide variety of genres.",
@@ -34,7 +32,7 @@
 						year: "since 2021",
 					},
 					{
-						img: "2015-FACTS",
+						img: "2015-FACTS.svg",
 						title: "COMMON planet",
 						text:
 							"the f:p planet in the COMMON multiverse is an online event space for talks, dj and live sets, and other a/v contributions from our network.",
@@ -42,7 +40,7 @@
 						year: "since 2020",
 					},
 					{
-						img: "2015-FACTS",
+						img: "2020-FACTSalternative.svg",
 						title: "FACTS",
 						text:
 							"the latest and most comprehensive edition of our FACTS survey which is a continuous project that quantifies the gender distribution of artists performing at electronic music festivals worldwide.",
@@ -50,7 +48,7 @@
 						year: "2020",
 					},
 					{
-						img: "fp-podcast-logo",
+						img: "fp-podcast-logo.svg",
 						title: "podcast",
 						text:
 							"in this biweekly podcast you’ll find the most stunning sounds from around the world and a lot of good tracks produced by f:p artists.",
@@ -58,7 +56,7 @@
 						year: "since 2018",
 					},
 					{
-						img: "2015-FACTS",
+						img: "2015-FACTS.svg",
 						title: "FACTS",
 						text:
 							"our third FACTS survey marks a huge step forward from the previous editions as it complies with academic standards. it comes with proper description of the methodology and an extensive discussion part.",
@@ -66,7 +64,7 @@
 						year: "2017",
 					},
 					{
-						img: "2015-FACTS",
+						img: "2015-FACTS.svg",
 						title: "solidarity w/ rojava compilation",
 						text:
 							"a support compilation for the women in Rojava, who build a new society, striving for social, racial and ethnic justice, religious freedom, ecological principles and gender equality.",
@@ -74,7 +72,7 @@
 						year: "2016",
 					},
 					{
-						img: "2015-FACTS",
+						img: "2015-FACTS.svg",
 						title: "visualpulse group",
 						text:
 							"f:p visualpulse aims to encourage exchange/discussion and further the sharing of knowledge and experience specifically in the field of video art.",
@@ -82,7 +80,7 @@
 						year: "since 2015",
 					},
 					{
-						img: "2015-FACTS",
+						img: "2015-FACTS.svg",
 						title: "revellers compilation",
 						text:
 							"after a media surge surrounding our visibility project mentioned by Bjork, Fader, LA Weekly, we scheduled an exclusive release on beatport.",
@@ -91,7 +89,7 @@
 						year: "2015",
 					},
 					{
-						img: "2015-FACTS",
+						img: "2015-FACTS.svg",
 						title: " visibility tumblr",
 						text:
 							"an image based collection of women*, non-binary and transgender artists in music production & performing arts in their working environment, curated by AGF.",
@@ -99,7 +97,7 @@
 						year: "2015",
 					},
 					{
-						img: "2015-FACTS",
+						img: "2015-FACTS.svg",
 						title: "FACTS",
 						text:
 							"second edition of the FACTS survey which is a continuous project that quantifies the gender distribution of artists performing at electronic music festivals worldwide.",
@@ -108,7 +106,7 @@
 						year: "2015",
 					},
 					{
-						img: "2015-FACTS",
+						img: "2015-FACTS.svg",
 						title: "pussy riot freedom compilation ",
 						text:
 							"support compilation from our network calling for freedom for the then imprisoned Pussy Riot members Nadezhda Tolokonnikova and Maria Alyokhina.",
@@ -116,15 +114,23 @@
 						year: "2013",
 					},
 					{
-						img: "2015-FACTS",
+						img: "2015-FACTS.svg",
 						title: "perspectives festival",
+						text:
+							"the legendary first edition of the female:pressure PERSPECTIVES festival pursued the objective of reinforcing the visibility of women in electronic music and the digital arts.",
+						link: "https://femalepressure.wordpress.com/festival2013/",
+						year: "2013",
+					},
+					{
+						img: "dots.gif",
+						title: "call for diversity",
 						text:
 							"our call for the collective revision of female* representation in electronic music and digital arts. “we need – and paying audiences deserve – invigorating and entertaining diversity!”",
 						link: "https://femalepressure.wordpress.com/festival2013/",
 						year: "2013",
 					},
 					{
-						img: "2015-FACTS",
+						img: "dots-180deg.gif",
 						title: "FACTS ",
 						text:
 							"the first FACTS survey which then became a continuous project that quantifies the gender distribution of artists performing at electronic music festivals worldwide.",
@@ -132,7 +138,7 @@
 						year: "2013",
 					},
 					{
-						img: "2015-FACTS",
+						img: "2009-vorspielservice.svg",
 						title: "die vorspielservice",
 						text:
 							"famous djs play and comment selected records from their illimitable archives live for you. and you can buy any record at a killer price! the most exclusive music service on earth!",
@@ -140,7 +146,7 @@
 						year: "since 2009",
 					},
 					{
-						img: "2015-FACTS",
+						img: "2009-japan.svg",
 						title: "japan tour",
 						text:
 							"celebrating the 10th anniversary of our network, we wanted to reflect the global character of female:pressure by organizing a concert tour through Japan.",
@@ -148,14 +154,14 @@
 						year: "2009",
 					},
 					{
-						img: "2015-FACTS",
+						img: "2005-opensounds.svg",
 						title: "open:sounds dvd1",
 						text: `to counteract the one-sided focus on djs and musicians, we wanted to offer "our" visual artists the overdue possibility to present their work adequately.`,
 						link: "http://femalepressure.net/dvd.html",
 						year: "2008",
 					},
 					{
-						img: "2015-FACTS",
+						img: "2005-opensounds.svg",
 						title: "open:sounds",
 						text: `open:sounds was created as an online production platform for the female:pressure community to exchange sounds and remix each others' tracks.`,
 						link: "http://www.femalepressure.net/opensounds.html",
@@ -166,3 +172,8 @@
 		},
 	};
 </script>
+
+<style lang="sass" scoped>
+	.main-container
+	max-width: 1140px;
+</style>

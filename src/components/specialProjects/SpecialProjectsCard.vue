@@ -3,12 +3,14 @@
 		<b-card class="p-0 project-card">
 			<b-card-body class="p-0">
 				<b-row>
-					<b-col class="text-left" cols="3">
-						<b-img
-							:src="getImgUrl(project.img)"
-							:alt="project.title + ' logo'"
-							class="project-img"
-						/>
+					<b-col class="text-left d-flex align-items-center" cols="3">
+						<div class="d-flex align-items-center">
+							<b-img
+								:src="getImgUrl(project.img)"
+								:alt="project.title + ' logo'"
+								class="project-img"
+							/>
+						</div>
 					</b-col>
 					<b-col cols="9">
 						<h4>{{ project.title }}</h4>
@@ -32,9 +34,9 @@
 			project: Array,
 		},
 		methods: {
-			getImgUrl(pet) {
-				var images = require.context("../../assets/", false, /\.svg$/);
-				return images("./" + pet + ".svg");
+			getImgUrl(img) {
+				var images = require.context("../../assets/");
+				return images("./" + img);
 			},
 		},
 	};
@@ -51,5 +53,6 @@
 	.card-link
 		@include link
 	.card-link:hover
-	color:black
+		color:black
+		box-shadow: 5px 5px 25px black
 </style>
