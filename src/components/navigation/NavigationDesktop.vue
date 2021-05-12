@@ -14,18 +14,18 @@
     <b-col class="text-center link login_nav"
            @click="showLogin = !showLogin"
     >
-      <UserSettingsDesktop/>
+      <UserLogin/>
     </b-col>
   </b-row>
 </template>
 
 <script>
 import {mapState} from "vuex";
-import UserSettingsDesktop from "./UserSettingsDesktop";
+import UserLogin from "./UserLogin";
 
 export default {
   components: {
-    UserSettingsDesktop
+    UserLogin
   },
   data() {
     return {

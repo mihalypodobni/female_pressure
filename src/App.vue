@@ -55,6 +55,9 @@ export default {
   font-family: $font-main
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
+  @include background-gradient
+
+
 
 </style>
 

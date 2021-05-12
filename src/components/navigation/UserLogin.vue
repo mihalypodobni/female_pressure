@@ -2,7 +2,7 @@
   <b-dropdown variant="link" class="p-0 w-100" right text="Right align" toggle-class="text-decoration-none" no-caret>
     <template #button-content>
       <div class="menu-link">
-        <span class="pr-2">login</span>
+        <span class="pr-2 login">login</span>
         <font-awesome-icon icon="user"/>
       </div>
     </template>
@@ -11,6 +11,7 @@
         <b-form-input
             class="user-login-input"
             placeholder="email"
+            v-model="login.email"
         ></b-form-input>
       </b-form-group>
 
@@ -19,12 +20,13 @@
             class="user-login-input"
             type="password"
             placeholder="password"
+            v-model="login.password"
         ></b-form-input>
       </b-form-group>
       <b-row>
         <b-col class="text-left my-auto link"><span>forgot password?</span></b-col>
         <b-col class="text-right" cols="auto">
-          <b-button squared class="sign-in-button" @click="signIn">sign in</b-button>
+          <b-button squared class="sign-in-button" @click="userLogin">sign in</b-button>
         </b-col>
       </b-row>
     </b-dropdown-form>
@@ -36,9 +38,17 @@
 
 <script>
 export default {
+  data() {
+    return {
+      login: {
+        email: "",
+        password: ""
+      }
+    }
+  },
   methods: {
-    signIn() {
-      console.log("signing in")
+    userLogin() {
+      console.log("signing in", this.login)
     }
   }
 }
@@ -49,19 +59,12 @@ export default {
   > .dropdown
     > .btn
       padding: 0
-
     > .dropdown-menu
       top: 15px !important
       margin-right: -15px !important
       border-radius: 0
       border: none
       background-color: $menu7
-
-//.user-login-input
-//  > ::placeholder
-//    color: red
-//    opacity: 1
-
 </style>
 
 <style lang="sass" scoped>
@@ -69,10 +72,10 @@ export default {
   cursor: pointer
   color: black !important
   text-decoration: none !important
-
   &:hover
     text-decoration: none !important
-    font-weight: bolder
+  &:hover .login
+      font-weight: bolder
 
 .link
   color: $userLoginDropdown
