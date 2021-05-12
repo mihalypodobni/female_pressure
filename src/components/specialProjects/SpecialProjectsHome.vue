@@ -1,12 +1,12 @@
 <template>
 	<b-container fluid="xl" class="px-0">
-		<b-row class="justify-content-center w-100 mx-0 p-0">
+		<b-row class="justify-content-center w-100 mx-0 p-0 ">
 			<b-col
 				v-for="(project, idx) in projects"
 				:key="'project' + idx"
 				cols="12"
 				lg="6"
-				class="my-3 mx-0 px-3"
+				class="p-2"
 			>
 				<SpecialProjectsCard :project="project" />
 			</b-col>
