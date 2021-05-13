@@ -851,6 +851,374 @@
 							},
 						],
 					},
+
+					// LGBT GLOSSARIES AND GENDER RESOURCES
+					{
+						categoryTitle: "lgbt glossaries and gender resources",
+						links: [
+							{
+								title: "gender pronouns",
+								url: "https://uwm.edu/lgbtrc/support/gender-pronouns/",
+								language: "EN",
+							},
+							{
+								title: "guidelines for inclusive language",
+								url:
+									"https://www.linguisticsociety.org/resource/guidelines-inclusive-language",
+								language: "EN",
+							},
+							{
+								title: "should you put your pronouns in your email signature?",
+								url:
+									"https://www.bustle.com/p/should-you-put-your-pronouns-in-your-email-signature-this-inclusive-workplace-trend-is-showing-up-more-more-2996610",
+								language: "EN",
+							},
+							{
+								title: "human rights campaign - glossary of terms",
+								url: "https://www.hrc.org/resources/glossary-of-terms",
+								language: "EN",
+							},
+							{
+								title: "lgbtttiq definitions",
+								url: "https://cwhn.ca/en/LGBTTIQdefinitions",
+								language: "EN",
+							},
+							{
+								title: "non-binary feminism",
+								url:
+									"https://www.rewriting-the-rules.com/conflict-break-up/non-binary-feminism-the-personal-is-still-political/",
+								language: "EN",
+							},
+							{
+								title: "non-binary gender q&a",
+								url:
+									"https://www.rewriting-the-rules.com/gender/coming-out-day-non-binary-gender-qa/",
+								language: "EN",
+							},
+							{
+								title: "how to use singular they",
+								url:
+									"https://www.instructionalsolutions.com/blog/how-to-use-singular-they",
+								language: "EN",
+							},
+						],
+					},
+					// OTHER RESOURCES
+					{
+						categoryTitle: "other resources",
+						links: [
+							{
+								title: "a guide to women in stem: closing the gender gap",
+								url:
+									"https://www.mastersindatascience.org/resources/a-guide-for-women-in-stem-closing-the-gender-gap/",
+								language: "EN",
+							},
+							{
+								title: "audible women",
+								url: "https://www.audiblewomen.com/",
+								language: "EN",
+							},
+							{
+								title: "awid",
+								url: "https://www.awid.org/",
+								language: "EN",
+							},
+							{
+								title: "british music collection",
+								url: "https://britishmusiccollection.org.uk/",
+								language: "EN",
+							},
+							{
+								title: "changing the curve: women in computing",
+								url:
+									"https://ischoolonline.berkeley.edu/blog/women-computing-computer-science/",
+								language: "EN",
+							},
+							{
+								title: "coding glossary for kids",
+								url:
+									"https://www.smartadvocate.com/News/Blog/software-programming-and-coding-glossary-for-kids",
+								language: "EN",
+							},
+							{
+								title: "ekho - women in sonic art",
+								url: "https://ekhofemalesound.wordpress.com",
+								language: "EN",
+							},
+							{
+								title: "fanfare for the uncommon woman conductor",
+								url:
+									"https://jessicamusic.blogspot.com/2013/09/fanfare-for-uncommon-woman-conductor.html",
+								language: "EN",
+							},
+							{
+								title: "feminist freedom fighters",
+								url: "http://feministfreedomwarriors.org/index.php#videos",
+								language: "EN",
+							},
+							{
+								title: "fiftitu %",
+								url: "https://www.fiftitu.at/",
+								language: "DE",
+							},
+							{
+								title: "future music industry",
+								url:
+									"https://docs.google.com/document/d/1-UBfSpbT_HBhJTxMcAiqQZ9gQeoI1rrel8gsT6-0e_g/edit",
+								language: "EN",
+							},
+							{
+								title: "future of music coalition",
+								url: "www.futureofmusic.com",
+								language: "EN",
+							},
+							{
+								title: "girls gone vinyl",
+								url: "https://www.girlsgonevinylandsigns.com/",
+								language: "EN",
+							},
+							{
+								title: "girls in stem",
+								url: "https://www.mhelpdesk.com/girls-in-stem/",
+								language: "EN",
+							},
+							{
+								title: "girls rock camp lower austria",
+								url: "www.girlsrock.at",
+								language: "DE",
+							},
+							{
+								title: "grid - gender relations in darmstadt",
+								url: "https://griddarmstadt.wordpress.com/",
+								language: "EN/DE",
+							},
+							{
+								title: "heritage",
+								url: "https://www.facebook.com/heritageuk/",
+								language: "EN",
+							},
+							{
+								title: "her noise",
+								url: "http://hernoise.org/",
+								language: "EN",
+							},
+							{
+								title: "history of women and computers",
+								url:
+									"https://www.certstaff.com/classes/history-women-computers.html",
+								language: "EN",
+							},
+							{
+								title: "institut für medienarchäologie",
+								url: "https://ima.or.at/de/",
+								language: "DE",
+							},
+							{
+								title: "institute of musical arts",
+								url: "https://www.ima.org/",
+								language: "EN",
+							},
+							{
+								title: "ladies learning code",
+								url: "ladieslearningcode.com",
+								language: "EN",
+							},
+							{
+								title: "literature on gender and electronic music",
+								url:
+									"https://drlizdobson.com/2018/02/12/literature-on-gender-and-electronic-music/",
+								language: "EN",
+							},
+							{
+								title: "lynn conway",
+								url: "https://ai.eecs.umich.edu/people/conway/conway.html",
+								language: "EN",
+							},
+							{
+								title: "make some noise",
+								url: "makesomenoise.blogsport.eu",
+								language: "DE",
+							},
+							{
+								title: "metoo #forthemusic",
+								url: "https://www.metoo-music.com",
+								language: "EN",
+							},
+							{
+								title: "music by black composers",
+								url:
+									"https://www.musicbyblackcomposers.org/resources/living-composers-directory/",
+								language: "EN",
+							},
+							{
+								title: "musica femina münchen e.v.",
+								url: "http://www.musica-femina-muenchen.de/",
+								language: "DE",
+							},
+							{
+								title: "mycelia",
+								url: "http://myceliaformusic.org/",
+								language: "EN",
+							},
+							{
+								title: "nerd girls",
+								url: "https://poemproducer.com/nerdgirls/",
+								language: "EN",
+							},
+							{
+								title: "new emergences",
+								url: "https://newemergences.com/",
+								language: "EN",
+							},
+							{
+								title: "paf - performing arts forum",
+								url: "http://pa-f.net/basics",
+								language: "EN",
+							},
+							{
+								title: "ink noises",
+								url: "https://www.facebook.com/pinknoises",
+								language: "EN",
+							},
+							{
+								title: "q-o2",
+								url: "http://www.q-o2.be/en/project/the-other-the-self/",
+								language: "EN",
+							},
+							{
+								title: "ramp-up.me",
+								url: "ramp-up.me/en/about-us/",
+								language: "EN",
+							},
+							{
+								title: "rec:on",
+								url: "https://rec-on.org/",
+								language: "EN",
+							},
+							{
+								title: "resources for women in business (in the usa)",
+								url:
+									"https://www.zenbusiness.com/info/resources-for-women-in-business/",
+								language: "EN",
+							},
+							{
+								title: "resources for women in computer technology",
+								url:
+									"https://www.purdueglobal.edu/blog/information-technology/resources-women-computer-technology/",
+								language: "EN",
+							},
+							{
+								title: "rubinia djane-school",
+								url: "http://www.rubinia-djanes.ch/",
+								language: "DE",
+							},
+							{
+								title: "she makes noise",
+								url: "https://shemakesnoise.tumblr.com/",
+								language: "ES",
+							},
+							{
+								title: "shift balance",
+								url: "http://www.shiftbalance.org/",
+								language: "EN",
+							},
+							{
+								title: "suzanne ciani",
+								url: "https://www.sevwave.com/",
+								language: "EN",
+							},
+							{
+								title: "syrphe - the african and asian alternative database",
+								url: "http://syrphe.com/african&asian_database.htm",
+								language: "EN",
+							},
+							{
+								title: "the 7 percent",
+								url: "https://the7percent.us/",
+								language: "EN",
+							},
+							{
+								title: "the artist roadmap",
+								url: "https://www.theartistroadmap.com/",
+								language: "EN",
+							},
+							{
+								title: "the empowering guide for women in tech 2020",
+								url:
+									"https://www.websiteplanet.com/blog/the-empowering-guide-for-women-in-tech/",
+								language: "EN",
+							},
+							{
+								title: "the lazy person's guide to saving the world",
+								url: "https://www.un.org/sustainabledevelopment/takeaction/",
+								language: "EN",
+							},
+							{
+								title: "the women's room",
+								url: "https://www.thewomensroom.org.uk/",
+								language: "EN",
+							},
+							{
+								title: "thealit - frauen kultur labor",
+								url: "https://www.thealit.de/en",
+								language: "DE",
+							},
+							{
+								title: "time's up survivor support",
+								url: "https://timesupnow.org/",
+								language: "EN",
+							},
+							{
+								title: "tips for getting girls involved in stem",
+								url:
+									"http://ithare.com/tips-for-getting-girls-involved-in-stem/",
+								language: "EN",
+							},
+							{
+								title: "unsung stories: women at columbia's cmc",
+								url: "https://www.unsungstoriescmc.com/speakers",
+								language: "EN",
+							},
+							{
+								title: "venus zine r.i.p",
+								url: "https://en.wikipedia.org/wiki/Venus_Zine",
+								language: "EN",
+							},
+							{
+								title: "wendy carlos",
+								url: "http://www.wendycarlos.com/",
+								language: "EN",
+							},
+							{
+								title: "women in film",
+								url: "www.wif.org",
+								language: "EN",
+							},
+							{
+								title: "women in stem: a guide to bridging the gender gap",
+								url:
+									"https://online.maryville.edu/blog/women-in-stem-a-guide-to-bridging-the-gender-gap/",
+								language: "EN",
+							},
+							{
+								title: "pioneering women in engineering and technology",
+								url:
+									"https://www.elevators.com/women-in-engineering-and-technology/",
+								language: "EN",
+							},
+							{
+								title: "women nordic music technology",
+								url: "https://wonomute.no/",
+								language: "EN",
+							},
+							{
+								title: "xenofeminism",
+								url:
+									"https://laboriacuboniks.net/manifesto/xenofeminism-a-politics-for-alienation/",
+								language: "EN",
+							},
+						],
+					},
 				],
 			};
 		},
