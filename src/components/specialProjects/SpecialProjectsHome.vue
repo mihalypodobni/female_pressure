@@ -1,13 +1,17 @@
 <template>
 	<b-container fluid="xl" class="px-0">
-		<b-row class="justify-content-center w-100 mx-0 p-0">
+		<b-row class="justify-content-center w-100 mx-0 p-0 ">
 			<b-col
 				v-for="(project, idx) in projects"
 				:key="'project' + idx"
 				cols="12"
 				lg="6"
+<<<<<<< HEAD
+				class="p-2"
+=======
 				class="my-3 mx-0"
         :class="idx % 2 === 0 ? 'pl-lg-0 pr-lg-2' : 'pr-lg-0 pl-lg-2'"
+>>>>>>> 389929d3dcfaf8cb4c73d7c7f0e4427df6cc5687
 			>
 				<SpecialProjectsCard :project="project" />
 			</b-col>
