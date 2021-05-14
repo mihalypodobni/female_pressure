@@ -1,14 +1,14 @@
 <template>
   <a :href="project.link" class="card-link link">
-    <b-card class="p-0 project-card ">
+    <b-card class="p-0 project-card">
       <b-card-body class="p-0">
         <b-row>
           <b-col class="text-left d-flex align-items-center" cols="12" lg="3">
             <div class="d-flex align-items-center">
               <b-img
-                  :src="getImgUrl(project.img)"
-                  :alt="project.title + ' logo'"
-                  class="project-img"
+                :src="getImgUrl(project.img)"
+                :alt="project.title + ' logo'"
+                class="project-img"
               />
             </div>
           </b-col>
@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     getImgUrl(img) {
-      let images = require.context("../../assets/");
+      let images = require.context("./assets/");
       return images("./" + img);
     },
   },
