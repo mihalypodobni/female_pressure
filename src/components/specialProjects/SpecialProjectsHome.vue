@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid="xl" class="px-0">
+  <b-container fluid="xl" class="px-0 body-container">
     <b-row class="justify-content-center w-100 mx-0 p-0">
       <b-col
         v-for="(project, idx) in projects"
@@ -176,4 +176,6 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped></style>
+<style lang="sass" scoped>
+
+</style>

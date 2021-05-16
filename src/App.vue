@@ -57,11 +57,12 @@ export default {
   -moz-osx-font-smoothing: grayscale
   @include background-gradient
 
-
-
 </style>
 
 <style lang="sass" scoped>
 .footer
   margin-top: auto
+
+#app /deep/ .body-container
+  max-width: $body-max-width
 </style>
