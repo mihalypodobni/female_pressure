@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid="xl" class="px-0">
+  <b-container fluid="xl"  class="px-0 nav-container">
     <NavigationMobile v-if="$store.state.isMobile" :menuItems="menuItems" @logout="logout" @navigate="navigate"/>
     <NavigationDesktop v-else :menuItems="menuItems" @logout="logout" @navigate="navigate"/>
   </b-container>
@@ -67,3 +67,8 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.nav-container
+  max-width: $page-max-width
+</style>

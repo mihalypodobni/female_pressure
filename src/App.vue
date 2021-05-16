@@ -38,7 +38,7 @@ export default {
     ]),
     handleResize() {
       this.window = window.innerWidth
-      this.window < 1100 ?
+      this.window < 1024 ?
           this.SET_MOBILE(true) :
           this.SET_MOBILE(false)
     }
