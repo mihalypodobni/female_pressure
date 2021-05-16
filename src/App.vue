@@ -64,5 +64,8 @@ export default {
   margin-top: auto
 
 #app /deep/ .body-container
-  max-width: $body-max-width
+  @media screen and (max-width: 1399px)
+    max-width: $body-max-width-small
+  @media screen and (min-width: 1400px)
+    max-width: $body-max-width-large
 </style>
