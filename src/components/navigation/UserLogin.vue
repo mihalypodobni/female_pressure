@@ -1,12 +1,12 @@
 <template>
-  <b-dropdown variant="link" class="p-0 w-100" right text="Right align" toggle-class="text-decoration-none" no-caret>
+  <b-dropdown variant="link" class="p-0 w-100" ref="login" right text="Right align" toggle-class="text-decoration-none" no-caret>
     <template #button-content>
       <div class="menu-link">
         <span class="pr-2 login">login</span>
         <font-awesome-icon icon="user"/>
       </div>
     </template>
-    <b-dropdown-form class="user-login mx-4 mt-4 mb-2">
+    <b-dropdown-form class="user-login mx-4 mt-4 mb-2" >
       <b-form-group @submit.stop.prevent>
         <b-form-input
             class="user-login-input"
@@ -38,6 +38,9 @@
 
 <script>
 export default {
+  props: {
+    showLogin: Boolean,
+  },
   data() {
     return {
       login: {
@@ -50,6 +53,11 @@ export default {
     userLogin() {
       console.log("signing in", this.login)
     }
+  },
+  watch: {
+    showLogin: function (val) {
+      val ? this.$refs.login.show() : this.$refs.login.hide()
+    },
   }
 }
 </script>

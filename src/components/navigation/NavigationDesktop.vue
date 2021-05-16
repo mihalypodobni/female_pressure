@@ -14,9 +14,11 @@
       {{ item.name }}
     </b-col>
     <b-col class="text-center link login_nav"
-           @click="showLogin = !showLogin"
+           @mouseenter="showLogin = true"
+           @mouseleave="showLogin = false"
     >
-      <UserLogin/>
+      <UserLogin :showLogin="showLogin"/>
+<!--      TODO improve the hover and open so code doesn't have to repeated for each menu item-->
     </b-col>
   </b-row>
 </template>
@@ -24,7 +26,6 @@
 <script>
 import {mapState} from "vuex";
 import UserLogin from "./UserLogin";
-
 export default {
   components: {
     UserLogin
