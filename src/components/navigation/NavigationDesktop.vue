@@ -2,7 +2,7 @@
   <b-row class="justify-content-center w-100 mx-0">
     <b-col class="text-center link female_pressure_nav">
       <div class="logo-wrapper">
-      <b-img src="../../assets/fp_large.png" class="fp-logo"></b-img>
+      <b-img src="../../assets/fp-main-logo.svg" class="fp-logo"></b-img>
       </div>
     </b-col>
     <b-col v-for="(item, idx) in menuItems"
@@ -80,4 +80,5 @@ export default {
   position: fixed
   max-width: 150px
   z-index: 9
+  border: 3px solid white
 </style>

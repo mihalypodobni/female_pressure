@@ -37,7 +37,7 @@
         </b-col>
       </b-row>
       <div class="text-center pt-3">
-        <b-img src="../../assets/fp_large.png" class="footer-logo"></b-img>
+        <b-img src="../../assets/fp-main-logo.svg" class="footer-logo"></b-img>
         <span class="my-auto pl-4">&#169; 2019 - 2021 female:pressure -
           <b-button variant="link" class="p-0 m-0 link" href="#">GDPR</b-button> -
           <b-button variant="link" class="p-0 m-0 link" href="#">Impressum</b-button>
