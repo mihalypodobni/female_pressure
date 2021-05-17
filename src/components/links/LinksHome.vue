@@ -1,11 +1,11 @@
 <template>
-  <b-container class="mt-5">
+  <b-container class="mt-5 body-container">
     <div class="accordion" role="tablist">
       <b-card
         no-body
         class="mb-1 main-card"
         v-for="(category, idx) in linksData"
-        :key="category"
+        :key="category.categoryTitle"
       >
         <b-card-header class="accordion-container" role="tab">
           <!-- CATEGORY TITLE -->
