@@ -11,6 +11,7 @@
            @click="item.name === 'projects' || item.name === 'links' ? null : $emit('navigate',item.id)"
            :class="[ item.id + '_nav', currentTab === item.id ? 'current-tab' : '']"
     >
+<!--      TODO fix clicking and if you click menu item twice - redundant clicking-->
       <ProjectsDropdown v-if="item.name==='projects'"/>
       <span v-else>{{ item.name }}</span>
     </b-col>
@@ -36,7 +37,8 @@ export default {
   },
   data() {
     return {
-      showLogin: false
+      showLogin: false,
+      showProjects: false
     }
   },
   props: {

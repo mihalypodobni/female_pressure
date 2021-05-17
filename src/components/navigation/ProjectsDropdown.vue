@@ -1,8 +1,8 @@
 <template>
-  <b-dropdown variant="link" class="p-0 w-100" ref="login" left toggle-class="text-decoration-none"
+  <b-dropdown variant="link" class="p-0 w-100 mr-0" ref="login" left toggle-class="text-decoration-none"
               no-caret>
     <template #button-content>
-      <div class="menu-link">
+      <div class="menu-link" @click="$router.push({name: 'Projects'})">
         <span class="pr-2 login">projects</span>
       </div>
     </template>
@@ -32,10 +32,14 @@ export default {
       padding: 0 !important
     > .dropdown-menu
       top: 15px !important
-      margin-right: 15px !important
+      margin-left: -15px !important
       border-radius: 0
       border: none
       background-color: map-get($menuItems, "projects")
+      @media screen and (max-width: 1399px)
+        width: 100vw * 3 / 7
+      @media screen and (min-width: 1400px)
+        width: $page-max-width * 3 / 7
 </style>
 
 <style lang="sass" scoped>
