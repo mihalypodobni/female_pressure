@@ -1,24 +1,25 @@
 <template>
   <b-row class="justify-content-center w-100 mx-0">
-    <b-col class="text-center link female_pressure_nav">
+    <b-col class="text-center link home_nav">
       <div class="logo-wrapper">
-      <b-img src="../../assets/fp-main-logo.svg" class="fp-logo" @click="$emit('navigate','home')"></b-img>
+        <b-img src="../../assets/fp-main-logo.svg" class="fp-logo" @click="$emit('navigate','home')"></b-img>
       </div>
     </b-col>
     <b-col v-for="(item, idx) in menuItems"
            :key="item.id + idx"
            class="text-center link"
-           @click="$emit('navigate',item.id)"
+           @click="item.name === 'projects' || item.name === 'links' ? null : $emit('navigate',item.id)"
            :class="[ item.id + '_nav', currentTab === item.id ? 'current-tab' : '']"
     >
-      {{ item.name }}
+      <ProjectsDropdown v-if="item.name==='projects'"/>
+      <span v-else>{{ item.name }}</span>
     </b-col>
-    <b-col class="text-center link login_nav"
+
+    <b-col class="text-center link user_nav"
            @mouseenter="showLogin = true"
            @mouseleave="showLogin = false"
     >
       <UserLogin :showLogin="showLogin"/>
-<!--      TODO improve the hover and open so code doesn't have to repeated for each menu item-->
     </b-col>
   </b-row>
 </template>
@@ -26,9 +27,12 @@
 <script>
 import {mapState} from "vuex";
 import UserLogin from "./UserLogin";
+import ProjectsDropdown from "./ProjectsDropdown"
+
 export default {
   components: {
-    UserLogin
+    UserLogin,
+    ProjectsDropdown
   },
   data() {
     return {
@@ -45,9 +49,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.dropdown
-  background-color: $menu7
-
 .link
   cursor: pointer
   padding-top: 20px
@@ -60,10 +61,10 @@ export default {
   .#{$name}_nav
     background-color: $color
 
-.female_pressure_nav
+.home_nav
   background-color: $menu1
 
-.login_nav
+.user_nav
   background-color: $menu7
 
 .current-tab
