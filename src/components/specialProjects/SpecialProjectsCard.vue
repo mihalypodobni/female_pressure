@@ -1,9 +1,9 @@
 <template>
   <a :href="project.link" class="card-link link">
     <b-card class="p-0 project-card">
-      <b-card-body class="p-0">
+      <b-card-body class="pt-2 p-0">
         <b-row>
-          <b-col class="text-left d-flex align-items-center" cols="12" lg="3">
+          <b-col class="text-left d-flex align-items-center" cols="3">
             <div class="d-flex align-items-center">
               <b-img
                 :src="getImgUrl(project.img)"
@@ -12,14 +12,15 @@
               />
             </div>
           </b-col>
-          <b-col cols="12" lg="9" class="h-70">
-            <h4>{{ project.title }}</h4>
+          <b-col cols="12" lg="9" class="p-2">
+            <div class="m-4">
+              <h4>
+                {{ project.title }}
+                <span class="project-year">{{ project.year }}</span>
+              </h4>
 
-            <div>
-              {{ project.text }}
-
-              <div>
-                <small>[{{ project.year }}]</small>
+              <div class="project-text">
+                {{ project.text }}
               </div>
             </div>
           </b-col>
@@ -44,15 +45,24 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.project-card
+  min-height: 290px
+  border: 3px solid $blueBoxBorder
+  box-shadow: 0px 0px 15px grey
+  color: black
 .project-img
   width: 100px
   margin: 10px
 
-.project-card
-  min-height: 230px
-  border: 3px solid $blueBoxBorder
-  box-shadow: 0px 0px 15px grey
-  color: black
+
+.project-text
+  min-height: 160px
+
+.project-year
+  font-size: 15px
+  color: $blueBoxBorder
+
+
 
 .card-link
   @include link
