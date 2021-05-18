@@ -1,7 +1,7 @@
 <template>
   <a :href="project.link" class="card-link link">
     <b-card class="p-0 project-card">
-      <b-card-body class="pt-2 p-0">
+      <b-card-body class="p-0">
         <b-row>
           <b-col class="text-left d-flex align-items-center" cols="3">
             <div class="d-flex align-items-center">
@@ -12,14 +12,14 @@
               />
             </div>
           </b-col>
-          <b-col cols="12" lg="9" class="p-2">
+          <b-col cols="12" xl="9" class="p-2 mh-50">
             <div class="m-4">
               <h4>
                 {{ project.title }}
                 <span class="project-year">{{ project.year }}</span>
               </h4>
 
-              <div class="project-text">
+              <div>
                 {{ project.text }}
               </div>
             </div>
@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     getImgUrl(img) {
-      let images = require.context("./assets/");
+      let images = require.context("../../assets/special-projects-logos");
       return images("./" + img);
     },
   },
@@ -46,22 +46,19 @@ export default {
 
 <style lang="sass" scoped>
 .project-card
-  min-height: 290px
+  min-height: 340px
   border: 3px solid $blueBoxBorder
   box-shadow: 0px 0px 15px grey
   color: black
+
 .project-img
   width: 100px
   margin: 10px
 
 
-.project-text
-  min-height: 160px
-
 .project-year
   font-size: 15px
   color: $blueBoxBorder
-
 
 
 .card-link

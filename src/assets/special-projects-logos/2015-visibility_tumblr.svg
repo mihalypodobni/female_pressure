@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 4000 4000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(13.2841,0,0,13.2914,13.3596,13.3708)">
+        <circle cx="149.877" cy="149.923" r="150.019"/>
+    </g>
+    <g id="Layer1" transform="matrix(13.372,0,0,13.3793,0,0)">
+        <g transform="matrix(1,0,0,1,1,0)">
+            <path d="M149.139,0.75L182.59,103.702L290.84,103.702L203.264,167.329L236.715,270.281L149.139,206.653L61.564,270.281L95.014,167.329L7.439,103.702L115.688,103.702L149.139,0.75Z" style="fill:rgb(242,242,242);"/>
+        </g>
+        <g transform="matrix(4.99164,0,0,4.79484,-272.328,-405.745)">
+            <text x="55.262px" y="119.41px" style="font-family:'HelveticaNeue-Medium', 'Helvetica Neue', sans-serif;font-weight:500;font-size:12px;fill:rgb(140,140,140);">VISIBILITY</text>
+        </g>
+    </g>
+</svg>
