@@ -10,9 +10,11 @@
            class="text-center link"
            @click="item.name === 'projects' || item.name === 'links' ? null : $emit('navigate',item.id)"
            :class="[ item.id + '_nav', currentTab === item.id ? 'current-tab' : '']"
+           @mouseenter="showDropdown(item.name)"
+           @mouseleave="hideDropdown(item.name)"
     >
-<!--      TODO fix clicking and if you click menu item twice - redundant clicking-->
-      <ProjectsDropdown v-if="item.name==='projects'"/>
+      <!--      TODO fix clicking and if you click menu item twice - redundant clicking-->
+      <ProjectsDropdown v-if="item.name==='projects'" :show-projects="showProjects"/>
       <span v-else>{{ item.name }}</span>
     </b-col>
 
@@ -38,7 +40,36 @@ export default {
   data() {
     return {
       showLogin: false,
-      showProjects: false
+      showProjects: false,
+      showLinks: false
+    }
+  },
+  methods: {
+    showDropdown(name) {
+      switch (name) {
+        case "projects":
+          this.showProjects = true
+          break;
+        case "login":
+          this.showLogin = true
+          break;
+        case "links":
+          this.showLinks = true
+          break;
+      }
+    },
+    hideDropdown(name) {
+      switch (name) {
+        case "projects":
+          this.showProjects = false
+          break;
+        case "login":
+          this.showLogin = false
+          break;
+        case "links":
+          this.showLinks = false
+          break;
+      }
     }
   },
   props: {

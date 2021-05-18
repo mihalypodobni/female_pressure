@@ -1,5 +1,5 @@
 <template>
-  <b-dropdown variant="link" class="p-0 w-100 mr-0" ref="login" left toggle-class="text-decoration-none"
+  <b-dropdown variant="link" class="p-0 w-100 mr-0" ref="projects-dropdown" left toggle-class="text-decoration-none"
               no-caret>
     <template #button-content>
       <div class="menu-link" @click="$router.push({name: 'Projects'})">
@@ -17,10 +17,19 @@
 <script>
 export default {
   props: {
-    showLogin: Boolean,
+    showProjects: Boolean,
   },
   data() {
-    return {}
+    return {
+      projects: [
+        {name: "common planet"}
+      ]
+    }
+  },
+  watch: {
+    showProjects: function (val) {
+      val ? this.$refs["projects-dropdown"].show() : this.$refs["projects-dropdown"].hide()
+    },
   }
 }
 </script>

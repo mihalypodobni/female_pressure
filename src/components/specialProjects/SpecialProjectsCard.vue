@@ -18,7 +18,6 @@
                 {{ project.title }}
                 <span class="project-year">{{ project.year }}</span>
               </h4>
-
               <div>
                 {{ project.text }}
               </div>
@@ -37,7 +36,7 @@ export default {
   },
   methods: {
     getImgUrl(img) {
-      let images = require.context("../../assets/special-projects-logos");
+      let images = require.context("@/assets/special-projects-logos");
       return images("./" + img);
     },
   },
