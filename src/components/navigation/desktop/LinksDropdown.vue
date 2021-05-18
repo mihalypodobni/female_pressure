@@ -8,7 +8,8 @@
     </template>
     <b-dropdown-item v-for="(link, idx) in links"
                      :key="'link'+idx"
-                     class="project-dropdown-item"
+                     class="link-dropdown-item"
+                     @click="$router.push('/links/' + link.categoryTitle)"
     >
       {{link.categoryTitle}}
     </b-dropdown-item>
@@ -52,7 +53,7 @@ export default {
       @media screen and (min-width: 1400px)
         width: $page-max-width * 3 / 7
 
-.project-dropdown-item
+.link-dropdown-item
   > a
     &:hover
       background-color: #D7F2F6!important

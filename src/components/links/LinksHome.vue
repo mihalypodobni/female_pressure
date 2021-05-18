@@ -52,6 +52,9 @@ export default {
       linksData: links
     }
   },
+  mounted() {
+    console.log(this.$route.params.category)
+  }
 };
 </script>
 

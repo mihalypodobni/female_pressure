@@ -23,21 +23,16 @@ let router = new Router({
         import("@/components/specialProjects/SpecialProjectsHome"),
     },
     {
-      path: "/links",
+      path: "/links/:category?",
       name: "Links",
       component: () => import("@/components/links/LinksHome"),
+      alias: '/links/:category'
     },
     {
       path: "/about",
       name: "About",
       component: () => import("@/components/about/AboutHome"),
     },
-    /*   {
-            path:'/press_text', //This is going to be on the special projects
-            name:'Press Text',
-            component: ()=> import('@/components/press/PressText'),
-        }, */
-
     {
       path: "/events",
       name: "Events",
@@ -53,11 +48,6 @@ let router = new Router({
       name: "CoC",
       component: () => import("@/components/codeOfConduct/CodeOfConductHome"),
     },
-    // {
-    // 	path: "/press",
-    // 	name: "Press",
-    // 	component: () => import("@/components/press/PressHome"),
-    // },
     {
       path: "/blog",
       name: "Blog",
