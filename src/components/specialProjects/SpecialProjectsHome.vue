@@ -35,7 +35,7 @@ export default {
           year: "2021",
         },
         {
-          img: "2015-FACTS.svg",
+          img: "2020-common.svg",
           title: "COMMON planet",
           text:
             "the f:p planet in the COMMON multiverse is an online event space for talks, dj and live sets, and other a/v contributions from our network.",
@@ -59,7 +59,7 @@ export default {
           year: "2018",
         },
         {
-          img: "2015-FACTS.svg",
+          img: "2017-FACTS.svg",
           title: "FACTS",
           text:
             "our third FACTS survey marks a huge step forward from the previous editions as it complies with academic standards. it comes with proper description of the methodology and an extensive discussion part.",
@@ -67,7 +67,7 @@ export default {
           year: "2017",
         },
         {
-          img: "2015-FACTS.svg",
+          img: "2016-rojava.svg",
           title: "solidarity w/ rojava compilation",
           text:
             "a support compilation for the women in Rojava, who build a new society, striving for social, racial and ethnic justice, religious freedom, ecological principles and gender equality.",
@@ -75,7 +75,7 @@ export default {
           year: "2016",
         },
         {
-          img: "2015-FACTS.svg",
+          img: "2015-visualpulse.svg",
           title: "visualpulse group",
           text:
             "f:p visualpulse aims to encourage exchange/discussion and further the sharing of knowledge and experience specifically in the field of video art.",
@@ -83,7 +83,7 @@ export default {
           year: "2015",
         },
         {
-          img: "2015-FACTS.svg",
+          img: "2015-revellers.svg",
           title: "revellers compilation",
           text:
             "after a media surge surrounding our visibility project mentioned by Bjork, Fader, LA Weekly, we scheduled an exclusive release on beatport.",
@@ -92,7 +92,7 @@ export default {
           year: "2015",
         },
         {
-          img: "2015-FACTS.svg",
+          img: "2015-visibility_tumblr.svg",
           title: " visibility tumblr",
           text:
             "an image based collection of women*, non-binary and transgender artists in music production & performing arts in their working environment, curated by AGF.",
@@ -109,7 +109,7 @@ export default {
           year: "2015",
         },
         {
-          img: "2015-FACTS.svg",
+          img: "2013-pussyriot.svg",
           title: "pussy riot freedom compilation ",
           text:
             "support compilation from our network calling for freedom for the then imprisoned Pussy Riot members Nadezhda Tolokonnikova and Maria Alyokhina.",
@@ -117,7 +117,7 @@ export default {
           year: "2013",
         },
         {
-          img: "2015-FACTS.svg",
+          img: "2013-perspectives.svg",
           title: "perspectives festival",
           text:
             "the legendary first edition of the female:pressure PERSPECTIVES festival pursued the objective of reinforcing the visibility of women in electronic music and the digital arts.",

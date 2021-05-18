@@ -13,7 +13,7 @@
             </div>
           </b-col>
           <b-col cols="12" xl="9" class="p-2 mh-50">
-            <div class="m-4 ">
+            <div class="m-4">
               <h4>
                 {{ project.title }}
                 <span class="project-year">{{ project.year }}</span>
@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     getImgUrl(img) {
-      let images = require.context("./assets/");
+      let images = require.context("../../assets/special-projects-logos");
       return images("./" + img);
     },
   },
@@ -59,7 +59,6 @@ export default {
 .project-year
   font-size: 15px
   color: $blueBoxBorder
-
 
 
 .card-link
