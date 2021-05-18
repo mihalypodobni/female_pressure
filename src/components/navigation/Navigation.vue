@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import NavigationMobile from './NavigationMobile'
-import NavigationDesktop from './NavigationDesktop'
+import NavigationMobile from './mobile/NavigationMobile'
+import NavigationDesktop from './desktop/NavigationDesktop'
 import axios from "axios";
 import {mapMutations, mapState} from 'vuex';
 

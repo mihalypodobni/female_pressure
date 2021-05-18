@@ -2,7 +2,7 @@
   <b-row class="justify-content-center w-100 mx-0">
     <b-col class="text-center link home_nav">
       <div class="logo-wrapper">
-        <b-img src="../../assets/fp-main-logo.svg" class="fp-logo" @click="$emit('navigate','home')"></b-img>
+        <b-img src="@/assets/fp-main-logo.svg" class="fp-logo" @click="$emit('navigate','home')"></b-img>
       </div>
     </b-col>
     <b-col v-for="(item, idx) in menuItems"
@@ -13,8 +13,8 @@
            @mouseenter="showDropdown(item.name)"
            @mouseleave="hideDropdown(item.name)"
     >
-      <!--      TODO fix clicking and if you click menu item twice - redundant clicking-->
       <ProjectsDropdown v-if="item.name==='projects'" :show-projects="showProjects"/>
+      <LinksDropdown v-else-if="item.name==='links'" :show-links="showLinks"/>
       <span v-else>{{ item.name }}</span>
     </b-col>
 
@@ -31,11 +31,13 @@
 import {mapState} from "vuex";
 import UserLogin from "./UserLogin";
 import ProjectsDropdown from "./ProjectsDropdown"
+import LinksDropdown from "./LinksDropdown";
 
 export default {
   components: {
     UserLogin,
-    ProjectsDropdown
+    ProjectsDropdown,
+    LinksDropdown
   },
   data() {
     return {

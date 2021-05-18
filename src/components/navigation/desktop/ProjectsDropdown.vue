@@ -10,10 +10,12 @@
                      :key="'project'+idx"
                      :href="project.link"
                      target="_blank"
+                     class="project-dropdown-item"
     >
-      <b-img :src="require('@/assets/special-projects-logos/' + project.img)" class="menu-project-logo mr-3"/>
-      <span class="text-lowercase mr-1">{{project.title}}</span>
-      <small>[{{project.year}}]</small>
+      <b-img :src="require('@/assets/special-projects-logos/' + project.img)"
+             class="menu-project-logo mr-3"/>
+      <span class="text-lowercase mr-1">{{ project.title }}</span>
+      <small>[{{ project.year }}]</small>
     </b-dropdown-item>
 
   </b-dropdown>
@@ -21,7 +23,7 @@
 </template>
 
 <script>
-import  { projects } from "@/assets/data/special-projects.js"
+import {projects} from "@/assets/data/special-projects.js"
 
 export default {
   props: {
@@ -55,6 +57,11 @@ export default {
         width: 100vw * 3 / 7
       @media screen and (min-width: 1400px)
         width: $page-max-width * 3 / 7
+
+.project-dropdown-item
+  > a
+    &:hover
+      background-color: #D7F2F6!important
 </style>
 
 <style lang="sass" scoped>
