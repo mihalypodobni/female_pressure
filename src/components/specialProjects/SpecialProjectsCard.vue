@@ -47,9 +47,7 @@ export default {
 <style lang="sass" scoped>
 .project-card
   min-height: 340px
-  border: 3px solid $blueBoxBorder
-  box-shadow: 0px 0px 15px grey
-  color: black
+  @include button
 
 .project-img
   width: 100px
