@@ -32,9 +32,24 @@
       </p>
     </div>
 
+    <div class="mb-4">
+      <h3>Press</h3>
+      <b><b-link class="link">our press review </b-link></b>[as of 2013]
+      <p><b>download the logos and some pictures</b></p>
+    </div>
+
+    <div class="mb-4">
+      <h3>Credits</h3>
+    </div>
+
     <div>
       <h3>contact</h3>
       <p>info@femalepressure.net</p>
     </div>
   </b-container>
 </template>
+
+<style lang="sass" scoped>
+.link
+	@include link
+</style>
