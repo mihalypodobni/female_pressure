@@ -8,10 +8,12 @@
     </template>
     <b-dropdown-item v-for="(project, idx) in projects"
                      :key="'project'+idx"
-
+                     :href="project.link"
+                     target="_blank"
     >
-      <b-img :src="require('@/assets/special-projects-logos/' + project.img)" class="menu-project-logo"></b-img>
-      {{project.title}} <small>[{{project.year}}]</small>
+      <b-img :src="require('@/assets/special-projects-logos/' + project.img)" class="menu-project-logo mr-3"/>
+      <span class="text-lowercase mr-1">{{project.title}}</span>
+      <small>[{{project.year}}]</small>
     </b-dropdown-item>
 
   </b-dropdown>

@@ -107,7 +107,7 @@ export const projects = [
     },
     {
         img: "dots-180deg.gif",
-        title: "FACTS ",
+        title: "FACTS",
         text:
             "the first FACTS survey which then became a continuous project that quantifies the gender distribution of artists performing at electronic music festivals worldwide.",
         link: "https://femalepressure.wordpress.com/facts-graphic/",
