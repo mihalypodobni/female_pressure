@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container class="body-container">
     <p class="mt-5"><b>female:pressure 21y t-shirts</b></p>
 
     <p>We run a two weeks campaign for out 21 years anniversary T-shirts:</p>

@@ -22,7 +22,7 @@ export default {
         if (error) {
           console.log("error", error);
         } else {
-          console.log(data);
+          // console.log(data);
           this.countryData = topojson.feature(
             data,
             data.objects.countries

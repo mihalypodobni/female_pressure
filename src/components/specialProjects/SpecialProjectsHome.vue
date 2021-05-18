@@ -5,9 +5,9 @@
         v-for="(project, idx) in projects"
         :key="'project' + idx"
         cols="12"
-        lg="6"
+        xl="6"
         class="my-2 mx-0"
-        :class="idx % 2 === 0 ? 'pl-lg-0 pr-lg-2' : 'pr-lg-0 pl-lg-2'"
+        :class="idx % 2 === 0 ? 'pl-xl-0 pr-xl-2' : 'pr-xl-0 pl-xl-2'"
       >
         <SpecialProjectsCard :project="project" />
       </b-col>
@@ -32,7 +32,7 @@ export default {
           text:
             "the latest addition to our monthly radio shows: on refuge worldwide, we present curated dj mixes in a wide variety of genres.",
           link: "https://refugeworldwide.com/artists/female-pressure",
-          year: "since 2021",
+          year: "2021",
         },
         {
           img: "2015-FACTS.svg",
@@ -40,7 +40,7 @@ export default {
           text:
             "the f:p planet in the COMMON multiverse is an online event space for talks, dj and live sets, and other a/v contributions from our network.",
           link: "https://a.currents.fm/common/planet/2ejGx3vlM7THv1V0hPNp",
-          year: "since 2020",
+          year: "2020",
         },
         {
           img: "2020-FACTSalternative.svg",
@@ -56,7 +56,7 @@ export default {
           text:
             "in this biweekly podcast you’ll find the most stunning sounds from around the world and a lot of good tracks produced by f:p artists.",
           link: "https://femalepressure.wordpress.com/podcast/",
-          year: "since 2018",
+          year: "2018",
         },
         {
           img: "2015-FACTS.svg",
@@ -80,7 +80,7 @@ export default {
           text:
             "f:p visualpulse aims to encourage exchange/discussion and further the sharing of knowledge and experience specifically in the field of video art.",
           link: "https://vimeo.com/groups/fpvisualpulse",
-          year: "since 2015",
+          year: "2015",
         },
         {
           img: "2015-FACTS.svg",
@@ -146,7 +146,7 @@ export default {
           text:
             "famous djs play and comment selected records from their illimitable archives live for you. and you can buy any record at a killer price! the most exclusive music service on earth!",
           link: "http://www.femalepressure.net/vs.html",
-          year: "since 2009",
+          year: "2009",
         },
         {
           img: "2009-japan.svg",
@@ -176,6 +176,4 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-
-</style>
+<style lang="sass" scoped></style>
