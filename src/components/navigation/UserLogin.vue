@@ -1,5 +1,5 @@
 <template>
-  <b-dropdown variant="link" class="p-0 w-100" ref="login" right text="Right align" toggle-class="text-decoration-none" no-caret>
+  <b-dropdown variant="link" class="p-0 w-100" ref="login" right toggle-class="text-decoration-none" no-caret>
     <template #button-content>
       <div class="menu-link">
         <span class="pr-2 login">login</span>
@@ -63,10 +63,10 @@ export default {
 </script>
 
 <style lang="sass">
-.login_nav
+.user_nav
   > .dropdown
     > .btn
-      padding: 0
+      padding: 0!important
     > .dropdown-menu
       top: 15px !important
       margin-right: -15px !important
