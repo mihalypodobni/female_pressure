@@ -6,24 +6,28 @@
         <span class="pr-2 login">projects</span>
       </div>
     </template>
-    <b-dropdown-item>Item 1</b-dropdown-item>
-    <b-dropdown-item>Item 2</b-dropdown-item>
-    <b-dropdown-item>Item 3</b-dropdown-item>
-    <b-dropdown-item>Item 4</b-dropdown-item>
+    <b-dropdown-item v-for="(project, idx) in projects"
+                     :key="'project'+idx"
+
+    >
+      <b-img :src="require('@/assets/special-projects-logos/' + project.img)" class="menu-project-logo"></b-img>
+      {{project.title}} <small>[{{project.year}}]</small>
+    </b-dropdown-item>
+
   </b-dropdown>
 
 </template>
 
 <script>
+import  { projects } from "@/assets/data/special-projects.js"
+
 export default {
   props: {
     showProjects: Boolean,
   },
   data() {
     return {
-      projects: [
-        {name: "common planet"}
-      ]
+      projects: projects
     }
   },
   watch: {
@@ -60,4 +64,6 @@ export default {
     text-decoration: none !important
     font-weight: bolder
 
+.menu-project-logo
+  width: 30px
 </style>

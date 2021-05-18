@@ -1,7 +1,7 @@
 export const projects = [
     {
         img: "2021-refuge.svg",
-        title: " refuge radio show",
+        title: "refuge radio show",
         text:
             "the latest addition to our monthly radio shows: on refuge worldwide, we present curated dj mixes in a wide variety of genres.",
         link: "https://refugeworldwide.com/artists/female-pressure",
@@ -66,7 +66,7 @@ export const projects = [
     },
     {
         img: "2015-visibility_tumblr.svg",
-        title: " visibility tumblr",
+        title: "visibility tumblr",
         text:
             "an image based collection of women*, non-binary and transgender artists in music production & performing arts in their working environment, curated by AGF.",
         link: "https://femalepressure.tumblr.com/",

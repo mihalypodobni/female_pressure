@@ -23,7 +23,6 @@ export default {
   components: {
     SpecialProjectsCard,
   },
-
   data() {
     return {
       projects: projects
@@ -31,5 +30,3 @@ export default {
   },
 };
 </script>
-
-<style lang="sass" scoped></style>
