@@ -17,7 +17,7 @@
 
 <script>
 import SpecialProjectsCard from "./SpecialProjectsCard";
-import  { projects } from "@/assets/data/special-projects.js"
+import { projects } from "@/assets/data/special-projects.js";
 
 export default {
   components: {
@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      projects: projects
+      projects: projects,
     };
   },
 };

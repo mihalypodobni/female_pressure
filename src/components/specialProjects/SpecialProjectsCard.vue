@@ -1,30 +1,30 @@
 <template>
   <a :href="project.link" class="card-link link">
-    <b-card class="p-0 project-card">
-      <b-card-body class="p-0">
+    <b-card no-body class=" project-card px-3 py-2">
+      <div class="card-body m-0 p-0">
         <b-row>
-          <b-col class="text-left d-flex align-items-center" cols="3">
+          <b-col class="text-left d-flex align-items-center" cols="12" xl="3">
             <div class="d-flex align-items-center">
               <b-img
                 :src="getImgUrl(project.img)"
                 :alt="project.title + ' logo'"
-                class="project-img"
+                class="project-img m-2 p-0"
               />
             </div>
           </b-col>
-          <b-col cols="12" xl="9" class="p-2 mh-50">
-            <div class="m-4">
-              <h4>
+          <b-col cols="12" xl="9" class="p-0 mh-50">
+            <div class="m-4 p-0">
+              <h4 class="m-0">
                 {{ project.title }}
-                <span class="project-year">{{ project.year }}</span>
               </h4>
+              <p class="project-year mb-2">{{ project.year }}</p>
               <div>
                 {{ project.text }}
               </div>
             </div>
           </b-col>
         </b-row>
-      </b-card-body>
+      </div>
     </b-card>
   </a>
 </template>
@@ -45,21 +45,23 @@ export default {
 
 <style lang="sass" scoped>
 .project-card
-  min-height: 340px
   @include button
 
 .project-img
   width: 100px
-  margin: 10px
-
 
 .project-year
   font-size: 15px
   color: $blueBoxBorder
 
-
 .card-link
   @include link
+
+.card-body
+  @media screen and (max-width: 1399px)
+    min-height: 300px
+  @media screen and (min-width: 1400px)
+    min-height: 255px
 
 .card-link:hover
   color: black
