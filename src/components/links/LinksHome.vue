@@ -13,9 +13,7 @@
           block
           v-b-toggle="'accordion-' + idx"
         >
-          <!-- CATEGORY TITLE -->
-
-          <b>{{ category.categoryTitle }}</b>
+          <b class="category-text">{{ category.categoryTitle }}</b>
         </b-card-header>
 
         <!-- LINKS -->
@@ -64,11 +62,13 @@ export default {
   padding: 5px 15px
   display: flex
   align-items: center
+  cursor: pointer
 
 
 .accordion-button
   display: flex
   align-items: center
+
 .main-card
   border: none
 
@@ -78,7 +78,9 @@ export default {
 
 .link-container:hover
   background-color: $blueBoxBorder
-  // padding-left: 15px
+
+.category-text
+  cursor: pointer
 
 .link
   color: black
@@ -86,4 +88,6 @@ export default {
 .link:hover
   color: black
   text-decoration: none
+
+category-text
 </style>
