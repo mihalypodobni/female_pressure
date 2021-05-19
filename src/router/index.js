@@ -63,6 +63,11 @@ let router = new Router({
       name: "FAQ",
       component: () => import("@/components/faq/FAQHome"),
     },
+    {
+      path: "/feedback",
+      name: "Feedback",
+      component: () => import("@/components/faq/FAQHome"),
+    },
   ],
 });
 
