@@ -96,7 +96,7 @@ export const links = [
       },
       {
         title: "female:pressure @ resonancias @ radio 3 rtve / spain",
-        url: "www.rtve.es/alacarta/audios/resonancias/",
+        url: "https://www.rtve.es/alacarta/audios/resonancias/",
         language: "es",
       },
       {
@@ -121,7 +121,7 @@ export const links = [
       },
       {
         title: "b gyrl",
-        url: "www.b-gyrl.com",
+        url: "http://www.b-gyrl.com",
       },
       {
         title: "bit rosie",
@@ -133,7 +133,7 @@ export const links = [
       },
       {
         title: "black girl dangerous",
-        url: "www.blackgirldangerous.org",
+        url: "http://www.blackgirldangerous.org",
       },
       {
         title: "crack in the road",
@@ -235,7 +235,7 @@ export const links = [
       },
       {
         title: "right chord music",
-        url: "www.rightchordmusic.co.uk",
+        url: "https://www.rightchordmusic.co.uk",
       },
       {
         title: "texas and glory",
@@ -621,7 +621,7 @@ export const links = [
       },
       {
         title: "nótt",
-        url: "contactonott.wixsite.com/nott",
+        url: "https://contactonott.wixsite.com/nott",
         language: "es",
       },
       { title: "oramics", url: "https://oramics.pl/", language: "pl" },
@@ -924,7 +924,7 @@ export const links = [
       },
       {
         title: "future of music coalition",
-        url: "www.futureofmusic.com",
+        url: "https://www.futureofmusic.com",
         language: "en",
       },
       {
@@ -939,7 +939,7 @@ export const links = [
       },
       {
         title: "girls rock camp lower austria",
-        url: "www.girlsrock.at",
+        url: "https://www.girlsrock.at",
         language: "de",
       },
       {
@@ -974,7 +974,7 @@ export const links = [
       },
       {
         title: "ladies learning code",
-        url: "ladieslearningcode.com",
+        url: "https://ladieslearningcode.com",
         language: "en",
       },
       {
@@ -990,7 +990,7 @@ export const links = [
       },
       {
         title: "make some noise",
-        url: "makesomenoise.blogsport.eu",
+        url: "https://makesomenoise.blogsport.eu",
         language: "de",
       },
       {
@@ -1041,7 +1041,7 @@ export const links = [
       },
       {
         title: "ramp-up.me",
-        url: "ramp-up.me/en/about-us/",
+        url: "https://ramp-up.me/en/about-us/",
         language: "en",
       },
       {
@@ -1144,7 +1144,7 @@ export const links = [
       },
       {
         title: "women in film",
-        url: "www.wif.org",
+        url: "https://www.wif.org",
         language: "en",
       },
       {
