@@ -10,7 +10,6 @@
         <b-card-header
           class="accordion-container mb-3 accordion-button h5 py-1 px-2"
           role="tab"
-          block
           v-b-toggle="'accordion-' + idx"
         >
           <b class="category-text">{{ category.categoryTitle }}</b>
@@ -22,6 +21,7 @@
           accordion="my-accordion"
           role="tabpanel"
           class="mb-3"
+          :visible="categoryMenu === category.shortCategoryTitle && true"
         >
           <a
             v-for="link in category.links"
@@ -47,10 +47,13 @@ export default {
   data() {
     return {
       linksData: links,
+      categoryMenu: "aaa",
     };
   },
-  mounted() {
-    console.log(this.$route.params.category);
+  created() {
+    this.categoryMenu = this.$route.params.category;
+    // console.log(this.$route.params.category);
+    // console.log(this.categoryMenu);
   },
 };
 </script>

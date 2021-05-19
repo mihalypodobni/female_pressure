@@ -1,24 +1,30 @@
 <template>
-  <b-dropdown variant="link" class="p-0 w-100 mr-0" ref="links-dropdown" left toggle-class="text-decoration-none"
-              no-caret>
+  <b-dropdown
+    variant="link"
+    class="p-0 w-100 mr-0"
+    ref="links-dropdown"
+    left
+    toggle-class="text-decoration-none"
+    no-caret
+  >
     <template #button-content>
-      <div class="menu-link" @click="$router.push({name: 'Links'})">
+      <div class="menu-link" @click="$router.push({ name: 'Links' })">
         <span class="pr-2 login">links</span>
       </div>
     </template>
-    <b-dropdown-item v-for="(link, idx) in links"
-                     :key="'link'+idx"
-                     class="link-dropdown-item"
-                     @click="$router.push('/links/' + link.shortCategoryTitle)"
+    <b-dropdown-item
+      v-for="(link, idx) in links"
+      :key="'link' + idx"
+      class="link-dropdown-item"
+      @click="$router.push('/links/' + link.shortCategoryTitle)"
     >
-      {{link.categoryTitle}}
+      {{ link.categoryTitle }}
     </b-dropdown-item>
   </b-dropdown>
-
 </template>
 
 <script>
-import {links} from "@/assets/data/links";
+import { links } from "@/assets/data/links";
 
 export default {
   props: {
@@ -26,15 +32,17 @@ export default {
   },
   data() {
     return {
-      links: links
-    }
+      links: links,
+    };
   },
   watch: {
-    showLinks: function (val) {
-      val ? this.$refs["links-dropdown"].show() : this.$refs["links-dropdown"].hide()
+    showLinks: function(val) {
+      val
+        ? this.$refs["links-dropdown"].show()
+        : this.$refs["links-dropdown"].hide();
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang="sass">
@@ -70,5 +78,4 @@ export default {
 
 .menu-project-logo
   width: 30px
-
 </style>
