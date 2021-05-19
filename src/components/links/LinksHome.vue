@@ -71,6 +71,7 @@ export default {
 
 .main-card
   border: none
+  background: none
 
 .link-container
   border-bottom: 1px solid $blueBoxBorder
