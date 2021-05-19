@@ -58,6 +58,16 @@ let router = new Router({
       name: "Safer Space",
       component: () => import("@/components/saferSpace/SaferSpaceHome"),
     },
+    {
+      path: "/faq",
+      name: "FAQ",
+      component: () => import("@/components/faq/FAQHome"),
+    },
+    {
+      path: "/feedback",
+      name: "Feedback",
+      component: () => import("@/components/faq/FAQHome"),
+    },
   ],
 });
 

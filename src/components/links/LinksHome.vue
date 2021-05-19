@@ -50,10 +50,10 @@ export default {
       categoryMenu: "aaa",
     };
   },
-  mounted() {
+  created() {
     this.categoryMenu = this.$route.params.category;
-    console.log(this.$route.params.category);
-    console.log(this.categoryMenu);
+    // console.log(this.$route.params.category);
+    // console.log(this.categoryMenu);
   },
 };
 </script>
