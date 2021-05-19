@@ -7,15 +7,13 @@
         v-for="(category, idx) in linksData"
         :key="category.categoryTitle"
       >
-        <b-card-header class="accordion-container mb-3" role="tab">
-          <!-- CATEGORY TITLE -->
-          <b-card-text
-            block
-            v-b-toggle="'accordion-' + idx"
-            class="accordion-button h5 py-1 px-2"
-          >
-            <b>{{ category.categoryTitle }}</b>
-          </b-card-text>
+        <b-card-header
+          class="accordion-container mb-3 accordion-button h5 py-1 px-2"
+          role="tab"
+          block
+          v-b-toggle="'accordion-' + idx"
+        >
+          <b class="category-text">{{ category.categoryTitle }}</b>
         </b-card-header>
 
         <!-- LINKS -->
@@ -25,16 +23,17 @@
           role="tabpanel"
           class="mb-3"
         >
-          <b-card-body
+          <a
             v-for="link in category.links"
+            :href="link.url"
             :key="link.title"
-            class="link-container d-flex justify-content-between align-items-end"
+            class="link-container d-flex justify-content-between align-items-end link"
+            target="_blank"
           >
-            <b-link :src="link.url" class="link" target="_blank">
-              {{ link.title }}
-            </b-link>
+            {{ link.title }}
+
             <p class="m-0">{{ link.language }}</p>
-          </b-card-body>
+          </a>
         </b-collapse>
       </b-card>
     </div>
@@ -63,13 +62,16 @@ export default {
   padding: 5px 15px
   display: flex
   align-items: center
+  cursor: pointer
 
 
 .accordion-button
   display: flex
   align-items: center
+
 .main-card
   border: none
+  background: none
 
 .link-container
   border-bottom: 1px solid $blueBoxBorder
@@ -77,7 +79,9 @@ export default {
 
 .link-container:hover
   background-color: $blueBoxBorder
-  // padding-left: 15px
+
+.category-text
+  cursor: pointer
 
 .link
   color: black
@@ -85,4 +89,6 @@ export default {
 .link:hover
   color: black
   text-decoration: none
+
+category-text
 </style>
