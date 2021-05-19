@@ -90,7 +90,7 @@ export default {
         { name: "code of conduct", page: "CoC" },
         { name: "blog", page: "Blog" },
         { name: "merch", page: "Merch" },
-        // {name: "press", page: "Press"},
+        {name: "faq", page: "FAQ"},
         { name: "safe[r] space", page: "Safer Space" },
       ],
       links: [

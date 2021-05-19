@@ -9,7 +9,7 @@
     <b-dropdown-item v-for="(link, idx) in links"
                      :key="'link'+idx"
                      class="link-dropdown-item"
-                     @click="$router.push('/links/' + link.categoryTitle)"
+                     @click="$router.push('/links/' + link.shortCategoryTitle)"
     >
       {{link.categoryTitle}}
     </b-dropdown-item>
