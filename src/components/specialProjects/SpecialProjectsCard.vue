@@ -58,10 +58,12 @@ export default {
   @include link
 
 .card-body
-  @media screen and (max-width: 1399px)
+  @media screen and (max-width: 1299px)
     min-height: 300px
-  @media screen and (min-width: 1400px)
+    max-width: 380px
+  @media screen and (min-width: 1300px)
     min-height: 255px
+    max-width: 450px
 
 .card-link:hover
   color: black
