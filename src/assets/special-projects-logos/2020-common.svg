@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="100%" height="100%" viewBox="0 0 1800 1800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <circle cx="900" cy="900" r="900" style="fill:white;"/>
     <g transform="matrix(1.01583,0,0,1.01581,-11.2212,-11.1462)">
         <path d="M897.024,10.973C1386.01,10.973 1783,407.972 1783,896.963C1783,1385.95 1386.01,1782.95 897.024,1782.95C408.04,1782.95 11.046,1385.95 11.046,896.963C11.046,407.972 408.04,10.973 897.024,10.973ZM897.024,181.28C1292.01,181.28 1612.7,501.967 1612.7,896.963C1612.7,1291.96 1292.01,1612.65 897.024,1612.65C502.033,1612.65 181.351,1291.96 181.351,896.963C181.351,501.967 502.033,181.28 897.024,181.28Z" style="fill:rgb(235,45,94);"/>
     </g>
-    <g transform="matrix(3.77652,0,0,3.77652,-4576.64,-2684.91)">
-        <g transform="matrix(0.264794,-0,-0,0.264794,1211.87,710.949)">
-            <use xlink:href="#_Image1" x="108.572" y="900.597" width="1582.29px" height="250.834px" transform="matrix(0.999549,0,0,0.999337,0,0)"/>
+    <g transform="matrix(0.999549,0,0,0.999337,108.534,900.003)">
+        <g>
+            <use id="_Image1_" serif:id="_Image1" xlink:href="#_Image1" x="0" y="0" width="1583px" height="251px"/>
         </g>
     </g>
     <defs>
