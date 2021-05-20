@@ -8,7 +8,8 @@
     no-caret
   >
     <template #button-content>
-      <div class="menu-link" @click="$router.push({ name: 'Links' })">
+      <div class="dropdown-link"
+           @click="$emit('navigate','links')">
         <span class="pr-2 login">links</span>
       </div>
     </template>
@@ -25,6 +26,7 @@
 
 <script>
 import { links } from "@/assets/data/links";
+import {mapState} from "vuex";
 
 export default {
   props: {
@@ -35,6 +37,9 @@ export default {
       links: links,
     };
   },
+  computed: mapState([
+    'currentTab'
+  ]),
   watch: {
     showLinks: function(val) {
       val
@@ -68,14 +73,6 @@ export default {
 </style>
 
 <style lang="sass" scoped>
-.menu-link
-  cursor: pointer
-  color: black !important
-  text-decoration: none !important
-  &:hover
-    text-decoration: none !important
-    font-weight: bolder
-
 .menu-project-logo
   width: 30px
 </style>

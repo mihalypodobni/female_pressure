@@ -1,24 +1,24 @@
 <template>
   <b-row class="justify-content-center w-100 mx-0">
-    <b-col class="text-center link home_nav">
+    <b-col class="text-center menu-link link-padding home_nav">
       <div class="logo-wrapper">
         <b-img src="@/assets/fp-main-logo.svg" class="fp-logo" @click="$emit('navigate','home')"></b-img>
       </div>
     </b-col>
     <b-col v-for="(item, idx) in menuItems"
            :key="item.id + idx"
-           class="text-center link"
+           class="text-center menu-link link-padding"
            @click="item.name === 'projects' || item.name === 'links' ? null : $emit('navigate',item.id)"
            :class="[ item.id + '_nav', currentTab === item.id ? 'current-tab' : '']"
            @mouseenter="showDropdown(item.name)"
            @mouseleave="hideDropdown(item.name)"
     >
-      <ProjectsDropdown v-if="item.name==='projects'" :show-projects="showProjects"/>
-      <LinksDropdown v-else-if="item.name==='links'" :show-links="showLinks"/>
+      <ProjectsDropdown v-if="item.name==='projects'" :show-projects="showProjects" @navigate="$emit('navigate',$event)"/>
+      <LinksDropdown v-else-if="item.name==='links'" :show-links="showLinks" @navigate="$emit('navigate',$event)"/>
       <span v-else>{{ item.name }}</span>
     </b-col>
 
-    <b-col class="text-center link user_nav"
+    <b-col class="text-center menu-link link-padding user_nav"
            @mouseenter="showLogin = true"
            @mouseleave="showLogin = false"
     >
@@ -84,14 +84,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.link
-  cursor: pointer
-  padding-top: 20px
-  padding-bottom: 20px
-
-  &:hover
-    font-weight: bolder
-
 @each $name, $color in $menuItems
   .#{$name}_nav
     background-color: $color
@@ -101,10 +93,6 @@ export default {
 
 .user_nav
   background-color: $menu7
-
-.current-tab
-  font-weight: bolder
-  color: white
 
 .logo-wrapper
   position: absolute

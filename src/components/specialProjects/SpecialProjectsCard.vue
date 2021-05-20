@@ -45,7 +45,7 @@ export default {
 
 <style lang="sass" scoped>
 .project-card
-  @include button
+  @include card-button
 
 .project-img
   width: 100px

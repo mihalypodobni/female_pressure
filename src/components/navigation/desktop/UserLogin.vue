@@ -1,7 +1,7 @@
 <template>
   <b-dropdown variant="link" class="p-0 w-100" ref="login" right toggle-class="text-decoration-none" no-caret>
     <template #button-content>
-      <div class="menu-link">
+      <div class="dropdown-link">
         <span class="pr-2 login">login</span>
         <font-awesome-icon icon="user"/>
       </div>
@@ -76,19 +76,9 @@ export default {
 </style>
 
 <style lang="sass" scoped>
-.menu-link
-  cursor: pointer
-  color: black !important
-  text-decoration: none !important
-  &:hover
-    text-decoration: none !important
-  &:hover .login
-      font-weight: bolder
-
 .link
   color: $userLoginDropdown
   text-decoration: none
-
   &:hover
     color: black
 
