@@ -11,7 +11,7 @@ import {library} from '@fortawesome/fontawesome-svg-core'
 import {
     faTwitter,
     faFacebook,
-    faSoundcloud,
+    faWordpress,
     faMixcloud,
     faInstagram,
     faVimeo,
@@ -21,7 +21,7 @@ import {
 import {faUser} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
-library.add(faTwitter, faFacebook, faSoundcloud, faMixcloud, faInstagram, faVimeo, faTumblr, faYoutube, faUser)
+library.add(faTwitter, faFacebook, faWordpress, faMixcloud, faInstagram, faVimeo, faTumblr, faYoutube, faUser)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
