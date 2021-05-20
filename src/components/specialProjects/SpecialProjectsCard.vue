@@ -6,7 +6,7 @@
           <b-col class="text-left d-flex align-items-center" cols="12" xl="3">
             <div class="d-flex align-items-center">
               <b-img
-                :src="getImgUrl(project.img)"
+                :src="require('@/assets/special-projects-logos/' + project.img)"
                 :alt="project.title + ' logo'"
                 class="project-img m-2 p-0"
               />
@@ -33,12 +33,6 @@
 export default {
   props: {
     project: Object,
-  },
-  methods: {
-    getImgUrl(img) {
-      let images = require.context("@/assets/special-projects-logos");
-      return images("./" + img);
-    },
   },
 };
 </script>

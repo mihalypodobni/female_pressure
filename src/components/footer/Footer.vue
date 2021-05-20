@@ -38,7 +38,6 @@
           <span
               v-for="(link, idx) in links"
               :key="link.icon + idx"
-              variant="link"
               class="p-0 m-0"
           >
             <br v-if="idx === 5"/>
