@@ -1,7 +1,3 @@
 <template>
-  <div>This is the search page</div>
+  <h1>This is search Home</h1>
 </template>
-
-<script>
-
-</script>

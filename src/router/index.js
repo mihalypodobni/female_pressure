@@ -26,7 +26,7 @@ let router = new Router({
       path: "/links/:category?",
       name: "Links",
       component: () => import("@/components/links/LinksHome"),
-      alias: '/links/:category'
+      alias: "/links/:category",
     },
     {
       path: "/about",
@@ -67,6 +67,11 @@ let router = new Router({
       path: "/feedback",
       name: "Feedback",
       component: () => import("@/components/faq/FAQHome"),
+    },
+    {
+      path: "/search",
+      name: "search",
+      component: () => import("@/components/search/SearchHome"),
     },
   ],
 });
