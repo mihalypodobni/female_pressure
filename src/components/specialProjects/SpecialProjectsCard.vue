@@ -6,7 +6,7 @@
           <b-col class="p-0" cols="12" xl="3">
             <div class="d-flex align-items-center">
               <b-img
-                :src="getImgUrl(project.img)"
+                :src="require('@/assets/special-projects-logos/' + project.img)"
                 :alt="project.title + ' logo'"
                 class="project-img mt-1 mr-2 p-0"
               />
@@ -34,18 +34,12 @@ export default {
   props: {
     project: Object,
   },
-  methods: {
-    getImgUrl(img) {
-      let images = require.context("@/assets/special-projects-logos");
-      return images("./" + img);
-    },
-  },
 };
 </script>
 
 <style lang="sass" scoped>
 .project-card
-  @include button
+  @include card-button
 
 
 .project-img

@@ -2,7 +2,8 @@
   <b-dropdown variant="link" class="p-0 w-100 mr-0" ref="projects-dropdown" left toggle-class="text-decoration-none"
               no-caret>
     <template #button-content>
-      <div class="menu-link" @click="$router.push({name: 'Projects'})">
+      <div class="dropdown-link"
+           @click="$emit('navigate','projects')">
         <span class="pr-2 login">projects</span>
       </div>
     </template>
@@ -24,6 +25,7 @@
 
 <script>
 import {projects} from "@/assets/data/special-projects.js"
+import {mapState} from "vuex";
 
 export default {
   props: {
@@ -34,6 +36,9 @@ export default {
       projects: projects
     }
   },
+  computed: mapState([
+    'currentTab'
+  ]),
   watch: {
     showProjects: function (val) {
       val ? this.$refs["projects-dropdown"].show() : this.$refs["projects-dropdown"].hide()
@@ -65,14 +70,6 @@ export default {
 </style>
 
 <style lang="sass" scoped>
-.menu-link
-  cursor: pointer
-  color: black !important
-  text-decoration: none !important
-  &:hover
-    text-decoration: none !important
-    font-weight: bolder
-
 .menu-project-logo
   width: 30px
 </style>
