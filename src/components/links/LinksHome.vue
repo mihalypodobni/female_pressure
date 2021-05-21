@@ -47,13 +47,16 @@ export default {
   data() {
     return {
       linksData: links,
-      categoryMenu: "aaa",
+      categoryMenu: "",
     };
+  },
+  watch: {
+    $route(newVal) {
+      this.categoryMenu = newVal.params.category;
+    },
   },
   created() {
     this.categoryMenu = this.$route.params.category;
-    // console.log(this.$route.params.category);
-    // console.log(this.categoryMenu);
   },
 };
 </script>
