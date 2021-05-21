@@ -75,6 +75,7 @@ export default {
 .main-card
   border: none
   background: none
+  border-radius: 0px
 
 .link-container
   border-bottom: 1px solid $blueBoxBorder
@@ -92,6 +93,4 @@ export default {
 .link:hover
   color: black
   text-decoration: none
-
-category-text
 </style>
