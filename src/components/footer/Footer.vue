@@ -97,9 +97,9 @@ export default {
       links: [
         {icon: "twitter", link: "https://twitter.com/female_pressure", fontAwesome: true},
         {
-          icon: "instagram",
+          icon: "instagram.svg",
           link: "https://www.instagram.com/femalepressure_official/",
-          fontAwesome: true
+          fontAwesome: false
         },
         {icon: "facebook", link: "https://www.facebook.com/femalepressure", fontAwesome: true},
         {icon: "youtube", link: "https://www.youtube.com/femalepressure", fontAwesome: true},
