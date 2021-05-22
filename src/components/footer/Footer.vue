@@ -96,19 +96,20 @@ export default {
       ],
       links: [
         {icon: "twitter", link: "https://twitter.com/female_pressure", fontAwesome: true},
-        {icon: "facebook", link: "https://www.facebook.com/femalepressure", fontAwesome: true},
-        {icon: "soundcloud.svg", link: "https://soundcloud.com/femalepressure", fontAwesome: false},
-        {icon: "mixcloud", link: "https://www.mixcloud.com/female_pressure/", fontAwesome: true},
         {
           icon: "instagram",
           link: "https://www.instagram.com/femalepressure_official/",
           fontAwesome: true
         },
+        {icon: "facebook", link: "https://www.facebook.com/femalepressure", fontAwesome: true},
         {icon: "youtube", link: "https://www.youtube.com/femalepressure", fontAwesome: true},
-        {icon: "bandcamp.svg", link: "https://femalepressure.bandcamp.com/", fontAwesome: false},
-        {icon: "resident-advisor.svg", link: "https://ra.co/labels/16342", fontAwesome: false},
+        {icon: "soundcloud.svg", link: "https://soundcloud.com/femalepressure", fontAwesome: false},
+
         {icon: "currents.svg", link: "https://a.currents.fm/g/femalepressure", fontAwesome: false},
         {icon: "wordpress", link: "https://femalepressure.wordpress.com/", fontAwesome: true},
+        {icon: "bandcamp", link: "https://femalepressure.bandcamp.com/", fontAwesome: true},
+        {icon: "resident-advisor.svg", link: "https://ra.co/labels/16342", fontAwesome: false},
+        {icon: "mixcloud", link: "https://www.mixcloud.com/female_pressure/", fontAwesome: true},
       ],
     };
   },
@@ -127,5 +128,5 @@ export default {
   width: 45px
 
 .imported-icon
-  width: 25px
+  width: 22px
 </style>
