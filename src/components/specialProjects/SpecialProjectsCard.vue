@@ -18,7 +18,7 @@
                 {{ project.title }}
               </h4>
               <p class="project-year mb-2">{{ project.year }}</p>
-              <div>
+              <div class="project-text">
                 {{ project.text }}
               </div>
             </div>
@@ -49,6 +49,9 @@ export default {
 .project-year
   font-size: 15px
   color: $blueBoxBorder
+
+.project-text
+  font-weight: 400
 
 .card-link
   @include link
