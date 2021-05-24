@@ -41,13 +41,13 @@ export default {
 .project-card
   @include card-button
 
-
 .project-img
   width: 100px
   height: 100px
 
 .project-year
   font-size: 15px
+  font-weight: 300
   color: $blueBoxBorder
 
 .project-text
