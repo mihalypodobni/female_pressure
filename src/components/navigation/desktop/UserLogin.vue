@@ -96,6 +96,12 @@ export default {
   &:hover
     color: $userLoginDropdown
     background: black
+  &:active
+    color: black!important
+    background-color: $userLoginDropdown!important
+  &:focus
+    color: black!important
+    background-color: $userLoginDropdown!important
 
 .divider
   border-top: 2px solid white
