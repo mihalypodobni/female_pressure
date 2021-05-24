@@ -12,16 +12,17 @@ import {
     faTwitter,
     faFacebook,
     faWordpress,
+    faBandcamp,
     faMixcloud,
     faInstagram,
     faVimeo,
     faTumblr,
     faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
-import {faUser} from '@fortawesome/free-solid-svg-icons'
+import {faUserCircle} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
-library.add(faTwitter, faFacebook, faWordpress, faMixcloud, faInstagram, faVimeo, faTumblr, faYoutube, faUser)
+library.add(faTwitter, faBandcamp, faFacebook, faWordpress, faMixcloud, faInstagram, faVimeo, faTumblr, faYoutube, faUserCircle)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false

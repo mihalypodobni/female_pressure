@@ -3,10 +3,10 @@
     <template #button-content>
       <div class="dropdown-link">
         <span class="pr-2 login">login</span>
-        <font-awesome-icon icon="user"/>
+        <font-awesome-icon icon="user-circle" size="lg"/>
       </div>
     </template>
-    <b-dropdown-form class="user-login mx-4 mt-4 mb-2" >
+    <b-dropdown-form class="user-login mx-3 mt-4 mb-2" >
       <b-form-group @submit.stop.prevent>
         <b-form-input
             class="user-login-input"
@@ -14,7 +14,6 @@
             v-model="login.email"
         ></b-form-input>
       </b-form-group>
-
       <b-form-group>
         <b-form-input
             class="user-login-input"
@@ -23,17 +22,18 @@
             v-model="login.password"
         ></b-form-input>
       </b-form-group>
-      <b-row>
-        <b-col class="text-left my-auto link"><span>forgot password?</span></b-col>
-        <b-col class="text-right" cols="auto">
+      <b-row class="m-0 w-100">
+        <b-col cols="auto" class="text-left p-0 my-auto link"><span>forgot password?</span></b-col>
+        <b-col class="text-right p-0">
           <b-button squared class="sign-in-button" @click="userLogin">sign in</b-button>
         </b-col>
       </b-row>
     </b-dropdown-form>
-    <hr class="divider mx-3">
-    <b-dropdown-item-button class="text-center">not a member yet? join the network</b-dropdown-item-button>
+    <hr class="divider">
+    <b-dropdown-text class="text-center mb-2">not a member yet?
+      <b-link href="#" class="link">join the network</b-link>
+    </b-dropdown-text>
   </b-dropdown>
-
 </template>
 
 <script>
@@ -77,10 +77,7 @@ export default {
 
 <style lang="sass" scoped>
 .link
-  color: $userLoginDropdown
-  text-decoration: none
-  &:hover
-    color: black
+  @include link
 
 .user-login
   width: 300px !important
@@ -88,13 +85,25 @@ export default {
 .user-login-input
   border-radius: 0
   border: 3px $userLoginDropdown solid
-  color: $userLoginDropdown !important
+  &::placeholder
+    color: $userLoginDropdown
+    font-style: italic
 
 .sign-in-button
-  color: white
+  color: black
   background-color: $userLoginDropdown
   border: 0
+  &:hover
+    color: $userLoginDropdown
+    background: black
+  &:active
+    color: black!important
+    background-color: $userLoginDropdown!important
+  &:focus
+    color: black!important
+    background-color: $userLoginDropdown!important
 
 .divider
-  border-top: 3px solid white
+  border-top: 2px solid white
+  width: 85%
 </style>
