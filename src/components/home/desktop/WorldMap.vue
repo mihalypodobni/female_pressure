@@ -58,7 +58,6 @@ export default {
     graticuleSeries.fitExtent = false;
 
     polygonTemplate.events.on("hit", function(ev) {
-
       // get object info
       console.log(ev.target.dataItem.dataContext);
     });
