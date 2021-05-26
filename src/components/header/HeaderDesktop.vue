@@ -5,9 +5,8 @@
         <h1 :class="this.currentTab === 'home' ? 'home-header' : 'header'" class="mb-0">{{ this.currentTabTitle }}</h1>
         <h4 v-if="this.currentTab === 'home'" class="font-italic">database of people operating in electronic music</h4>
       </b-col>
-      <b-col class="text-right my-auto" cols="auto">
-        <span v-if="this.currentTab === 'home'"  class="pr-5">current members: 5454</span>
-        <span class="circle">join the network {{currentTab}}</span>
+      <b-col class="text-right my-auto px-0 " cols="auto">
+        <span v-if="this.currentTab === 'home'">current members: 5454</span>
       </b-col>
     </b-row>
   </b-container>
@@ -46,15 +45,4 @@ export default {
 
 .header
   color: #1fbb9e
-
-//.circle
-//  width: 50px
-//  height: 50px
-//  line-height: 50px
-//  border-radius: 50%
-//  font-size: $medium-text
-//  color: #fff
-//  text-align: center
-//  background: #000
-
 </style>
