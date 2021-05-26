@@ -6,8 +6,8 @@ let history = require('connect-history-api-fallback');
 
 let path = require('path');
 const app = express();
+if (process.env.NODE_ENV !== 'production') require('dotenv').config({path: '../.env'})
 
-require("dotenv").config({path: '../.env'});
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(history());
