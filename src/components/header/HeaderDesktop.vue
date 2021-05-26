@@ -7,7 +7,7 @@
       </b-col>
       <b-col class="text-right my-auto" cols="auto">
         <span v-if="this.currentTab === 'home'"  class="pr-5">current members: 5454</span>
-        <span class="circle">join the network</span>
+        <span class="circle">join the network {{currentTab}}</span>
       </b-col>
     </b-row>
   </b-container>

@@ -1,3 +1,3 @@
 <template>
-  <div>This is the blog page</div>
+  <div>This is the blog page dockerized!!</div>
 </template>
