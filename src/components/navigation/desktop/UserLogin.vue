@@ -92,16 +92,19 @@ export default {
 .sign-in-button
   color: black
   background-color: $userLoginDropdown
-  border: 0
+  border: 3px solid $userLoginDropdown!important
   &:hover
     color: $userLoginDropdown
-    background: black
+    background: white
+    border: 3px solid $userLoginDropdown
   &:active
     color: black!important
-    background-color: $userLoginDropdown!important
+    background-color: white!important
+    border: 3px solid $userLoginDropdown!important
   &:focus
     color: black!important
-    background-color: $userLoginDropdown!important
+    background-color: white!important
+    border: 3px solid $userLoginDropdown!important
 
 .divider
   border-top: 2px solid white

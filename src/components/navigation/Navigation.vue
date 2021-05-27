@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid="xl"  class="px-0 nav-container">
+  <b-container fluid="xl" class="px-0 nav-container">
     <NavigationMobile v-if="$store.state.isMobile" :menuItems="menuItems" @logout="logout" @navigate="navigate"/>
     <NavigationDesktop v-else :menuItems="menuItems" @logout="logout" @navigate="navigate" class="desktop-nav mb-3"/>
   </b-container>

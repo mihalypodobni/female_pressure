@@ -2,7 +2,7 @@
   <b-row class="justify-content-center w-100 mx-0">
     <b-col class="text-center menu-link link-padding home_nav">
       <div class="logo-wrapper">
-        <b-img src="@/assets/fp-main-logo.svg" class="fp-logo" @click="$emit('navigate','home')"></b-img>
+        <b-img src="@/assets/fp-main-logo-outline.svg" class="fp-logo" @click="$emit('navigate','home')"></b-img>
       </div>
     </b-col>
     <b-col v-for="(item, idx) in menuItems"
@@ -120,7 +120,6 @@ export default {
 .fp-logo
   position: fixed
   z-index: 9
-  border: 3px solid white
   @media screen and (max-width: 1399px)
     width: calc(100vw / 7 - 30px)
   @media screen and (min-width: 1400px)
