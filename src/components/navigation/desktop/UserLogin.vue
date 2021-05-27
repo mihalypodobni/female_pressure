@@ -23,7 +23,7 @@
         ></b-form-input>
       </b-form-group>
       <b-row class="m-0 w-100">
-        <b-col cols="auto" class="text-left p-0 my-auto link"><span>forgot password?</span></b-col>
+        <b-col cols="auto" class="text-left p-0 my-auto sub-link"><span>forgot password?</span></b-col>
         <b-col class="text-right p-0">
           <b-button squared class="sign-in-button" @click="userLogin">sign in</b-button>
         </b-col>
@@ -78,6 +78,9 @@ export default {
 <style lang="sass" scoped>
 .link
   @include link
+
+.sub-link
+  @include sub-link
 
 .user-login
   width: 300px !important

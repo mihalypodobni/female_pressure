@@ -18,7 +18,6 @@
       <span class="text-lowercase mr-1">{{ project.title }}</span>
       <small>[{{ project.year }}]</small>
     </b-dropdown-item>
-
   </b-dropdown>
 
 </template>
