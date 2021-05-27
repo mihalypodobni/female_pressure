@@ -7,7 +7,7 @@
           <div v-for="(link, idx) in siteNav" :key="link.name + idx">
             <b-button
                 variant="link"
-                class="p-0 m-0 link"
+                class="p-0 m-0 footer-link"
                 @click="
                 $router.push({ name: link.page });
                 SET_TAB(link.name);
@@ -22,7 +22,7 @@
           <div v-for="(link, idx) in resources" :key="link.name + idx">
             <b-button
                 variant="link"
-                class="p-0 m-0 link"
+                class="p-0 m-0 footer-link"
                 @click="
                 $router.push({ name: link.page });
                 SET_TAB('');
@@ -43,19 +43,19 @@
             <br v-if="idx === 5"/>
             <b-button
                 variant="link"
-                class="p-0 m-0 link"
+                class="p-0 m-0 footer-link"
                 :href="link.link"
                 target="_blank"
             >
               <font-awesome-icon
                   :icon="['fab', link.icon]"
                   size="lg"
-                  class="mx-2 my-2"
+                  class="mx-2 my-2 icon-background-size"
                   v-if="link.fontAwesome"
               />
               <b-img v-else
                      :src="require('@/assets/icons/' + link.icon)"
-                     class="imported-icon mx-2 my-2"
+                     class="icon-background-size mx-2 my-2"
               ></b-img>
             </b-button>
           </span>
@@ -65,7 +65,7 @@
         <b-img src="@/assets/fp-main-logo.svg" class="footer-logo"></b-img>
         <span class="my-auto pl-4"
         >&#169; 2019 - 2021 female:pressure -
-          <b-button variant="link" class="p-0 m-0 link" href="#">GDPR</b-button>
+          <b-button variant="link" class="p-0 m-0 footer-link" href="#">GDPR</b-button>
         </span>
       </div>
     </b-container>
@@ -121,12 +121,14 @@ export default {
 
 <style lang="sass" scoped>
 
-.link
-  @include link
+.footer-link
+  @include footer-link
 
 .footer-logo
   width: 45px
+  height: 45px
 
-.imported-icon
-  width: 22px
+.icon-background-size
+  width: 22px!important
+  height: 22px!important
 </style>
