@@ -100,6 +100,7 @@ export default {
   &:hover
     color: $userLoginDropdown
     background: white
+    text-shadow: 0 0 1px $userLoginDropdown
     border: 3px solid $userLoginDropdown
   &:active
     color: black!important
