@@ -49,7 +49,7 @@ export default {
 
 .circle
   position: absolute
-  top: -25px
+  top: -40px
   width: 80px
   height: 80px
   cursor: pointer
