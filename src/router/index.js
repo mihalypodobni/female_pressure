@@ -61,11 +61,6 @@ let router = new Router({
       component: () => import("@/components/blog/BlogHome"),
     },
     {
-      path: "/safer_space",
-      name: "Safer Space",
-      component: () => import("@/components/saferSpace/SaferSpaceHome"),
-    },
-    {
       path: "/faq",
       name: "FAQ",
       component: () => import("@/components/faq/FAQHome"),
