@@ -91,6 +91,6 @@ export default {
     //z-index: 10
     //box-shadow: 0 1.8px 0.3px -5px rgba(0, 0, 0, 0.013), 0 3.6px 3.9px -5px rgba(0, 0, 0, 0.033), 0 6.2px 15.2px -5px rgba(0, 0, 0, 0.072), 0 12px 58px -5px rgba(0, 0, 0, 0.25)
   &.link-padding
-    padding-top: 20px
-    padding-bottom: 20px
+    padding-top: 15px
+    padding-bottom: 15px
 </style>

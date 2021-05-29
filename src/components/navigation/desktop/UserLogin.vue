@@ -69,7 +69,7 @@ export default {
     > .btn
       padding: 0!important
     > .dropdown-menu
-      top: 15px !important
+      top: 12px !important
       margin-right: -15px !important
       border-radius: 0
       border: none

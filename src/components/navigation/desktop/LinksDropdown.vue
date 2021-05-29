@@ -59,7 +59,7 @@ export default {
         outline: none!important
         box-shadow: none!important
     > .dropdown-menu
-      top: 15px !important
+      top: 12px !important
       margin-left: -15px !important
       border-radius: 0
       border: none
