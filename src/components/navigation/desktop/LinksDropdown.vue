@@ -55,6 +55,9 @@ export default {
   > .dropdown
     > .btn
       padding: 0 !important
+      &:focus
+        outline: none!important
+        box-shadow: none!important
     > .dropdown-menu
       top: 15px !important
       margin-left: -15px !important

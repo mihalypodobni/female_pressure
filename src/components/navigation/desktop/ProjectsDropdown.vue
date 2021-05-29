@@ -19,7 +19,6 @@
       <small>[{{ project.year }}]</small>
     </b-dropdown-item>
   </b-dropdown>
-
 </template>
 
 <script>
@@ -51,6 +50,9 @@ export default {
   > .dropdown
     > .btn
       padding: 0 !important
+      &:focus
+        outline: none!important
+        box-shadow: none!important
     > .dropdown-menu
       top: 15px !important
       margin-left: -15px !important
@@ -65,7 +67,7 @@ export default {
 .project-dropdown-item
   > a
     &:hover
-      background-color: #D7F2F6!important
+      background-color: #D7F2F6 !important
 </style>
 
 <style lang="sass" scoped>
