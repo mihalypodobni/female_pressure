@@ -2,11 +2,11 @@ const SET_MOBILE = (state, isMobile) => {
     state.isMobile = isMobile
 }
 
-const SET_TAB = (state, currentTab) => {
-    state.currentTab = currentTab
+const SET_PAGE= (state, currentPage) => {
+    state.currentPage = currentPage
 }
 
 export default {
     SET_MOBILE,
-    SET_TAB
+    SET_PAGE
 }

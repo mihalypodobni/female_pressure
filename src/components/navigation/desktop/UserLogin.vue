@@ -32,7 +32,7 @@
     <hr class="divider">
     <b-dropdown-text class="text-center mb-2 join-section">
       <span class="font-weight-normal">not a member yet? </span>
-      <b-link @click="$router.push({ name: 'Join Network' }); SET_TAB('');" class="link join-network">join the network</b-link>
+      <b-link @click="$router.push({ name: 'Join Network' }); SET_PAGE('');" class="link join-network">join the network</b-link>
     </b-dropdown-text>
   </b-dropdown>
 </template>
@@ -56,7 +56,7 @@ export default {
     userLogin() {
       console.log("signing in", this.login)
     },
-    ...mapMutations(["SET_TAB"])
+    ...mapMutations(["SET_PAGE"])
   },
   watch: {
     showLogin: function (val) {

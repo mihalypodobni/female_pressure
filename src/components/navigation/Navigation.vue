@@ -24,11 +24,11 @@ export default {
     }
   },
   computed: mapState([
-    'currentTab'
+    'currentPage'
   ]),
   methods: {
     ...mapMutations([
-        "SET_TAB"
+        "SET_PAGE"
     ]),
     logout() {
       // this.logout()
@@ -36,8 +36,8 @@ export default {
       this.$router.push('/')
     },
     navigate(route) {
-      if (this.currentTab !== route) {
-        this.SET_TAB(route)
+      if (this.currentPage !== route) {
+        this.SET_PAGE(route)
         switch (route) {
           case 'home':
             this.$router.push({name: 'Home'})

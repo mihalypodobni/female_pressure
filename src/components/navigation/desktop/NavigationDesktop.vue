@@ -9,7 +9,7 @@
            :key="item.id + idx"
            class="text-center menu-link link-padding"
            @click="$emit('navigate',item.id)"
-           :class="[ item.id + '_nav', currentTab === item.id ? 'current-tab' : '']"
+           :class="[ item.id + '_nav', currentPage === item.id ? 'current-tab' : '']"
            @mouseenter="showDropdown(item.name)"
            @mouseleave="hideDropdown(item.name)"
     >
@@ -27,12 +27,6 @@
     </b-col>
   </b-row>
 </template>
-<!--TODO this needs to be absolutely positioned-->
-<!--<b-col cols="auto">-->
-
-<!--</b-col>-->
-
-
 
 <script>
 import {mapState} from "vuex";
@@ -85,7 +79,7 @@ export default {
     menuItems: Array
   },
   computed: mapState([
-    'currentTab'
+    'currentPage'
   ]),
 }
 </script>
