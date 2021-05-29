@@ -30,8 +30,9 @@
       </b-row>
     </b-dropdown-form>
     <hr class="divider">
-    <b-dropdown-text class="text-center mb-2">not a member yet?
-      <b-link href="#" class="link">join the network</b-link>
+    <b-dropdown-text class="text-center mb-2 join-section">
+      <span class="font-weight-normal">not a member yet? </span>
+      <b-link href="#" class="link join-network">join the network</b-link>
     </b-dropdown-text>
   </b-dropdown>
 </template>
@@ -112,4 +113,10 @@ export default {
 .divider
   border-top: 2px solid white
   width: 85%
+
+.join-section
+  cursor: default
+
+.join-network
+  cursor: pointer!important
 </style>
