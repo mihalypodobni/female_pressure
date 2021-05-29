@@ -23,22 +23,16 @@
            @mouseleave="showLogin = false"
     >
       <UserLogin :showLogin=showLogin />
+
     </b-col>
   </b-row>
 </template>
 <!--TODO this needs to be absolutely positioned-->
 <!--<b-col cols="auto">-->
-<!--<div class="circle text-center pt-3">-->
-<!--  join the <br> network-->
-<!--</div>-->
+
 <!--</b-col>-->
 
-<!--.circle-->
-<!--width: 80px-->
-<!--height: 80px-->
-<!--border-radius: 50%-->
-<!--background: #333-->
-<!--color: #fff-->
+
 
 <script>
 import {mapState} from "vuex";

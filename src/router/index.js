@@ -69,9 +69,9 @@ let router = new Router({
       component: () => import("@/components/faq/FAQHome"),
     },
     {
-      path: "/search",
-      name: "search",
-      component: () => import("@/components/search/SearchHome"),
+      path: "/join-network",
+      name: "Join Network",
+      component: () => import("@/components/join/JoinHome"),
     },
   ],
 });

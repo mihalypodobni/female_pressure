@@ -32,12 +32,14 @@
     <hr class="divider">
     <b-dropdown-text class="text-center mb-2 join-section">
       <span class="font-weight-normal">not a member yet? </span>
-      <b-link href="#" class="link join-network">join the network</b-link>
+      <b-link @click="$router.push({ name: 'Join Network' }); SET_TAB('');" class="link join-network">join the network</b-link>
     </b-dropdown-text>
   </b-dropdown>
 </template>
 
 <script>
+import {mapMutations} from "vuex";
+
 export default {
   props: {
     showLogin: Boolean,
@@ -53,7 +55,8 @@ export default {
   methods: {
     userLogin() {
       console.log("signing in", this.login)
-    }
+    },
+    ...mapMutations(["SET_TAB"])
   },
   watch: {
     showLogin: function (val) {
@@ -68,6 +71,9 @@ export default {
   > .dropdown
     > .btn
       padding: 0!important
+      &:focus
+        outline: none!important
+        box-shadow: none!important
     > .dropdown-menu
       top: 12px !important
       margin-right: -15px !important

@@ -109,7 +109,7 @@ export const links = [
   // BLOGS IN ENGLISH
   {
     categoryTitle: "online magazines, blogs and podcasts in english",
-    shortCategoryTitle: "blogsEnglish",
+    shortCategoryTitle: "blog-english",
     links: [
       {
         title: "anattitude",
