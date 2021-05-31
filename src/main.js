@@ -45,6 +45,37 @@ Vue.prototype.$hostname =
         ? `${window.location.protocol}//${window.location.hostname}:8080`
         : `${window.location.protocol}//${window.location.host}`;
 
+axios.interceptors.request.use(
+    config => {
+        const token = store.state.jwt;
+        if (token) {
+            config.headers['Authorization'] = 'Bearer ' + token;
+        }
+        return config;
+    },
+    error => {
+        return Promise.reject(error);
+    }
+);
+
+axios.interceptors.response.use(
+    (response) => {
+        if (response.headers.authorization && response.headers.authorization.includes("NewToken")) {
+            store.commit('SET_TOKEN',response.headers.authorization.slice(9, response.headers.authorization.length))
+        }
+        return response
+    },
+    error => {
+        if (error.response.status === 401 && error.response.config && !error.response.config.__isRetryRequest) {
+            delete axios.defaults.headers.common['Authorization']
+            if (error.response.data.Error === 'VialServer Error') {
+                location.reload()
+            }
+        }
+        return Promise.reject(error);
+    }
+);
+
 new Vue({
     store,
     router,

@@ -3,7 +3,11 @@ const getDefaultState = () => {
     return {
         isMobile: false,
         currentPage: 'home',
-        admin: null,
+        user: {
+            jwt: null,
+            authenticated: false,
+            admin: null,
+        }
     }
 }
 
