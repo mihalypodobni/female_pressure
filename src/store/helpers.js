@@ -2,12 +2,7 @@
 const getDefaultState = () => {
     return {
         isMobile: false,
-        currentPage: 'home',
-        user: {
-            jwt: null,
-            authenticated: false,
-            admin: null,
-        }
+        currentPage: 'home'
     }
 }
 

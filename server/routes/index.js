@@ -9,10 +9,7 @@ const Utility = require('../handlers/util')
  * been inactive for set time, then create new token and send back to
  * client, else send back error
  *********************************************************************/
-router.use(["/auth/", "/users/"], async function (req, res, next) {
-    if (req.url === '/login') {
-        next()
-    }
+router.use(async function (req, res, next) {
     res.header("Authorization", undefined)
     let validToken = false;
     let user_info = {};
@@ -37,7 +34,7 @@ router.use(["/auth/", "/users/"], async function (req, res, next) {
                 if (Utility.checkUserSessionExpired(decrypted.doi)) {
                     validToken = false;
 
-                    //create new token, set header and send back to client
+                //create new token, set header and send back to client
                 } else {
                     decrypted.doi = new Date().getTime()
                     let payload = Crypto.encryptObject(decrypted)
@@ -51,20 +48,16 @@ router.use(["/auth/", "/users/"], async function (req, res, next) {
                 }
             }
         }
+    } else {
+        next()
+        return
     }
+
     if (!validToken) {
-        switch (req.baseUrl) {
-            case "/auth":
-                res.status(401).json({Error: "Routing Error"});
-                break;
-            case "/classification":
-                res.status(401).json({Error: "VialServer Error"});
-                break;
-        }
+        res.status(401).json({Error: "Invalid Token"});
     } else {
         next()
     }
 });
 
 router.use("/auth", require("../controllers/authController"))
-router.use("/users", require("../controllers/userController"));
