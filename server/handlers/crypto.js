@@ -2,7 +2,7 @@ const crypto = require('crypto');
 const algorithm = 'aes-256-cbc';
 const rounds = 9921;
 const keySize = 32;
-const secret = 'appSecretKey';
+const secret = 'appSecretKey'; //TODO this should be a variable, see config.js file
 const salt = crypto.createHash('sha1').update(secret).digest("hex");
 
 function encryptObject(data) {

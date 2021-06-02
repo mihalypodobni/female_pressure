@@ -10,7 +10,7 @@
                 class="p-0 m-0 footer-link"
                 @click="
                 $router.push({ name: link.page });
-                SET_TAB(link.name);
+                SET_PAGE(link.name);
               "
             >
               {{ link.name }}
@@ -21,12 +21,19 @@
           <div class="font-weight-bolder">resources</div>
           <div v-for="(link, idx) in resources" :key="link.name + idx">
             <b-button
+                v-if="link.link"
                 variant="link"
                 class="p-0 m-0 footer-link"
-                @click="
-                $router.push({ name: link.page });
-                SET_TAB('');
-              "
+                :href="link.link"
+                target="_blank"
+            >
+              {{ link.name }}
+            </b-button>
+            <b-button
+                v-else
+                variant="link"
+                class="p-0 m-0 footer-link"
+                @click=" $router.push({ name: link.page }); SET_PAGE(link.name);"
             >
               {{ link.name }}
             </b-button>
@@ -91,7 +98,7 @@ export default {
         {name: "blog", page: "Blog"},
         {name: "merch", page: "Merch"},
         {name: "faq", page: "FAQ"},
-        {name: "safe[r] space", page: "Safer Space"},
+        {name: "safe[r] space", link: "https://too-many.org/code-of-conduct/"},
         {name: "feedback", page: "Feedback"},
       ],
       links: [
@@ -114,7 +121,7 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["SET_TAB"]),
+    ...mapMutations(["SET_PAGE"]),
   },
 };
 </script>

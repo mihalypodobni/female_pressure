@@ -30,13 +30,16 @@
       </b-row>
     </b-dropdown-form>
     <hr class="divider">
-    <b-dropdown-text class="text-center mb-2">not a member yet?
-      <b-link href="#" class="link">join the network</b-link>
+    <b-dropdown-text class="text-center mb-2 join-section">
+      <span class="font-weight-normal">not a member yet? </span>
+      <b-link @click="$router.push({ name: 'Join Network' }); SET_PAGE('');" class="link join-network">join the network</b-link>
     </b-dropdown-text>
   </b-dropdown>
 </template>
 
 <script>
+import {mapMutations} from "vuex";
+
 export default {
   props: {
     showLogin: Boolean,
@@ -52,7 +55,8 @@ export default {
   methods: {
     userLogin() {
       console.log("signing in", this.login)
-    }
+    },
+    ...mapMutations(["SET_PAGE"])
   },
   watch: {
     showLogin: function (val) {
@@ -67,8 +71,11 @@ export default {
   > .dropdown
     > .btn
       padding: 0!important
+      &:focus
+        outline: none!important
+        box-shadow: none!important
     > .dropdown-menu
-      top: 15px !important
+      top: 12px !important
       margin-right: -15px !important
       border-radius: 0
       border: none
@@ -99,6 +106,7 @@ export default {
   &:hover
     color: $userLoginDropdown
     background: white
+    text-shadow: 0 0 1px $userLoginDropdown
     border: 3px solid $userLoginDropdown
   &:active
     color: black!important
@@ -112,4 +120,10 @@ export default {
 .divider
   border-top: 2px solid white
   width: 85%
+
+.join-section
+  cursor: default
+
+.join-network
+  cursor: pointer!important
 </style>

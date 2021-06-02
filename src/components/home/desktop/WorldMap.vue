@@ -1,5 +1,5 @@
 <template>
-  <div class="world-map" ref="world-map"></div>
+    <div class="world-map"  ref="world-map"></div>
 </template>
 
 <script>
@@ -42,7 +42,6 @@ export default {
       "max": am4core.color("#AAAA00")
     });
 
-
     // Configure series
     var polygonTemplate = polygonSeries.mapPolygons.template;
     polygonTemplate.tooltipText = "{name} {value}";
@@ -60,6 +59,51 @@ export default {
     polygonTemplate.events.on("hit", function(ev) {
       // get object info
       console.log(ev.target.dataItem.dataContext);
+    });
+
+    chart.preloader.disabled = true;
+
+    var indicator;
+    var indicatorInterval;
+
+    function showIndicator() {
+
+      if (!indicator) {
+        indicator = chart.tooltipContainer.createChild(am4core.Container);
+        indicator.background.fill = am4core.color("#fff");
+        indicator.background.fillOpacity = 0.8;
+        indicator.width = am4core.percent(100);
+        indicator.height = am4core.percent(100);
+
+        var indicatorLabel = indicator.createChild(am4core.Label);
+        indicatorLabel.text = "loading map...";
+        indicatorLabel.align = "center";
+        indicatorLabel.valign = "middle";
+        indicatorLabel.fontSize = 20;
+        indicatorLabel.dy = 50;
+      }
+
+      indicator.hide(0);
+      indicator.show();
+
+      clearInterval(indicatorInterval);
+      indicatorInterval = setInterval(function() {
+        indicatorLabel.animate([{
+          from: 0,
+          to: 360,
+          property: "rotation"
+        }], 1000);
+      }, 1000);
+    }
+
+    function hideIndicator() {
+      indicator.hide();
+      clearInterval(indicatorInterval);
+    }
+
+    showIndicator();
+    chart.events.on("ready", function(){
+      hideIndicator()
     });
 
     // Add expectancy data

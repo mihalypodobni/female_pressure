@@ -1,9 +1,8 @@
-//want currentTab to only persist state until browser is closed
+//want currentPage to only persist state until browser is closed
 const getDefaultState = () => {
     return {
         isMobile: false,
-        currentTab: 'home',
-        admin: null,
+        currentPage: 'home'
     }
 }
 
