@@ -1,6 +1,8 @@
+import Vue from 'vue';
+
 const login = ({commit}, authData) => {
     return new Promise((resolve, reject) => {
-        authData.vm.$http.post(`${authData.vm.$hostname}/auth/login`, {
+        Vue.prototype.$http.get(`${Vue.prototype.$hostname}/auth/login`, {
             email: authData.email,
             password: authData.password
         })
@@ -17,14 +19,14 @@ const login = ({commit}, authData) => {
     })
 };
 
-const verify = (authData) => {
-    console.log("verifying user", authData)
+const verify = ({commit}) => {
     return new Promise((resolve, reject) => {
-        authData.vm.$http.get(`${authData.vm.$hostname}/auth/verify`)
-            .then(() => {
-                resolve();
+        Vue.prototype.$http.get(`${Vue.prototype.$hostname}/auth/verify`)
+            .then((response) => {
+                resolve(response);
             }, error => {
-                reject(error);
+                commit('LOGOUT')
+                reject(error)
             })
     })
 };
