@@ -4,6 +4,7 @@ const LOGIN = (state, userData) => {
     state.user = userData.user
     state.jwt = userData.jwt
     state.authenticated = userData.auth
+    state.admin = userData.admin
 };
 
 const LOGOUT = (state) => {

@@ -3,6 +3,7 @@ const getDefaultState = () => {
         jwt: null,
         authenticated: false,
         admin: false,
+        user: null
     }
 }
 

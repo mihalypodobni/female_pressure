@@ -9,9 +9,10 @@ const login = ({commit}, data) => {
             .then(response => {
                 console.log("response", response)
                 commit('LOGIN', {
-                    user: response.data.user[0].member_email,
+                    user: response.data.user[0].email,
                     jwt: response.data.token,
-                    auth: response.data.auth
+                    auth: response.data.auth,
+                    admin: response.data.admin
                 })
                 resolve();
             }, error => {

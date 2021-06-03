@@ -68,12 +68,15 @@ export default {
         email: this.login.email,
         password: this.login.password
       }).then(() => {
-        if (this.$route.meta.onlyLoggedOut) {
+        if (this.admin) {
+          this.$router.push({name: 'Admin Home'})
+          this.SET_PAGE('')
+        } else if (this.$route.meta.onlyLoggedOut) {
           this.$router.push({name: 'Home'})
           this.SET_PAGE('home')
           this.$emit('noDropdown')
         } else {
-          window.location.reload()
+          // window.location.reload()
         }
       })
     },
@@ -84,7 +87,7 @@ export default {
         this.SET_PAGE('home')
         this.$emit('noDropdown')
       } else {
-        window.location.reload()
+        // window.location.reload()
       }
     },
     ...mapMutations(["SET_PAGE", "LOGOUT"]),
@@ -99,7 +102,8 @@ export default {
   },
   computed: {
     ...mapState({
-      authenticated: state => state.authentication.authenticated
+      authenticated: state => state.authentication.authenticated,
+      admin: state => state.authentication.admin
     }),
   }
 }
