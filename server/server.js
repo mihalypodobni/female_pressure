@@ -1,7 +1,7 @@
 "use strict";
 const express = require('express');
 const bodyParser = require('body-parser');
-const serveStatic = require("serve-static");
+const serveStatic = require('serve-static');
 let history = require('connect-history-api-fallback');
 
 let path = require('path');

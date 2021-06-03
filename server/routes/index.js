@@ -1,5 +1,5 @@
 const router = (module.exports = require("express").Router());
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 const config = require('../config');
 const Crypto = require('../handlers/crypto')
 const Utility = require('../handlers/util')
