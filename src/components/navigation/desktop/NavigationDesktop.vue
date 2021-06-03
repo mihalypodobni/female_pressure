@@ -22,8 +22,7 @@
            @mouseenter="showLogin = true"
            @mouseleave="showLogin = false"
     >
-      <UserLogin :showLogin=showLogin />
-
+      <UserLogin :showLogin=showLogin @noDropdown="showLogin = false"/>
     </b-col>
   </b-row>
 </template>

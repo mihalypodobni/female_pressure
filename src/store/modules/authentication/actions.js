@@ -1,14 +1,15 @@
 import Vue from 'vue';
 
-const login = ({commit}, authData) => {
+const login = ({commit}, data) => {
     return new Promise((resolve, reject) => {
-        Vue.prototype.$http.get(`${Vue.prototype.$hostname}/auth/login`, {
-            email: authData.email,
-            password: authData.password
+        Vue.prototype.$http.post(`${Vue.prototype.$hostname}/auth/login`, {
+            email: data.email,
+            password: data.password
         })
             .then(response => {
+                console.log("response", response)
                 commit('LOGIN', {
-                    user: response.data.user[0].email,
+                    user: response.data.user[0].member_email,
                     jwt: response.data.token,
                     auth: response.data.auth
                 })

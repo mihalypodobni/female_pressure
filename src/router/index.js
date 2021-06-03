@@ -17,21 +17,21 @@ const router = new Router({
 })
 
 router.beforeEach(async (to, from, next) => {
-    const authenticated = store.state.user.authenticated
-    const admin = store.state.user.admin
+    const authenticated = store.state.authentication.authenticated
+    const admin = store.state.authentication.admin
 
     const onlyLoggedOutPage = to.matched.some(record => record.meta.onlyLoggedOut)
     const isPublicPage = to.matched.some(record => record.meta.public)
     const isAdminPage = to.matched.some(record => record.meta.admin)
 
+    console.log("only logged out", onlyLoggedOutPage)
+
     store.dispatch('verify').then(() => {
-        //no jwt token, user can only go to public and onlyLoggedOut pages, otherwise directed back to home screen
-        //TODO user can also be directed to 'You have to be logged in to do that' page - update home routes
-        if (!authenticated) {
+        if (!authenticated) { //no jwt token, user can only go to public and onlyLoggedOut pages
             if (isPublicPage || onlyLoggedOutPage) {
                 next();
             } else {
-                next({name: 'Home'});
+                next({name: 'Unauthorized'});
             }
         } else {
             if (admin) { //if user is admin, they only have access to admin pages
@@ -41,11 +41,11 @@ router.beforeEach(async (to, from, next) => {
                     next({name: 'AdminHome'}); // admin is trying to access any other page on site, do not allow
                 }
             } else if (isAdminPage) {
-                next({name: 'Home'}); //non-admin trying to access admin page - redirect to home
+                next({name: 'Unauthorized'}); //non-admin trying to access admin page - redirect to home
+            } else if (onlyLoggedOutPage) {
+                next({name: 'Unauthorized'}); //user is logged in and tries to access only logged out page - redirect to home
             } else if (!isPublicPage || isPublicPage) {
                 next() //non-admin accessing private / public page - connect
-            } else if (onlyLoggedOutPage) {
-                next({name: 'Home'}); //user is logged in and tries to access only logged out page - redirect to home
             } else {
                 next() //all other requests, although this line should not be executed
             }

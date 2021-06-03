@@ -1,3 +1,5 @@
 <template>
-  <h1>This is search Home</h1>
+  <b-container class="body-container mt-3">
+    <div>This is the search page</div>
+  </b-container>
 </template>

@@ -7,7 +7,7 @@
       </b-col>
       <b-col class="text-right my-auto px-0 " cols="auto">
         <span v-if="statePage === 'home'">current members: 5454</span>
-        <span class="circle text-center pt-4" @click="$router.push({ name: 'Join Network' }); SET_PAGE('join');">
+        <span v-if="!authenticated" class="circle text-center pt-4" @click="$router.push({ name: 'Join Network' }); SET_PAGE('join');">
           join the <br> network
         </span>
       </b-col>
@@ -31,7 +31,8 @@ export default {
       return this.pageHeaders[index]
     },
     ...mapState({
-      statePage: state => state.currentPage
+      statePage: state => state.currentPage,
+      authenticated: state => state.authentication.authenticated
     }),
   },
   methods: {

@@ -10,7 +10,7 @@ const jwt = require("jsonwebtoken");
  * GET route is verified
  *********************************************************************/
 router.get("/verify", cors(), async function (req, res) {
-    let response = { "Response": "Valid Token"}
+    let response = { "Response": "Verified"}
     res.status(200).json(response);
 });
 
@@ -34,6 +34,7 @@ router.post("/login", function (req, res) {
                 algorithm: "HS256",
                 expiresIn: config.ACCESS_TOKEN_LIFE,
             })
+            console.log("logging in", token)
             res.status(200).json({token: token, auth: true, user: data}).end();
         })
         .catch((err) => {

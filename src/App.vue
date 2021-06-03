@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <Navigation />
-    <Header />
+    <Navigation v-if="!admin"/>
+    <Header v-if="!admin"/>
     <router-view />
-    <Footer class="footer"/>
+    <Footer class="footer" v-if="!admin"/>
   </div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import {mapMutations, mapState} from 'vuex'
 import Navigation from "./components/navigation/Navigation";
 import Footer from  "./components/footer/Footer"
 import Header from "./components/header/HeaderDesktop"
@@ -34,6 +34,11 @@ export default {
   },
   destroyed() {
     window.removeEventListener('resize', this.handleResize)
+  },
+  computed: {
+    ...mapState({
+      admin: state => state.authentication.admin
+    }),
   },
   methods: {
     ...mapMutations([

@@ -258,7 +258,7 @@ export const links = [
   //  BLOGS IN OTHER LANGUAGES
   {
     categoryTitle: "online magazines, blogs and podcasts in other languages",
-    shortCategoryTitle: "blogsOther",
+    shortCategoryTitle: "blogs-other",
     links: [
       {
         title: "pause musicale",

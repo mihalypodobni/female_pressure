@@ -55,12 +55,10 @@ export const pageHeaders = [
     {
         page: '404',
         title: '404 page not found',
-        subtitle: 'This page does not exist on the site, sorry!'
     },
     {
-        page: 'not logged in',
-        title: 'restricted',
-        subtitle: 'You must be logged in to view this page'
+        page: '401',
+        title: '401 unauthorized',
     },
     {
         page: 'admin restricted',

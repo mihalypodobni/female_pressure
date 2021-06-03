@@ -57,16 +57,23 @@ const routes = [
         component: () => import("@/components/faq/FAQHome"),
     },
     {
-        path: "/join-network",
-        name: "Join Network",
-        component: () => import("@/components/join/JoinHome"),
+        path: "/401-unauthorized",
+        name: "Unauthorized",
+        component: () => import("@/components/util/401Unauthorized"),
     },
+    {
+        path: "/404-not-found",
+        name: "Not Found",
+        component: () => import("@/components/util/404NotFound"),
+    },
+
 ]
 
 export default routes.map(route => {
     const meta = {
         public: true,
-        onlyLoggedOut: false
+        onlyLoggedOut: false,
+        admin: false
     }
     return { ...route, meta }
 })

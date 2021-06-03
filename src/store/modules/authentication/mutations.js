@@ -2,12 +2,12 @@ import helpers from './helpers'
 
 const LOGIN = (state, userData) => {
     state.user = userData.user
-    state.jwt = userData.token
+    state.jwt = userData.jwt
     state.authenticated = userData.auth
-    state.admin = userData.admin
 };
 
 const LOGOUT = (state) => {
+    console.log("logging out")
     Object.assign(state, helpers.getDefaultState())
 };
 
