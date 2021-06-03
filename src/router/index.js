@@ -2,7 +2,6 @@ import Vue from "vue"
 import Router from "vue-router"
 import store from '@/store/index.js'
 import routes from '@/router/routes/index.js'
-// import axios from 'axios'
 Vue.use(Router)
 
 //avoid redundant navigation
@@ -25,7 +24,6 @@ router.beforeEach(async (to, from, next) => {
     const isPublicPage = to.matched.some(record => record.meta.public)
     const isAdminPage = to.matched.some(record => record.meta.admin)
 
-    //for every nav call, we will verify that the user is allowed to visit the page via a call to the server
     store.dispatch('verify').then(() => {
         //no jwt token, user can only go to public and onlyLoggedOut pages, otherwise directed back to home screen
         //TODO user can also be directed to 'You have to be logged in to do that' page - update home routes
