@@ -57,8 +57,8 @@ export default {
   data() {
     return {
       login: {
-        email: "alexdohm11@gmail.com",
-        password: "123"
+        email: "",
+        password: ""
       }
     }
   },
@@ -76,7 +76,7 @@ export default {
           this.SET_PAGE('home')
           this.$emit('noDropdown')
         } else {
-          // window.location.reload()
+          window.location.reload()
         }
       })
     },
@@ -87,7 +87,7 @@ export default {
         this.SET_PAGE('home')
         this.$emit('noDropdown')
       } else {
-        // window.location.reload()
+        window.location.reload()
       }
     },
     ...mapMutations(["SET_PAGE", "LOGOUT"]),

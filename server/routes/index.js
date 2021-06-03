@@ -15,7 +15,6 @@ router.use(async function (req, res, next) {
     let user_info = {};
     let token = req.headers["authorization"];
     if (token) {
-        console.log("verifying existing token")
         try {
             // strip "Bearer " from string
             token = token.slice(7, token.length);
@@ -33,7 +32,6 @@ router.use(async function (req, res, next) {
 
                 //check if token is older than inactivity period
                 if (Utility.checkUserSessionExpired(decrypted.doi)) {
-                    console.log("expired token past session")
                     validToken = false;
 
                 //create new token, set header and send back to client
@@ -44,7 +42,6 @@ router.use(async function (req, res, next) {
                         algorithm: "HS256",
                         expiresIn: config.ACCESS_TOKEN_LIFE,
                     })
-                    console.log("expired token, creating another")
                     const authToken = "NewToken " + newToken
                     res.header("Authorization", authToken)
                     validToken = true;
@@ -52,7 +49,6 @@ router.use(async function (req, res, next) {
             }
         }
     } else {
-        console.log("there is no token")
         next()
         return
     }

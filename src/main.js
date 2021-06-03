@@ -48,7 +48,6 @@ Vue.prototype.$hostname =
 axios.interceptors.request.use(
     config => {
         const token = store.state.authentication.jwt;
-        console.log("token", token)
         if (token) {
             config.headers['Authorization'] = 'Bearer ' + token;
         }
@@ -62,7 +61,6 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
     (response) => {
         if (response.headers.authorization && response.headers.authorization.includes("NewToken")) {
-            console.log("new token")
             store.commit('SET_TOKEN',response.headers.authorization.slice(9, response.headers.authorization.length))
         }
         return response

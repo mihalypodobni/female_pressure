@@ -1,5 +1,5 @@
 const config = {
-    ACCESS_TOKEN_SECRET: 'adfafadfjkh',
+    ACCESS_TOKEN_SECRET: process.env.ACCESS_TOKEN_SECRET,
     ACCESS_TOKEN_LIFE: 15, //15 seconds
     USER_SESSION_EXPIRATION: 1000 * 60 * 0.5 // 30 seconds
 };

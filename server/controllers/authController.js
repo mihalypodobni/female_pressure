@@ -25,7 +25,6 @@ router.post("/login", function (req, res) {
                             return res.status(401).send({auth: false, token: null})
                         }
                         let token = util.createToken(data)
-                        console.log("logging in", token)
                         res.status(200).json({token: token, auth: true, admin: false, user: data}).end();
                     })
                     .catch((err) => {
@@ -34,7 +33,6 @@ router.post("/login", function (req, res) {
             } else {
                 //create token
                 let token = util.createToken(data)
-                console.log("admin logging in", token)
                 res.status(200).json({token: token, auth: true, admin: true, user: data}).end();
             }
         })

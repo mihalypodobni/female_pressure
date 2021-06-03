@@ -9,7 +9,6 @@ const checkUserSessionExpired = function (tokenCreationDate) {
 
 const createToken = function (data) {
     let jwtDataPayload = {user: data[0].email};
-    console.log("jwt payload", jwtDataPayload, data)
 
     let dateOfIssue = new Date()
     let jwtPayload = {"data": jwtDataPayload, "doi": dateOfIssue.getTime()}

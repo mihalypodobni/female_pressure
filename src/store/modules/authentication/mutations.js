@@ -8,7 +8,6 @@ const LOGIN = (state, userData) => {
 };
 
 const LOGOUT = (state) => {
-    console.log("logging out")
     Object.assign(state, helpers.getDefaultState())
 };
 
