@@ -1,5 +1,8 @@
 <template>
-    <div class="world-map"  ref="world-map"></div>
+  <div>
+    <div v-show="ready" class="world-map" ref="world-map"></div>
+    <div v-if="ready === false">The chart is loading...</div>
+  </div>
 </template>
 
 <script>
@@ -13,11 +16,14 @@ am4core.useTheme(am4themes_animated);
 export default {
   data() {
     return {
-      chart: null
+      chart: null,
+      ready: false
     }
   },
   mounted() {
+    let that = this
     // Create map instance
+    am4core.options.onlyShowOnViewport = true
     let chart = am4core.create(this.$refs['world-map'], am4maps.MapChart);
 
     // Set map definition
@@ -62,48 +68,9 @@ export default {
     });
 
     chart.preloader.disabled = true;
-
-    var indicator;
-    var indicatorInterval;
-
-    function showIndicator() {
-
-      if (!indicator) {
-        indicator = chart.tooltipContainer.createChild(am4core.Container);
-        indicator.background.fill = am4core.color("#fff");
-        indicator.background.fillOpacity = 0.8;
-        indicator.width = am4core.percent(100);
-        indicator.height = am4core.percent(100);
-
-        var indicatorLabel = indicator.createChild(am4core.Label);
-        indicatorLabel.text = "loading map...";
-        indicatorLabel.align = "center";
-        indicatorLabel.valign = "middle";
-        indicatorLabel.fontSize = 20;
-        indicatorLabel.dy = 50;
-      }
-
-      indicator.hide(0);
-      indicator.show();
-
-      clearInterval(indicatorInterval);
-      indicatorInterval = setInterval(function() {
-        indicatorLabel.animate([{
-          from: 0,
-          to: 360,
-          property: "rotation"
-        }], 1000);
-      }, 1000);
-    }
-
-    function hideIndicator() {
-      indicator.hide();
-      clearInterval(indicatorInterval);
-    }
-
-    showIndicator();
     chart.events.on("ready", function(){
-      hideIndicator()
+      console.log("chart is ready")
+      that.ready = true
     });
 
     // Add expectancy data
