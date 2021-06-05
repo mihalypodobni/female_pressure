@@ -10,9 +10,6 @@
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4maps from "@amcharts/amcharts4/maps";
 import geodata from "@amcharts/amcharts4-geodata/worldLow";
-import am4themes_animated from "@amcharts/amcharts4/themes/animated";
-
-am4core.useTheme(am4themes_animated);
 
 export default {
   data() {
@@ -23,6 +20,8 @@ export default {
   },
   methods: {
     mountMap() {
+      console.log('create start');
+      let dd = new Date().getTime();
       let that = this
       let chart = am4core.create(this.$refs['map-two'], am4maps.MapChart);
       // Create map instance
@@ -72,6 +71,7 @@ export default {
 
       chart.events.on("ready", function () {
         console.log("chart is ready")
+        console.log('create end ' + (new Date().getTime() - dd));
         that.ready = true
       });
 
