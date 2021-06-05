@@ -31,9 +31,11 @@ export default {
   },
   methods: {
     async getCities(query) {
-      const res = await fetch(API_URL.replace(':q', query))
-      const suggestions = await res.json()
-      this.cities = suggestions.items
+      if (query !== '') {
+        const res = await fetch(API_URL.replace(':q', query))
+        const suggestions = await res.json()
+        suggestions.items ? this.cities = suggestions.items : this.cities = []
+      }
       console.log(this.cities)
     }
   },
