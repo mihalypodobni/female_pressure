@@ -271,10 +271,10 @@ export default {
     }
   },
   mounted () {
-    let that = this
-    setTimeout(function(){
-      that.mountMap()
-    }, 10);
+    // let that = this
+    // setTimeout(function(){
+    //   that.mountMap()
+    // }, 10);
   },
   beforeDestroy() {
     if (this.chart) {
