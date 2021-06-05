@@ -2,15 +2,16 @@
   <b-dropdown variant="link" class="p-0 w-100" ref="login" right toggle-class="text-decoration-none" no-caret>
     <template #button-content>
       <div class="dropdown-link">
-        <span v-if="authenticated" class="pr-2 login">user</span>
+        <span v-if="authenticated" class="pr-2 login">member</span>
         <span v-else class="pr-2 login">login</span>
         <font-awesome-icon icon="user-circle" size="lg"/>
       </div>
     </template>
     <div v-if="authenticated" class="user-login text-right mx-3 mt-4 mb-2">
-      <b-dropdown-item href="#">Settings</b-dropdown-item>
-      <b-dropdown-item href="#">Saved Profiles</b-dropdown-item>
-      <b-dropdown-item @click="userLogout">Logout</b-dropdown-item>
+      <b-dropdown-item href="#">view your profile</b-dropdown-item>
+      <b-dropdown-item href="#">settings</b-dropdown-item>
+      <b-dropdown-item href="#">saved profiles</b-dropdown-item>
+      <b-dropdown-item @click="userLogout">logout</b-dropdown-item>
     </div>
     <div v-else>
       <b-dropdown-form class="user-login mx-3 mt-4 mb-2">
