@@ -1,8 +1,13 @@
 <template>
   <div>
-    <b-button @click="mountMap">Click me to load map</b-button>
+<!--    <b-button @click="mountMap">Click me to load map</b-button>-->
     <div v-show="ready" class="world-map" ref="map-two"></div>
-    <div v-if="!ready" class="world-map placeholder">I am a map placeholder</div>
+    <div v-if="!ready" class="world-map placeholder">
+      <div class="text-center loading-text">
+        <font-awesome-icon icon="cog" size="4x" class="cog" spin/>
+        <div>map is loading...</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -271,10 +276,10 @@ export default {
     }
   },
   mounted () {
-    // let that = this
-    // setTimeout(function(){
-    //   that.mountMap()
-    // }, 10);
+    let that = this
+    setTimeout(function(){
+      that.mountMap()
+    }, 100);
   },
   beforeDestroy() {
     if (this.chart) {
@@ -293,6 +298,11 @@ export default {
   height: 500px
 
 .placeholder
-  background-color: orange
-  opacity: 0.5
+  background-color: whitesmoke
+
+.cog
+  color: black
+
+.loading-text
+  padding-top: 200px
 </style>
