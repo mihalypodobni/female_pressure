@@ -9,7 +9,6 @@
         placeholder="find a city..."
         @hit="selectedCity = $event"
     ></vue-typeahead-bootstrap>
-    {{cities}}
   </b-container>
 </template>
 

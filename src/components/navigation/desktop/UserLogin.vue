@@ -1,7 +1,7 @@
 <template>
-  <b-dropdown variant="link" class="p-0 w-100" ref="login" right toggle-class="text-decoration-none" no-caret>
+  <b-dropdown variant="link" class="p-0 w-100" ref="login" right toggle-class="text-decoration-none" no-caret >
     <template #button-content>
-      <div class="dropdown-link">
+      <div class="dropdown-link" @click.stop="showDropdown = !showDropdown">
         <span v-if="authenticated" class="pr-2 login">member</span>
         <span v-else class="pr-2 login">login</span>
         <font-awesome-icon icon="user-circle" size="lg"/>
@@ -13,7 +13,7 @@
       <b-dropdown-item href="#">saved profiles</b-dropdown-item>
       <b-dropdown-item @click="userLogout">logout</b-dropdown-item>
     </div>
-    <div v-else>
+    <div v-else >
       <b-dropdown-form class="user-login mx-3 mt-4 mb-2">
         <b-form-group @submit.stop.prevent>
           <b-form-input
@@ -52,19 +52,18 @@
 import {mapMutations, mapState, mapActions} from "vuex";
 
 export default {
-  props: {
-    showLogin: Boolean,
-  },
   data() {
     return {
       login: {
         email: "",
         password: ""
-      }
+      },
+      showDropdown: false
     }
   },
   methods: {
     userLogin() {
+      this.showDropdown = false
       this.loginAction({
         email: this.login.email,
         password: this.login.password
@@ -72,21 +71,24 @@ export default {
         if (this.admin) {
           this.$router.push({name: 'Admin Home'})
           this.SET_PAGE('')
+        } else if (this.$route.path === '/') {
+          //do nothing
         } else if (this.$route.meta.onlyLoggedOut) {
           this.$router.push({name: 'Home'})
           this.SET_PAGE('home')
-          this.$emit('noDropdown')
         } else {
           window.location.reload()
         }
       })
     },
     userLogout() {
+      this.showDropdown = false
       this.LOGOUT()
       if (!this.$route.meta.public) {
         this.$router.push({name: 'Home'})
         this.SET_PAGE('home')
-        this.$emit('noDropdown')
+      } else if (this.$route.path === '/') {
+        //do nothing
       } else {
         window.location.reload()
       }
@@ -97,7 +99,7 @@ export default {
     })
   },
   watch: {
-    showLogin: function (val) {
+    showDropdown: function (val) {
       val ? this.$refs.login.show() : this.$refs.login.hide()
     },
   },

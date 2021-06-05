@@ -18,11 +18,8 @@
       <span v-else>{{ item.name }}</span>
     </b-col>
 
-    <b-col class="text-center menu-link link-padding user_nav"
-           @mouseenter="showLogin = true"
-           @mouseleave="showLogin = false"
-    >
-      <UserLogin :showLogin=showLogin @noDropdown="showLogin = false"/>
+    <b-col class="text-center menu-link link-padding user_nav"    >
+      <UserLogin/>
     </b-col>
   </b-row>
 </template>
