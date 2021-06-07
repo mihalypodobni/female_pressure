@@ -1,10 +1,50 @@
 <template>
   <b-container class="body-container">
-    <p class="mt-5"><b>female:pressure 21y t-shirts</b></p>
+    <div class="relaunch-tshirt mb-5">
+      <h2>female:pressure relaunch t-shirt</h2>
 
-    <p>We run a two weeks campaign for out 21 years anniversary T-shirts:</p>
-
-    <div class="d-flex">
+      <h5>To celebrate our new website, here is a new t-shirt</h5>
+      <div class="d-flex mw-100">
+        <img
+          class="flex-img mr-3"
+          src="../../assets/merch/fp_t-anthrazite.png"
+          alt="relaunch tshirts grey"
+        />
+      </div>
+    </div>
+    <div class="cant-decide my-5">
+      <h2>female:pressure cant decide</h2>
+      <div class="d-flex mw-100">
+        <img
+          class="flex-img mr-3"
+          src="../../assets/merch/fp_t-embroded-1.jpg"
+          alt=" woman wearing female pressure tshirt 210"
+        />
+        <img
+          class="flex-img mr-3"
+          src="../../assets/merch/fp_t-embroded-2.jpg"
+          alt=" woman wearing female pressure tshirt 210"
+        />
+        <img
+          class="flex-img mr-3"
+          src="../../assets/merch/fp_t-embroded-3.jpg"
+          alt=" woman wearing female pressure tshirt 210"
+        />
+      </div>
+      <figcaption class="figure-caption mb-5">
+        Photos above (credit: Aiko Okamoto) shows Tori (VANI-T), a DJ, producer
+        and organizer of the wueer party Climax. Tori expects form
+        female:pressure to keep providing an integral platform and pushing each
+        other
+      </figcaption>
+      <h5>
+        Fresh mint x white t-shirt for female:pressure members & supporters!
+        female:pressire is a transnational network and dtabase of artists and
+        culturual workers who operate in electronic music and visual arts
+      </h5>
+      <button class="button">more info</button>
+    </div>
+    <div class="d-flex mw-100">
       <img
         class="flex-img mr-3"
         src="../../assets/merch/FP21_TShirt_3.jpg"
@@ -23,26 +63,17 @@
         >@ core studio</b-link
       >
     </figcaption>
-
-    <div class="d-flex"></div>
-    <p>
-      The shirts are unisex, organic Stanley Stella LEADs shirts, we can offer
-      them in XS, S, M, L, XL and XXL. Our summery colours are white, vintage
-      white, azur and antracite.
-    </p>
-
-    <p>
-      The shirts are available for pre-order until 14 August 2019. They will
-      then be produced and shipped by Everpress. All orders, manufactturing,
-      payments and shipping is being handled by Everpress"
-    </p>
-
-    <p><b>female:press t-shirt archive</b></p>
-    <p>2008</p>
   </b-container>
 </template>
 
 <style lang="sass" scoped>
 .flex-img
-  width: 50%
+  max-width: 800px
+  max-height: 300px
+
+.figure-caption
+  color: black
+
+.button
+  @include button
 </style>
