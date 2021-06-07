@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import {mapMutations, mapState} from 'vuex'
+import {mapActions, mapMutations, mapState} from 'vuex'
 import Navigation from "./components/navigation/Navigation";
 import Footer from  "./components/footer/Footer"
 import Header from "./components/header/HeaderDesktop"
@@ -32,6 +32,9 @@ export default {
     window.addEventListener('resize', this.handleResize)
     this.handleResize()
   },
+  mounted() {
+    this.loadFilterData()
+  },
   destroyed() {
     window.removeEventListener('resize', this.handleResize)
   },
@@ -44,6 +47,9 @@ export default {
     ...mapMutations([
       'SET_MOBILE'
     ]),
+    ...mapActions({
+      loadFilterData: 'search/loadFilterData'
+    }),
     handleResize() {
       this.window = window.innerWidth
       this.window < 1024 ?

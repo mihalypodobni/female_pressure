@@ -18,7 +18,7 @@
       <span v-else>{{ item.name }}</span>
     </b-col>
 
-    <b-col class="text-center menu-link link-padding user_nav"    >
+    <b-col class="text-center menu-link link-padding user_nav">
       <UserLogin/>
     </b-col>
   </b-row>

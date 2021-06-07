@@ -61,3 +61,8 @@ router.use(async function (req, res, next) {
 });
 
 router.use("/auth", require("../controllers/authController"))
+router.use("/search", require("../controllers/searchController"))
+router.use("/user", require("../controllers/userController"));
+
+
+

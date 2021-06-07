@@ -93,9 +93,10 @@ export default {
         window.location.reload()
       }
     },
-    ...mapMutations(["SET_PAGE", "LOGOUT"]),
+    ...mapMutations(["authentication/LOGOUT"]),
+    ...mapMutations({LOGOUT: "authentication/LOGOUT"}),
     ...mapActions({
-      loginAction: 'login'
+      loginAction: 'authentication/login'
     })
   },
   watch: {

@@ -24,7 +24,7 @@ router.beforeEach(async (to, from, next) => {
     const isPublicPage = to.matched.some(record => record.meta.public)
     const isAdminPage = to.matched.some(record => record.meta.admin)
 
-    store.dispatch('verify').then(() => {
+    store.dispatch('authentication/verify').then(() => {
         if (!authenticated) { //no jwt token, user can only go to public and onlyLoggedOut pages
             if (isPublicPage || onlyLoggedOutPage) {
                 next();
