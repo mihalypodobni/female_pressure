@@ -1,5 +1,5 @@
 <template>
-  <b-container class="mt-5 body-container">
+  <b-container class="body-container">
     <div class="accordion" role="tablist">
       <b-card
         no-body

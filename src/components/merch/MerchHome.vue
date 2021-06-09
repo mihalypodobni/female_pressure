@@ -47,14 +47,13 @@
       <button class="button">more info</button>
     </div>
     <!-- ARCHIVE -->
-    <div class="archive-tab p-0">
-      <h3>archive</h3>
+    <div class="archive-tab p-0 m-0">
+      <h3 class="archive-title m-0">archive</h3>
     </div>
 
     <!-- 21Years     -->
     <div class="21y mt-4">
-      <h2>Female:pressure 21y t-shirt</h2>
-      <h5>We ran a campaign for our 21 years aniversary</h5>
+      <h4>Here are a few of the T-shirts we did in the past</h4>
       <div class="d-flex mw-100 mt-4">
         <img
           class="flex-img mr-3"
@@ -74,59 +73,28 @@
           >@ core studio</b-link
         >
       </figcaption>
-      <div class="d-flex mw-100 mt-4">
-        <div class="out-stock">
-          <img
-            class="flex-img mr-3"
-            src="../../assets/merch/fp_t-white.png"
-            alt=" woman wearing female pressure tshirt 210"
-          />
-        </div>
-        <div class="out-stock">
-          <img
-            class="flex-img"
-            src="../../assets/merch/fp_t-azur.png"
-            alt=" woman wearing female pressure tshirt 210"
-          />
-        </div>
+    </div>
+    <div class="20y mt-5">
+      <div class="d-flex mw-100 mt-5">
         <div class="out-stock">
           <img
             class="flex-img"
             src="../../assets/merch/fp_t-anthrazite.png"
             alt=" woman wearing female pressure tshirt 210"
           />
+          <figcaption class="figure-caption">
+            female:pressure 21y t-shirt
+          </figcaption>
         </div>
-      </div>
-    </div>
-    <div class="20y mt-5">
-      <h2>female:pressure 20 years t-shirts</h2>
-      <h5>
-        In 2018, we offered both unisex and women's T-shirts to celebrate our
-        20th anniversary: The tshirts came in white, grey and garment with white
-        and a dash of yellow print
-      </h5>
-      <div class="d-flex mw-100 mt-5">
         <div class="out-stock">
           <img
             class="flex-img mr-3"
             src="../../assets/merch/t-shirt-20-1.png"
             alt=" woman wearing female pressure tshirt 210"
           />
-        </div>
-
-        <div class="out-stock">
-          <img
-            class="flex-img"
-            src="../../assets/merch/t-shirt-20-2.png"
-            alt=" woman wearing female pressure tshirt 210"
-          />
-        </div>
-        <div class="out-stock">
-          <img
-            class="flex-img"
-            src="../../assets/merch/t-shirt-20-3.png"
-            alt=" woman wearing female pressure tshirt 210"
-          />
+          <figcaption class="figure-caption">
+            female:pressure 20y t-shirt
+          </figcaption>
         </div>
       </div>
     </div>
@@ -148,16 +116,23 @@
     left: 10%
     font-size: 20px
     width: 80%
-    background-color: #00FE77
+    background-color: #00FB9C
     padding: 5px
     text-align: center
 
 .figure-caption
   color: black
+  text-align: center
 
 .button
   @include button
 
 .archive-tab
-  border-bottom: 2px solid #4BE18D
+  border-bottom: 2px solid #00FB9C
+
+.archive-title
+  background-color: #00FB9C
+  width: 150px
+  text-align: center
+  padding: 1px 20px
 </style>
