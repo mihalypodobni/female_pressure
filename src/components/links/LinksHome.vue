@@ -27,7 +27,13 @@
             v-for="link in category.links"
             :href="link.url"
             :key="link.title"
-            class="link-container d-flex justify-content-between align-items-end link"
+            class="
+              link-container
+              d-flex
+              justify-content-between
+              align-items-end
+              link
+            "
             target="_blank"
           >
             {{ link.title }}
@@ -69,7 +75,8 @@ export default {
   display: flex
   align-items: center
   cursor: pointer
-
+  &:hover
+    background-color: $blueBoxBorder
 
 .accordion-button
   display: flex
@@ -83,9 +90,8 @@ export default {
 .link-container
   border-bottom: 1px solid $blueBoxBorder
   padding: 5px
-
-.link-container:hover
-  background-color: $blueBoxBorder
+  &:hover
+    background-color: $blueBoxBorder
 
 .category-text
   cursor: pointer
