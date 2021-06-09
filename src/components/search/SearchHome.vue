@@ -1,6 +1,10 @@
 <template>
   <b-container class="body-container mt-3">
-    <treeselect v-model="value" :multiple="true" :options="filterData" />
+    <div>genres</div>
+    <treeselect v-model="value" :multiple="true" :options="Object.values(filterData['genres'])" />
+    <div class="mt-2">professions</div>
+    <treeselect v-model="value" :multiple="true" :options="Object.values(filterData['professions'])" />
+
   </b-container>
 </template>
 
