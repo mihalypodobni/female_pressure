@@ -1,9 +1,11 @@
 <template>
   <b-container class="body-container mt-3">
     <div>genres</div>
-    <treeselect v-model="value" :multiple="true" :options="Object.values(filterData['genres'])" />
+    <treeselect v-model="genre" :multiple="true" :options="Object.values(filterData['genres'])" />
     <div class="mt-2">professions</div>
-    <treeselect v-model="value" :multiple="true" :options="Object.values(filterData['professions'])" />
+    <treeselect v-model="profession" :multiple="true" :options="Object.values(filterData['professions'])" />
+    <div class="mt-2">cities</div>
+    <treeselect v-model="location" :multiple="true" :options="Object.values(filterData['cities'])" />
 
   </b-container>
 </template>
@@ -23,7 +25,9 @@ export default {
   data() {
     return {
       // define the default value
-      value: null,
+      genre: null,
+      profession: null,
+      location: null
     }
   },
 }
