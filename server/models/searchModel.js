@@ -128,10 +128,27 @@ const getCities = async function () {
     return cities
 };
 
+const memberSearch = async function (query) {
+    const queryString = `SELECT alias1, alias2, alias3, city_name, country_name, primary_city
+            from member as m
+            inner join member_city mc on mc.member_id = m.member_id
+            inner join city c on c.city_id = mc.city_id
+            inner join state s on s.state_id = c.state_id
+            inner join country co on co.country_id = s.country_id
+            where (alias1 ilike $1
+            OR alias2 ilike $1
+            OR alias3 ilike $1)
+            AND primary_city = true
+            limit 5`;
+
+    const filter = ['%' + query + '%'];
+    return await Helpers.runQuery(queryString, filter);
+};
 
 module.exports = {
     getFilterData,
     getProfessionsAndSubProfessions,
     getGenresAndSubgenres,
-    getCities
+    getCities,
+    memberSearch
 };

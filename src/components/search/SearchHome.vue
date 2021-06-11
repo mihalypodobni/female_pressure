@@ -1,5 +1,7 @@
 <template>
   <b-container class="body-container mt-3">
+    <div>member search</div>
+    <MemberSearch />
     <div>genres</div>
     <treeselect v-model="genre" :multiple="true" :options="Object.values(filterData['genres'])" />
     <div class="mt-2">professions</div>
@@ -12,12 +14,14 @@
 
 <script>
 import Treeselect from '@riophae/vue-treeselect'
+import MemberSearch from "./MemberSearch";
 import '@riophae/vue-treeselect/dist/vue-treeselect.css'
 import {mapState} from "vuex";
 
 export default {
   components: {
-    Treeselect
+    Treeselect,
+    MemberSearch
   },
   computed: {
     ...mapState('search', ['filterData']),
