@@ -12,7 +12,7 @@
         <b-row class="m-0">
           <b-col class="p-0 m-0">
             <div>{{ data.alias1 }}</div>
-            <div class="text-muted sub-alias"> {{ data.alias2 }} <span v-if="data.alias3">,{{ data.alias3 }}</span></div>
+            <div class="text-muted sub-alias"> {{ data.alias2 }}<span v-if="data.alias3">, {{ data.alias3 }}</span></div>
           </b-col>
           <b-col class="my-auto p-0 mx-0">
             {{data.city_name}}, {{data.country_name}}
