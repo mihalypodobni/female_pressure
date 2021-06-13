@@ -65,6 +65,11 @@ const routes = [
 		name: "Not Found",
 		component: () => import("@/components/util/404NotFound"),
 	},
+	{
+		path: "/user/:id",
+		name: "User Profile public",
+		component: () => import("@/components/userProfile/UserProfilePublic"),
+	},
 ];
 
 export default routes.map((route) => {
