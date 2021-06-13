@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid="xl" class="px-0 body-container">
+  <b-container fluid="lg" class="px-0 body-container">
     <b-row class="justify-content-center w-100 mx-0 p-0">
       <!-- SHOW ALL THE PROJECTS -- ONLY WORKS IF THEY ARE MORE THAN 20 -->
       <section v-if="readMore">
@@ -8,9 +8,9 @@
             v-for="(project, idx) in projects"
             :key="'project' + idx"
             cols="12"
-            xl="6"
+            lg="6"
             class="my-2 mx-0"
-            :class="idx % 2 === 0 ? 'pl-xl-0 pr-xl-2' : 'pr-xl-0 pl-xl-2'"
+            :class="idx % 2 === 0 ? 'pl-lg-0 pr-lg-2' : 'pr-lg-0 pl-lg-2'"
           >
             <SpecialProjectsCard :project="project" />
           </b-col>
@@ -24,9 +24,9 @@
             v-for="(project, idx) in projects.slice(0, 20)"
             :key="'project' + idx"
             cols="12"
-            xl="6"
+            lg="6"
             class="my-2 mx-0"
-            :class="idx % 2 === 0 ? 'pl-xl-0 pr-xl-2' : 'pr-xl-0 pl-xl-2'"
+            :class="idx % 2 === 0 ? 'pl-lg-0 pr-lg-2' : 'pr-lg-0 pl-lg-2'"
           >
             <SpecialProjectsCard :project="project" />
           </b-col>
