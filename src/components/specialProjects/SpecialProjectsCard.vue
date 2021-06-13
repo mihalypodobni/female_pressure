@@ -64,10 +64,10 @@ export default {
 
 .card-body
   @media screen and (max-width: 1299px)
-    min-height: 300px
+    min-height: 330px
     max-width: 380px
   @media screen and (min-width: 1300px)
-    min-height: 255px
+    min-height: 305px
     max-width: 450px
 
 .card-link:hover
