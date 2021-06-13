@@ -3,24 +3,26 @@
     <b-card no-body class="project-card px-3 py-2">
       <div class="card-body m-0">
         <b-row>
-          <b-col class="p-0" cols="12" xl="3">
-            <div class="d-flex align-items-center">
-              <b-img
-                :src="require('@/assets/special-projects-logos/' + project.img)"
-                :alt="project.title + ' logo'"
-                class="project-img mt-1 mr-2 p-0"
-              />
-            </div>
+          <b-col class="p-0" cols="5" lg="4">
+            <!-- <div class="d-flex align-items-center"> -->
+            <b-img
+              :src="require('@/assets/special-projects-logos/' + project.img)"
+              :alt="project.title + ' logo'"
+              class="project-img mt-1 mr-2 p-0 ml-3"
+            />
+            <!-- </div> -->
           </b-col>
-          <b-col cols="12" xl="9" class="p-0 mh-50">
+          <b-col cols="7" class="p-0 mh-50 mb-5">
             <div class="ml-4 mt-1 p-0">
               <h4 class="m-0">
                 {{ project.title }}
               </h4>
               <p class="project-year mb-2">{{ project.year }}</p>
-              <div class="project-text">
-                {{ project.text }}
-              </div>
+            </div>
+          </b-col>
+          <b-col cols="12" xl="9" class="p-0 mh-50">
+            <div class="project-text ml-4 mt-1 p-0">
+              {{ project.text }}
             </div>
           </b-col>
         </b-row>
@@ -45,6 +47,9 @@ export default {
 .project-img
   width: 100px
   height: 100px
+  @media screen and (max-width: 576px)
+    width: 80px
+    height: 80px
 
 .project-year
   font-size: 15px
