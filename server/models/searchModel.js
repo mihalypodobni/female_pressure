@@ -94,7 +94,7 @@ const getCities = async function () {
         //push new continent
         if (cities.length === 0 || cityList[i - 1].continent_name !== cityList[i].continent_name) {
             cities.push({
-                id: cityList[i].continent_name,
+                id: 'continent ' + cityList[i].continent_name,
                 label: cityList[i].continent_name,
                 children: []
             })
@@ -103,7 +103,7 @@ const getCities = async function () {
         } //push country
         if (cities.length === 1 || cityList[i - 1].country_name !== cityList[i].country_name) {
             cities[countryY].children.push({
-                id: cityList[i].country_name,
+                id: 'country ' + cityList[i].country_name,
                 label: cityList[i].country_name,
                 children: []
             })
@@ -120,7 +120,7 @@ const getCities = async function () {
         } //push city
         if (cities.length === 1 || cityList[i - 1].city_name !== cityList[i].city_name) {
             cities[countryY].children[stateY].children[cityY].children.push({
-                id: cityList[i].city_name,
+                id: 'city ' + cityList[i].city_name,
                 label: cityList[i].city_name
             })
         }
@@ -145,10 +145,82 @@ const memberSearch = async function (query) {
     return await Helpers.runQuery(queryString, filter);
 };
 
+const loadMembers = async function (data) {
+    console.time('codezup') //time load members function
+
+    let members = {}
+    // let locations = await tableLoadMemberLocations(data.member, data.location);
+    // let genres = await tableLoadMemberGenres(data.member, data.genres);
+    // let professions = await tableLoadMemberProfessions(data.member, data.professions);
+    // members['locations'] = [...locations]
+    // members['genres'] = [...genres]
+    // members['professions'] = [...professions]
+
+    console.timeEnd('codezup')
+
+    return members
+};
+
+const tableLoadMemberLocations = async function (member, locations) {
+    const queryString = `SELECT alias1,
+        alias2,
+        alias3,
+        array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name
+                 order by
+                     primary_city desc) as location
+        from member as m
+                 inner join member_city mc on mc.member_id = m.member_id
+                 inner join city c using (city_id)
+                 inner join state s using (state_id)
+                 inner join country co using (country_id)
+                 inner join continent using (continent_id)
+        group by alias1, alias2, alias3
+        HAVING ARRAY [$2] && (array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name))
+        order by alias1 asc
+        limit 20`;
+
+    const filter = ['%' + member + '%', locations];
+    return await Helpers.runQuery(queryString, filter);
+};
+
+const tableLoadMemberGenres = async function (query, genres) {
+    const queryString = `SELECT alias1,
+        array_agg(DISTINCT sub_genre_name order by sub_genre_name) AS genres
+        from member
+                 inner join member_genre using (member_id)
+                 inner join sub_genre using (sub_genre_id)
+        GROUP BY alias1
+        HAVING ARRAY[$2] &&(array_agg(sub_genre.sub_genre_name))
+        ORDER BY alias1 asc
+        limit 20`;
+
+    const filter = ['%' + query + '%', genres];
+    return await Helpers.runQuery(queryString, filter);
+};
+
+const tableLoadMemberProfessions = async function (query, professions) {
+    const queryString = `SELECT alias1,
+        array_agg(DISTINCT sub_profession_name order by sub_profession_name) AS professions
+        from member
+                 inner join member_profession using (member_id)
+                 inner join sub_profession using (sub_profession_id)
+        GROUP BY alias1
+        HAVING ARRAY[$2] && ARRAY_AGG(sub_profession.sub_profession_name)
+        ORDER BY alias1 asc
+        limit 20`;
+
+    const filter = ['%' + query + '%', professions];
+    return await Helpers.runQuery(queryString, filter);
+};
+
 module.exports = {
     getFilterData,
     getProfessionsAndSubProfessions,
     getGenresAndSubgenres,
     getCities,
-    memberSearch
+    memberSearch,
+    loadMembers,
+    tableLoadMemberLocations,
+    tableLoadMemberGenres,
+    tableLoadMemberProfessions
 };

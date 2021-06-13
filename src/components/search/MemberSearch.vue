@@ -5,7 +5,7 @@
         v-model="memberSearch"
         showAllResults
         :serializer="item => (item.alias1 || item.alias2 || item.alias3)"
-        placeholder="search members"
+        placeholder="search name"
         @hit="selectedMember = $event"
     >
       <template slot="suggestion" slot-scope="{ data }">
@@ -26,7 +26,6 @@
 
 <script>
 import VueTypeaheadBootstrap from 'vue-typeahead-bootstrap';
-// import {debounce} from 'lodash';
 import Vue from "vue";
 import _ from "underscore";
 
