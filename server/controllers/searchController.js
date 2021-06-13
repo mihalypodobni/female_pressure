@@ -17,4 +17,30 @@ router.get("/filter-data", cors(), async function (req, res) {
         });
 });
 
+/**********************************************************************
+ * GET member search
+ *********************************************************************/
+router.get("/member-search/:query", cors(), async function (req, res) {
+    search.memberSearch(req.params.query)
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(500).json({Error: err.message});
+        });
+});
+
+/**********************************************************************
+ * POST data for table
+ *********************************************************************/
+router.post("/load-table", cors(), async function (req, res) {
+    search.loadMembers(req.body)
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(500).json({Error: err.message});
+        });
+});
+
 module.exports = router;

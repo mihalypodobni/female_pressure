@@ -1,30 +1,24 @@
 <template>
-  <b-container class="body-container mt-3">
-    <div>genres</div>
-    <treeselect v-model="value" :multiple="true" :options="Object.values(filterData['genres'])" />
-    <div class="mt-2">professions</div>
-    <treeselect v-model="value" :multiple="true" :options="Object.values(filterData['professions'])" />
-
+  <b-container class="body-container">
+    <b-row>
+      <b-col cols="4">
+        <SideFilter />
+      </b-col>
+      <b-col cols="8">
+        <MemberTable />
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 
 <script>
-import Treeselect from '@riophae/vue-treeselect'
-import '@riophae/vue-treeselect/dist/vue-treeselect.css'
-import {mapState} from "vuex";
+import SideFilter from "./SideFilter";
+import MemberTable from "./MemberTable"
 
 export default {
   components: {
-    Treeselect
-  },
-  computed: {
-    ...mapState('search', ['filterData']),
-  },
-  data() {
-    return {
-      // define the default value
-      value: null,
-    }
-  },
+    SideFilter,
+    MemberTable
+  }
 }
 </script>
