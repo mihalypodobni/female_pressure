@@ -47,8 +47,8 @@ const routes = [
 	},
 	{
 		path: "/faq",
-		name: "FAQ",
-		component: () => import("@/components/faq/FAQ"),
+		name: "FAQHome",
+		component: () => import("@/components/faq/FAQHome"),
 	},
 	{
 		path: "/feedback",
