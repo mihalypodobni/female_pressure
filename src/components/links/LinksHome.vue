@@ -37,8 +37,10 @@
             target="_blank"
           >
             {{ link.title }}
-
-            <p class="m-0">{{ link.language }}</p>
+            <span class="language-mobile" v-if="$store.state.isMobile">
+              {{ link.language }}
+            </span>
+            <p v-if="!$store.state.isMobile" class="m-0">{{ link.language }}</p>
           </a>
         </b-collapse>
       </b-card>
@@ -89,12 +91,18 @@ export default {
 
 .link-container
   border-bottom: 1px solid rgba(153, 252, 198, 0.5)
-  padding: 5px
+  padding: 3px
   &:hover
     background-color: #99fcc6
+    .language-mobile
+      color: white
 
 .category-text
   cursor: pointer
+
+.language-mobile
+  color: #99fcc6
+  display: inline
 
 .link
   color: black
