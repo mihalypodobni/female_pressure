@@ -1,10 +1,8 @@
 const SET_MOBILE = (state, isMobile) => {
-    console.log("setting mobile", isMobile)
     state.isMobile = isMobile
 }
 
 const SET_TABLET = (state, isTablet) => {
-    console.log("setting tablet", isTablet)
     state.isTablet = isTablet
 }
 

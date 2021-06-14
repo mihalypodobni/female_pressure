@@ -1,5 +1,5 @@
 <template>
-  <b-container class="body-container mt-3 mb-5">
+  <b-container class="header-container mt-3 mb-5">
     <b-row>
       <b-col class="text-left">
         <h1 :class="statePage === 'home' ? 'home-header' : 'header'" class="mb-0">{{ currentPage.title }}</h1>
