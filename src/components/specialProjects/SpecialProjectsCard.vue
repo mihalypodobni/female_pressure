@@ -15,12 +15,14 @@
           <b-col cols="7" class="p-0 mh-50 mb-5">
             <div class="ml-4 mt-1 p-0">
               <h4 class="m-0">
-                {{ project.title }}
+                <b> {{ project.title }}</b>
               </h4>
-              <p class="project-year mb-2">{{ project.year }}</p>
+              <p class="project-year mb-2">
+                <b>{{ project.year }}</b>
+              </p>
             </div>
           </b-col>
-          <b-col cols="12" xl="9" class="p-0 mh-50">
+          <b-col cols="7" xl="9" class="p-0 mh-50">
             <div class="project-text ml-4 mt-1 p-0">
               {{ project.text }}
             </div>

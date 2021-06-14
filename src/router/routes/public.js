@@ -43,7 +43,7 @@ const routes = [
 	{
 		path: "/blog",
 		name: "Blog",
-		component: () => import("@/components/blog/BlogHome"),
+		component: () => import("@/components/blog/AutoCompleteCities"),
 	},
 	{
 		path: "/faq",
