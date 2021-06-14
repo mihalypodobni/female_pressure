@@ -4,6 +4,7 @@
  * for member searching and filtering
  */
 const Helpers = require("../handlers/db");
+const Util = require("../handlers/util")
 
 /**********************************************************************
  * get all data needed for filtering
@@ -13,6 +14,7 @@ const getFilterData = async function () {
     let professions = await getProfessionsAndSubProfessions();
     let genres = await getGenresAndSubgenres();
     let cities = await getCities();
+
     filterData['genres'] = [...genres]
     filterData['professions'] = [...professions]
     filterData['cities'] = [...cities]
@@ -151,10 +153,10 @@ const loadMembers = async function (data) {
     console.time('codezup') //time load members function
 
     let members = {}
-    // let locations = await tableLoadMemberLocations(data.member, data.location);
+    let locations = await tableLoadMemberLocations(data.locations);
     // let genres = await tableLoadMemberGenres(data.member, data.genres);
     // let professions = await tableLoadMemberProfessions(data.member, data.professions);
-    // members['locations'] = [...locations]
+    members['locations'] = [...locations]
     // members['genres'] = [...genres]
     // members['professions'] = [...professions]
 
@@ -163,11 +165,13 @@ const loadMembers = async function (data) {
     return members
 };
 
-const tableLoadMemberLocations = async function (member, locations) {
+const tableLoadMemberLocations = async function (locations) {
+    let locationString = Util.buildLocationQuery(locations)
     const queryString = `SELECT alias1,
-        alias2,
-        alias3,
-        array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name
+       alias2,
+       alias3,
+       COUNT(*) OVER(),
+       array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name
                  order by
                      primary_city desc) as location
         from member as m
@@ -176,12 +180,12 @@ const tableLoadMemberLocations = async function (member, locations) {
                  inner join state s using (state_id)
                  inner join country co using (country_id)
                  inner join continent using (continent_id)
-        group by alias1, alias2, alias3
-        HAVING ARRAY [$2] && (array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name))
-        order by alias1 asc
+        group by alias1, alias2, alias3 ` + locationString +
+        `order by alias1 asc
         limit 20`;
 
-    const filter = ['%' + member + '%', locations];
+    const filter = [];
+    // const filter = ['%' + member + '%', locations];
     return await Helpers.runQuery(queryString, filter);
 };
 

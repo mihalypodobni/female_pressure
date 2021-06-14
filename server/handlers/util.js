@@ -19,7 +19,20 @@ const createToken = function (data) {
         expiresIn: config.ACCESS_TOKEN_LIFE,
     })
 }
+
+const buildLocationQuery = function (locations) {
+    let queryString = ``
+    for (let i = 0; i < locations.length; i++) {
+        // console.log(locations[i])
+    }
+    queryString = `HAVING ARRAY ['Berlin;Berlin;Germany;Europe'] &&
+               (array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name)) OR
+               ARRAY ['United States;North America'] &&
+               (array_agg(country_name || ';' || continent_name))`
+    return queryString
+}
 module.exports = {
     checkUserSessionExpired,
-    createToken
+    createToken,
+    buildLocationQuery
 };

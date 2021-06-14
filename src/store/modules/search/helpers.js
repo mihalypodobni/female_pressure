@@ -1,6 +1,7 @@
 const getDefaultState = () => {
     return {
-        filterData: []
+        filterData: [],
+        selectedFilters: []
     }
 }
 

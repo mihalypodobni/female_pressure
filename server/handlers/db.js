@@ -17,7 +17,9 @@ const pool = new Pool(dbConfig);
  */
 async function runQuery(queryText, queryValues) {
     const query = { text: queryText, values: queryValues };
-    const queryResult = await pool.query(query);
+    const queryResult = await pool.query(query)
+        .catch((err) => { console.error(err) });
+
     if (queryResult.rowCount) {
         return queryResult.rows;
     } else {

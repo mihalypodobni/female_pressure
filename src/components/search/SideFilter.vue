@@ -2,35 +2,31 @@
   <div v-if="filterData !== []">
     <MemberSearch />
     <treeselect
-        v-model="location"
+        v-model="selectedFilters.location"
         :multiple="true"
         :options="Object.values(filterData['cities'])"
-        @input="input($event)"
         placeholder="location"
         class="my-3"
     />
     <treeselect
-        v-model="profession"
+        v-model="selectedFilters.profession"
         :multiple="true"
         :options="Object.values(filterData['professions'])"
-        @input="input($event)"
         placeholder="work field"
         class="my-3"
     />
     <treeselect
-        v-model="genre"
+        v-model="selectedFilters.genre"
         :multiple="true"
         :options="Object.values(filterData['genres'])"
-        @input="input($event)"
         placeholder="genre"
         class="my-3"
     />
     <treeselect
-        v-model="other"
+        v-model="selectedFilters.other"
         :multiple="true"
         :options="Object.values(filterData['other'])"
         placeholder="other"
-        @input="input($event)"
         class="my-3"
     />
   </div>
@@ -40,7 +36,7 @@
 import Treeselect from '@riophae/vue-treeselect'
 import MemberSearch from "./MemberSearch";
 import '@riophae/vue-treeselect/dist/vue-treeselect.css'
-import {mapState} from "vuex";
+import {mapActions, mapState} from "vuex";
 
 export default {
   components: {
@@ -51,21 +47,27 @@ export default {
     ...mapState('search', ['filterData']),
   },
   methods: {
-    input(value, instanceID) {
-      console.log("here is an input", value, instanceID)
-      console.log("genre", this.genre)
-      console.log("profession", this.profession)
-      console.log("location", this.location)
-      console.log("other", this.other)
-    },
+    ...mapActions({
+      loadMembers: 'search/filterData'
+    }),
+  },
+  watch: {
+    selectedFilters: {
+      deep: true,
+      handler() {
+        console.log("selected filters have changed")
+        this.loadMembers(this.selectedFilters)
+      }
+    }
   },
   data() {
     return {
-      // define the default value
-      genre: [],
-      profession: [],
-      location: [],
-      other: []
+      selectedFilters: {
+        genre: [],
+        profession: [],
+        location: [],
+        other: []
+      }
     }
   },
 }
