@@ -15,7 +15,7 @@
           <b-col cols="7" class="p-0 mh-50 mb-5">
             <div class="ml-4 mt-1 p-0">
               <h4 class="m-0">
-                <b> {{ project.title }}</b>
+                {{ project.title }}
               </h4>
               <p class="project-year mb-2">
                 <b>{{ project.year }}</b>
@@ -59,7 +59,7 @@ export default {
   color: $blueBoxBorder
 
 .project-text
-  font-weight: 400
+  font-weight: 600
 
 .card-link
   @include link
