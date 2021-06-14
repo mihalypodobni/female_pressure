@@ -80,34 +80,34 @@ export default {
   &:hover
     background-color: #99fcc6
 
-.accordion-button
-  display: flex
-  align-items: center
+  .accordion-button
+    display: flex
+    align-items: center
 
-.main-card
-  border: none
-  background: none
-  border-radius: 0px
+  .main-card
+    border: none
+    background: none
+    border-radius: 0px
 
-.link-container
-  border-bottom: 1px solid rgba(153, 252, 198, 0.5)
-  padding: 3px
-  &:hover
-    background-color: #99fcc6
-    .language-mobile
-      color: white
+  .link-container
+    border-bottom: 1px solid rgba(153, 252, 198, 0.5)
+    padding: 3px
+    &:hover
+      background-color: #99fcc6
+      .language-mobile
+        color: white
 
-.category-text
-  cursor: pointer
+  .category-text
+    cursor: pointer
 
-.language-mobile
-  color: #99fcc6
-  display: inline
+  .language-mobile
+    color: #99fcc6
+    display: inline
 
-.link
-  color: black
+  .link
+    color: black
 
-.link:hover
-  color: black
-  text-decoration: none
+  .link:hover
+    color: black
+    text-decoration: none
 </style>
