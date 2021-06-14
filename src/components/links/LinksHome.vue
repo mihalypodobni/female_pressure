@@ -27,7 +27,13 @@
             v-for="link in category.links"
             :href="link.url"
             :key="link.title"
-            class="link-container d-flex justify-content-between align-items-end link"
+            class="
+              link-container
+              d-flex
+              justify-content-between
+              align-items-end
+              link
+            "
             target="_blank"
           >
             {{ link.title }}
@@ -63,13 +69,14 @@ export default {
 
 <style lang="sass" scoped>
 .accordion-container
-  border: 2px solid $blueBoxBorder
+  border: 2px solid rgba(153, 252, 198, 0.5)
   background-color: white
   padding: 5px 15px
   display: flex
   align-items: center
   cursor: pointer
-
+  &:hover
+    background-color: #99fcc6
 
 .accordion-button
   display: flex
@@ -81,11 +88,10 @@ export default {
   border-radius: 0px
 
 .link-container
-  border-bottom: 1px solid $blueBoxBorder
+  border-bottom: 1px solid rgba(153, 252, 198, 0.5)
   padding: 5px
-
-.link-container:hover
-  background-color: $blueBoxBorder
+  &:hover
+    background-color: #99fcc6
 
 .category-text
   cursor: pointer
