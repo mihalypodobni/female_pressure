@@ -53,7 +53,7 @@ const routes = [
 	{
 		path: "/feedback",
 		name: "Feedback",
-		component: () => import("@/components/faq/FAQHome"),
+		component: () => import("@/components/faq/FeedbackHome"),
 	},
 	{
 		path: "/401-unauthorized",
