@@ -146,6 +146,8 @@ const memberSearch = async function (query) {
 };
 
 const loadMembers = async function (data) {
+    //also need to get liked members
+    //im thinking that i should just combine these three queries...try this out and see the speed...make sure i have 20 profiles in the database
     console.time('codezup') //time load members function
 
     let members = {}
