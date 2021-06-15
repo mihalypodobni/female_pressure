@@ -22,8 +22,24 @@ const createToken = function (data) {
 
 const buildLocationQuery = function (locations) {
     let queryString = ``
+    let continent = ''
+    let country = ''
+    let state = ''
+    let city = ''
+
+    //need to build arrays here
     for (let i = 0; i < locations.length; i++) {
+        let l = locations[i]
         // console.log(locations[i])
+        if (l.city === '' && l.state !== '') {
+            state += `${l.state};${l.country};${l.continent}`
+        } else if (l.state === '' && l.country !== '') {
+            country += `${l.country};${l.continent}`
+        } else if (l.country === '' && l.continent !== '') {
+            continent += `${l.continent}`
+        } else {
+            city += `${l.city};${l.state};${l.country};${l.continent}`
+        }
     }
     queryString = `HAVING ARRAY ['Berlin;Berlin;Germany;Europe'] &&
                (array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name)) OR
