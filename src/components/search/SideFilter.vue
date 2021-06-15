@@ -1,6 +1,6 @@
 <template>
   <div v-if="filterData !== []">
-    <MemberSearch />
+    <MemberSearch/>
     <treeselect
         v-model="selectedFilters.location"
         :multiple="true"
