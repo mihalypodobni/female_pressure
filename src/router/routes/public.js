@@ -67,7 +67,7 @@ const routes = [
 	},
 	{
 		path: "/user/:id",
-		name: "User Profile public",
+		name: "User Profile",
 		component: () => import("@/components/userProfile/UserProfilePublic"),
 	},
 ];

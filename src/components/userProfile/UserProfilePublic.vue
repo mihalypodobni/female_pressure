@@ -29,15 +29,15 @@
       <tr>
         <div class="d-flex">
           <div
-            v-for="socialMedia in profile.socialMedias"
-            :key="socialMedia.type"
+              v-for="socialMedia in profile.socialMedias"
+              :key="socialMedia.type"
           >
             <td>
               <a :href="socialMedia.link" target="_blank">
                 <font-awesome-icon
-                  :icon="['fab', socialMedia.type]"
-                  size="2x"
-                  class="icon mr-3"
+                    :icon="['fab', socialMedia.type]"
+                    size="2x"
+                    class="icon mr-3"
                 />
               </a>
             </td>
@@ -60,20 +60,20 @@ export default {
         alias1: "elizah",
         location: "Berlin, Germany",
         workFields: [
-          { id: "012", title: "producer" },
-          { id: "013", title: "graphic designer" },
-          { id: "014", title: "dj" },
+          {id: "012", title: "producer"},
+          {id: "013", title: "graphic designer"},
+          {id: "014", title: "dj"},
         ],
         genres: [
-          { id: "003", title: "techno" },
-          { id: "004", title: "ambience" },
-          { id: "005", title: "eletronic" },
-          { id: "006", title: "experimental" },
+          {id: "003", title: "techno"},
+          {id: "004", title: "ambience"},
+          {id: "005", title: "eletronic"},
+          {id: "006", title: "experimental"},
         ],
         socialMedias: [
-          { type: "twitter", link: "https://www.twitter.com/elizah" },
-          { type: "instagram", link: "https://www.instagram.com/elizah" },
-          { type: "facebook", link: "https://www.facebook.com/elizah" },
+          {type: "twitter", link: "https://www.twitter.com/elizah"},
+          {type: "instagram", link: "https://www.instagram.com/elizah"},
+          {type: "facebook", link: "https://www.facebook.com/elizah"},
         ],
         contact: "eliza@gmail.com",
       },
@@ -82,39 +82,42 @@ export default {
 };
 </script>
 
-<style  lang="sass" scoped>
+<style lang="sass" scoped>
 .name-tab
-    border-bottom: 2px solid $blueBoxBorder
+  border-bottom: 2px solid $blueBoxBorder
 
 th
-    color: $blueBoxBorder
-    font-weight: 400
-    padding-right: 2em
-    padding-bottom: 2em
+  color: $blueBoxBorder
+  font-weight: 400
+  padding-right: 2em
+  padding-bottom: 2em
 
 td
-    padding-bottom: 2em
+  padding-bottom: 2em
 
 button
-    padding: 0px 10px
-    font-weight: 400
-    box-shadow: none
-    border: none
-    &:hover
-        background-color: white
+  padding: 0px 10px
+  font-weight: 400
+  box-shadow: none
+  border: none
+
+  &:hover
+    background-color: white
 
 .workfield
-    background-color: #00FFC5
-    border: 2px solid #00ffc5
-    &:hover
-        color: #00FFC5
+  background-color: #00FFC5
+  border: 2px solid #00ffc5
+
+  &:hover
+    color: #00FFC5
 
 .genre
-    background-color: #0FFBF6
-    border: 2px solid #0FFBF6
-    &:hover
-        color: #0FFBF6
+  background-color: #0FFBF6
+  border: 2px solid #0FFBF6
+
+  &:hover
+    color: #0FFBF6
 
 .icon
-    color: #00C9B2
+  color: #00C9B2
 </style>

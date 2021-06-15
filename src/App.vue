@@ -9,7 +9,7 @@
 
 <script>
 import {mapActions, mapMutations, mapState} from 'vuex'
-import Navigation from "./components/navigation/Navigation";
+import Navigation from "./components/navigation/NavigationHome";
 import Footer from "./components/footer/Footer"
 import Header from "./components/header/HeaderDesktop"
 

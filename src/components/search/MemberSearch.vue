@@ -6,7 +6,7 @@
         showAllResults
         :serializer="item => (item.alias1 || item.alias2 || item.alias3)"
         placeholder="search name"
-        @hit="selectedMember = $event"
+        @hit="selectMember($event)"
     >
       <template slot="suggestion" slot-scope="{ data }">
         <b-row class="m-0">
@@ -25,9 +25,10 @@
 
 
 <script>
-import VueTypeaheadBootstrap from 'vue-typeahead-bootstrap';
-import Vue from "vue";
-import _ from "underscore";
+import VueTypeaheadBootstrap from 'vue-typeahead-bootstrap'
+import Vue from "vue"
+import _ from "underscore"
+import { mapMutations } from 'vuex'
 
 export default {
   components: {
@@ -36,7 +37,6 @@ export default {
   data() {
     return {
       memberSearch: '',
-      selectedMember: null,
       users: []
     }
   },
@@ -46,16 +46,29 @@ export default {
     }, 500)
   },
   methods: {
+    ...mapMutations({
+      setMember: 'search/SET_SELECTED_MEMBER'
+    }),
     async getMembers(query) {
       if (query !== '') {
         await Vue.prototype.$http.get(`${Vue.prototype.$hostname}/search/member-search/${query}`)
             .then(response => {
-              console.log("lookup user response", response.data)
               response.data ? this.users = response.data : this.users = []
             }, error => {
               console.log(error)
             })
       }
+    },
+    selectMember(member) {
+      this.setMember(member.member_id)
+      //Sample code for you ines
+      // await Vue.prototype.$http.get(`${Vue.prototype.$hostname}/search/member/${member.member_id}`)
+      //     .then(response => {
+      //       console.log("getting member", response.data)
+      //     }, error => {
+      //       console.log(error)
+      //     })
+      this.$router.push('/user/' + member.alias1)
     }
   }
 }

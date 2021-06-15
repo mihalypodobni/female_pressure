@@ -131,7 +131,7 @@ const getCities = async function () {
 };
 
 const memberSearch = async function (query) {
-    const queryString = `SELECT alias1, alias2, alias3, city_name, country_name, primary_city
+    const queryString = `SELECT m.member_id, alias1, alias2, alias3, city_name, country_name, primary_city
             from member as m
             inner join member_city mc on mc.member_id = m.member_id
             inner join city c on c.city_id = mc.city_id
@@ -146,6 +146,64 @@ const memberSearch = async function (query) {
     const filter = ['%' + query + '%'];
     return await Helpers.runQuery(queryString, filter);
 };
+
+const getMember = async function (member_id) {
+    const queryString = `SELECT email,
+       disclose_email,
+       first_name,
+       last_name,
+       disclose_name,
+       phone_number,
+       disclose_phone,
+       deceased,
+       personal_site,
+       pronouns,
+       facebook,
+       instagram,
+       bandcamp,
+       beatport,
+       tiktok,
+       soundcloud,
+       book_name_1,
+       book_name_2,
+       book_link_1,
+       book_link_2,
+       band1,
+       band2,
+       band3,
+       alias1,
+       alias2,
+       alias3,
+       blurb,
+       affiliation_name_1,
+       affiliation_link_1,
+       affiliation_name_2,
+       affiliation_link_2,
+       array_agg(DISTINCT sub_genre_name order by sub_genre_name)           AS genres,
+       array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name
+                 order by
+                     primary_city desc)                                     as locations,
+       array_agg(DISTINCT sub_profession_name order by sub_profession_name) AS professions
+from member as m
+         inner join member_city using (member_id)
+         inner join city using (city_id)
+         inner join state using (state_id)
+         inner join country using (country_id)
+         inner join continent using (continent_id)
+         inner join member_profession using (member_id)
+         inner join sub_profession using (sub_profession_id)
+         inner join member_genre using (member_id)
+         inner join sub_genre using (sub_genre_id)
+where member_id = $1
+group by alias1, alias2, alias3, email, disclose_email, first_name, last_name, disclose_name, phone_number,
+         disclose_phone, deceased, personal_site, pronouns, facebook, instagram, bandcamp, beatport, tiktok,
+         soundcloud, book_name_1, book_name_2, book_link_1, book_link_2, band1, band2, band3, blurb, affiliation_link_1,
+         affiliation_link_2, affiliation_name_1, affiliation_name_2;`;
+
+    const filter = [member_id];
+    return await Helpers.runQuery(queryString, filter);
+};
+
 
 const loadMembers = async function (data) {
     //also need to get liked members
@@ -228,5 +286,6 @@ module.exports = {
     loadMembers,
     tableLoadMemberLocations,
     tableLoadMemberGenres,
-    tableLoadMemberProfessions
+    tableLoadMemberProfessions,
+    getMember
 };
