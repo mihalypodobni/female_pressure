@@ -25,6 +25,11 @@ export const pageHeaders = [
         title: 'search'
     },
     {
+        page: 'user',
+        title: 'member profile'
+    },
+
+    {
         page: 'admin',
         title: 'admin'
     },

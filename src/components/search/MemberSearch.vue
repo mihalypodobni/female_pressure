@@ -49,6 +49,9 @@ export default {
     ...mapMutations({
       setMember: 'search/SET_SELECTED_MEMBER'
     }),
+    ...mapMutations([
+      "SET_PAGE"
+    ]),
     async getMembers(query) {
       if (query !== '') {
         await Vue.prototype.$http.get(`${Vue.prototype.$hostname}/search/member-search/${query}`)
@@ -68,6 +71,7 @@ export default {
       //     }, error => {
       //       console.log(error)
       //     })
+      this.SET_PAGE('user')
       this.$router.push('/user/' + member.alias1)
     }
   }
