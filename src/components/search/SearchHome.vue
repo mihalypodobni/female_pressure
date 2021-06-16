@@ -8,17 +8,20 @@
         <MemberTable />
       </b-col>
     </b-row>
+    <AutoCompleteCities />
   </b-container>
 </template>
 
 <script>
-import SideFilter from "./SideFilter";
+import SideFilter from "./SideFilter"
 import MemberTable from "./MemberTable"
+import AutoCompleteCities from "../util/AutoCompleteCities";
 
 export default {
   components: {
     SideFilter,
-    MemberTable
+    MemberTable,
+    AutoCompleteCities
   }
 }
 </script>

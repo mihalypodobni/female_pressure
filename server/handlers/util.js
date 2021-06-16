@@ -26,26 +26,88 @@ const buildLocationQuery = function (locations) {
     let country = ''
     let state = ''
     let city = ''
+    let filter = []
+    let index = 1;
 
-    //need to build arrays here
+    //build arrays here
     for (let i = 0; i < locations.length; i++) {
         let l = locations[i]
-        // console.log(locations[i])
         if (l.city === '' && l.state !== '') {
-            state += `${l.state};${l.country};${l.continent}`
+            if (state === '') {
+                state = `ARRAY [$${index}] &&
+                (array_agg(state_long_name || ';' || country_name || ';' || continent_name))`
+            } else {
+                let i = state.lastIndexOf("$")
+                let newString = `, $${index}`
+                state = [state.slice(0, i + 2), newString, state.slice(i + 2)].join('');
+            }
+            index++
+            filter.push(`${l.state};${l.country};${l.continent}`)
         } else if (l.state === '' && l.country !== '') {
-            country += `${l.country};${l.continent}`
+            if (country === '') {
+                country = `ARRAY [$${index}] &&
+                (array_agg(country_name || ';' || continent_name))`
+            } else {
+                let i = country.lastIndexOf("$")
+                let newString = `, $${index}`
+                country = [country.slice(0, i + 2), newString, country.slice(i + 2)].join('');
+            }
+            index++
+            filter.push(`${l.country};${l.continent}`)
         } else if (l.country === '' && l.continent !== '') {
-            continent += `${l.continent}`
+            if (continent === '') {
+                country = `ARRAY [$${index}] &&
+                (array_agg(continent_name))`
+            } else {
+                let i = continent.lastIndexOf("$")
+                let newString = `, $${index}`
+                continent = [continent.slice(0, i + 2), newString, continent.slice(i + 2)].join('');
+            }
+            index++
+            filter.push(`${l.continent}`)
         } else {
+            if (city === '') {
+                country = `ARRAY [$${index}] &&
+                (array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name))`
+            } else {
+                let i = city.lastIndexOf("$")
+                let newString = `, $${index}`
+                city = [city.slice(0, i + 2), newString, city.slice(i + 2)].join('');
+            }
+            index++
             city += `${l.city};${l.state};${l.country};${l.continent}`
         }
     }
-    queryString = `HAVING ARRAY ['Berlin;Berlin;Germany;Europe'] &&
-               (array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name)) OR
-               ARRAY ['United States;North America'] &&
-               (array_agg(country_name || ';' || continent_name))`
-    return queryString
+
+    //now build query string
+    if (city !== '') {
+        queryString += city
+    }
+    if (state !== '') {
+        if (queryString !== '') {
+            queryString = queryString + ` OR ` + state
+        } else {
+            queryString += state
+        }
+    }
+    if (country !== '') {
+        if (queryString !== '') {
+            queryString = queryString + ` OR ` + country
+        } else {
+            queryString += country
+        }
+    }
+    if (continent !== '') {
+        if (queryString !== '') {
+            queryString = queryString + ` OR ` + continent
+        } else {
+            queryString += continent
+        }
+    }
+    if (queryString !== '') {
+        queryString = `HAVING ${queryString}`
+    }
+    return {queryString: queryString, filter: filter, index: index}
 }
 module.exports = {
     checkUserSessionExpired,

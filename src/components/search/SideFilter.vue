@@ -6,6 +6,7 @@
         :multiple="true"
         :options="Object.values(filterData['cities'])"
         placeholder="location"
+        @select="locationSelected($event)"
         class="my-3"
     />
     <treeselect
@@ -50,6 +51,10 @@ export default {
     ...mapActions({
       loadMembers: 'search/filterData'
     }),
+    locationSelected(node, instanceId) {
+      console.log("location selected")
+      console.log(node, instanceId)
+    }
   },
   watch: {
     selectedFilters: {

@@ -46,13 +46,15 @@ const filterData = ({commit}, selectedFilters) => {
                 continent: 'Europe',
                 country: 'Germany',
                 state: 'Berlin',
-                city: 'Berlin'
+                // city: 'Berlin',
+                city: ''
             },
             {
                 continent: 'North America',
                 country: 'United States',
                 state: 'California',
-                city: 'San Francisco'
+                city: ''
+                // city: 'San Francisco'
             },
             {
                 continent: 'South America',
