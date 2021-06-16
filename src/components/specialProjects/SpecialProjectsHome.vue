@@ -32,7 +32,8 @@
           </b-col>
         </b-row>
       </section>
-      <button class="btn mt-5" v-on:click="loadMore">Load More</button>
+      <!-- FURTHER IMPLEMATION FROM 20 PROJECTS 
+      <button class="btn mt-5" v-on:click="loadMore">Load More</button> -->
     </b-row>
   </b-container>
 </template>
