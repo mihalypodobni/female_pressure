@@ -27,7 +27,9 @@ const loadFilterData = ({commit}) => {
 };
 
 const filterData = ({commit}, selectedFilters) => {
-    console.log("filtering data", selectedFilters)
+    if (selectedFilters) {
+        console.log("filtering data", selectedFilters.location[0])
+    }
     const body = {
         genres: [
             {

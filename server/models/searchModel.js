@@ -104,10 +104,8 @@ const getCities = async function () {
             stateY = -1
         } //push country
         if (stateY === -1 || cityList[i - 1].country_name !== cityList[i].country_name) {
-
-            console.log("adding a country", cityList[i].country_name, countryY)
             cities[countryY].children.push({
-                id: cityList[countryY].continent_name + ';' + cityList[i].country_name,
+                id: cityList[i].continent_name + ';' + cityList[i].country_name,
                 label: cityList[i].country_name,
                 children: []
             })
@@ -116,14 +114,14 @@ const getCities = async function () {
         } //push state
         if (cityY === -1 || cityList[i - 1].state_long_name !== cityList[i].state_long_name) {
             cities[countryY].children[stateY].children.push({
-                id: cityList[countryY].continent_name + ';' + cityList[stateY].country_name + ';' + cityList[i].state_long_name,
+                id: cityList[i].continent_name + ';' + cityList[i].country_name + ';' + cityList[i].state_long_name,
                 label: cityList[i].state_long_name,
                 children: []
             })
             cityY = cityY + 1
         } //push city
         cities[countryY].children[stateY].children[cityY].children.push({
-            id: cityList[countryY].continent_name + ';' + cityList[stateY].country_name + ';' + cityList[cityY].state_long_name + ';' + cityList[i].city_name,
+            id: cityList[i].continent_name + ';' + cityList[i].country_name + ';' + cityList[i].state_long_name + ';' + cityList[i].city_name,
             label: cityList[i].city_name
         })
     }
