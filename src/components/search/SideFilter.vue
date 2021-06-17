@@ -36,7 +36,7 @@
 import Treeselect from '@riophae/vue-treeselect'
 import MemberSearch from "./MemberSearch";
 import '@riophae/vue-treeselect/dist/vue-treeselect.css'
-import {mapActions, mapState} from "vuex";
+import {mapActions, mapState, mapMutations} from "vuex";
 
 export default {
   components: {
@@ -50,15 +50,20 @@ export default {
     ...mapActions({
       loadMembers: 'search/filterData'
     }),
-  },
-  mounted() {
-    console.log("filter data", this.filterData.cities)
+    ...mapMutations({
+      SET_FILTERED_MEMBERS: 'search/SET_FILTERED_MEMBERS' // map `this.add()` to `this.$store.commit('increment')`
+    })
   },
   watch: {
     selectedFilters: {
       deep: true,
       handler() {
-        this.loadMembers(this.selectedFilters)
+        if(this.selectedFilters.location.length === 0 && this.selectedFilters.profession.length === 0 && this.selectedFilters.genre.length === 0 && this.selectedFilters.other.length === 0) {
+          console.log("clearing filtered members list")
+          this.SET_FILTERED_MEMBERS([])
+        } else {
+          this.loadMembers(this.selectedFilters)
+        }
       }
     }
   },

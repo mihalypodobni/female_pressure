@@ -27,49 +27,10 @@ const loadFilterData = ({commit}) => {
 };
 
 const filterData = ({commit}, selectedFilters) => {
-    if (selectedFilters) {
-        console.log("filtering data", selectedFilters.location[0])
-    }
-    const body = {
-        genres: [
-            {
-                name: 'techno',
-                type: 'sub'
-            },
-            {
-                name: 'house',
-                type: 'main'
-            },
-        ],
-        professions: [],
-        other: [],
-        locations: [
-            {
-                continent: 'Europe',
-                country: 'Germany',
-                state: 'Berlin',
-                // city: 'Berlin',
-                city: ''
-            },
-            {
-                continent: 'North America',
-                country: 'United States',
-                state: 'California',
-                city: ''
-                // city: 'San Francisco'
-            },
-            {
-                continent: 'South America',
-                country: '',
-                state: '',
-                city: ''
-            }
-        ]
-    }
     return new Promise((resolve, reject) => {
-        Vue.prototype.$http.post(`${Vue.prototype.$hostname}/search/load-table`, body)
+        Vue.prototype.$http.post(`${Vue.prototype.$hostname}/search/load-table`, selectedFilters)
             .then(response => {
-                commit('SET_SELECTED_FILTERS', response.data)
+                commit('SET_FILTERED_MEMBERS', response.data)
                 resolve();
             }, error => {
                 reject(error);

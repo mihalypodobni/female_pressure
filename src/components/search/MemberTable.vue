@@ -2,10 +2,20 @@
   <div>
     <b-table hover :items="members.locations" :fields="fields">
       <template #cell(name)="data">
-        <div class="">{{ data.item.alias1}}</div>
+        <div class="primary-text">{{ data.item.alias1 }}</div>
+        <div class="secondary-text">
+          {{ data.item.alias2 }}
+          <span v-if="data.item.alias3 !== null">, </span>
+          {{ data.item.alias3 }}
+        </div>
       </template>
       <template #cell(location)="data">
-        <div class="">{{ data.item.location[0].split(';')[0]}}, {{ data.item.location[0].split(';')[2]}}</div>
+        <div class="primary-text">
+          {{ data.item.location[0].split(';')[0] }} - {{ data.item.location[0].split(';')[2] }}
+        </div>
+        <div v-if="data.item.location.length > 1" class="secondary-text">
+          {{ data.item.location[1].split(';')[0] }} - {{ data.item.location[1].split(';')[2] }}
+        </div>
       </template>
     </b-table>
   </div>
@@ -43,7 +53,7 @@ export default {
   },
   computed: {
     ...mapState({
-      members: state => state.search.selectedFilters,
+      members: state => state.search.filteredMembers,
     }),
   },
   methods: {
@@ -52,8 +62,16 @@ export default {
     }),
   },
   mounted() {
-    this.loadMembers()
+    // this.loadMembers()
   },
 
 }
 </script>
+
+<style lang="sass" scoped>
+.primary-text
+  font-size: 13px
+
+.secondary-text
+  font-size: 10px
+</style>

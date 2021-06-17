@@ -1,7 +1,7 @@
 const getDefaultState = () => {
     return {
         filterData: [],
-        selectedFilters: [],
+        filteredMembers: [],
         selectedMember: null
     }
 }

@@ -31,51 +31,51 @@ const buildLocationQuery = function (locations) {
 
     //build arrays here
     for (let i = 0; i < locations.length; i++) {
-        let l = locations[i]
-        if (l.city === '' && l.state !== '') {
+        let l = locations[i].split(';')
+        if (l.length === 3) { //continent;country;state
             if (state === '') {
                 state = `ARRAY [$${index}] &&
-                (array_agg(state_long_name || ';' || country_name || ';' || continent_name))`
+                (array_agg(state_long_name || ';' || country_name || ';' || continent_name)) `
             } else {
                 let i = state.lastIndexOf("$")
                 let newString = `, $${index}`
                 state = [state.slice(0, i + 2), newString, state.slice(i + 2)].join('');
             }
             index++
-            filter.push(`${l.state};${l.country};${l.continent}`)
-        } else if (l.state === '' && l.country !== '') {
+            filter.push(`${l[2]};${l[1]};${l[0]}`)
+        } else if (l.length === 2) { //continent;country
             if (country === '') {
                 country = `ARRAY [$${index}] &&
-                (array_agg(country_name || ';' || continent_name))`
+                (array_agg(country_name || ';' || continent_name)) `
             } else {
                 let i = country.lastIndexOf("$")
                 let newString = `, $${index}`
                 country = [country.slice(0, i + 2), newString, country.slice(i + 2)].join('');
             }
             index++
-            filter.push(`${l.country};${l.continent}`)
-        } else if (l.country === '' && l.continent !== '') {
+            filter.push(`${l[1]};${l[0]}`)
+        } else if (l.length === 1) { //continent
             if (continent === '') {
-                country = `ARRAY [$${index}] &&
-                (array_agg(continent_name))`
+                continent = `ARRAY [$${index}] &&
+                (array_agg(continent_name)) `
             } else {
                 let i = continent.lastIndexOf("$")
                 let newString = `, $${index}`
                 continent = [continent.slice(0, i + 2), newString, continent.slice(i + 2)].join('');
             }
             index++
-            filter.push(`${l.continent}`)
+            filter.push(`${l[0]}`)
         } else {
             if (city === '') {
                 country = `ARRAY [$${index}] &&
-                (array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name))`
+                (array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name)) `
             } else {
                 let i = city.lastIndexOf("$")
                 let newString = `, $${index}`
                 city = [city.slice(0, i + 2), newString, city.slice(i + 2)].join('');
             }
             index++
-            city += `${l.city};${l.state};${l.country};${l.continent}`
+            city += `${l[3]};${l[2]};${l[1]};${l[0]}`
         }
     }
 

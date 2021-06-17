@@ -207,11 +207,10 @@ const loadMembers = async function (data) {
     //also need to get liked members
     //im thinking that i should just combine these three queries...try this out and see the speed...make sure i have 20 profiles in the database
     console.time('codezup') //time load members function
-
     let members = {}
-    let locations = await tableLoadMemberLocations(data.locations);
-    // let genres = await tableLoadMemberGenres(data.member, data.genres);
-    // let professions = await tableLoadMemberProfessions(data.member, data.professions);
+    let locations = await tableLoadMemberLocations(data.location);
+    // let genres = await tableLoadMemberGenres(data.member, data.genre);
+    // let professions = await tableLoadMemberProfessions(data.member, data.profession);
     members['locations'] = [...locations]
     // members['genres'] = [...genres]
     // members['professions'] = [...professions]
@@ -241,7 +240,6 @@ const tableLoadMemberLocations = async function (locations) {
         limit 20`;
 
     const filter = locationData.filter;
-    // const filter = ['%' + member + '%', locations];
     return await Helpers.runQuery(queryString, filter);
 };
 
