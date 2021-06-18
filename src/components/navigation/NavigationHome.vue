@@ -9,7 +9,7 @@
 import NavigationMobile from './mobile/NavigationMobile'
 import NavigationDesktop from './desktop/NavigationDesktop'
 import axios from "axios";
-import {mapMutations, mapState} from 'vuex';
+import {mapState} from 'vuex';
 
 export default {
   data() {
@@ -27,17 +27,12 @@ export default {
     'currentPage'
   ]),
   methods: {
-    ...mapMutations([
-        "SET_PAGE"
-    ]),
     logout() {
-      // this.logout()
       delete axios.defaults.headers.common['Authorization']
       this.$router.push('/')
     },
     navigate(route) {
       if (this.currentPage !== route) {
-        // this.SET_PAGE(route)
         switch (route) {
           case 'home':
             this.$router.push({name: 'Home'})

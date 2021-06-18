@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <Navigation v-if="!admin"/>
-    <Header v-if="0"/>
     <router-view/>
     <Footer class="footer" v-if="!admin"/>
   </div>
@@ -11,7 +10,6 @@
 import {mapActions, mapMutations, mapState} from 'vuex'
 import Navigation from "./components/navigation/NavigationHome";
 import Footer from "./components/footer/Footer"
-import Header from "./components/header/Header"
 
 export default {
   data() {
@@ -26,7 +24,6 @@ export default {
   components: {
     Navigation,
     Footer,
-    Header
   },
   created() {
     this.SET_MOBILE(window.innerWidth < this.window.mobileBreakpoint)
