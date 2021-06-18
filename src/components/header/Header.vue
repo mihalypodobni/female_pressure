@@ -1,5 +1,5 @@
 <template>
-  <b-container class="header-container mt-3 mb-5">
+  <b-container v-if="!admin" class="header-container mt-3 mb-5">
     <b-row>
       <b-col class="text-left">
         <h1 :class="statePage === 'home' ? 'home-header' : 'header'" class="mb-0">{{ currentPage.title }}</h1>
@@ -7,7 +7,7 @@
       </b-col>
       <b-col class="text-right my-auto px-0 " cols="auto">
         <span v-if="statePage === 'home'">current members: 5454</span>
-        <span v-if="!authenticated" class="circle text-center pt-4" @click="$router.push({ name: 'Join Network' }); SET_PAGE('join');">
+        <span v-if="!authenticated" class="circle text-center pt-4" @click="$router.push({ name: 'Join Network' })">
           join the <br> network
         </span>
       </b-col>
@@ -32,7 +32,8 @@ export default {
     },
     ...mapState({
       statePage: state => state.currentPage,
-      authenticated: state => state.authentication.authenticated
+      authenticated: state => state.authentication.authenticated,
+      admin: state => state.authentication.admin,
     }),
   },
   methods: {

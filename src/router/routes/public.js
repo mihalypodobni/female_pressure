@@ -47,13 +47,13 @@ const routes = [
 	},
 	{
 		path: "/faq",
-		name: "FAQHome",
+		name: "FAQ",
 		component: () => import("@/components/faq/FAQHome"),
 	},
 	{
 		path: "/feedback",
 		name: "Feedback",
-		component: () => import("@/components/faq/FAQHome"),
+		component: () => import("@/components/feedback/FeedbackHome"),
 	},
 	{
 		path: "/401-unauthorized",
@@ -70,6 +70,11 @@ const routes = [
 		name: "User Profile",
 		component: () => import("@/components/userProfile/UserProfilePublic"),
 	},
+	// {
+	// 	path: '*',
+	// 	name:'404',
+	// 	component: () => import("@/components/util/404NotFound.vue"),
+	// }
 ];
 
 export default routes.map((route) => {

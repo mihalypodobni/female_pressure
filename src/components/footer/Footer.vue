@@ -8,10 +8,7 @@
             <b-button
                 variant="link"
                 class="p-0 m-0 footer-link"
-                @click="
-                $router.push({ name: link.page });
-                SET_PAGE(link.name);
-              "
+                @click="$router.push({ name: link.page })"
             >
               {{ link.name }}
             </b-button>
@@ -33,7 +30,7 @@
                 v-else
                 variant="link"
                 class="p-0 m-0 footer-link"
-                @click=" $router.push({ name: link.page }); SET_PAGE(link.name);"
+                @click=" $router.push({ name: link.page })"
             >
               {{ link.name }}
             </b-button>
@@ -80,8 +77,6 @@
 </template>
 
 <script>
-import {mapMutations} from "vuex";
-
 export default {
   data() {
     return {
@@ -119,9 +114,6 @@ export default {
         {icon: "mixcloud", link: "https://www.mixcloud.com/female_pressure/", fontAwesome: true},
       ],
     };
-  },
-  methods: {
-    ...mapMutations(["SET_PAGE"]),
   },
 };
 </script>

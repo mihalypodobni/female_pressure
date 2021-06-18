@@ -61,7 +61,7 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
     (response) => {
         if (response.headers.authorization && response.headers.authorization.includes("NewToken")) {
-            store.commit('SET_TOKEN',response.headers.authorization.slice(9, response.headers.authorization.length))
+            store.commit('authentication/SET_TOKEN',response.headers.authorization.slice(9, response.headers.authorization.length))
         }
         return response
     },

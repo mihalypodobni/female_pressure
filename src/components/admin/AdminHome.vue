@@ -10,11 +10,12 @@ import {mapMutations} from "vuex";
 
 export default {
   methods: {
-    ...mapMutations(["SET_PAGE", "LOGOUT"]),
+    ...mapMutations({
+      LOGOUT: "authentication/LOGOUT"
+    }),
     logoutAdmin() {
       this.LOGOUT()
       this.$router.push({name: 'Home'})
-      this.SET_PAGE('home')
     }
   }
 }

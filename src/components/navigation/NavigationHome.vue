@@ -37,7 +37,7 @@ export default {
     },
     navigate(route) {
       if (this.currentPage !== route) {
-        this.SET_PAGE(route)
+        // this.SET_PAGE(route)
         switch (route) {
           case 'home':
             this.$router.push({name: 'Home'})
