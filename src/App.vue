@@ -1,63 +1,56 @@
 <template>
   <div id="app">
-    <Navigation v-if="!admin"/>
-    <Header v-if="!admin"/>
+    <Navigation v-if="!admin" />
     <router-view />
-    <Footer class="footer" v-if="!admin"/>
+    <Footer class="footer" v-if="!admin" />
   </div>
 </template>
 
 <script>
-import {mapActions, mapMutations, mapState} from 'vuex'
-import Navigation from "./components/navigation/Navigation";
-import Footer from  "./components/footer/Footer"
-import Header from "./components/header/HeaderDesktop"
+import { mapActions, mapMutations, mapState } from "vuex";
+import Navigation from "./components/navigation/NavigationHome";
+import Footer from "./components/footer/Footer";
 
 export default {
   data() {
     return {
       window: {
         width: 0,
-        breakpointWidth: 768
-      }
-    }
+        breakpointWidth: 768,
+      },
+    };
   },
   components: {
     Navigation,
     Footer,
-    Header
   },
   created() {
-    this.SET_MOBILE(window.innerWidth < this.breakpointWidth)
-    window.addEventListener('resize', this.handleResize)
-    this.handleResize()
+    this.SET_MOBILE(window.innerWidth < this.breakpointWidth);
+    window.addEventListener("resize", this.handleResize);
+    this.handleResize();
   },
   mounted() {
-    this.loadFilterData()
+    this.loadFilterData();
   },
   destroyed() {
-    window.removeEventListener('resize', this.handleResize)
+    window.removeEventListener("resize", this.handleResize);
   },
   computed: {
     ...mapState({
-      admin: state => state.authentication.admin
+      admin: (state) => state.authentication.admin,
     }),
   },
   methods: {
-    ...mapMutations([
-      'SET_MOBILE'
-    ]),
+    ...mapMutations(["SET_MOBILE"]),
     ...mapActions({
-      loadFilterData: 'search/loadFilterData'
+      loadFilterData: "search/loadFilterData",
     }),
     handleResize() {
-      this.window = window.innerWidth
-      this.window < 1024 ?
-          this.SET_MOBILE(true) :
-          this.SET_MOBILE(false)
-    }
-  }
-}
+      this.window = window.innerWidth;
+      this.window < 1024 ? this.SET_MOBILE(true) : this.SET_MOBILE(false);
+    },
+  },
+};
 </script>
 
 <style lang="sass">
@@ -70,7 +63,6 @@ export default {
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   @include background-gradient
-
 </style>
 
 <style lang="sass" scoped>

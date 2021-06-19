@@ -47,7 +47,7 @@ const routes = [
 	},
 	{
 		path: "/faq",
-		name: "FAQHome",
+		name: "FAQ",
 		component: () => import("@/components/faq/FAQHome"),
 	},
 	{
@@ -70,6 +70,11 @@ const routes = [
 		name: "User Profile",
 		component: () => import("@/components/userProfile/UserProfileHome"),
 	},
+	// {
+	// 	path: '*',
+	// 	name:'404',
+	// 	component: () => import("@/components/util/404NotFound.vue"),
+	// }
 ];
 
 export default routes.map((route) => {

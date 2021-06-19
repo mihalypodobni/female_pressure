@@ -7,10 +7,17 @@
 
 <script>
 import HomeDesktop from "./desktop/HomeDesktop"
+import {mapMutations} from "vuex";
 
 export default {
   components: {
     HomeDesktop
   },
+  methods: {
+    ...mapMutations(["SET_PAGE"]),
+  },
+  mounted() {
+    this.SET_PAGE('home')
+  }
 };
 </script>
