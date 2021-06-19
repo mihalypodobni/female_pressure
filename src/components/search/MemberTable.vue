@@ -11,10 +11,12 @@
       </template>
       <template #cell(location)="data">
         <div class="primary-text">
-          {{ data.item.location[0].split(';')[0] }} - {{ data.item.location[0].split(';')[2] }}
+          {{ data.item.location[0].split(";")[0] }} -
+          {{ data.item.location[0].split(";")[2] }}
         </div>
         <div v-if="data.item.location.length > 1" class="secondary-text">
-          {{ data.item.location[1].split(';')[0] }} - {{ data.item.location[1].split(';')[2] }}
+          {{ data.item.location[1].split(";")[0] }} -
+          {{ data.item.location[1].split(";")[2] }}
         </div>
       </template>
     </b-table>
@@ -22,50 +24,97 @@
 </template>
 
 <script>
-import {mapActions, mapState} from "vuex";
+import Vue from "vue";
+import { mapState, mapActions } from "vuex";
 
 export default {
   data() {
     return {
       fields: [
         {
-          key: 'name',
-          label: 'name',
-          sortable: true
+          key: "name",
+          label: "name",
+          sortable: true,
         },
         {
-          key: 'location',
-          label: 'location',
-          sortable: true
+          key: "location",
+          label: "location",
+          sortable: true,
         },
         {
-          key: 'work field',
-          label: 'work field',
-          sortable: false
+          key: "work field",
+          label: "work field",
+          sortable: false,
         },
         {
-          key: 'genre',
-          label: 'genre',
-          sortable: false
+          key: "genre",
+          label: "genre",
+          sortable: false,
         },
       ],
-    }
+    };
   },
   computed: {
     ...mapState({
-      members: state => state.search.filteredMembers,
-    }),
-  },
-  methods: {
-    ...mapActions({
-      loadMembers: 'search/filterData'
+      members: (state) => state.search.filteredMembers,
     }),
   },
   mounted() {
     // this.loadMembers()
   },
-
-}
+  methods: {
+    ...mapActions({
+      loadMembers: "search/filterData",
+    }),
+    async loadPostTable() {
+      const body = {
+        genres: [
+          {
+            name: "techno",
+            type: "sub",
+          },
+          {
+            name: "house",
+            type: "main",
+          },
+        ],
+        professions: [],
+        other: [],
+        locations: [
+          {
+            continent: "Europe",
+            country: "Germany",
+            state: "Berlin",
+            city: "Berlin",
+          },
+          {
+            continent: "North America",
+            country: "United States",
+            state: "California",
+            city: "San Francisco",
+          },
+          {
+            continent: "South America",
+            country: "",
+            state: "",
+            city: "",
+          },
+        ],
+      };
+      await Vue.prototype.$http
+        .post(`${Vue.prototype.$hostname}/search/load-table`, body)
+        .then(
+          (response) => {
+            console.log("testing", response.data);
+            response.data ? (this.users = response.data) : (this.users = []);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+    },
+  },
+};
 </script>
 
 <style lang="sass" scoped>

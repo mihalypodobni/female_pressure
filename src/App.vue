@@ -1,72 +1,56 @@
 <template>
   <div id="app">
-    <Navigation v-if="!admin"/>
-    <router-view/>
-    <Footer class="footer" v-if="!admin"/>
+    <Navigation v-if="!admin" />
+    <router-view />
+    <Footer class="footer" v-if="!admin" />
   </div>
 </template>
 
 <script>
-import {mapActions, mapMutations, mapState} from 'vuex'
+import { mapActions, mapMutations, mapState } from "vuex";
 import Navigation from "./components/navigation/NavigationHome";
-import Footer from "./components/footer/Footer"
+import Footer from "./components/footer/Footer";
 
 export default {
   data() {
     return {
       window: {
         width: 0,
-        mobileBreakpoint: 768,
-        tabletBreakpoint: 1024
-      }
-    }
+        breakpointWidth: 768,
+      },
+    };
   },
   components: {
     Navigation,
     Footer,
   },
   created() {
-    this.SET_MOBILE(window.innerWidth < this.window.mobileBreakpoint)
-    this.SET_TABLET(window.innerWidth < this.window.tabletBreakpoint && window.innerWidth >= this.window.mobileBreakpoint)
-    window.addEventListener('resize', this.handleResize)
-    this.handleResize()
+    this.SET_MOBILE(window.innerWidth < this.breakpointWidth);
+    window.addEventListener("resize", this.handleResize);
+    this.handleResize();
   },
   mounted() {
-    this.loadFilterData()
+    this.loadFilterData();
   },
   destroyed() {
-    window.removeEventListener('resize', this.handleResize)
+    window.removeEventListener("resize", this.handleResize);
   },
   computed: {
     ...mapState({
-      admin: state => state.authentication.admin,
-      isMobile: state => state.isMobile,
-      isTablet: state => state.isTablet
+      admin: (state) => state.authentication.admin,
     }),
   },
   methods: {
-    ...mapMutations([
-      'SET_MOBILE',
-      'SET_TABLET'
-    ]),
+    ...mapMutations(["SET_MOBILE"]),
     ...mapActions({
-      loadFilterData: 'search/loadFilterData'
+      loadFilterData: "search/loadFilterData",
     }),
     handleResize() {
-      this.window.width = window.innerWidth
-      if (this.window.width < this.window.mobileBreakpoint && !this.isMobile) {
-        this.SET_MOBILE(true)
-        this.SET_TABLET(false)
-      } else if (this.window.width >= this.window.mobileBreakpoint && this.window.width < this.window.tabletBreakpoint && !this.isTablet) {
-        this.SET_MOBILE(false)
-        this.SET_TABLET(true)
-      } else if (this.window.width >= this.window.tabletBreakpoint && (this.isMobile || this.isTablet)) {
-        this.SET_MOBILE(false)
-        this.SET_TABLET(false)
-      }
-    }
-  }
-}
+      this.window = window.innerWidth;
+      this.window < 1024 ? this.SET_MOBILE(true) : this.SET_MOBILE(false);
+    },
+  },
+};
 </script>
 
 <style lang="sass">
@@ -79,7 +63,6 @@ export default {
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   @include background-gradient
-
 </style>
 
 <style lang="sass" scoped>
@@ -87,12 +70,6 @@ export default {
   margin-top: auto
 
 #app /deep/ .body-container
-  @media screen and (max-width: 1399px)
-    max-width: $body-max-width-medium
-  @media screen and (min-width: 1400px)
-    max-width: $body-max-width-large
-
-#app /deep/ .header-container
   @media screen and (max-width: 1399px)
     max-width: $body-max-width-small
   @media screen and (min-width: 1400px)

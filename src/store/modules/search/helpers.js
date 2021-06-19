@@ -1,11 +1,11 @@
 const getDefaultState = () => {
-    return {
-        filterData: [],
-        filteredMembers: [],
-        selectedMember: null
-    }
-}
+	return {
+		filterData: [],
+		filteredMembers: [],
+		selectedMember: null,
+	};
+};
 
 module.exports = {
-    getDefaultState
+	getDefaultState,
 };

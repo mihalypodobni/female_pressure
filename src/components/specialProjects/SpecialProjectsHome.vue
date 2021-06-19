@@ -7,12 +7,12 @@
         <section v-if="readMore">
           <b-row class="justify-content-center w-100 mx-0 p-0">
             <b-col
-                v-for="(project, idx) in projects"
-                :key="'project' + idx"
-                cols="12"
-                lg="6"
-                class="my-2 mx-0"
-                :class="idx % 2 === 0 ? 'pl-lg-0 pr-lg-2' : 'pr-lg-0 pl-lg-2'"
+              v-for="(project, idx) in projects"
+              :key="'project' + idx"
+              cols="12"
+              lg="6"
+              class="my-2 mx-0"
+              :class="idx % 2 === 0 ? 'pl-lg-0 pr-lg-2' : 'pr-lg-0 pl-lg-2'"
             >
               <SpecialProjectsCard :project="project" />
             </b-col>
@@ -23,12 +23,12 @@
         <section v-else>
           <b-row class="justify-content-center w-100 mx-0 p-0">
             <b-col
-                v-for="(project, idx) in projects.slice(0, 20)"
-                :key="'project' + idx"
-                cols="12"
-                lg="6"
-                class="my-2 mx-0"
-                :class="idx % 2 === 0 ? 'pl-lg-0 pr-lg-2' : 'pr-lg-0 pl-lg-2'"
+              v-for="(project, idx) in projects.slice(0, 20)"
+              :key="'project' + idx"
+              cols="12"
+              lg="6"
+              class="my-2 mx-0"
+              :class="idx % 2 === 0 ? 'pl-lg-0 pr-lg-2' : 'pr-lg-0 pl-lg-2'"
             >
               <SpecialProjectsCard :project="project" />
             </b-col>
@@ -38,19 +38,18 @@
       </b-row>
     </b-container>
   </div>
-
 </template>
 
 <script>
 import SpecialProjectsCard from "./SpecialProjectsCard";
 import { projects } from "@/assets/data/special-projects.js";
-import Header from "@/components/header/Header"
-import {mapMutations} from "vuex";
+import Header from "@/components/header/Header";
+import { mapMutations } from "vuex";
 
 export default {
   components: {
     SpecialProjectsCard,
-    Header
+    Header,
   },
   data() {
     return {
@@ -68,8 +67,8 @@ export default {
     ...mapMutations(["SET_PAGE"]),
   },
   mounted() {
-    this.SET_PAGE('projects')
-  }
+    this.SET_PAGE("projects");
+  },
 };
 </script>
 
