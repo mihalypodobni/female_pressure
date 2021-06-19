@@ -25,6 +25,7 @@
 
 <script>
 import Vue from "vue";
+import { mapState, mapActions } from "vuex";
 
 export default {
   data() {
@@ -58,15 +59,13 @@ export default {
       members: (state) => state.search.filteredMembers,
     }),
   },
-  methods: {
-    ...mapActions({
-      loadMembers: "search/filterData",
-    }),
-  },
   mounted() {
     // this.loadMembers()
   },
   methods: {
+    ...mapActions({
+      loadMembers: "search/filterData",
+    }),
     async loadPostTable() {
       const body = {
         genres: [

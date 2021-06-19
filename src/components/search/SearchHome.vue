@@ -18,7 +18,7 @@
 <script>
 import SideFilter from "./SideFilter";
 import MemberTable from "./MemberTable";
-import AutoCompleteCities from "../util/AutoCompleteCities";
+import AutoCompleteCities from "../blog/AutoCompleteCities.vue";
 import Header from "@/components/header/Header";
 import { mapMutations } from "vuex";
 
