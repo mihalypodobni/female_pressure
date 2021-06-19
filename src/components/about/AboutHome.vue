@@ -1,5 +1,9 @@
 <template>
-  <b-container class="mt-5 body-container">
+  <b-container
+    :class="
+      $store.state.isMobile ? 'body-container mt-5 p-0' : 'body-container mt-5'
+    "
+  >
     <div class="mb-4">
       <h3>visibility</h3>
       <p>
@@ -84,5 +88,5 @@
 
 <style lang="sass" scoped>
 .link
-	@include link
+  @include link
 </style>

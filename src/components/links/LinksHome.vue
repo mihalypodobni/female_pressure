@@ -86,6 +86,7 @@ export default {
 
 .main-card
   border: none
+  background: none
   border:
     background: none
     border-radius: 0px

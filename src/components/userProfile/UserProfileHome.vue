@@ -3,36 +3,36 @@
     <div class="name-tab m-0">
       <h3>{{ profile.alias1 }}</h3>
     </div>
-    <table class="mt-4">
-      <tr>
-        <th>location</th>
-        <td>{{ profile.location }}</td>
-      </tr>
-      <tr>
-        <th>work fields</th>
+    <b-table-simple class="mt-4">
+      <b-tr>
+        <b-th>location</b-th>
+        <b-td>{{ profile.location }}</b-td>
+      </b-tr>
+      <b-tr>
+        <b-th>work fields</b-th>
         <div class="d-flex">
-          <td v-for="workField in profile.workFields" :key="workField.id">
+          <b-td v-for="workField in profile.workFields" :key="workField.id">
             <button class="mr-2 workfield">{{ workField.title }}</button>
-          </td>
+          </b-td>
         </div>
-      </tr>
-      <tr>
-        <th>genres</th>
+      </b-tr>
+      <b-tr>
+        <b-th>genres</b-th>
         <div class="d-flex">
           <div v-for="genre in profile.genres" :key="genre.id">
-            <td>
+            <b-td>
               <button class="mr-2 genre">{{ genre.title }}</button>
-            </td>
+            </b-td>
           </div>
         </div>
-      </tr>
-      <tr>
+      </b-tr>
+      <b-tr>
         <div class="d-flex">
           <div
             v-for="socialMedia in profile.socialMedias"
             :key="socialMedia.type"
           >
-            <td>
+            <b-td>
               <a :href="socialMedia.link" target="_blank">
                 <font-awesome-icon
                   :icon="['fab', socialMedia.type]"
@@ -40,15 +40,15 @@
                   class="icon mr-3"
                 />
               </a>
-            </td>
+            </b-td>
           </div>
         </div>
-      </tr>
-      <tr>
-        <th>contact</th>
-        <td>{{ profile.contact }}</td>
-      </tr>
-    </table>
+      </b-tr>
+      <b-tr>
+        <b-th>contact</b-th>
+        <b-td>{{ profile.contact }}</b-td>
+      </b-tr>
+    </b-table-simple>
   </b-container>
 </template>
 
@@ -84,37 +84,41 @@ export default {
 
 <style  lang="sass" scoped>
 .name-tab
-    border-bottom: 2px solid $blueBoxBorder
+  border-bottom: 2px solid $blueBoxBorder
 
 th
-    color: $blueBoxBorder
-    font-weight: 400
-    padding-right: 2em
-    padding-bottom: 2em
+  color: $blueBoxBorder
+  font-weight: 400
+  padding-right: 2em
+  padding-bottom: 1em
+  border: none
 
 td
-    padding-bottom: 2em
+  padding-bottom: 1em
+  border: none
 
 button
-    padding: 0px 10px
-    font-weight: 400
-    box-shadow: none
-    border: none
-    &:hover
-        background-color: white
+  padding: 0px 10px
+  font-weight: 400
+  box-shadow: none
+  border: none
+  &:hover
+    text-shadow: 0px 0px 1px black
 
 .workfield
-    background-color: #00FFC5
-    border: 2px solid #00ffc5
-    &:hover
-        color: #00FFC5
+  background-color: #00FFC5
+  border: 2px solid #00ffc5
+  // &:hover
+  //   color: #00FFC5
 
 .genre
-    background-color: #0FFBF6
-    border: 2px solid #0FFBF6
-    &:hover
-        color: #0FFBF6
+  background-color: #0FFBF6
+  border: 2px solid #0FFBF6
+  // &:hover
+  //   color: #0FFBF6
 
 .icon
-    color: #00C9B2
+  color: #00C9B2
+  &:hover
+    color: #00ffc5
 </style>
