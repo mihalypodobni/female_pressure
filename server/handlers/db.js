@@ -23,6 +23,7 @@ async function runQuery(queryText, queryValues) {
     if (queryResult.rowCount) {
         return queryResult.rows;
     } else {
+        console.log("no results, returning 0")
         return 0;
     }
 }

@@ -1,6 +1,7 @@
 const config = require('../config');
 const Crypto = require('../handlers/crypto');
 const jwt = require("jsonwebtoken");
+const _ = require("lodash")
 
 const checkUserSessionExpired = function (tokenCreationDate) {
     let aWeekAgo = Date.now() - config.USER_SESSION_EXPIRATION;
@@ -20,6 +21,14 @@ const createToken = function (data) {
     })
 }
 
+const combineMembers = function (locations, genres) {
+    let map = new Map(genres.map(o => [o['alias1'], o]));
+    return locations.reduce((acc, o) => {
+        let match = map.get(o['alias1']);
+        return match ? acc.concat({ ...o, ...match }) : acc;
+    }, []);
+}
+
 const buildLocationQuery = function (locations) {
     let queryString = ``
     let continent = ''
@@ -34,8 +43,7 @@ const buildLocationQuery = function (locations) {
         let l = locations[i].split(';')
         if (l.length === 3) { //continent;country;state
             if (state === '') {
-                state = `ARRAY [$${index}] &&
-                (array_agg(state_long_name || ';' || country_name || ';' || continent_name)) `
+                state = `ARRAY [$${index}] && (array_agg(state_long_name || ';' || country_name || ';' || continent_name)) `
             } else {
                 let i = state.lastIndexOf("$")
                 let newString = `, $${index}`
@@ -45,8 +53,7 @@ const buildLocationQuery = function (locations) {
             filter.push(`${l[2]};${l[1]};${l[0]}`)
         } else if (l.length === 2) { //continent;country
             if (country === '') {
-                country = `ARRAY [$${index}] &&
-                (array_agg(country_name || ';' || continent_name)) `
+                country = `ARRAY [$${index}] && (array_agg(country_name || ';' || continent_name)) `
             } else {
                 let i = country.lastIndexOf("$")
                 let newString = `, $${index}`
@@ -56,8 +63,7 @@ const buildLocationQuery = function (locations) {
             filter.push(`${l[1]};${l[0]}`)
         } else if (l.length === 1) { //continent
             if (continent === '') {
-                continent = `ARRAY [$${index}] &&
-                (array_agg(continent_name)) `
+                continent = `ARRAY [$${index}] && (array_agg(continent_name)) `
             } else {
                 let i = continent.lastIndexOf("$")
                 let newString = `, $${index}`
@@ -67,8 +73,7 @@ const buildLocationQuery = function (locations) {
             filter.push(`${l[0]}`)
         } else {
             if (city === '') {
-                country = `ARRAY [$${index}] &&
-                (array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name)) `
+                country = `ARRAY [$${index}] && (array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name)) `
             } else {
                 let i = city.lastIndexOf("$")
                 let newString = `, $${index}`
@@ -107,12 +112,67 @@ const buildLocationQuery = function (locations) {
     if (queryString !== '') {
         queryString = `HAVING ${queryString}`
     }
-    return {queryString: queryString, filter: filter, index: index}
+    return {queryString: queryString, filter: filter}
+}
+
+const buildGenreQuery = function (genres) {
+    let genre = ''
+    let sub_genre = ''
+    let queryString = ``
+    let filter = []
+    let index = 1;
+
+    for (let i = 0; i < genres.length; i++) {
+        let g = genres[i].split(';')
+        if (g.length === 2) { //user selected a sub genre
+            if (sub_genre === '') {
+                sub_genre = `ARRAY [$${index}] && (array_agg(sub_genre_name || ';' || genre_name )) `
+            } else {
+                let i = sub_genre.lastIndexOf("$")
+                let newString = `, $${index}`
+                sub_genre = [sub_genre.slice(0, i + 2), newString, sub_genre.slice(i + 2)].join('');
+            }
+            index++
+            filter.push(`${g[1]};${g[0]}`)
+        } else {
+            if (genre === '') {
+                genre = `ARRAY [$${index}] && (array_agg(genre_name )) `
+            } else {
+                let i = genre.lastIndexOf("$")
+                let newString = `, $${index}`
+                genre = [genre.slice(0, i + 2), newString, genre.slice(i + 2)].join('');
+            }
+            index++
+            filter.push(`${g[0]}`)
+        }
+    }
+    //now build query string
+    if (genre !== '') {
+        if (queryString !== '') {
+            queryString = queryString + ` OR ` + genre
+        } else {
+            queryString += genre
+        }
+    }
+    if (sub_genre !== '') {
+        if (queryString !== '') {
+            queryString = queryString + ` OR ` + sub_genre
+        } else {
+            queryString += sub_genre
+        }
+    }
+
+    if (queryString !== '') {
+        queryString = `HAVING ${queryString}`
+    }
+    return {queryString: queryString, filter: filter}
 }
 
 
 module.exports = {
     checkUserSessionExpired,
     createToken,
-    buildLocationQuery
+    buildLocationQuery,
+    buildGenreQuery,
+    combineMembers
 };

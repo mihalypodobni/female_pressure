@@ -34,14 +34,14 @@ const getGenresAndSubgenres = async function () {
     for (let i = 0; i < genreList.length; i++) {
         if (genres.length === 0 || genreList[i - 1].genre_name !== genreList[i].genre_name) {
             genres.push({
-                id: 'main ' + genreList[i].genre_name,
+                id: genreList[i].genre_name,
                 label: genreList[i].genre_name,
                 children: []
             })
             y = y + 1
         }
         genres[y].children.push({
-            id: genreList[i].sub_genre_name,
+            id: genreList[i].genre_name + ';' + genreList[i].sub_genre_name,
             label: genreList[i].sub_genre_name,
         })
     }
@@ -61,14 +61,14 @@ const getProfessionsAndSubProfessions = async function () {
     for (let i = 0; i < professionList.length; i++) {
         if (professions.length === 0 || professionList[i - 1].profession_name !== professionList[i].profession_name) {
             professions.push({
-                id: 'main ' + professionList[i].profession_name,
+                id: professionList[i].profession_name,
                 label: professionList[i].profession_name,
                 children: []
             })
             y = y + 1
         }
         professions[y].children.push({
-            id: professionList[i].sub_profession_name,
+            id: professionList[i].profession_name + ';' + professionList[i].sub_profession_name,
             label: professionList[i].sub_profession_name,
         })
     }
@@ -202,18 +202,25 @@ group by alias1, alias2, alias3, email, disclose_email, first_name, last_name, d
     return await Helpers.runQuery(queryString, filter);
 };
 
-
 const loadMembers = async function (data) {
     //also need to get liked members
     //im thinking that i should just combine these three queries...try this out and see the speed...make sure i have 20 profiles in the database
     console.time('codezup') //time load members function
     let members = {}
+    console.log(data)
     let locations = await tableLoadMemberLocations(data.location);
-    // let genres = await tableLoadMemberGenres(data.member, data.genre);
+    if (data.location !== [] && locations === 0) {
+        console.timeEnd('codezup')
+        return []
+    }
+    let genres = await tableLoadMemberGenres(data.genre);
+    if (data.genre !== [] && genres === 0) {
+        console.timeEnd('codezup')
+        return []
+    }
+    // if (genres === 0) return []
     // let professions = await tableLoadMemberProfessions(data.member, data.profession);
-    members['locations'] = [...locations]
-    // members['genres'] = [...genres]
-    // members['professions'] = [...professions]
+    members = Util.combineMembers(locations, genres)
 
     console.timeEnd('codezup')
 
@@ -221,11 +228,11 @@ const loadMembers = async function (data) {
 };
 
 const tableLoadMemberLocations = async function (locations) {
-    let locationData = Util.buildLocationQuery(locations)
+    let locationData = await Util.buildLocationQuery(locations)
+
     const queryString = `SELECT alias1,
        alias2,
        alias3,
-       COUNT(*) OVER(),
        array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name
                  order by
                      primary_city desc) as location
@@ -236,25 +243,29 @@ const tableLoadMemberLocations = async function (locations) {
                  inner join country co using (country_id)
                  inner join continent using (continent_id)
         group by alias1, alias2, alias3 ` + locationData.queryString +
-        `order by alias1 asc
-        limit 20`;
-
+        `order by alias1 asc`;
     const filter = locationData.filter;
     return await Helpers.runQuery(queryString, filter);
 };
 
-const tableLoadMemberGenres = async function (query, genres) {
+const tableLoadMemberGenres = async function (genres) {
+    let genreData = await Util.buildGenreQuery(genres)
     const queryString = `SELECT alias1,
-        array_agg(DISTINCT sub_genre_name order by sub_genre_name) AS genres
-        from member
-                 inner join member_genre using (member_id)
+      array_agg(sub_genre_name
+         order by
+             sub_genre_name desc) as genres
+        from member as m
+                 inner join member_genre mg on mg.member_id = m.member_id
                  inner join sub_genre using (sub_genre_id)
-        GROUP BY alias1
-        HAVING ARRAY[$2] &&(array_agg(sub_genre.sub_genre_name))
-        ORDER BY alias1 asc
-        limit 20`;
+                 inner join genre using (genre_id)
+        group by alias1 ` + genreData.queryString +
+        `order by alias1 asc`;
 
-    const filter = ['%' + query + '%', genres];
+    console.log("genre query string", queryString)
+    console.log("genre filter", genreData.filter)
+
+
+    const filter = genreData.filter;
     return await Helpers.runQuery(queryString, filter);
 };
 
@@ -269,7 +280,7 @@ const tableLoadMemberProfessions = async function (query, professions) {
         ORDER BY alias1 asc
         limit 20`;
 
-    const filter = ['%' + query + '%', professions];
+    const filter = [queryString.filter];
     return await Helpers.runQuery(queryString, filter);
 };
 

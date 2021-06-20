@@ -30,6 +30,7 @@ const filterData = ({commit}, selectedFilters) => {
     return new Promise((resolve, reject) => {
         Vue.prototype.$http.post(`${Vue.prototype.$hostname}/search/load-table`, selectedFilters)
             .then(response => {
+                console.log("returned members", response.data)
                 commit('SET_FILTERED_MEMBERS', response.data)
                 resolve();
             }, error => {
