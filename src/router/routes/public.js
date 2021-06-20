@@ -70,11 +70,6 @@ const routes = [
 		name: "User Profile",
 		component: () => import("@/components/userProfile/UserProfilePublic"),
 	},
-	// {
-	// 	path: '*',
-	// 	name:'404',
-	// 	component: () => import("@/components/util/404NotFound.vue"),
-	// }
 ];
 
 export default routes.map((route) => {

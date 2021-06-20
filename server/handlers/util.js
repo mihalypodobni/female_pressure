@@ -109,6 +109,8 @@ const buildLocationQuery = function (locations) {
     }
     return {queryString: queryString, filter: filter, index: index}
 }
+
+
 module.exports = {
     checkUserSessionExpired,
     createToken,
