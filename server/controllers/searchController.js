@@ -31,19 +31,6 @@ router.get("/member-search/:query", cors(), async function (req, res) {
 });
 
 /**********************************************************************
- * GET member data
- *********************************************************************/
-router.get("/member/:id", cors(), async function (req, res) {
-    search.getMember(req.params.id)
-        .then((data) => {
-            res.status(200).json(data);
-        })
-        .catch((err) => {
-            res.status(500).json({Error: err.message});
-        });
-});
-
-/**********************************************************************
  * POST data for table
  *********************************************************************/
 router.post("/load-table", cors(), async function (req, res) {
