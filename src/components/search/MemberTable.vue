@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-table hover :items="members" :fields="fields">
+    <b-table hover :items="members" :fields="fields" fixed>
       <template #cell(name)="data">
         <div class="primary-text">{{ data.item.alias1 }}</div>
         <div class="secondary-text">
@@ -140,6 +140,6 @@ export default {
   padding-right: 2px
 
 .genre-section
-  max-width: 150px
+  //max-width: 150px
 
 </style>
