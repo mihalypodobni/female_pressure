@@ -1,7 +1,6 @@
 const config = require('../config');
 const Crypto = require('../handlers/crypto');
 const jwt = require("jsonwebtoken");
-const _ = require("lodash")
 
 const checkUserSessionExpired = function (tokenCreationDate) {
     let aWeekAgo = Date.now() - config.USER_SESSION_EXPIRATION;
