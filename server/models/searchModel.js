@@ -203,11 +203,9 @@ group by alias1, alias2, alias3, email, disclose_email, first_name, last_name, d
 };
 
 const loadMembers = async function (data) {
-    //also need to get liked members
-    //im thinking that i should just combine these three queries...try this out and see the speed...make sure i have 20 profiles in the database
     console.time('codezup') //time load members function
     let members = {}
-    console.log(data)
+    // console.log(data)
     let locations = await tableLoadMemberLocations(data.location);
     if (data.location !== [] && locations === 0) {
         console.timeEnd('codezup')
@@ -218,10 +216,13 @@ const loadMembers = async function (data) {
         console.timeEnd('codezup')
         return []
     }
-    // if (genres === 0) return []
-    // let professions = await tableLoadMemberProfessions(data.member, data.profession);
-    members = Util.combineMembers(locations, genres)
+    let professions = await tableLoadMemberProfessions(data.profession);
+    if (data.profession !== [] && professions === 0) {
+        console.timeEnd('codezup')
+        return []
+    }
 
+    members = Util.combineMembers(locations, genres, professions)
     console.timeEnd('codezup')
 
     return members
@@ -261,26 +262,24 @@ const tableLoadMemberGenres = async function (genres) {
         group by alias1 ` + genreData.queryString +
         `order by alias1 asc`;
 
-    console.log("genre query string", queryString)
-    console.log("genre filter", genreData.filter)
-
-
     const filter = genreData.filter;
     return await Helpers.runQuery(queryString, filter);
 };
 
-const tableLoadMemberProfessions = async function (query, professions) {
+const tableLoadMemberProfessions = async function (professions) {
+    let professionData = await Util.buildProfessionQuery(professions)
     const queryString = `SELECT alias1,
-        array_agg(DISTINCT sub_profession_name order by sub_profession_name) AS professions
-        from member
-                 inner join member_profession using (member_id)
+      array_agg(sub_profession_name
+         order by
+             sub_profession_name desc) as professions
+        from member as m
+                 inner join member_profession mp on mp.member_id = m.member_id
                  inner join sub_profession using (sub_profession_id)
-        GROUP BY alias1
-        HAVING ARRAY[$2] && ARRAY_AGG(sub_profession.sub_profession_name)
-        ORDER BY alias1 asc
-        limit 20`;
+                 inner join profession using (profession_id)
+        group by alias1 ` + professionData.queryString +
+        `order by alias1 asc`;
 
-    const filter = [queryString.filter];
+    const filter = professionData.filter;
     return await Helpers.runQuery(queryString, filter);
 };
 

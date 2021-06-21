@@ -20,10 +20,16 @@ const createToken = function (data) {
     })
 }
 
-const combineMembers = function (locations, genres) {
+const combineMembers = function (locations, genres, professions) {
     let map = new Map(genres.map(o => [o['alias1'], o]));
-    return locations.reduce((acc, o) => {
+    let lg = locations.reduce((acc, o) => {
         let match = map.get(o['alias1']);
+        return match ? acc.concat({ ...o, ...match }) : acc;
+    }, []);
+
+    let professionsMap = new Map(professions.map(o => [o['alias1'], o]));
+    return lg.reduce((acc, o) => {
+        let match = professionsMap.get(o['alias1']);
         return match ? acc.concat({ ...o, ...match }) : acc;
     }, []);
 }
@@ -180,11 +186,72 @@ const buildGenreQuery = function (genres) {
     return {queryString: queryString, filter: filter}
 }
 
+const buildProfessionQuery = function (professions) {
+    let profession = ''
+    let sub_profession = ''
+    let queryString = ``
+    let filter = []
+    let index = 1;
+
+    for (let i = 0; i < professions.length; i++) {
+        let p = professions[i].split(';')
+        let shift = 2
+        if (index > 10) {
+            shift = 3
+        } else if (index > 100) {
+            shift = 4
+        }
+
+        if (p.length === 2) { //user selected a sub genre
+            if (sub_profession === '') {
+                sub_profession = `ARRAY [$${index}] && (array_agg(sub_profession_name || ';' || profession_name )) `
+            } else {
+                let i = sub_profession.lastIndexOf("$")
+                let newString = `, $${index}`
+                sub_profession = [sub_profession.slice(0, i + shift), newString, sub_profession.slice(i + shift)].join('');
+            }
+            index++
+            filter.push(`${p[1]};${p[0]}`)
+        } else {
+            if (profession === '') {
+                profession = `ARRAY [$${index}] && (array_agg(profession_name )) `
+            } else {
+                let i = profession.lastIndexOf("$")
+                let newString = `, $${index}`
+                profession = [profession.slice(0, i + shift), newString, profession.slice(i + shift)].join('');
+            }
+            index++
+            filter.push(`${p[0]}`)
+        }
+    }
+    //now build query string
+    if (profession !== '') {
+        if (queryString !== '') {
+            queryString = queryString + ` OR ` + profession
+        } else {
+            queryString += profession
+        }
+    }
+    if (sub_profession !== '') {
+        if (queryString !== '') {
+            queryString = queryString + ` OR ` + sub_profession
+        } else {
+            queryString += sub_profession
+        }
+    }
+
+    if (queryString !== '') {
+        queryString = `HAVING ${queryString}`
+    }
+    return {queryString: queryString, filter: filter}
+}
+
 
 module.exports = {
     checkUserSessionExpired,
     createToken,
     buildLocationQuery,
     buildGenreQuery,
+    buildProfessionQuery,
     combineMembers
 };

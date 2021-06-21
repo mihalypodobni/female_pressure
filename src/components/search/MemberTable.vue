@@ -20,12 +20,22 @@
         </div>
       </template>
       <template #cell(genre)="data">
-        <div class="genre-section">
+        <div>
           <span v-for="(genre, idx) in data.item.genres"
              :key="genre + idx"
              class="primary-text genre mr-1"
              >
             {{genre}}
+          </span>
+        </div>
+      </template>
+      <template #cell(workField)="data">
+        <div>
+          <span v-for="(profession, idx) in data.item.professions"
+                :key="profession + idx"
+                class="primary-text profession mr-1"
+          >
+            {{profession}}
           </span>
         </div>
       </template>
@@ -52,7 +62,7 @@ export default {
           sortable: true,
         },
         {
-          key: "work field",
+          key: "workField",
           label: "work field",
           sortable: false,
         },
@@ -139,7 +149,9 @@ export default {
   padding-left: 2px
   padding-right: 2px
 
-.genre-section
-  //max-width: 150px
+.profession
+  background-color: lightcyan
+  padding-left: 2px
+  padding-right: 2px
 
 </style>
