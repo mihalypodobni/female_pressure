@@ -40,13 +40,19 @@ const buildLocationQuery = function (locations) {
     //build arrays here
     for (let i = 0; i < locations.length; i++) {
         let l = locations[i].split(';')
+        let shift = 2
+        if (index > 10) {
+            shift = 3
+        } else if (index > 100) {
+            shift = 4
+        }
         if (l.length === 3) { //continent;country;state
             if (state === '') {
                 state = `ARRAY [$${index}] && (array_agg(state_long_name || ';' || country_name || ';' || continent_name)) `
             } else {
                 let i = state.lastIndexOf("$")
                 let newString = `, $${index}`
-                state = [state.slice(0, i + 2), newString, state.slice(i + 2)].join('');
+                state = [state.slice(0, i + shift), newString, state.slice(i + shift)].join('');
             }
             index++
             filter.push(`${l[2]};${l[1]};${l[0]}`)
@@ -56,7 +62,7 @@ const buildLocationQuery = function (locations) {
             } else {
                 let i = country.lastIndexOf("$")
                 let newString = `, $${index}`
-                country = [country.slice(0, i + 2), newString, country.slice(i + 2)].join('');
+                country = [country.slice(0, i + shift), newString, country.slice(i + shift)].join('');
             }
             index++
             filter.push(`${l[1]};${l[0]}`)
@@ -66,7 +72,7 @@ const buildLocationQuery = function (locations) {
             } else {
                 let i = continent.lastIndexOf("$")
                 let newString = `, $${index}`
-                continent = [continent.slice(0, i + 2), newString, continent.slice(i + 2)].join('');
+                continent = [continent.slice(0, i + shift), newString, continent.slice(i + shift)].join('');
             }
             index++
             filter.push(`${l[0]}`)
@@ -76,7 +82,7 @@ const buildLocationQuery = function (locations) {
             } else {
                 let i = city.lastIndexOf("$")
                 let newString = `, $${index}`
-                city = [city.slice(0, i + 2), newString, city.slice(i + 2)].join('');
+                city = [city.slice(0, i + shift), newString, city.slice(i + shift)].join('');
             }
             index++
             city += `${l[3]};${l[2]};${l[1]};${l[0]}`
@@ -123,13 +129,20 @@ const buildGenreQuery = function (genres) {
 
     for (let i = 0; i < genres.length; i++) {
         let g = genres[i].split(';')
+        let shift = 2
+        if (index > 10) {
+            shift = 3
+        } else if (index > 100) {
+            shift = 4
+        }
+
         if (g.length === 2) { //user selected a sub genre
             if (sub_genre === '') {
                 sub_genre = `ARRAY [$${index}] && (array_agg(sub_genre_name || ';' || genre_name )) `
             } else {
                 let i = sub_genre.lastIndexOf("$")
                 let newString = `, $${index}`
-                sub_genre = [sub_genre.slice(0, i + 2), newString, sub_genre.slice(i + 2)].join('');
+                sub_genre = [sub_genre.slice(0, i + shift), newString, sub_genre.slice(i + shift)].join('');
             }
             index++
             filter.push(`${g[1]};${g[0]}`)
@@ -139,7 +152,7 @@ const buildGenreQuery = function (genres) {
             } else {
                 let i = genre.lastIndexOf("$")
                 let newString = `, $${index}`
-                genre = [genre.slice(0, i + 2), newString, genre.slice(i + 2)].join('');
+                genre = [genre.slice(0, i + shift), newString, genre.slice(i + shift)].join('');
             }
             index++
             filter.push(`${g[0]}`)
