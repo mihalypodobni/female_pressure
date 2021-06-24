@@ -2,7 +2,7 @@
   <div>
     <Header />
     <b-container class="mt-5 body-container">
-      This is the events page!!
+      This is the events!!
     </b-container>
   </div>
 </template>
