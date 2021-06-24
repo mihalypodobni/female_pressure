@@ -157,7 +157,7 @@ export const faq = [
 	},
 	{
 		title:
-			"I want to invite a representative of female:pressure to present at or participate in my event / festival / panel. Whom do I contact ?",
+			"I want to invite a representative of female:pressure to present at or participate in my event. Whom do I contact ?",
 		answer: `Please send details of your event including location, date, budget, and what exactly you want us to present or talk about to info@femalepressure.net. `,
 	},
 	{
