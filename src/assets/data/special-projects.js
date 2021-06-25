@@ -24,7 +24,7 @@ export const projects = [
     year: "2020",
   },
   {
-    img: "fp-podcast-logo.svg",
+    img: "2018-podcast.svg",
     title: "podcast",
     text:
       "in this biweekly podcast you’ll find the most stunning sounds from around the world and a lot of good tracks produced by f:p artists.",
@@ -97,20 +97,20 @@ export const projects = [
     link: "https://femalepressure.wordpress.com/festival2013/",
     year: "2013",
   },
-  {
-    img: "dots.gif",
-    title: "call for diversity",
-    text:
-      "our call for the collective revision of female* representation in electronic music and digital arts. “we need – and paying audiences deserve – invigorating and entertaining diversity!”",
-    link: "https://femalepressure.wordpress.com/festival2013/",
-    year: "2013",
-  },
-  {
-    img: "dots-180deg.gif",
+   {
+    img: "2013-FACTS-dots.gif",
     title: "FACTS",
     text:
       "the first FACTS survey which then became a continuous project that quantifies the gender distribution of artists performing at electronic music festivals worldwide.",
     link: "https://femalepressure.wordpress.com/facts-graphic/",
+    year: "2013",
+  },
+  {
+    img: "2013-FACTS-press_release-dots.gif",
+    title: "call for diversity",
+    text:
+        "our call for the collective revision of female* representation in electronic music and digital arts. “we need – and paying audiences deserve – invigorating and entertaining diversity!”",
+    link: "https://femalepressure.wordpress.com/festival2013/",
     year: "2013",
   },
   {
@@ -130,7 +130,7 @@ export const projects = [
     year: "2009",
   },
   {
-    img: "2005-dvd1.svg",
+    img: "2008-dvd1.svg",
     title: "open:sounds dvd1",
     text: `to counteract the one-sided focus on djs and musicians, we wanted to offer "our" visual artists the overdue possibility to present their work adequately.`,
     link: "http://femalepressure.net/dvd.html",
