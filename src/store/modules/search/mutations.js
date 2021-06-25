@@ -3,7 +3,7 @@ const SET_FILTER_DATA = (state, filterData) => {
 };
 
 const SET_FILTERED_MEMBERS = (state, data) => {
-	state.filteredMembers = data;
+	data === 0 ? state.filteredMembers = [] : state.filteredMembers = data;
 };
 
 const SET_SELECTED_MEMBER = (state, member) => {

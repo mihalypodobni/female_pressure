@@ -154,6 +154,7 @@ const getMember = async function (member_id) {
        phone_number,
        disclose_phone,
        deceased,
+       remote,
        personal_site,
        pronouns,
        facebook,
@@ -204,84 +205,64 @@ group by alias1, alias2, alias3, email, disclose_email, first_name, last_name, d
 
 const loadMembers = async function (data) {
     console.time('codezup') //time load members function
-    let members = {}
-    // console.log(data)
-    let locations = await tableLoadMemberLocations(data.location);
-    if (data.location !== [] && locations === 0) {
-        console.timeEnd('codezup')
-        return []
-    }
-    let genres = await tableLoadMemberGenres(data.genre);
-    if (data.genre !== [] && genres === 0) {
-        console.timeEnd('codezup')
-        return []
-    }
-    let professions = await tableLoadMemberProfessions(data.profession);
-    if (data.profession !== [] && professions === 0) {
-        console.timeEnd('codezup')
-        return []
-    }
+    let professionData = await Util.buildProfessionQuery(data.profession)
+    let genreData = await Util.buildGenreQuery(data.genre, professionData.index)
+    let locationData = await Util.buildLocationQuery(data.location, genreData.index)
+    let otherData = await Util.buildOtherQuery(data.other)
+    let following = await Util.buildFollowingQuery()
 
-    members = Util.combineMembers(locations, genres, professions)
-    console.timeEnd('codezup')
+    const queryString = `WITH professions AS (
+    SELECT alias1,
+           array_agg(sub_profession_name
+                     order by
+                         sub_profession_name desc) as professions
+    from member as m
+             inner join member_profession mp on mp.member_id = m.member_id
+             inner join sub_profession using (sub_profession_id)
+             inner join profession using (profession_id)
+    group by alias1 ` + professionData.queryString +
+`),
+     genres AS (
+         SELECT alias1,
+                array_agg(sub_genre_name
+                          order by
+                              sub_genre_name desc) as genres
+         from member as m
+                  inner join member_genre mg on mg.member_id = m.member_id
+                  inner join sub_genre using (sub_genre_id)
+                  inner join genre using (genre_id)
+         where alias1 in (select alias1 from professions)
+         group by alias1 ` + genreData.queryString +
+     `),` + following +
 
-    return members
-};
-
-const tableLoadMemberLocations = async function (locations) {
-    let locationData = await Util.buildLocationQuery(locations)
-
-    const queryString = `SELECT alias1,
+`SELECT alias1,
        alias2,
        alias3,
+       g.genres,
+       p.professions,
+       f.followed,
        array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name
                  order by
-                     primary_city desc) as location
-        from member as m
-                 inner join member_city mc on mc.member_id = m.member_id
-                 inner join city c using (city_id)
-                 inner join state s using (state_id)
-                 inner join country co using (country_id)
-                 inner join continent using (continent_id)
-        group by alias1, alias2, alias3 ` + locationData.queryString +
-        `order by alias1 asc`;
-    const filter = locationData.filter;
-    return await Helpers.runQuery(queryString, filter);
-};
+                     primary_city desc)      as location
+from member as m
+         inner join member_city mc on mc.member_id = m.member_id
+         inner join city c using (city_id)
+         inner join state s using (state_id)
+         inner join country co using (country_id)
+         inner join continent using (continent_id)
+         inner join genres g using (alias1)
+         inner join professions p using (alias1)
+         inner join followers f using (alias1)` + otherData +
+`group by alias1, alias2, alias3, g.genres, p.professions, f.followed ` + locationData.queryString +
+`order by alias1 asc`
 
-const tableLoadMemberGenres = async function (genres) {
-    let genreData = await Util.buildGenreQuery(genres)
-    const queryString = `SELECT alias1,
-      array_agg(sub_genre_name
-         order by
-             sub_genre_name desc) as genres
-        from member as m
-                 inner join member_genre mg on mg.member_id = m.member_id
-                 inner join sub_genre using (sub_genre_id)
-                 inner join genre using (genre_id)
-        group by alias1 ` + genreData.queryString +
-        `order by alias1 asc`;
 
-    const filter = genreData.filter;
-    return await Helpers.runQuery(queryString, filter);
-};
+    const filter = [...professionData.filter, ...genreData.filter, ...locationData.filter]
+    let res = await Helpers.runQuery(queryString, filter);
+    console.timeEnd('codezup')
+    return res
 
-const tableLoadMemberProfessions = async function (professions) {
-    let professionData = await Util.buildProfessionQuery(professions)
-    const queryString = `SELECT alias1,
-      array_agg(sub_profession_name
-         order by
-             sub_profession_name desc) as professions
-        from member as m
-                 inner join member_profession mp on mp.member_id = m.member_id
-                 inner join sub_profession using (sub_profession_id)
-                 inner join profession using (profession_id)
-        group by alias1 ` + professionData.queryString +
-        `order by alias1 asc`;
-
-    const filter = professionData.filter;
-    return await Helpers.runQuery(queryString, filter);
-};
+}
 
 module.exports = {
     getFilterData,
@@ -289,9 +270,6 @@ module.exports = {
     getGenresAndSubgenres,
     getCities,
     memberSearch,
-    loadMembers,
-    tableLoadMemberLocations,
-    tableLoadMemberGenres,
-    tableLoadMemberProfessions,
-    getMember
+    getMember,
+    loadMembers
 };

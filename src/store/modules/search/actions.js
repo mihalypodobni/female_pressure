@@ -39,6 +39,7 @@ const filterData = ({commit}, selectedFilters) => {
     })
 };
 
+
 export default {
     loadFilterData,
     filterData

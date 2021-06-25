@@ -20,28 +20,14 @@ const createToken = function (data) {
     })
 }
 
-const combineMembers = function (locations, genres, professions) {
-    let map = new Map(genres.map(o => [o['alias1'], o]));
-    let lg = locations.reduce((acc, o) => {
-        let match = map.get(o['alias1']);
-        return match ? acc.concat({ ...o, ...match }) : acc;
-    }, []);
-
-    let professionsMap = new Map(professions.map(o => [o['alias1'], o]));
-    return lg.reduce((acc, o) => {
-        let match = professionsMap.get(o['alias1']);
-        return match ? acc.concat({ ...o, ...match }) : acc;
-    }, []);
-}
-
-const buildLocationQuery = function (locations) {
+const buildLocationQuery = function (locations, i) {
     let queryString = ``
     let continent = ''
     let country = ''
     let state = ''
     let city = ''
     let filter = []
-    let index = 1;
+    let index = i;
 
     //build arrays here
     for (let i = 0; i < locations.length; i++) {
@@ -123,15 +109,15 @@ const buildLocationQuery = function (locations) {
     if (queryString !== '') {
         queryString = `HAVING ${queryString}`
     }
-    return {queryString: queryString, filter: filter}
+    return {queryString: queryString, filter: filter, index: index}
 }
 
-const buildGenreQuery = function (genres) {
+const buildGenreQuery = function (genres, i) {
     let genre = ''
     let sub_genre = ''
     let queryString = ``
     let filter = []
-    let index = 1;
+    let index = i;
 
     for (let i = 0; i < genres.length; i++) {
         let g = genres[i].split(';')
@@ -183,7 +169,7 @@ const buildGenreQuery = function (genres) {
     if (queryString !== '') {
         queryString = `HAVING ${queryString}`
     }
-    return {queryString: queryString, filter: filter}
+    return {queryString: queryString, filter: filter, index: index}
 }
 
 const buildProfessionQuery = function (professions) {
@@ -239,11 +225,40 @@ const buildProfessionQuery = function (professions) {
             queryString += sub_profession
         }
     }
-
     if (queryString !== '') {
         queryString = `HAVING ${queryString}`
     }
-    return {queryString: queryString, filter: filter}
+    return {queryString: queryString, filter: filter, index: index}
+}
+
+const buildOtherQuery = function (other) {
+    if (other.length === 0 || other.length === 1 && other.includes('liked')) {
+        return ' '
+    }
+
+    let queryString = `WHERE`
+    if (other.includes('remote')) {
+        queryString += ` m.remote is TRUE `
+    }
+    if (other.includes('deceased')) {
+        if (queryString !== 'WHERE') {
+            queryString += `and`
+        }
+        queryString += ` m.deceased is TRUE `
+    }
+    return queryString
+}
+
+const buildFollowingQuery = function () {
+    return `followers AS (
+         SELECT alias1,
+                (CASE
+                     WHEN f.being_followed_id = m.member_id and f.follower_id = 1 THEN true
+                     ELSE false
+                    END) as followed
+         from member as m
+                  full join follows f on m.member_id = f.being_followed_id
+     )`
 }
 
 
@@ -253,5 +268,6 @@ module.exports = {
     buildLocationQuery,
     buildGenreQuery,
     buildProfessionQuery,
-    combineMembers
+    buildOtherQuery,
+    buildFollowingQuery
 };
