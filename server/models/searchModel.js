@@ -204,12 +204,13 @@ group by alias1, alias2, alias3, email, disclose_email, first_name, last_name, d
 };
 
 const loadMembers = async function (data) {
+    console.log(data.user)
     console.time('codezup') //time load members function
     let professionData = await Util.buildProfessionQuery(data.selectedFilters.profession)
     let genreData = await Util.buildGenreQuery(data.selectedFilters.genre, professionData.index)
     let locationData = await Util.buildLocationQuery(data.selectedFilters.location, genreData.index)
     let otherData = await Util.buildOtherQuery(data.selectedFilters.other)
-    let following = await Util.buildFollowingQuery(data.authenticated)
+    let following = await Util.buildFollowingQuery(data.authenticated, data.user, locationData.index)
 
     const queryString = `WITH professions AS (
     SELECT alias1,
@@ -255,9 +256,9 @@ from member as m
 `group by alias1, alias2, alias3, g.genres, p.professions` + following.group + locationData.queryString +
 `order by alias1 asc`
 
-    console.log(queryString)
+    const filter = [...professionData.filter, ...genreData.filter, ...locationData.filter, ...following.filter]
+    console.log(queryString, filter)
 
-    const filter = [...professionData.filter, ...genreData.filter, ...locationData.filter]
     let res = await Helpers.runQuery(queryString, filter);
     console.timeEnd('codezup')
     return res

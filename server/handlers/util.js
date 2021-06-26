@@ -249,20 +249,21 @@ const buildOtherQuery = function (other) {
     return queryString
 }
 
-const buildFollowingQuery = function (authenticated) {
+const buildFollowingQuery = function (authenticated, user, index) {
     if (!authenticated) {
         return {
             query: ``,
             select: ``,
             inner: ``,
-            group: ``
+            group: ``,
+            filter: []
         }
     }
     let following = {}
     following.query = `, followers AS (
          SELECT alias1,
                 (CASE
-                     WHEN f.being_followed_id = m.member_id and f.follower_id = 1 THEN true
+                     WHEN f.being_followed_id = m.member_id and f.follower_id = (SELECT member_id from member where email = $${index}) THEN true
                      ELSE false
                     END) as followed
          from member as m
@@ -271,6 +272,7 @@ const buildFollowingQuery = function (authenticated) {
     following.select = ` f.followed, `
     following.inner = `inner join followers f using (alias1)`
     following.group = `, f.followed `
+    following.filter = [user]
     return following
 
 }
