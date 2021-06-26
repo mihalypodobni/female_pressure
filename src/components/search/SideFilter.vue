@@ -51,7 +51,7 @@ export default {
       loadMembers: 'search/filterData'
     }),
     ...mapMutations({
-      SET_FILTERED_MEMBERS: 'search/SET_FILTERED_MEMBERS' // map `this.add()` to `this.$store.commit('increment')`
+      SET_FILTERED_MEMBERS: 'search/SET_FILTERED_MEMBERS'
     })
   },
   watch: {
@@ -59,7 +59,6 @@ export default {
       deep: true,
       handler() {
         if(this.selectedFilters.location.length === 0 && this.selectedFilters.profession.length === 0 && this.selectedFilters.genre.length === 0 && this.selectedFilters.other.length === 0) {
-          console.log("clearing filtered members list")
           this.SET_FILTERED_MEMBERS([])
         } else {
           this.loadMembers(this.selectedFilters)

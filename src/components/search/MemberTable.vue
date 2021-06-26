@@ -28,10 +28,10 @@
       <template #cell(genre)="data">
         <div>
           <span v-for="(genre, idx) in data.item.genres"
-             :key="genre + idx"
-             class="primary-text genre mr-1"
-             >
-            {{genre}}
+                :key="genre + idx"
+                class="primary-text genre mr-1"
+          >
+            {{ genre }}
           </span>
         </div>
       </template>
@@ -41,7 +41,7 @@
                 :key="profession + idx"
                 class="primary-text profession mr-1"
           >
-            {{profession}}
+            {{ profession }}
           </span>
         </div>
       </template>
@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import {mapMutations, mapState} from "vuex";
 
 export default {
   data() {
@@ -81,7 +81,14 @@ export default {
           sortable: false,
         },
       ],
+      showHearts: false
     };
+  },
+  mounted() {
+    this.SET_FILTERED_MEMBERS([])
+    if (this.authenticated) {
+      this.showHearts = true
+    }
   },
   computed: {
     ...mapState({
@@ -89,10 +96,14 @@ export default {
       authenticated: (state) => state.authentication.authenticated
     }),
     computedFields() {
-      return this.authenticated ? this.fields : this.fields.filter(row => row.key !== 'liked');
-    }
-
+      return this.showHearts ? this.fields : this.fields.filter(row => row.key !== 'liked');
+    },
   },
+  methods: {
+    ...mapMutations({
+      SET_FILTERED_MEMBERS: 'search/SET_FILTERED_MEMBERS'
+    })
+  }
 };
 </script>
 
@@ -118,6 +129,7 @@ export default {
 .member-search-results
   td
     width: 50px
-  td+td
+
+  td + td
     width: calc((100% / 4))
 </style>

@@ -257,7 +257,7 @@ from member as m
 ` order by alias1 asc`
 
     const filter = [...professionData.filter, ...genreData.filter, ...locationData.filter, ...following.filter]
-    console.log(queryString, filter)
+    // console.log(queryString, filter)
 
     let res = await Helpers.runQuery(queryString, filter);
     console.timeEnd('codezup')
