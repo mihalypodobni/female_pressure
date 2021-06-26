@@ -254,7 +254,7 @@ from member as m
          inner join professions p using (alias1)`
          + following.inner + otherData +
 `group by alias1, alias2, alias3, g.genres, p.professions` + following.group + locationData.queryString +
-`order by alias1 asc`
+` order by alias1 asc`
 
     const filter = [...professionData.filter, ...genreData.filter, ...locationData.filter, ...following.filter]
     console.log(queryString, filter)
