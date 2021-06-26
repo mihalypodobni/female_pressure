@@ -11,33 +11,28 @@ export const links = [
       },
       {
         title: "anti-racism resources",
-        url:
-          "https://docs.google.com/document/d/1ko1dRVSUtpDntIZ5SrewALLhcMDuhe69Om31oOHIkh8/",
+        url: "https://docs.google.com/document/d/1ko1dRVSUtpDntIZ5SrewALLhcMDuhe69Om31oOHIkh8/",
         language: "en",
       },
       {
         title: "anti-racism resources for white people",
-        url:
-          "https://docs.google.com/document/d/1BRlF2_zhNe86SGgHa6-VlBO-QgirITwCTugSfKie5Fs/edit",
+        url: "https://docs.google.com/document/d/1BRlF2_zhNe86SGgHa6-VlBO-QgirITwCTugSfKie5Fs/edit",
         language: "en",
       },
       {
         title: "black lives matter - ressourcen auf deutsch",
-        url:
-          "https://docs.google.com/document/d/1BZk5sDngE8Z8twGzzbmAg78ful3zCGlzZ9W73Pguw-Y/edit",
+        url: "https://docs.google.com/document/d/1BZk5sDngE8Z8twGzzbmAg78ful3zCGlzZ9W73Pguw-Y/edit",
         language: "de",
       },
       {
         title: "how to support black lives in the uk",
-        url:
-          "https://docs.google.com/document/d/10iIz_pFB8DzPkwddc8dcmJdJ0ZMITfTs7lvs4uyusZk/edit",
+        url: "https://docs.google.com/document/d/10iIz_pFB8DzPkwddc8dcmJdJ0ZMITfTs7lvs4uyusZk/edit",
         language: "en",
       },
       {
         title:
           "links, ressourcen, texte, personen, organisationen in deutschland",
-        url:
-          "https://docs.google.com/document/d/1BZk5sDngE8Z8twGzzbmAg78ful3zCGlzZ9W73Pguw-Y/edit",
+        url: "https://docs.google.com/document/d/1BZk5sDngE8Z8twGzzbmAg78ful3zCGlzZ9W73Pguw-Y/edit",
         language: "de",
       },
       {
@@ -46,10 +41,8 @@ export const links = [
         language: "en",
       },
       {
-        title:
-          "what does it mean to be antiracist? how do we overcome white supremacy?",
-        url:
-          "https://multcolib.bibliocommons.com/list/share/114633184/1648115099",
+        title: "what does it mean to be antiracist? how do we overcome white supremacy?",
+        url: "https://multcolib.bibliocommons.com/list/share/114633184/1648115099",
         language: "en",
       },
     ],
@@ -222,8 +215,7 @@ export const links = [
       },
       {
         title: "ny times on godmothers in electronic music",
-        url:
-          "https://www.nytimes.com/2012/11/25/arts/music/rediscovering-the-electronic-music-godmothers.html?_r=0",
+        url: "https://www.nytimes.com/2012/11/25/arts/music/rediscovering-the-electronic-music-godmothers.html?_r=0",
       },
       {
         title: "pile rats",
@@ -359,8 +351,7 @@ export const links = [
       },
       {
         title: "female audio youtubers you need to follow",
-        url:
-          "https://lnamusic.com/2020/04/15/female-audio-youtubers-you-need-to-follow/",
+        url: "https://lnamusic.com/2020/04/15/female-audio-youtubers-you-need-to-follow/",
         language: "en",
       },
       {
@@ -485,14 +476,12 @@ export const links = [
       {
         title:
           "50+ all-women and feminist sound/music tech collectives, co-ops, non-profits",
-        url:
-          "https://drlizdobson.wpcomstaging.com/2018/02/18/feministsoundcollectives/",
+        url: "https://drlizdobson.wpcomstaging.com/2018/02/18/feministsoundcollectives/",
         language: "en",
       },
       {
         title: "black femme identifying electronic djs/producers/artists",
-        url:
-          "https://docs.google.com/spreadsheets/d/1z2u8I5XXYZopIDdBj1maSeMXvbcLtkNcmpUyADFhdVk/edit#gid=0",
+        url: "https://docs.google.com/spreadsheets/d/1z2u8I5XXYZopIDdBj1maSeMXvbcLtkNcmpUyADFhdVk/edit#gid=0",
         language: "en",
       },
       {
@@ -738,8 +727,7 @@ export const links = [
       },
       {
         title: "women in music index",
-        url:
-          "https://www.musiccitiesnetwork.com/projects-details/women-in-music",
+        url: "https://www.musiccitiesnetwork.com/projects-details/women-in-music",
         language: "en",
       },
       {
@@ -823,8 +811,7 @@ export const links = [
       },
       {
         title: "should you put your pronouns in your email signature?",
-        url:
-          "https://www.bustle.com/p/should-you-put-your-pronouns-in-your-email-signature-this-inclusive-workplace-trend-is-showing-up-more-more-2996610",
+        url: "https://www.bustle.com/p/should-you-put-your-pronouns-in-your-email-signature-this-inclusive-workplace-trend-is-showing-up-more-more-2996610",
         language: "en",
       },
       {
@@ -839,20 +826,17 @@ export const links = [
       },
       {
         title: "non-binary feminism",
-        url:
-          "https://www.rewriting-the-rules.com/conflict-break-up/non-binary-feminism-the-personal-is-still-political/",
+        url: "https://www.rewriting-the-rules.com/conflict-break-up/non-binary-feminism-the-personal-is-still-political/",
         language: "en",
       },
       {
         title: "non-binary gender q&a",
-        url:
-          "https://www.rewriting-the-rules.com/gender/coming-out-day-non-binary-gender-qa/",
+        url: "https://www.rewriting-the-rules.com/gender/coming-out-day-non-binary-gender-qa/",
         language: "en",
       },
       {
         title: "how to use singular they",
-        url:
-          "https://www.instructionalsolutions.com/blog/how-to-use-singular-they",
+        url: "https://www.instructionalsolutions.com/blog/how-to-use-singular-they",
         language: "en",
       },
     ],
@@ -864,8 +848,7 @@ export const links = [
     links: [
       {
         title: "a guide to women in stem: closing the gender gap",
-        url:
-          "https://www.mastersindatascience.org/resources/a-guide-for-women-in-stem-closing-the-gender-gap/",
+        url: "https://www.mastersindatascience.org/resources/a-guide-for-women-in-stem-closing-the-gender-gap/",
         language: "en",
       },
       {
@@ -885,14 +868,12 @@ export const links = [
       },
       {
         title: "changing the curve: women in computing",
-        url:
-          "https://ischoolonline.berkeley.edu/blog/women-computing-computer-science/",
+        url: "https://ischoolonline.berkeley.edu/blog/women-computing-computer-science/",
         language: "en",
       },
       {
         title: "coding glossary for kids",
-        url:
-          "https://www.smartadvocate.com/News/Blog/software-programming-and-coding-glossary-for-kids",
+        url: "https://www.smartadvocate.com/News/Blog/software-programming-and-coding-glossary-for-kids",
         language: "en",
       },
       {
@@ -902,8 +883,7 @@ export const links = [
       },
       {
         title: "fanfare for the uncommon woman conductor",
-        url:
-          "https://jessicamusic.blogspot.com/2013/09/fanfare-for-uncommon-woman-conductor.html",
+        url: "https://jessicamusic.blogspot.com/2013/09/fanfare-for-uncommon-woman-conductor.html",
         language: "en",
       },
       {
@@ -918,8 +898,7 @@ export const links = [
       },
       {
         title: "future music industry",
-        url:
-          "https://docs.google.com/document/d/1-UBfSpbT_HBhJTxMcAiqQZ9gQeoI1rrel8gsT6-0e_g/edit",
+        url: "https://docs.google.com/document/d/1-UBfSpbT_HBhJTxMcAiqQZ9gQeoI1rrel8gsT6-0e_g/edit",
         language: "en",
       },
       {
@@ -979,8 +958,7 @@ export const links = [
       },
       {
         title: "literature on gender and electronic music",
-        url:
-          "https://drlizdobson.com/2018/02/12/literature-on-gender-and-electronic-music/",
+        url: "https://drlizdobson.com/2018/02/12/literature-on-gender-and-electronic-music/",
         language: "en",
       },
       {
@@ -1000,8 +978,7 @@ export const links = [
       },
       {
         title: "music by black composers",
-        url:
-          "https://www.musicbyblackcomposers.org/resources/living-composers-directory/",
+        url: "https://www.musicbyblackcomposers.org/resources/living-composers-directory/",
         language: "en",
       },
       {
@@ -1051,14 +1028,12 @@ export const links = [
       },
       {
         title: "resources for women in business (in the usa)",
-        url:
-          "https://www.zenbusiness.com/info/resources-for-women-in-business/",
+        url: "https://www.zenbusiness.com/info/resources-for-women-in-business/",
         language: "en",
       },
       {
         title: "resources for women in computer technology",
-        url:
-          "https://www.purdueglobal.edu/blog/information-technology/resources-women-computer-technology/",
+        url: "https://www.purdueglobal.edu/blog/information-technology/resources-women-computer-technology/",
         language: "en",
       },
       {
@@ -1098,8 +1073,7 @@ export const links = [
       },
       {
         title: "the empowering guide for women in tech 2020",
-        url:
-          "https://www.websiteplanet.com/blog/the-empowering-guide-for-women-in-tech/",
+        url: "https://www.websiteplanet.com/blog/the-empowering-guide-for-women-in-tech/",
         language: "en",
       },
       {
@@ -1149,8 +1123,7 @@ export const links = [
       },
       {
         title: "women in stem: a guide to bridging the gender gap",
-        url:
-          "https://online.maryville.edu/blog/women-in-stem-a-guide-to-bridging-the-gender-gap/",
+        url: "https://online.maryville.edu/blog/women-in-stem-a-guide-to-bridging-the-gender-gap/",
         language: "en",
       },
       {
@@ -1165,8 +1138,7 @@ export const links = [
       },
       {
         title: "xenofeminism",
-        url:
-          "https://laboriacuboniks.net/manifesto/xenofeminism-a-politics-for-alienation/",
+        url: "https://laboriacuboniks.net/manifesto/xenofeminism-a-politics-for-alienation/",
         language: "en",
       },
     ],
