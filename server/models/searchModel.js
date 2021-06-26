@@ -251,12 +251,12 @@ from member as m
          inner join continent using (continent_id)
          inner join genres g using (alias1)
          inner join professions p using (alias1)`
-         + otherData + following.where +
+         + following.where + otherData +
 `group by alias1, alias2, alias3, m.email, g.genres, p.professions` + locationData.queryString +
 ` order by alias1 asc`
 
     const filter = [...professionData.filter, ...genreData.filter, ...locationData.filter, ...following.filter]
-
+    // console.log(queryString, filter)
     let res = await Helpers.runQuery(queryString, filter);
     console.timeEnd('codezup')
     return res

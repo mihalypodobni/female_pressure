@@ -168,7 +168,7 @@
         <p>May 2021</p>
       <p>
         The anti-harassment policy is based on the example policy from the Geek Feminism wiki, created by the Geek
-        Feminism community: <b-link class="link">http://geekfeminism.wikia.com/wiki/Community_anti-harassment</b-link>
+        Feminism community: <b-link class="link" href="http://geekfeminism.wikia.com/wiki/Community_anti-harassment">http://geekfeminism.wikia.com/wiki/Community_anti-harassment</b-link>
       </p>
       <p>
         If you are a female:pressure member and think something is missing in this code of conduct, or should be

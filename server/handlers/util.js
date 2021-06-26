@@ -235,13 +235,17 @@ const buildOtherQuery = function (other) {
     if (other.length === 0 || other.length === 1 && other.includes('liked')) {
         return ` `
     }
-
-    let queryString = `WHERE`
+    let queryString = ``
+    if (other.includes('liked')) {
+        queryString = `AND`
+    } else {
+        queryString = `WHERE`
+    }
     if (other.includes('remote')) {
         queryString += ` m.remote is TRUE `
     }
     if (other.includes('deceased')) {
-        if (queryString !== 'WHERE') {
+        if (queryString !== 'WHERE' && queryString !== 'AND') {
             queryString += `and`
         }
         queryString += ` m.deceased is TRUE `
@@ -263,7 +267,7 @@ const buildFollowingQuery = function (authenticated, user, otherFilters, index) 
         following.select = `true as followed,`
         following.where = `inner join follows f on m.member_id = f.being_followed_id
             where f.follower_id =
-            (SELECT member_id from member where email = $${index})`
+            (SELECT member_id from member where email = $${index}) `
     } else {
         following.select = ` (CASE
             WHEN EXISTS(
