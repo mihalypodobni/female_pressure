@@ -204,13 +204,12 @@ group by alias1, alias2, alias3, email, disclose_email, first_name, last_name, d
 };
 
 const loadMembers = async function (data) {
-    console.log(data.user)
     console.time('codezup') //time load members function
     let professionData = await Util.buildProfessionQuery(data.selectedFilters.profession)
     let genreData = await Util.buildGenreQuery(data.selectedFilters.genre, professionData.index)
     let locationData = await Util.buildLocationQuery(data.selectedFilters.location, genreData.index)
     let otherData = await Util.buildOtherQuery(data.selectedFilters.other)
-    let following = await Util.buildFollowingQuery(data.authenticated, data.user, locationData.index)
+    let following = await Util.buildFollowingQuery(data.authenticated, data.user, data.selectedFilters.other, locationData.index)
 
     const queryString = `WITH professions AS (
     SELECT alias1,
@@ -234,11 +233,11 @@ const loadMembers = async function (data) {
                   inner join genre using (genre_id)
          where alias1 in (select alias1 from professions)
          group by alias1 ` + genreData.queryString +
-     `)` + following.query +
-
-` SELECT alias1,
+     `)
+ SELECT alias1,
        alias2,
        alias3,
+       m.email,
        g.genres,
        p.professions, ` + following.select +
        `array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name
@@ -252,12 +251,11 @@ from member as m
          inner join continent using (continent_id)
          inner join genres g using (alias1)
          inner join professions p using (alias1)`
-         + following.inner + otherData +
-`group by alias1, alias2, alias3, g.genres, p.professions` + following.group + locationData.queryString +
+         + otherData + following.where +
+`group by alias1, alias2, alias3, m.email, g.genres, p.professions` + locationData.queryString +
 ` order by alias1 asc`
 
     const filter = [...professionData.filter, ...genreData.filter, ...locationData.filter, ...following.filter]
-    // console.log(queryString, filter)
 
     let res = await Helpers.runQuery(queryString, filter);
     console.timeEnd('codezup')

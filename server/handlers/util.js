@@ -233,7 +233,7 @@ const buildProfessionQuery = function (professions) {
 
 const buildOtherQuery = function (other) {
     if (other.length === 0 || other.length === 1 && other.includes('liked')) {
-        return ' '
+        return ` `
     }
 
     let queryString = `WHERE`
@@ -249,29 +249,38 @@ const buildOtherQuery = function (other) {
     return queryString
 }
 
-const buildFollowingQuery = function (authenticated, user, index) {
+const buildFollowingQuery = function (authenticated, user, otherFilters, index) {
     if (!authenticated) {
         return {
-            query: ``,
             select: ``,
-            inner: ``,
-            group: ``,
+            where: ``,
             filter: []
         }
     }
+
     let following = {}
-    following.query = `, followers AS (
-         SELECT alias1,
-                (CASE
-                     WHEN f.being_followed_id = m.member_id and f.follower_id = (SELECT member_id from member where email = $${index}) THEN true
-                     ELSE false
-                    END) as followed
-         from member as m
-                  full join follows f on m.member_id = f.being_followed_id
-     )`
-    following.select = ` f.followed, `
-    following.inner = `inner join followers f using (alias1)`
-    following.group = `, f.followed `
+    if (otherFilters.includes('liked')) {
+        following.select = `true as followed,`
+        following.where = `inner join follows f on m.member_id = f.being_followed_id
+            where f.follower_id =
+            (SELECT member_id from member where email = $${index})`
+    } else {
+        following.select = ` (CASE
+            WHEN EXISTS(
+                    SELECT
+                    from (SELECT email
+                          from member as m
+                                   inner join follows f on m.member_id = f.being_followed_id
+                          where f.follower_id =
+                                (SELECT member_id from member where email = $${index})) as fav
+                    where fav.email = m.email
+                )
+                THEN true
+            ELSE false
+           END) as followed,  `
+        following.where = ``
+    }
+
     following.filter = [user]
     return following
 
