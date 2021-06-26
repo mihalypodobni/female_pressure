@@ -205,11 +205,11 @@ group by alias1, alias2, alias3, email, disclose_email, first_name, last_name, d
 
 const loadMembers = async function (data) {
     console.time('codezup') //time load members function
-    let professionData = await Util.buildProfessionQuery(data.profession)
-    let genreData = await Util.buildGenreQuery(data.genre, professionData.index)
-    let locationData = await Util.buildLocationQuery(data.location, genreData.index)
-    let otherData = await Util.buildOtherQuery(data.other)
-    let following = await Util.buildFollowingQuery()
+    let professionData = await Util.buildProfessionQuery(data.selectedFilters.profession)
+    let genreData = await Util.buildGenreQuery(data.selectedFilters.genre, professionData.index)
+    let locationData = await Util.buildLocationQuery(data.selectedFilters.location, genreData.index)
+    let otherData = await Util.buildOtherQuery(data.selectedFilters.other)
+    let following = await Util.buildFollowingQuery(data.authenticated)
 
     const queryString = `WITH professions AS (
     SELECT alias1,
@@ -233,15 +233,14 @@ const loadMembers = async function (data) {
                   inner join genre using (genre_id)
          where alias1 in (select alias1 from professions)
          group by alias1 ` + genreData.queryString +
-     `),` + following +
+     `)` + following.query +
 
-`SELECT alias1,
+` SELECT alias1,
        alias2,
        alias3,
        g.genres,
-       p.professions,
-       f.followed,
-       array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name
+       p.professions, ` + following.select +
+       `array_agg(city_name || ';' || state_long_name || ';' || country_name || ';' || continent_name
                  order by
                      primary_city desc)      as location
 from member as m
@@ -251,11 +250,12 @@ from member as m
          inner join country co using (country_id)
          inner join continent using (continent_id)
          inner join genres g using (alias1)
-         inner join professions p using (alias1)
-         inner join followers f using (alias1)` + otherData +
-`group by alias1, alias2, alias3, g.genres, p.professions, f.followed ` + locationData.queryString +
+         inner join professions p using (alias1)`
+         + following.inner + otherData +
+`group by alias1, alias2, alias3, g.genres, p.professions` + following.group + locationData.queryString +
 `order by alias1 asc`
 
+    console.log(queryString)
 
     const filter = [...professionData.filter, ...genreData.filter, ...locationData.filter]
     let res = await Helpers.runQuery(queryString, filter);

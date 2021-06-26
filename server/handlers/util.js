@@ -107,7 +107,7 @@ const buildLocationQuery = function (locations, i) {
         }
     }
     if (queryString !== '') {
-        queryString = `HAVING ${queryString}`
+        queryString = ` HAVING ${queryString}`
     }
     return {queryString: queryString, filter: filter, index: index}
 }
@@ -249,8 +249,17 @@ const buildOtherQuery = function (other) {
     return queryString
 }
 
-const buildFollowingQuery = function () {
-    return `followers AS (
+const buildFollowingQuery = function (authenticated) {
+    if (!authenticated) {
+        return {
+            query: ``,
+            select: ``,
+            inner: ``,
+            group: ``
+        }
+    }
+    let following = {}
+    following.query = `, followers AS (
          SELECT alias1,
                 (CASE
                      WHEN f.being_followed_id = m.member_id and f.follower_id = 1 THEN true
@@ -259,6 +268,11 @@ const buildFollowingQuery = function () {
          from member as m
                   full join follows f on m.member_id = f.being_followed_id
      )`
+    following.select = ` f.followed, `
+    following.inner = `inner join followers f using (alias1)`
+    following.group = `, f.followed `
+    return following
+
 }
 
 

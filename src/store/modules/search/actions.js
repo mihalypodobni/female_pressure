@@ -26,9 +26,9 @@ const loadFilterData = ({commit}) => {
     })
 };
 
-const filterData = ({commit}, selectedFilters) => {
+const filterData = ({commit, rootState}, selectedFilters) => {
     return new Promise((resolve, reject) => {
-        Vue.prototype.$http.post(`${Vue.prototype.$hostname}/search/load-table`, selectedFilters)
+        Vue.prototype.$http.post(`${Vue.prototype.$hostname}/search/load-table`, {selectedFilters, authenticated: rootState.authentication.authenticated})
             .then(response => {
                 console.log("returned members", response.data)
                 commit('SET_FILTERED_MEMBERS', response.data)

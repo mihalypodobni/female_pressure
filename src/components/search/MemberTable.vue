@@ -1,6 +1,12 @@
 <template>
   <div>
-    <b-table hover :items="members" :fields="fields" fixed>
+    <b-table hover :items="members" :fields="computedFields" class="member-search-results">
+      <template #cell(liked)="data">
+        <div class="followed">
+          <b-heart-fill v-if="data.item.followed"></b-heart-fill>
+          <b-heart v-else></b-heart>
+        </div>
+      </template>
       <template #cell(name)="data">
         <div class="primary-text">{{ data.item.alias1 }}</div>
         <div class="secondary-text">
@@ -51,6 +57,10 @@ export default {
     return {
       fields: [
         {
+          key: "liked",
+          label: ""
+        },
+        {
           key: "name",
           label: "name",
           sortable: true,
@@ -76,7 +86,12 @@ export default {
   computed: {
     ...mapState({
       members: (state) => state.search.filteredMembers,
+      authenticated: (state) => state.authentication.authenticated
     }),
+    computedFields() {
+      return this.authenticated ? this.fields : this.fields.filter(row => row.key !== 'liked');
+    }
+
   },
 };
 </script>
@@ -97,5 +112,12 @@ export default {
   background-color: lightcyan
   padding-left: 2px
   padding-right: 2px
+</style>
 
+<style lang="sass">
+.member-search-results
+  td
+    width: 50px
+  td+td
+    width: calc((100% / 4))
 </style>
