@@ -35,7 +35,7 @@
       <div class="mb-4">
         <h3>harassment</h3>
         Harassment includes:
-          <ul id="harassment">
+          <ul>
           <li>Offensive comments related to gender, gender identity and expression, sexual orientation, age, social status,
               class, caste, disability, mental illness, neuroatypicality, physical appearance, body size, race, ethnicity,
               nationality or religion</li>
@@ -76,7 +76,7 @@
         <h3>reservation</h3>
           female:pressure prioritizes marginalized people’s safety over privileged people’s comfort. Therefore, our
           awareness team reserves the right <b>not</b> to act on:
-          <ul id="coc_reservations">
+          <ul>
           <li>Complaints regarding ‘reverse’ -isms, including ‘reverse racism’, ‘reverse sexism’ and ‘cisphobia’</li>
           <li>Complaints regarding reasonable communication of boundaries, such as “leave me alone”, “go away” or “I’m not discussing this with you”</li>
           <li>Complaints regarding communicating in a ‘tone’ you don’t find congenial</li>
@@ -128,7 +128,7 @@
           In addition to the above general code of conduct, we'd like to ask you to respect the following rules and
           recommendations for posting to our mailing list:
         </p>
-        <ul id="netiquette">
+        <ul>
         <li>
           We ask you to use greetings that don't alienate our non-binary and transgender members.<br>
           If you decide to use a salutation that is not gender neutral [e.g. "hey ladies"], then please add a more
