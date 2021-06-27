@@ -1,6 +1,10 @@
 <template>
   <div>
-    <b-table hover :items="members" :fields="computedFields" class="member-search-results">
+    <b-table hover
+             :items="members"
+             :fields="computedFields"
+             @row-clicked="selectMember($event)"
+             class="member-search-results">
       <template #cell(liked)="data">
         <div class="followed">
           <b-button variant="link" class="heart-button p-0" @click="toggleLike({email: data.item.email, currentlyFollowing: data.item.followed})">
@@ -101,11 +105,16 @@ export default {
   },
   methods: {
     ...mapMutations({
-      SET_FILTERED_MEMBERS: 'search/SET_FILTERED_MEMBERS'
+      SET_FILTERED_MEMBERS: 'search/SET_FILTERED_MEMBERS',
+      SET_SELECTED_MEMBER: 'search/SET_SELECTED_MEMBER'
     }),
     ...mapActions({
       toggleLike: 'search/toggleLike'
-    })
+    }),
+    selectMember(e) {
+      this.SET_SELECTED_MEMBER(e.email)
+      this.$router.push('/user/' + e.alias1)
+    }
   }
 };
 </script>
@@ -148,6 +157,8 @@ export default {
 .member-search-results
   td
     width: 55px
+  tr
+    cursor: pointer
   td + td
     width: calc((100% / 4))
 </style>

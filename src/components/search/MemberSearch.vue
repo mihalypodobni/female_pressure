@@ -62,7 +62,7 @@ export default {
       }
     },
     selectMember(member) {
-      this.setMember(member.member_id)
+      this.setMember(member.email)
       //Sample code for you ines to use in your component on mount
       // await Vue.prototype.$http.get(`${Vue.prototype.$hostname}/search/member/${member.member_id}`)
       //     .then(response => {

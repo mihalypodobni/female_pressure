@@ -129,7 +129,7 @@ const getCities = async function () {
 };
 
 const memberSearch = async function (query) {
-    const queryString = `SELECT m.member_id, alias1, alias2, alias3, city_name, country_name, primary_city
+    const queryString = `SELECT email, alias1, alias2, alias3, city_name, country_name, primary_city
             from member as m
             inner join member_city mc on mc.member_id = m.member_id
             inner join city c on c.city_id = mc.city_id
