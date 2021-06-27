@@ -40,8 +40,22 @@ const filterData = ({commit, rootState}, selectedFilters) => {
     })
 };
 
+const toggleLike = ({commit, rootState}, data) => {
+    return new Promise((resolve, reject) => {
+        Vue.prototype.$http.post(`${Vue.prototype.$hostname}/search/toggle-like`,
+            {toggledMember: data.email, user: rootState.authentication.user, currentlyFollowing: data.currentlyFollowing})
+            .then(() => {
+                commit('SET_TOGGLED_MEMBER', data.email)
+                resolve();
+            }, error => {
+                reject(error);
+            })
+    })
+}
+
 
 export default {
     loadFilterData,
-    filterData
+    filterData,
+    toggleLike
 }

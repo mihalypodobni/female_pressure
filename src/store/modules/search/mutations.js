@@ -10,8 +10,15 @@ const SET_SELECTED_MEMBER = (state, member) => {
 	state.selectedMember = member;
 };
 
+const SET_TOGGLED_MEMBER = (state, toggledMember) => {
+	const index = state.filteredMembers.findIndex(item => item.email === toggledMember);
+	state.filteredMembers[index].followed = !state.filteredMembers[index].followed
+
+}
+
 export default {
 	SET_FILTER_DATA,
 	SET_FILTERED_MEMBERS,
 	SET_SELECTED_MEMBER,
+	SET_TOGGLED_MEMBER
 };

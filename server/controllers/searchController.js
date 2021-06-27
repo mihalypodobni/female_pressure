@@ -31,10 +31,23 @@ router.get("/member-search/:query", cors(), async function (req, res) {
 });
 
 /**********************************************************************
- * POST data for table
+ * POST retrieve data for table
  *********************************************************************/
 router.post("/load-table", cors(), async function (req, res) {
     search.loadMembers(req.body)
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(500).json({Error: err.message});
+        });
+});
+
+/**********************************************************************
+ * POST toggle like for a member
+ *********************************************************************/
+router.post("/toggle-like", cors(), async function (req, res) {
+    search.toggleLike(req.body)
         .then((data) => {
             res.status(200).json(data);
         })

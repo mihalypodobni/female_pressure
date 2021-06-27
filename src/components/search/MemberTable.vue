@@ -3,7 +3,7 @@
     <b-table hover :items="members" :fields="computedFields" class="member-search-results">
       <template #cell(liked)="data">
         <div class="followed">
-          <b-button variant="link" class="heart-button p-0" @click="toggleLike()">
+          <b-button variant="link" class="heart-button p-0" @click="toggleLike({email: data.item.email, currentlyFollowing: data.item.followed})">
             <b-heart-fill v-if="data.item.followed"></b-heart-fill>
             <b-heart v-else></b-heart>
           </b-button>
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import {mapMutations, mapState} from "vuex";
+import {mapActions, mapMutations, mapState} from "vuex";
 
 export default {
   data() {
@@ -103,9 +103,9 @@ export default {
     ...mapMutations({
       SET_FILTERED_MEMBERS: 'search/SET_FILTERED_MEMBERS'
     }),
-    toggleLike() {
-      console.log("click toggled")
-    }
+    ...mapActions({
+      toggleLike: 'search/toggleLike'
+    })
   }
 };
 </script>
@@ -133,13 +133,15 @@ export default {
     transform: scale(1.15)
     transition: transform .1s ease-in-out
     cursor: pointer
-  &:focus
+  &:active
     transform: scale(1)
     transition-property: transform
     transition-duration: 0.15s
     transition-timing-function: cubic-bezier(0,.62,.46,2.03)
+  &:focus
     outline: none!important
     box-shadow: none!important
+
 </style>
 
 <style lang="sass">

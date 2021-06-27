@@ -263,6 +263,20 @@ from member as m
 
 }
 
+const toggleLike = async function (data) {
+    let queryString = []
+    if (data.currentlyFollowing) { //unfollow member
+        queryString = `delete from follows 
+            where follower_id = (select member_id from member where email = $1)
+            and being_followed_id = (select member_id from member where email = $2)`
+    } else { //follow member
+        queryString = `insert into follows (follower_id, being_followed_id)
+        values ((select member_id from member where email = $1), (select member_id from member where email = $2))`;
+    }
+    const filter = [data.user, data.toggledMember];
+    return await Helpers.runQuery(queryString, filter);
+};
+
 module.exports = {
     getFilterData,
     getProfessionsAndSubProfessions,
@@ -270,5 +284,6 @@ module.exports = {
     getCities,
     memberSearch,
     getMember,
-    loadMembers
+    loadMembers,
+    toggleLike
 };
