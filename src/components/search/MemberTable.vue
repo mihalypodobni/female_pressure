@@ -4,6 +4,10 @@
              :items="members"
              :fields="computedFields"
              @row-clicked="selectMember($event)"
+             :sort-by.sync="sortBy"
+             :sort-desc.sync="sortDesc"
+             :sort-compare="sortingChanged"
+             no-sort-reset
              class="member-search-results">
       <template #cell(liked)="data">
         <div class="followed">
@@ -87,7 +91,9 @@ export default {
           sortable: false,
         },
       ],
-      showHearts: false
+      showHearts: false,
+      sortBy: "name",
+      sortDesc: null,
     };
   },
   mounted() {
@@ -114,6 +120,22 @@ export default {
     selectMember(e) {
       this.SET_SELECTED_MEMBER(e.email)
       this.$router.push('/user/' + e.alias1)
+    },
+    sortingChanged(a, b, key) {
+      switch (key) {
+        case 'name': {
+          let nameA = a.alias1.toLowerCase()
+          let nameB = b.alias1.toLowerCase()
+          return nameA < nameB ? -1 : nameA > nameB ? 1 : 0
+        }
+        case 'location': {
+          let A = a.location[0]
+          let B = b.location[0]
+          return A < B ? -1 : A > B ? 1 : 0
+        }
+        default:
+          return false
+      }
     }
   }
 };
