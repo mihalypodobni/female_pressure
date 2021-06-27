@@ -7,11 +7,16 @@
              :sort-by.sync="sortBy"
              :sort-desc.sync="sortDesc"
              :sort-compare="sortingChanged"
+             :current-page="currentPage"
+             :per-page="perPage"
              no-sort-reset
-             class="member-search-results">
+             tbody-tr-class="member-row"
+             class="member-search-results"
+    >
       <template #cell(liked)="data">
         <div class="followed">
-          <b-button variant="link" class="heart-button p-0" @click="toggleLike({email: data.item.email, currentlyFollowing: data.item.followed})">
+          <b-button variant="link" class="heart-button p-0"
+                    @click="toggleLike({email: data.item.email, currentlyFollowing: data.item.followed})">
             <b-heart-fill v-if="data.item.followed"></b-heart-fill>
             <b-heart v-else></b-heart>
           </b-button>
@@ -56,6 +61,18 @@
         </div>
       </template>
     </b-table>
+    <b-row v-if="members.length > 0" class="justify-content-center">
+      <b-col sm="7" md="6" class="my-1">
+        <b-pagination
+            v-model="currentPage"
+            :total-rows="totalRows"
+            :per-page="perPage"
+            align="fill"
+            size="sm"
+            class="my-0"
+        ></b-pagination>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -94,6 +111,9 @@ export default {
       showHearts: false,
       sortBy: "name",
       sortDesc: null,
+      currentPage: 1,
+      perPage: 5,
+      totalRows: 0
     };
   },
   mounted() {
@@ -108,6 +128,11 @@ export default {
     computedFields() {
       return this.showHearts ? this.fields : this.fields.filter(row => row.key !== 'liked');
     },
+  },
+  watch: {
+    members() {
+      this.totalRows = this.members.length
+    }
   },
   methods: {
     ...mapMutations({
@@ -160,27 +185,36 @@ export default {
 
 .heart-button
   color: black
+
   &:hover
     transform: scale(1.15)
     transition: transform .1s ease-in-out
     cursor: pointer
+
   &:active
     transform: scale(1)
     transition-property: transform
     transition-duration: 0.15s
-    transition-timing-function: cubic-bezier(0,.62,.46,2.03)
+    transition-timing-function: cubic-bezier(0, .62, .46, 2.03)
+
   &:focus
-    outline: none!important
-    box-shadow: none!important
+    outline: none !important
+    box-shadow: none !important
+
 
 </style>
 
 <style lang="sass">
+.member-row
+  height: 130px!important
+
 .member-search-results
   td
     width: 55px
+
   tr
     cursor: pointer
+
   td + td
     width: calc((100% / 4))
 </style>
