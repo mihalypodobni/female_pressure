@@ -25,7 +25,7 @@
     <treeselect
         v-model="selectedFilters.other"
         :multiple="true"
-        :options="Object.values(filterData['other'])"
+        :options="otherValues"
         placeholder="other"
         class="my-3"
     />
@@ -43,8 +43,29 @@ export default {
     Treeselect,
     MemberSearch
   },
+  data() {
+    return {
+      loggedIn: false,
+      selectedFilters: {
+        genre: [],
+        profession: [],
+        location: [],
+        other: []
+      }
+    }
+  },
+  mounted() {
+    this.loggedIn = this.authenticated
+  },
   computed: {
     ...mapState('search', ['filterData']),
+    ...mapState({
+      authenticated: (state) => state.authentication.authenticated
+    }),
+    otherValues() {
+      let other = Object.values(this.filterData['other'])
+      return this.loggedIn ? other : other.filter(row => row.id !== 'liked');
+    },
   },
   methods: {
     ...mapActions({
@@ -65,16 +86,6 @@ export default {
         }
       }
     }
-  },
-  data() {
-    return {
-      selectedFilters: {
-        genre: [],
-        profession: [],
-        location: [],
-        other: []
-      }
-    }
-  },
+  }
 }
 </script>

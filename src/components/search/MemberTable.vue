@@ -3,8 +3,10 @@
     <b-table hover :items="members" :fields="computedFields" class="member-search-results">
       <template #cell(liked)="data">
         <div class="followed">
-          <b-heart-fill v-if="data.item.followed"></b-heart-fill>
-          <b-heart v-else></b-heart>
+          <b-button variant="link" class="testing">
+            <b-heart-fill v-if="data.item.followed" class="heart-button"></b-heart-fill>
+            <b-heart class="heart-button" v-else></b-heart>
+          </b-button>
         </div>
       </template>
       <template #cell(name)="data">
@@ -86,9 +88,7 @@ export default {
   },
   mounted() {
     this.SET_FILTERED_MEMBERS([])
-    if (this.authenticated) {
-      this.showHearts = true
-    }
+    this.showHearts = this.authenticated
   },
   computed: {
     ...mapState({
@@ -123,12 +123,28 @@ export default {
   background-color: lightcyan
   padding-left: 2px
   padding-right: 2px
+
+.testing
+  color: black
+  &:hover
+    transform: scale(1.15)
+    transition: transform .1s ease-in-out
+    cursor: pointer
+  &:focus
+    transform: scale(1)
+    transition-property: transform
+    transition-duration: 0.15s
+    transition-timing-function: cubic-bezier(0,.62,.46,2.03)
+    outline: none!important
+    box-shadow: none!important
+
+
 </style>
 
 <style lang="sass">
 .member-search-results
   td
-    width: 50px
+    width: 55px
 
   td + td
     width: calc((100% / 4))
