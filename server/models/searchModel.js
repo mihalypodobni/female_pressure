@@ -212,7 +212,7 @@ const loadMembers = async function (data) {
     let following = await Util.buildFollowingQuery(data.authenticated, data.user, data.selectedFilters.other, locationData.index)
 
     const queryString = `WITH professions AS (
-    SELECT alias1,
+    SELECT email,
            array_agg(sub_profession_name
                      order by
                          sub_profession_name desc) as professions
@@ -220,10 +220,10 @@ const loadMembers = async function (data) {
              inner join member_profession mp on mp.member_id = m.member_id
              inner join sub_profession using (sub_profession_id)
              inner join profession using (profession_id)
-    group by alias1 ` + professionData.queryString +
+    group by email ` + professionData.queryString +
 `),
      genres AS (
-         SELECT alias1,
+         SELECT email,
                 array_agg(sub_genre_name
                           order by
                               sub_genre_name desc) as genres
@@ -232,7 +232,7 @@ const loadMembers = async function (data) {
                   inner join sub_genre using (sub_genre_id)
                   inner join genre using (genre_id)
          where alias1 in (select alias1 from professions)
-         group by alias1 ` + genreData.queryString +
+         group by email ` + genreData.queryString +
      `)
  SELECT alias1,
        alias2,
@@ -249,8 +249,8 @@ from member as m
          inner join state s using (state_id)
          inner join country co using (country_id)
          inner join continent using (continent_id)
-         inner join genres g using (alias1)
-         inner join professions p using (alias1)`
+         inner join genres g using (email)
+         inner join professions p using (email)`
          + following.where + otherData +
 `group by alias1, alias2, alias3, m.email, g.genres, p.professions` + locationData.queryString +
 ` order by alias1 asc`
