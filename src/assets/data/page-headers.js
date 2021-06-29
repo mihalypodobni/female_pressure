@@ -64,5 +64,10 @@ export const pageHeaders = [
         page: 'admin restricted',
         title: 'restricted',
         subtitle: 'You must be an admin to view this page'
+    },
+    {
+        page: 'gdpr',
+        title: 'gdpr',
+        subtitle: 'gdpr privacy notice'
     }
 ]
