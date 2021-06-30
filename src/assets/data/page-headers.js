@@ -53,6 +53,11 @@ export const pageHeaders = [
       title: 'join the network'
     },
     {
+        page: 'gdpr',
+        title: 'GDPR',
+        subtitle: 'gdpr privacy notice'
+    },
+    {
         page: '404',
         title: '404 page not found',
     },
@@ -64,10 +69,5 @@ export const pageHeaders = [
         page: 'admin restricted',
         title: 'restricted',
         subtitle: 'You must be an admin to view this page'
-    },
-    {
-        page: 'gdpr',
-        title: 'gdpr',
-        subtitle: 'gdpr privacy notice'
     }
 ]
