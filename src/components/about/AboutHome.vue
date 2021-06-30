@@ -16,11 +16,11 @@
 
         <p>
           Founded by Vienna based
-          <b-link class="link" href="http://indigo-inc.at/">Electric Indigo</b-link>
+          <b-link class="link" href="http://indigo-inc.at/" target="_blank">Electric Indigo</b-link>
           in 1998, female:pressure is the technological answer to the recurring assertions of an alleged lack of female*
           artists in this field. The project started out as a simple html list until Viennese media artist and open
           source expert
-          <b-link class="link" href="https://twitter.com/turtlestitch">Andrea Mayr</b-link>
+          <b-link class="link" href="https://twitter.com/turtlestitch" target="_blank">Andrea Mayr</b-link>
           programmed the database in 2001. With about 180 listed artists from 19 countries 20 years ago, female:pressure
           can now be proud of including over 2700 members from 82 countries [May 2021]. Members can log in and update
           their individual profile, most of the profiles link to the artists' web pages and contain contact information.

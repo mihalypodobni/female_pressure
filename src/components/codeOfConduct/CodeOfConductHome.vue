@@ -181,8 +181,14 @@
         </ul>
         <p>
           To unsubscribe or change your subscription mode please visit:
-          http://mailman.sil.at/mailman/listinfo/female_pressure.<br>
-          Detailed information how a discussion list like ours works can be found in the Mailman manual.
+          <b-link class="link" href="http://mailman.sil.at/mailman/listinfo/female_pressure" target="_blank">
+            http://mailman.sil.at/mailman/listinfo/female_pressure
+          </b-link>
+          .<br>
+          Detailed information how a discussion list like ours works can be found in the
+          <b-link class="link" href="http://www.list.org/mailman-member/index.html" target="_blank">Mailman manual
+          </b-link>
+          .
         </p>
       </div>
       <div class="mb-4">
@@ -190,7 +196,9 @@
         <p>
           The anti-harassment policy is based on the example policy from the Geek Feminism wiki, created by the Geek
           Feminism community:
-          <b-link class="link">http://geekfeminism.wikia.com/wiki/Community_anti-harassment</b-link>
+          <b-link class="link" href="http://geekfeminism.wikia.com/wiki/Community_anti-harassment" target="_blank">
+            http://geekfeminism.wikia.com/wiki/community_anti-harassment
+          </b-link>
         </p>
         <p>
           If you are a female:pressure member and think something is missing in this code of conduct, or should be
