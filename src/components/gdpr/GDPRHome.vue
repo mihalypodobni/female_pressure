@@ -54,7 +54,7 @@
           notice, including any requests to exercise your legal rights, please contact us at
           info@femalepressure.net.</p>
         <p>You have the right to make a complaint at any time to your
-          <b-link
+          <b-link class="link"
               href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rights-citizens/redress/what-should-i-do-if-i-think-my-personal-data-protection-rights-havent-been-respected_en"
               target="_blank">national Data Protection Authority
           </b-link>
