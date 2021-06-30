@@ -69,7 +69,7 @@
         <b-img src="@/assets/fp-main-logo.svg" class="footer-logo"></b-img>
         <span class="my-auto pl-4"
         >&#169; 2021 female:pressure -
-          <b-button variant="link" class="p-0 m-0 footer-link" href="GDPR">GDPR</b-button>
+          <b-button variant="link" class="p-0 m-0 footer-link" @click="$router.push({name: 'GDPR' })">GDPR</b-button>
         </span>
       </div>
     </b-container>

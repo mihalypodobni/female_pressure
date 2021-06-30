@@ -56,6 +56,11 @@ const routes = [
 		component: () => import("@/components/feedback/FeedbackHome"),
 	},
 	{
+		path: "/gdpr",
+		name: "GDPR",
+		component: () => import("@/components/gdpr/GDPRHome"),
+	},
+	{
 		path: "/401-unauthorized",
 		name: "Unauthorized",
 		component: () => import("@/components/util/401Unauthorized"),
