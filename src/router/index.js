@@ -14,7 +14,13 @@ Router.prototype.push = function push(location) {
 
 const router = new Router({
     mode: "history",
-    routes: [].concat(routes)
+    routes: [].concat(routes),
+    scrollBehavior (to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        }
+        return { x: 0, y: 0 }
+    }
 })
 
 router.beforeEach(async (to, from, next) => {

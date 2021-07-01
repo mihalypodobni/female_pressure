@@ -66,8 +66,7 @@ export const projects = [
     img: "2015-FACTS.svg",
     title: "FACTS",
     text: "second edition of the FACTS survey which is a continuous project that quantifies the gender distribution of artists performing at electronic music festivals worldwide.",
-    link:
-      "https://femalepressure.wordpress.com/facts-2015-statement/facts-survey2015/",
+    link: "https://femalepressure.wordpress.com/facts-2015-statement/facts-survey2015/",
     year: "2015",
   },
   {

@@ -1,16 +1,16 @@
 <template>
   <div>
-    <Header />
+    <Header/>
     <b-container class="mt-5 body-container">
       <b-row>
         <b-col cols="4">
-          <SideFilter />
+          <SideFilter/>
         </b-col>
         <b-col cols="8">
-          <MemberTable />
+          <MemberTable/>
         </b-col>
       </b-row>
-      <AutoCompleteCities />
+      <AutoCompleteCities/>
     </b-container>
   </div>
 </template>
@@ -20,7 +20,7 @@ import SideFilter from "./SideFilter";
 import MemberTable from "./MemberTable";
 import AutoCompleteCities from "../blog/AutoCompleteCities.vue";
 import Header from "@/components/header/Header";
-import { mapMutations } from "vuex";
+import {mapMutations} from "vuex";
 
 export default {
   components: {

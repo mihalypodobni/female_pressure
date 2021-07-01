@@ -49,8 +49,12 @@ export const pageHeaders = [
         title: 'feedback'
     },
     {
-      page: 'join',
-      title: 'join the network'
+        page: 'join',
+        title: 'join the network'
+    },
+    {
+        page: 'gdpr',
+        title: 'gdpr privacy notice',
     },
     {
         page: '404',

@@ -68,8 +68,8 @@
       <div class="text-center pt-3">
         <b-img src="@/assets/fp-main-logo.svg" class="footer-logo"></b-img>
         <span class="my-auto pl-4"
-        >&#169; 2019 - 2021 female:pressure -
-          <b-button variant="link" class="p-0 m-0 footer-link" href="#">GDPR</b-button>
+        >&#169; 2021 female:pressure -
+          <b-button variant="link" class="p-0 m-0 footer-link" @click="$router.push({name: 'GDPR' })">GDPR</b-button>
         </span>
       </div>
     </b-container>
@@ -128,6 +128,6 @@ export default {
   height: 45px
 
 .icon-background-size
-  width: 22px!important
-  height: 22px!important
+  width: 22px !important
+  height: 22px !important
 </style>
