@@ -70,7 +70,7 @@ axios.interceptors.response.use(
     error => {
         if (error.response.status === 401 && error.response.config && !error.response.config.__isRetryRequest) {
             delete axios.defaults.headers.common['Authorization']
-            if (error.response.data.Error === 'VialServer Error') {
+            if (error.response.data.Error === 'Invalid Token') {
                 location.reload()
             }
         }
