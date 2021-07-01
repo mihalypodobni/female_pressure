@@ -216,7 +216,7 @@ export default {
     ...mapMutations(["SET_PAGE"]),
   },
   mounted() {
-    this.SET_PAGE("gdpr privacy notice");
+    this.SET_PAGE("gdpr");
   },
 };
 </script>
