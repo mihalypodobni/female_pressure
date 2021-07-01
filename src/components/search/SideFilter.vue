@@ -58,7 +58,7 @@ export default {
     selectedFilters: {
       deep: true,
       handler() {
-        if(this.selectedFilters.location.length === 0 && this.selectedFilters.profession.length === 0 && this.selectedFilters.genre.length === 0 && this.selectedFilters.other.length === 0) {
+        if (this.selectedFilters.location.length === 0 && this.selectedFilters.profession.length === 0 && this.selectedFilters.genre.length === 0 && this.selectedFilters.other.length === 0) {
           this.SET_FILTERED_MEMBERS([])
         } else {
           this.loadMembers(this.selectedFilters)

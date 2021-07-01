@@ -3,11 +3,14 @@
     <b-card no-body class="project-card px-3 py-2">
       <div class="card-body m-0">
         <b-row class="p-0 justify-content-start align-items-start">
-          <b-col class="p-0 h-100" cols="5" sm="3" md="2" lg="4">
+          <b-col class="p-0 h-100"
+                 :class="project.img === '2009-japan.svg' ? 'bottom-shift' : ''"
+                 cols="5" sm="3" md="2" lg="4">
             <b-img
               :src="require('@/assets/special-projects-logos/' + project.img)"
               :alt="project.title + ' logo'"
               class="project-img mt-1 mr-2 p-0"
+              :class="project.img === '2009-japan.svg' ? 'japan' : ''"
             />
           </b-col>
           <b-col cols="7" class="p-0 mh-50 mb-2">
@@ -55,6 +58,13 @@ export default {
     margin-bottom: 20px
     width: 80px
     height: 80px
+
+.japan
+  width: 100px
+  height: 139px
+
+.bottom-shift
+  bottom: 30px
 
 .project-year
   font-size: 15px
