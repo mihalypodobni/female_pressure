@@ -6,28 +6,41 @@
         :multiple="true"
         :options="Object.values(filterData['cities'])"
         placeholder="location"
-        class="my-3"
+        :showCount="true"
+        @open="openFilter = 'location'"
+        @close="openFilter = ''"
+        :class="openFilter === 'location' ? 'open-filter' : 'close-filter'"
+        class="my-3 filter"
     />
     <treeselect
         v-model="selectedFilters.profession"
         :multiple="true"
         :options="Object.values(filterData['professions'])"
         placeholder="work field"
-        class="my-3"
+        @open="openFilter = 'profession'"
+        @close="openFilter = ''"
+        :class="openFilter === 'profession' ? 'open-filter' : 'close-filter'"
+        class="my-3 filter"
     />
     <treeselect
         v-model="selectedFilters.genre"
         :multiple="true"
         :options="Object.values(filterData['genres'])"
         placeholder="genre"
-        class="my-3"
+        @open="openFilter = 'genre'"
+        @close="openFilter = ''"
+        :class="openFilter === 'genre' ? 'open-filter' : 'close-filter'"
+        class="my-3 filter"
     />
     <treeselect
         v-model="selectedFilters.other"
         :multiple="true"
         :options="otherValues"
         placeholder="other"
-        class="my-3"
+        @open="openFilter = 'other'"
+        @close="openFilter = ''"
+        :class="openFilter === 'other' ? 'open-filter' : 'close-filter'"
+        class="my-3 filter"
     />
   </div>
 </template>
@@ -51,7 +64,8 @@ export default {
         profession: [],
         location: [],
         other: []
-      }
+      },
+      openFilter: ""
     }
   },
   mounted() {
@@ -72,7 +86,8 @@ export default {
       loadMembers: 'search/filterData'
     }),
     ...mapMutations({
-      SET_FILTERED_MEMBERS: 'search/SET_FILTERED_MEMBERS'
+      SET_FILTERED_MEMBERS: 'search/SET_FILTERED_MEMBERS',
+      SET_FILTER_APPLIED: 'search/SET_FILTER_APPLIED'
     })
   },
   watch: {
@@ -81,11 +96,48 @@ export default {
       handler() {
         if (this.selectedFilters.location.length === 0 && this.selectedFilters.profession.length === 0 && this.selectedFilters.genre.length === 0 && this.selectedFilters.other.length === 0) {
           this.SET_FILTERED_MEMBERS([])
+          this.SET_FILTER_APPLIED(false)
         } else {
           this.loadMembers(this.selectedFilters)
+          this.SET_FILTER_APPLIED(true)
         }
       }
     }
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.filter
+  /deep/ .vue-treeselect__control
+    border: 3px solid #68fded
+    border-radius: 0
+  /deep/ .vue-treeselect__placeholder
+    color: black
+  /deep/ .vue-treeselect__control-arrow
+    color: black
+    height: 11px
+    width: 11px
+  /deep/ .vue-treeselect__menu
+    border: 3px solid #68fded
+    border-radius: 0
+
+.open-filter
+  /deep/ .vue-treeselect__menu
+    border-left: 3px solid #68fded
+    border-right: 3px solid #68fded
+    border-bottom: 3px solid #68fded
+    border-top: none
+    -moz-box-shadow: 0 0 10px #ccc
+    -webkit-box-shadow: 0 0 10px #ccc
+    box-shadow: 0 0 10px #ccc
+  /deep/ .vue-treeselect__control
+    border-left: 3px solid #68fded
+    border-right: 3px solid #68fded
+    border-top: 3px solid #68fded
+    border-bottom: none
+    -moz-box-shadow: 0 0 10px #ccc
+    -webkit-box-shadow: 0 0 10px #ccc
+    box-shadow: 0 0 10px #ccc
+    z-index: 10
+</style>

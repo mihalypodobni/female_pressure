@@ -3,6 +3,7 @@ const getDefaultState = () => {
 		filterData: [],
 		filteredMembers: [],
 		selectedMember: null,
+		filterApplied: false
 	};
 };
 

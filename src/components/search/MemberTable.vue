@@ -117,8 +117,8 @@ export default {
     };
   },
   mounted() {
-    this.SET_FILTERED_MEMBERS([])
     this.showHearts = this.authenticated
+    this.SET_FILTER_APPLIED(false)
   },
   computed: {
     ...mapState({
@@ -136,8 +136,8 @@ export default {
   },
   methods: {
     ...mapMutations({
-      SET_FILTERED_MEMBERS: 'search/SET_FILTERED_MEMBERS',
-      SET_SELECTED_MEMBER: 'search/SET_SELECTED_MEMBER'
+      SET_SELECTED_MEMBER: 'search/SET_SELECTED_MEMBER',
+      SET_FILTER_APPLIED: 'search/SET_FILTER_APPLIED'
     }),
     ...mapActions({
       toggleLike: 'search/toggleLike'
@@ -161,7 +161,7 @@ export default {
         default:
           return false
       }
-    }
+    },
   }
 };
 </script>

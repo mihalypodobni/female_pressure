@@ -11,7 +11,8 @@ module.exports = {
     devServer: {
         watchOptions: {
             poll: true
-        }
+        },
+        proxy: 'http://localhost:8080'
     },
     chainWebpack: config => {
         config.module
