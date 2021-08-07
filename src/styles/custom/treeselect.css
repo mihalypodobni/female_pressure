@@ -107,7 +107,6 @@
 }
 .vue-treeselect--focused:not(.vue-treeselect--open) .vue-treeselect__control {
     border-color: #00e3b9;
-    box-shadow: 0 0 0 3px rgba(3, 155, 229, 0.1);
 }
 .vue-treeselect--disabled .vue-treeselect__control {
     background-color: #f9f9f9;
@@ -192,7 +191,7 @@
 .vue-treeselect__multi-value-item {
     cursor: pointer;
     display: inline-table;
-    background: #e3f2fd;
+    background: #e3f2fd ;
     padding: 2px 0;
     border: 1px solid transparent;
     border-radius: 2px;
