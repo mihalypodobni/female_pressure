@@ -13,7 +13,7 @@
             <b-col cols="12" v-if="!authenticated">log in to see more information about members</b-col>
           </b-row>
           <b-row v-else>
-            <b-col cols="12" class="text-left" v-if="filterApplied && returnedMembers === 0">no members found using the applied filters. try adjusting your search.</b-col>
+            <b-col cols="12" class="text-left user-message" v-if="filterApplied && returnedMembers === 0">no members found using the applied filters. try adjusting your search.</b-col>
             <div v-else>
               <b-col cols="12" class="text-left">showing {{returnedMembers}} results</b-col>
               <MemberTable/>

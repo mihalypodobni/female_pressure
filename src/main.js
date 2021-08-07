@@ -40,7 +40,7 @@ Vue.use(IconsPlugin)
 Vue.config.productionTip = false;
 
 import "@/styles/global.sass"
-// import "@/styles/custom.scss"
+import "@/styles/custom/treeselect.css"
 
 Vue.prototype.$http = axios;
 Vue.prototype.$hostname =
