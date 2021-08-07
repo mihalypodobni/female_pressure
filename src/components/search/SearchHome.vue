@@ -15,7 +15,7 @@
           <b-row v-else>
             <b-col cols="12" class="text-left user-message" v-if="filterApplied && returnedMembers === 0">no members found using the applied filters. try adjusting your search.</b-col>
             <div v-else>
-              <b-col cols="12" class="text-left">showing {{returnedMembers}} results</b-col>
+              <b-col cols="12" class="text-left user-message">showing {{returnedMembers}} results</b-col>
               <MemberTable/>
             </div>
           </b-row>
