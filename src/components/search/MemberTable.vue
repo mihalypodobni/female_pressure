@@ -17,8 +17,8 @@
         <div class="followed">
           <b-button variant="link" class="heart-button p-0"
                     @click="toggleLike({email: data.item.email, currentlyFollowing: data.item.followed})">
-            <b-heart-fill v-if="data.item.followed"></b-heart-fill>
-            <b-heart v-else></b-heart>
+            <b-icon-heart-fill v-if="data.item.followed"></b-icon-heart-fill>
+            <b-icon-heart v-else></b-icon-heart>
           </b-button>
         </div>
       </template>
@@ -200,8 +200,6 @@ export default {
   &:focus
     outline: none !important
     box-shadow: none !important
-
-
 </style>
 
 <style lang="sass">
@@ -211,10 +209,8 @@ export default {
 .member-search-results
   td
     width: 55px
-
   tr
     cursor: pointer
-
   td + td
     width: calc((100% / 4))
 </style>
