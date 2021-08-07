@@ -3,7 +3,7 @@
     <b-container class="pt-5 pb-3 mt-5">
       <b-row>
         <b-col>
-          <div class="font-weight-bolder">site navigation</div>
+          <div class="font-weight-bolder mb-1">site navigation</div>
           <div v-for="(link, idx) in siteNav" :key="link.name + idx">
             <b-button
                 variant="link"
@@ -15,7 +15,7 @@
           </div>
         </b-col>
         <b-col>
-          <div class="font-weight-bolder">resources</div>
+          <div class="font-weight-bolder mb-1">resources</div>
           <div v-for="(link, idx) in resources" :key="link.name + idx">
             <b-button
                 v-if="link.link"
@@ -38,7 +38,7 @@
         </b-col>
         <b-col>
           <div class="font-weight-bolder">get in touch</div>
-          <div class="my-2">info@femalepressure.net</div>
+          <div class="mt-1 mb-2">info@femalepressure.net</div>
           <span
               v-for="(link, idx) in links"
               :key="link.icon + idx"

@@ -8,7 +8,7 @@
         placeholder="location"
         :showCount="true"
         @open="openFilter = 'location'"
-        @close="openFilter = ''"
+        @close="openFilter = ''"    
         :class="openFilter === 'location' ? 'open-filter' : 'close-filter'"
         class="my-3 filter"
     />
