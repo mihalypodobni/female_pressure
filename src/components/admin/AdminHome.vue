@@ -1,5 +1,5 @@
 <template>
-  <b-container class="body-container mt-3">
+  <b-container class="f-body-container mt-3">
     <div>This is the admin page</div>
     <b-button @click="logoutAdmin()">Logout</b-button>
   </b-container>

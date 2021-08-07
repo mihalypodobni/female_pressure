@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <b-container class="mt-5 body-container">
+    <b-container class="mt-5 f-body-container">
       <!-- RELAUNCH TSHIRT -->
       <div class="relaunch-tshirt mb-5">
         <h2>female:pressure relaunch t-shirt</h2>

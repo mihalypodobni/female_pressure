@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header/>
-    <b-container class="mt-5 body-container">
+    <b-container class="mt-5 f-body-container">
       <h4>Testing information to go on the page</h4>
       <WorldMap/>
     </b-container>

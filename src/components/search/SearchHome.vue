@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header/>
-    <b-container class="mt-5 body-container">
+    <b-container class="mt-5 f-body-container">
       <b-row>
         <b-col cols="4">
           <SideFilter/>

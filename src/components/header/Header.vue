@@ -1,5 +1,5 @@
 <template>
-  <b-container v-if="!admin" class="header-container mt-3 mb-5">
+  <b-container v-if="!admin" class="f-header-container mt-3 mb-5">
     <b-row>
       <b-col class="text-left">
         <h1

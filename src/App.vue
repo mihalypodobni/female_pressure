@@ -84,14 +84,4 @@ export default {
 <style lang="sass" scoped>
 .footer
   margin-top: auto
-#app /deep/ .body-container
-  @media screen and (max-width: 1399px)
-    max-width: $body-max-width-medium
-  @media screen and (min-width: 1400px)
-    max-width: $body-max-width-large
-#app /deep/ .header-container
-  @media screen and (max-width: 1399px)
-    max-width: $body-max-width-small
-  @media screen and (min-width: 1400px)
-    max-width: $body-max-width-large
 </style>

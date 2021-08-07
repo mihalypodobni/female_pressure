@@ -21,7 +21,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import {faUserCircle, faCog} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
-
 library.add(
     faTwitter,
     faBandcamp,
@@ -40,6 +39,8 @@ Vue.use(BootstrapVue);
 Vue.component('BHeart', BIconHeart)
 Vue.component('BHeartFill', BIconHeartFill)
 Vue.config.productionTip = false;
+
+import "@/styles/global.sass"
 
 Vue.prototype.$http = axios;
 Vue.prototype.$hostname =

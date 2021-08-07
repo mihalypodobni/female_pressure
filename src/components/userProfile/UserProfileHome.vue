@@ -1,5 +1,5 @@
 <template>
-  <b-container class="body-container">
+  <b-container class="f-body-container">
     <div class="name-tab m-0">
       <h3>{{ profile.alias1 }}</h3>
     </div>

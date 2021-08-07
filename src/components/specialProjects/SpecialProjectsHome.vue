@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <b-container fluid="lg" class="mt-5 px-0 body-container">
+    <b-container fluid="lg" class="mt-5 px-0 f-body-container">
       <b-row class="justify-content-center w-100 mx-0 p-0">
         <!-- SHOW ALL THE PROJECTS -- ONLY WORKS IF THEY ARE MORE THAN 20 -->
         <section v-if="readMore">

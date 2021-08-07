@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <b-container class="mt-5 body-container">
+    <b-container class="mt-5 f-body-container">
       You are unauthorized to visit this page
     </b-container>
   </div>

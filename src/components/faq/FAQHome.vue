@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header/>
-    <b-container class="mt-5 body-container">
+    <b-container class="mt-5 f-body-container">
       <div class="accordion" role="tablist">
         <b-card
             no-body
