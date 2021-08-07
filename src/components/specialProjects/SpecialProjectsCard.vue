@@ -1,5 +1,5 @@
 <template>
-  <a :href="project.link" class="card-link link">
+  <a :href="project.link" class="f-link">
     <b-card no-body class="project-card px-3 py-2">
       <div class="card-body m-0">
         <b-row class="p-0 justify-content-start align-items-start">
@@ -74,9 +74,6 @@ export default {
 .project-text
   font-weight: 400
 
-.card-link
-  @include link
-
 .card-body
   @media screen and (min-width: 992px)
     min-height: 385px
@@ -85,7 +82,7 @@ export default {
   @media screen and (min-width: 1300px)
     min-height: 305px
 
-.card-link:hover
-  color: black
-  box-shadow: 5px 5px 25px black
+.f-link
+  &:hover
+    box-shadow: 5px 5px 25px black
 </style>

@@ -46,7 +46,7 @@
           female:pressire is a transnational network and dtabase of artists and
           culturual workers who operate in electronic music and visual arts
         </h5>
-        <button class="button">more info</button>
+        <button class="f-button">more info</button>
       </div>
       <!-- ARCHIVE -->
       <div class="archive-tab p-0 m-0">
@@ -143,9 +143,6 @@ export default {
 .figure-caption
   color: black
   text-align: center
-
-.button
-  @include button
 
 .archive-tab
   border-bottom: 2px solid #00FB9C

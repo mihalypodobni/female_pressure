@@ -181,12 +181,12 @@
         </ul>
         <p>
           To unsubscribe or change your subscription mode please visit:
-          <b-link class="link" href="http://mailman.sil.at/mailman/listinfo/female_pressure" target="_blank">
+          <b-link class="f-link" href="http://mailman.sil.at/mailman/listinfo/female_pressure" target="_blank">
             http://mailman.sil.at/mailman/listinfo/female_pressure
           </b-link>
           .<br>
           Detailed information how a discussion list like ours works can be found in the
-          <b-link class="link" href="http://www.list.org/mailman-member/index.html" target="_blank">Mailman manual
+          <b-link class="f-link" href="http://www.list.org/mailman-member/index.html" target="_blank">Mailman manual
           </b-link>
           .
         </p>
@@ -196,7 +196,7 @@
         <p>
           The anti-harassment policy is based on the example policy from the Geek Feminism wiki, created by the Geek
           Feminism community:
-          <b-link class="link" href="http://geekfeminism.wikia.com/wiki/Community_anti-harassment" target="_blank">
+          <b-link class="f-link" href="http://geekfeminism.wikia.com/wiki/Community_anti-harassment" target="_blank">
             http://geekfeminism.wikia.com/wiki/community_anti-harassment
           </b-link>
         </p>
@@ -226,7 +226,3 @@ export default {
   },
 };
 </script>
-<style lang="sass" scoped>
-.link
-  @include link
-</style>

@@ -34,7 +34,7 @@
             </b-col>
           </b-row>
         </section>
-        <button class="btn mt-5" v-on:click="loadMore">Load More</button>
+        <button class="f-button mt-5" v-on:click="loadMore">Load More</button>
       </b-row>
     </b-container>
   </div>
@@ -71,8 +71,3 @@ export default {
   },
 };
 </script>
-
-<style lang="sass" scoped>
-.btn
-  @include button
-</style>

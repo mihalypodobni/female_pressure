@@ -16,11 +16,11 @@
 
         <p>
           Founded by Vienna based
-          <b-link class="link" href="http://indigo-inc.at/" target="_blank">Electric Indigo</b-link>
+          <b-link class="f-link" href="http://indigo-inc.at/" target="_blank">Electric Indigo</b-link>
           in 1998, female:pressure is the technological answer to the recurring assertions of an alleged lack of female*
           artists in this field. The project started out as a simple html list until Viennese media artist and open
           source expert
-          <b-link class="link" href="https://twitter.com/turtlestitch" target="_blank">Andrea Mayr</b-link>
+          <b-link class="f-link" href="https://twitter.com/turtlestitch" target="_blank">Andrea Mayr</b-link>
           programmed the database in 2001. With about 180 listed artists from 19 countries 20 years ago, female:pressure
           can now be proud of including over 2700 members from 82 countries [May 2021]. Members can log in and update
           their individual profile, most of the profiles link to the artists' web pages and contain contact information.
@@ -47,21 +47,21 @@
         <p>
           The mailing list has been the primary medium of communication within the network since 2004 and about half of
           the artists listed in the database are subscribed to it. Important results of the list's activities are our
-          <b-link class="link" href="https://femalepressure.wordpress.com/FACTS/" target="_blank">FACTS Surveys</b-link>
+          <b-link class="f-link" href="https://femalepressure.wordpress.com/FACTS/" target="_blank">FACTS Surveys</b-link>
           [2013, 2015, 2017 and 2020], a call for diversity
-          <b-link class="link" href="http://femalepressure.net/pressrelease.html"> #female:pressure</b-link>
+          <b-link class="f-link" href="http://femalepressure.net/pressrelease.html"> #female:pressure</b-link>
           [2013], our
-          <b-link class="link" href="https://femalepressure.wordpress.com/festival2013/" target="_blank">Perspectives
+          <b-link class="f-link" href="https://femalepressure.wordpress.com/festival2013/" target="_blank">Perspectives
             Festival
           </b-link>
           in Berlin [2013, 2015], the
-          <b-link class="link" href="https://femalepressure.tumblr.com/" target="_blank">VISIBILITY</b-link>
+          <b-link class="f-link" href="https://femalepressure.tumblr.com/" target="_blank">VISIBILITY</b-link>
           tumblr [2015-2019], our
-          <b-link class="link" href="http://www.femalepressure.net/rojava.html">#Rojava awareness & solidarity
+          <b-link class="f-link" href="http://www.femalepressure.net/rojava.html">#Rojava awareness & solidarity
             compilation
           </b-link>
           [2016] and the
-          <b-link class="link" href="https://femalepressure.wordpress.com/podcast/" target="_blank">female:pressure
+          <b-link class="f-link" href="https://femalepressure.wordpress.com/podcast/" target="_blank">female:pressure
             podcast
           </b-link>
           series [since 2018].
@@ -120,7 +120,3 @@ export default {
   },
 };
 </script>
-<style lang="sass" scoped>
-.link
-  @include link
-</style>
