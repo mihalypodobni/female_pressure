@@ -110,7 +110,7 @@ export default {
 <style lang="sass" scoped>
 .filter
   /deep/ .vue-treeselect__control
-    border: 3px solid #68fded
+    border: 3px solid $searchBorder
     border-radius: 0
   /deep/ .vue-treeselect__placeholder
     color: black
@@ -119,22 +119,22 @@ export default {
     height: 11px
     width: 11px
   /deep/ .vue-treeselect__menu
-    border: 3px solid #68fded
+    border: 3px solid $searchBorder
     border-radius: 0
 
 .open-filter
   /deep/ .vue-treeselect__menu
-    border-left: 3px solid #68fded
-    border-right: 3px solid #68fded
-    border-bottom: 3px solid #68fded
+    border-left: 3px solid $searchBorder
+    border-right: 3px solid $searchBorder
+    border-bottom: 3px solid $searchBorder
     border-top: none
     -moz-box-shadow: 0 0 10px #ccc
     -webkit-box-shadow: 0 0 10px #ccc
     box-shadow: 0 0 10px #ccc
   /deep/ .vue-treeselect__control
-    border-left: 3px solid #68fded
-    border-right: 3px solid #68fded
-    border-top: 3px solid #68fded
+    border-left: 3px solid $searchBorder
+    border-right: 3px solid $searchBorder
+    border-top: 3px solid $searchBorder
     border-bottom: none
     -moz-box-shadow: 0 0 10px #ccc
     -webkit-box-shadow: 0 0 10px #ccc

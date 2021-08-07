@@ -1,6 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
-import { BootstrapVue, BIconHeart, BIconHeartFill } from "bootstrap-vue";
+import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import router from "./router";
@@ -36,11 +36,11 @@ library.add(
 );
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.use(BootstrapVue);
-Vue.component('BHeart', BIconHeart)
-Vue.component('BHeartFill', BIconHeartFill)
+Vue.use(IconsPlugin)
 Vue.config.productionTip = false;
 
 import "@/styles/global.sass"
+// import "@/styles/custom.scss"
 
 Vue.prototype.$http = axios;
 Vue.prototype.$hostname =

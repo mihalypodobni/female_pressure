@@ -8,7 +8,8 @@
         </b-col>
         <b-col cols="8">
           <b-row v-if="returnedMembers === 0 && !filterApplied">
-            <b-col cols="12">use filters to the right to find members</b-col>
+            <b-col cols="12" class="user-message">use filters to the left to search for members</b-col>
+            <hr class="w-100 m-1 horizontal-line">
             <b-col cols="12" v-if="!authenticated">log in to see more information about members</b-col>
           </b-row>
           <b-row v-else>
@@ -17,7 +18,6 @@
               <b-col cols="12" class="text-left">showing {{returnedMembers}} results</b-col>
               <MemberTable/>
             </div>
-
           </b-row>
         </b-col>
       </b-row>
@@ -66,3 +66,11 @@ export default {
   }
 };
 </script>
+
+<style lang="sass" scoped>
+.user-message
+  line-height: 38px
+
+.horizontal-line
+  border-top: 2px solid $searchBorder
+</style>
