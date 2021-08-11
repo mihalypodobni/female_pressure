@@ -74,15 +74,12 @@ export default {
   min-height: 100vh
   width: 100vw
   display: flex
-  font-size: 0.8rem!important
+  font-size: 1rem!important
   flex-direction: column
   font-family: $font-main
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   @include background-gradient
-
-.btn
-  font-size: 0.8rem!important
 </style>
 
 <style lang="sass" scoped>

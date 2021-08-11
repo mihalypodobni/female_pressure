@@ -9,6 +9,7 @@
             v-for="(question, idx) in faqData"
             :key="question.title"
         >
+          {{question.header}}
           <b-card-header
               class="accordion-container mb-3 accordion-button h5 py-1 px-2"
               role="tab"

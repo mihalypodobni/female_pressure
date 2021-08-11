@@ -72,28 +72,28 @@
       <div class="mb-4">
         <h3>press</h3>
         <b>
-          <b-link class="link" href="https://femalepressure.wordpress.com/press-review/" target="_blank">our press
+          <b-link class="f-link" href="https://femalepressure.wordpress.com/press-review/" target="_blank">our press
             review
           </b-link>
         </b>[as of 2013]
         <p>
-          <b-link class="link" href="http://www.femalepressure.net/pictures.html">see some pictures from the archive
+          <b-link class="f-link" href="http://www.femalepressure.net/pictures.html">see some pictures from the archive
           </b-link>
         </p>
       </div>
       <div class="mb-4">
         <h3>credits</h3>
         <p>database programming, back end:
-          <b-link class="link" href="http://mortasvault.com" target="_blank">alex dohm</b-link>
+          <b-link class="f-link" href="http://mortasvault.com" target="_blank">alex dohm</b-link>
           <br>
           website programming, front end:
-          <b-link class="link" href="https://luanes.bandcamp.com/" target="_blank">ines nogueira</b-link>
+          <b-link class="f-link" href="https://luanes.bandcamp.com/" target="_blank">ines nogueira</b-link>
           , alex dohm<br>
           graphic design:
-          <b-link class="link" href="http://www.marinedrouan.eu/" target="_blank">marine drouan</b-link>
+          <b-link class="f-link" href="http://www.marinedrouan.eu/" target="_blank">marine drouan</b-link>
           <br>
           general content:
-          <b-link class="link" href="http://indigo-inc.at/" target="_blank">electric indigo</b-link>
+          <b-link class="f-link" href="http://indigo-inc.at/" target="_blank">electric indigo</b-link>
         </p>
       </div>
       <div>

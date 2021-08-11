@@ -89,7 +89,6 @@ export default {
     border: 3px solid #00e3b9!important
   /deep/ .form-control
     border: none!important
-    font-size: 0.8rem!important
     color: black
     &:focus
       outline: none !important

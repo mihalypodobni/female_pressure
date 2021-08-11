@@ -3,7 +3,7 @@
     <Header/>
     <b-container class="mt-5 f-body-container">
       <div class="mb-4">
-        <h3>introduction</h3>
+        <h4>introduction</h4>
         <p>
           female:pressure is built on trust and therefore dedicated to providing an experience of mutual respect for
           everyone. We can neither tolerate harassment of participants in any form nor attitudes of prerogative,
@@ -20,7 +20,7 @@
         </p>
       </div>
       <div class="mb-4">
-        <h3>scope of application</h3>
+        <h4>scope of application</h4>
         <p>
           This code of conduct applies to all female:pressure spaces, including our mailing lists, Facebook groups and
           Discord channel, both online and offline. Even though we are dedicated to mediating conflicts within the
@@ -33,7 +33,7 @@
         </p>
       </div>
       <div class="mb-4">
-        <h3>harassment</h3>
+        <h4>harassment</h4>
         Harassment includes:
         <ul>
           <li>Offensive comments related to gender, gender identity and expression, sexual orientation, age, social
@@ -74,7 +74,7 @@
         </ul>
       </div>
       <div class="mb-4">
-        <h3>abuse of trust</h3>
+        <h4>abuse of trust</h4>
         <p>
           The abuse of trust within the network is extremely damaging for its development. Misappropriation of
           intellectual property amongst female:pressure members is a worst case scenario in this regard, in particular
@@ -85,7 +85,7 @@
         </p>
       </div>
       <div class="mb-4">
-        <h3>reservation</h3>
+        <h4>reservation</h4>
         female:pressure prioritizes marginalized people’s safety over privileged people’s comfort. Therefore, our
         awareness team reserves the right <b>not</b> to act on:
         <ul>
@@ -100,7 +100,7 @@
         </ul>
       </div>
       <div class="mb-4">
-        <h3>reporting</h3>
+        <h4>reporting</h4>
         <p>
           If you are being harassed by a member of female:pressure, notice that someone else is being harassed, or have
           any other concerns, please contact the awareness team at concierge@femalepressure.net. If the person who is
@@ -125,7 +125,7 @@
         </p>
       </div>
       <div class="mb-4">
-        <h3>consequences</h3>
+        <h4>consequences</h4>
         <p>
           While the awareness team will try to mediate in case of conflicts within the community, participants asked to
           stop any harassing behavior are expected to comply immediately. Mediation efforts may include gathering
@@ -139,7 +139,7 @@
         </p>
       </div>
       <div class="mb-4">
-        <h3>mailing list netiquette</h3>
+        <h4>mailing list netiquette</h4>
         <p>
           In addition to the above general code of conduct, we'd like to ask you to respect the following rules and
           recommendations for posting to our mailing list:

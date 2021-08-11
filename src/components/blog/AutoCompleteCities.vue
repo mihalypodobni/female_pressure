@@ -1,5 +1,5 @@
 <template>
-  <b-container class="f-body-container mt-3">
+  <b-container class="body-container mt-3">
     <vue-typeahead-bootstrap
         :data="cities"
         v-model="citySearch"
