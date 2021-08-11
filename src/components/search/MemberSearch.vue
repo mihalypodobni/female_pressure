@@ -13,7 +13,7 @@
           <b-icon-search variant="dark" font-scale="1.3" class="my-auto mx-2"></b-icon-search>
       </template>
       <template slot="suggestion" slot-scope="{ data }">
-        <b-row class="m-0">
+        <b-row class="m-0 w-100">
           <b-col class="p-0 m-0">
             <div>{{ data.alias1 }}</div>
             <div class="text-muted f-text-smaller"> {{ data.alias2 }}<span v-if="data.alias3">, {{ data.alias3 }}</span></div>
@@ -60,6 +60,11 @@ export default {
         await Vue.prototype.$http.get(`${Vue.prototype.$hostname}/search/member-search/${query}`)
             .then(response => {
               response.data ? this.users = response.data : this.users = []
+              if (!response.data && this.memberSearch.length > 0) {
+                this.users = [{
+                  alias1: "No results found"
+                }]
+              }
             }, error => {
               console.log(error)
             })
