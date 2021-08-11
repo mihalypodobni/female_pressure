@@ -62,15 +62,21 @@
       </template>
     </b-table>
     <b-row v-if="members.length > 0" class="justify-content-center">
-      <b-col sm="7" md="6" class="my-1">
+      <b-col cols="auto" class="my-1">
         <b-pagination
             v-model="currentPage"
             :total-rows="totalRows"
             :per-page="perPage"
             align="fill"
             size="sm"
-            class="my-0"
-        ></b-pagination>
+            class="my-0 pagination"
+            page-class="page-styling"
+        >
+          <template #first-text><b-icon-chevron-double-left /></template>
+          <template #prev-text><b-icon-chevron-left /></template>
+          <template #next-text><b-icon-chevron-right /></template>
+          <template #last-text><b-icon-chevron-double-right /></template>
+        </b-pagination>
       </b-col>
     </b-row>
   </div>
@@ -220,4 +226,23 @@ export default {
     cursor: pointer
   td + td
     width: calc((100% / 4))
+
+.page-item.active .page-link
+  color: black
+  border-radius: 15px
+  border: 1px solid black
+  flex-grow: 0!important
+  width: 30px
+  background-color: #36fbf6
+
+.page-item .page-link
+  color: #36fbf6
+  border-radius: 15px
+  border: 1px solid #36fbf6
+  flex-grow: 0!important
+  width: 30px
+  background-color: white
+  margin-left: 5px
+  margin-right: 5px
+
 </style>
