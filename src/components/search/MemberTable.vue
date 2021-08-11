@@ -24,7 +24,7 @@
       </template>
       <template #cell(name)="data">
         <div class="primary-text">{{ data.item.alias1 }}</div>
-        <div class="secondary-text">
+        <div class="alias secondary-text font-weight-bold">
           {{ data.item.alias2 }}
           <span v-if="data.item.alias3 !== null">, </span>
           {{ data.item.alias3 }}
@@ -167,11 +167,21 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.member-search-results /deep/ th
+  border-bottom: 2px solid #2afec5
+  border-top: 2px solid #2afec5
+
+.member-search-results /deep/ td
+  border-bottom: 2px solid $searchBorder
+
 .primary-text
   font-size: 13px
 
 .secondary-text
   font-size: 10px
+
+.alias
+  color: #36fbf6
 
 .genre
   background-color: #36fbf6
@@ -179,24 +189,21 @@ export default {
   padding-right: 2px
 
 .profession
-  background-color: lightcyan
+  background-color: #2afec5
   padding-left: 2px
   padding-right: 2px
 
 .heart-button
-  color: black
-
+  color: #4be18d
   &:hover
     transform: scale(1.15)
     transition: transform .1s ease-in-out
     cursor: pointer
-
   &:active
     transform: scale(1)
     transition-property: transform
     transition-duration: 0.15s
     transition-timing-function: cubic-bezier(0, .62, .46, 2.03)
-
   &:focus
     outline: none !important
     box-shadow: none !important

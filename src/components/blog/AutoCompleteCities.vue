@@ -39,7 +39,6 @@ export default {
       console.log(this.cities)
     }
   },
-
   watch: {
     citySearch: _.debounce(function(addr) { this.getCities(addr) }, 500)
   }

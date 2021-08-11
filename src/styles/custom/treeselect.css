@@ -95,7 +95,7 @@
     table-layout: fixed;
     width: 100%;
     height: 36px;
-    border: 3px solid #68fded;
+    border: 3px solid #2afec7;
     border-radius: 0;
     background: #fff;
     transition-duration: 200ms;
@@ -112,9 +112,9 @@
     background-color: #f9f9f9;
 }
 .vue-treeselect--open .vue-treeselect__control {
-    border-left: 3px solid #68fded;
-    border-right: 3px solid #68fded;
-    border-top: 3px solid #68fded;
+    border-left: 3px solid #2afec7;
+    border-right: 3px solid #2afec7;
+    border-top: 3px solid #2afec7;
     border-bottom: none;
     -moz-box-shadow: 0 0 10px #ccc;
     -webkit-box-shadow: 0 0 10px #ccc;
@@ -415,7 +415,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     width: auto;
-    border: 3px solid #68fded;
+    border: 3px solid #2afec7;
     background: #fff;
     line-height: 180%;
     -webkit-overflow-scrolling: touch;
@@ -423,9 +423,9 @@
 .vue-treeselect--open-below .vue-treeselect__menu {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    border-left: 3px solid #68fded;
-    border-right: 3px solid #68fded;
-    border-bottom: 3px solid #68fded;
+    border-left: 3px solid #2afec7;
+    border-right: 3px solid #2afec7;
+    border-bottom: 3px solid #2afec7;
     border-top: none;
     -moz-box-shadow: 0 0 10px #ccc;
     -webkit-box-shadow: 0 0 10px #ccc;
@@ -657,7 +657,7 @@
     margin: auto;
     width: 12px;
     height: 12px;
-    border: 1px solid #68fded;
+    border: 1px solid #2afec7;
     border-radius: 2px;
     position: relative;
     transition: 200ms all cubic-bezier(0.075, 0.82, 0.165, 1);
