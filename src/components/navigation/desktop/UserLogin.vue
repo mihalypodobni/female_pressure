@@ -3,7 +3,7 @@
     <template #button-content>
       <div class="dropdown-link" @click.stop="showDropdown = !showDropdown">
         <span v-if="authenticated" class="pr-2 login">member</span>
-        <span v-else class="pr-2 login">login</span>
+        <span v-else class="pr-2 login font-weight-bold">login</span>
         <font-awesome-icon icon="user-circle" size="lg"/>
       </div>
     </template>
@@ -36,6 +36,10 @@
             <b-button squared class="sign-in-button" @click="userLogin">sign in</b-button>
           </b-col>
         </b-row>
+        <b-row class="mx-0 mt-2 mb-0 w-100" v-if="error.notExist || error.serverError">
+          <b-col class="p-0 text-danger" v-if="error.notExist">User / Password combo does not exist</b-col>
+          <b-col class="p-0 text-danger" v-if="error.serverError">Server Error - please contact f:p if problem persists</b-col>
+        </b-row>
       </b-dropdown-form>
       <hr class="divider">
       <b-dropdown-text class="text-center mb-2 join-section">
@@ -58,16 +62,22 @@ export default {
         email: "",
         password: ""
       },
+      error: {
+        notExist: false,
+        serverError: false
+      },
       showDropdown: false
     }
   },
   methods: {
     userLogin() {
-      this.showDropdown = false
+      this.error.notExist = false
+      this.error.serverError = false
       this.loginAction({
         email: this.login.email,
         password: this.login.password
       }).then(() => {
+        this.showDropdown = false
         if (this.admin) {
           this.$router.push({name: 'Admin Home'})
           this.SET_PAGE('')
@@ -79,6 +89,12 @@ export default {
         } else {
           window.location.reload()
         }
+      }).catch((err) => {
+        if (err.response && err.response.status === 401) {
+          this.error.notExist = true
+          return
+        }
+        this.error.serverError = true
       })
     },
     userLogout() {

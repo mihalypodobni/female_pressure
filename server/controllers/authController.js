@@ -22,7 +22,7 @@ router.post("/login", function (req, res) {
                 auth.login(req.body.password, req.body.email)
                     .then((data) => {
                         if (data === 0) {
-                            return res.status(401).send({auth: false, token: null})
+                            return res.status(401).send({auth: false, token: null, msg: "No user found"})
                         }
                         let token = util.createToken(data)
                         res.status(200).json({token: token, auth: true, admin: false, user: data}).end();
