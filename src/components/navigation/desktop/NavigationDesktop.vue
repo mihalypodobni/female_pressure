@@ -7,7 +7,7 @@
     </b-col>
     <b-col v-for="(item, idx) in menuItems"
            :key="item.id + idx"
-           class="text-center menu-link link-padding"
+           class="text-center menu-link link-padding font-weight-bold"
            @click="$emit('navigate',item.id)"
            :class="[ item.id + '_nav', currentPage === item.id ? 'current-tab' : '']"
            @mouseenter="showDropdown(item.name)"

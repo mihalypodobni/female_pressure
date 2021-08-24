@@ -1,6 +1,8 @@
 <template>
-  <b-container v-if="!admin" class="f-header-container mt-3 mb-5">
-    <b-row>
+  <b-container v-if="!admin"
+               :class="$store.state.isMobile ? 'f-body-container' : 'f-header-container'"
+               class="mt-3 mb-5">
+    <b-row :class="$store.state.isMobile ? 'mt-5' : 'mt-0'">
       <b-col class="text-left">
         <h1
           :class="statePage === 'home' ? 'home-header' : 'header'"
@@ -13,7 +15,7 @@
       <b-col class="text-right my-auto px-0" cols="auto">
         <span v-if="statePage === 'home'">current members: 5454</span>
         <span
-          v-if="!authenticated"
+          v-if="!authenticated && !$store.state.isMobile"
           class="circle text-center pt-4"
           @click="$router.push({ name: 'Join Network' })"
         >
