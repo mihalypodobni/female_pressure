@@ -7,7 +7,7 @@
       <b-col class="menu2">
         <div class="logo-wrapper">
           <b-img width="80" src="@/assets/fp-main-logo-outline.svg" class="fp-logo"
-                 @click="this.$router.push({name: 'Home'})"></b-img>
+                 @click="$router.push({name: 'Home'})"></b-img>
         </div>
       </b-col>
       <b-col v-b-toggle.sidebar-user class="menu3 menu-icon text-right">
@@ -27,6 +27,16 @@
                :class="item.id + '_nav'"
         >
           {{ item.name }}
+        </b-col>
+        <b-col class="text-center join-column">
+          <span
+              v-if="!authenticated"
+              class="circle text-center pt-4"
+              @click="$router.push({ name: 'Join Network' })"
+          >
+          join the <br />
+          network
+        </span>
         </b-col>
       </b-row>
     </b-sidebar>
@@ -92,6 +102,30 @@ export default {
   left: calc(50% - 40px)
   top: 10px
 
+.fp-logo
+  &:hover
+    cursor: pointer
+
+.join-column
+  height: 80px
+
+.circle
+  position: absolute
+  top: 20px
+  right: calc(50% - 40px)
+  height: 80px
+  width: 80px
+  cursor: pointer
+  border-radius: 50%
+  background: #19fe77
+  color: black
+  line-height: 15px
+  @media screen and (max-width: 1399px)
+    margin-left: calc(100vw / 7 - 130px)
+  @media screen and (min-width: 1400px)
+    margin-left: 60px
+  &:hover
+    color: white
 </style>
 
 <style lang="sass">
