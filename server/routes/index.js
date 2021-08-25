@@ -54,6 +54,7 @@ router.use(async function (req, res, next) {
     }
 
     if (!validToken) {
+        console.log("invalid token")
         res.status(401).json({Error: "Invalid Token"});
     } else {
         next()

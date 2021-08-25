@@ -83,10 +83,10 @@
       </div>
       <div class="mb-4">
         <h3>credits</h3>
-        <p>database programming, back end:
+        <p>database design, back end:
           <b-link class="f-link" href="http://mortasvault.com" target="_blank">alex dohm</b-link>
           <br>
-          website programming, front end:
+          front end:
           <b-link class="f-link" href="https://luanes.bandcamp.com/" target="_blank">ines nogueira</b-link>
           , alex dohm<br>
           graphic design:
