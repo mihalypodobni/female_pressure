@@ -31,21 +31,32 @@
       </b-row>
     </b-sidebar>
     <b-sidebar id="sidebar-user"
-               title="Member Settings"
+               :title="authenticated ? 'Member Area' : 'Login'"
                right
                width="450px"
     >
       <div class="px-3 py-2">
-        <div>this is the user login section</div>
+        <user-login-mobile/>
       </div>
     </b-sidebar>
   </div>
 </template>
 
 <script>
+import UserLoginMobile from "./UserLoginMobile";
+import {mapState} from "vuex";
+
 export default {
+  components: {
+    UserLoginMobile
+  },
   props: {
     menuItems: Array
+  },
+  computed: {
+    ...mapState({
+      authenticated: state => state.authentication.authenticated
+    }),
   }
 }
 </script>
@@ -54,6 +65,9 @@ export default {
 @each $name, $color in $menuItems
   .#{$name}_nav
     background-color: $color
+    &:hover
+      color: white
+      cursor: pointer
 
 .mobile-menu
   height: 45px
@@ -77,4 +91,11 @@ export default {
   position: absolute
   left: calc(50% - 40px)
   top: 10px
+
+</style>
+
+<style lang="sass">
+#sidebar-user
+  background-color: #d8f2f6!important
+
 </style>

@@ -26,7 +26,7 @@
 
 <script>
 import {mapState} from "vuex";
-import UserLogin from "./UserLogin";
+import UserLogin from "./UserLoginDesktop";
 import ProjectsDropdown from "./ProjectsDropdown"
 import LinksDropdown from "./LinksDropdown";
 

@@ -65,7 +65,7 @@ export default {
       border: none
       background-color: map-get($menuItems, "links")
       @media screen and (max-width: 1399px)
-        width: 100vw * 3 / 7
+        width: calc(100vw * 3 / 7 - 5px)
       @media screen and (min-width: 1400px)
         width: $page-max-width * 3 / 7
 
