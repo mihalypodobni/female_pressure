@@ -1,5 +1,5 @@
 <template>
-  <div v-if="filterData !== []">
+  <div v-if="filterData !== []" class="mx-3 mx-md-0 mt-4 mt-md-0">
     <MemberSearch/>
     <treeselect
         v-model="selectedFilters.location"

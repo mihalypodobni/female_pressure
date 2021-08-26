@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="test">
     <b-table hover
              :items="members"
              :fields="computedFields"
@@ -129,7 +129,7 @@ export default {
   computed: {
     ...mapState({
       members: (state) => state.search.filteredMembers,
-      authenticated: (state) => state.authentication.authenticated
+      authenticated: (state) => state.authentication.authenticated,
     }),
     computedFields() {
       return this.showHearts ? this.fields : this.fields.filter(row => row.key !== 'liked');
