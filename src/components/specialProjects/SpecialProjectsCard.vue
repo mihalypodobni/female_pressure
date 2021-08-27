@@ -76,9 +76,9 @@ export default {
 
 .card-body
   @media screen and (min-width: 992px)
-    min-height: 385px
+    min-height: 325px
   @media screen and (min-width: 1200px)
-    min-height: 340px
+    min-height: 270px
   @media screen and (min-width: 1300px)
     min-height: 305px
 
