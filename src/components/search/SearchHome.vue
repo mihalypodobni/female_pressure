@@ -6,7 +6,7 @@
         <b-col v-if="!isMobile" cols="4">
           <SideFilter/>
         </b-col>
-        <b-col v-else cols="12" class="pb-3 px-0">
+        <b-col v-else cols="12" class="pb-3 pl-4">
           <b-row>
             <b-col cols="auto" v-b-toggle.sidebar-filter class="toggle-filter-div p-1">
               <font-awesome-icon  icon="filter" class="mx-2 toggle-filter-icon" />
