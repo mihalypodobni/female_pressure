@@ -158,6 +158,9 @@ export default {
 .user-row
   border-bottom: 1px solid #2afec5
   border-top: 1px solid #2afec5
+  height: 200px
+  @media screen and (min-width: 600px)
+    height: 150px
 
   &:hover
     background-color: whitesmoke

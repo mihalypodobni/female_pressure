@@ -6,31 +6,34 @@
         <b-col v-if="!isMobile" cols="4">
           <SideFilter/>
         </b-col>
-        <b-col v-else cols="12" class="pb-3">
+        <b-col v-else cols="12" class="pb-3 px-0">
           <b-row>
-            <b-col cols="auto" class="toggle-filter-div px-0">
-              <font-awesome-icon v-b-toggle.sidebar-filter icon="filter" class="mx-2 toggle-filter-icon"></font-awesome-icon>
+            <b-col cols="auto" v-b-toggle.sidebar-filter class="toggle-filter-div p-1">
+              <font-awesome-icon  icon="filter" class="mx-2 toggle-filter-icon" />
             </b-col>
-            <b-col>
+            <b-col class="my-auto">
               {{returnedMembers}} members returned
             </b-col>
           </b-row>
-          <b-sidebar id="sidebar-filter" title="Filter & Find Members" shadow>
+          <b-sidebar id="sidebar-filter"
+                     title="Filter & Find Members"
+                     backdrop
+          >
             <SideFilter />
           </b-sidebar>
         </b-col>
-        <b-col cols="12" md="8">
+        <b-col cols="12" md="8" >
           <b-row v-if="returnedMembers === 0 && !filterApplied">
-            <b-col cols="12" class="user-message">use filters to the left to search for members</b-col>
+            <b-col cols="12" class="user-message px-0">use filters to the left to search for members</b-col>
             <hr class="w-100 m-1 horizontal-line">
-            <b-col cols="12" v-if="!authenticated">log in to see more information about members</b-col>
+            <b-col cols="12" v-if="!authenticated" class="px-0">log in to see more information about members</b-col>
           </b-row>
           <b-row v-else>
-            <b-col cols="12" class="text-left user-message" v-if="filterApplied && returnedMembers === 0">no members found using the applied filters. try adjusting your search.</b-col>
+            <b-col cols="12" class="text-left user-message px-0" v-if="filterApplied && returnedMembers === 0">no members found using the applied filters. try adjusting your search.</b-col>
             <div v-else>
-              <b-col v-if="!isMobile" cols="12" class="text-left user-message">showing {{returnedMembers}} results</b-col>
+              <b-col v-if="!isMobile" cols="12" class="text-left user-message px-0">showing {{returnedMembers}} results</b-col>
               <member-table-mobile v-if="isMobile"/>
-              <member-table v-else/>
+              <member-table class="pr-2" v-else/>
             </div>
           </b-row>
         </b-col>
