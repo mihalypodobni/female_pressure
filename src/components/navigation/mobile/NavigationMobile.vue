@@ -80,10 +80,10 @@ export default {
       cursor: pointer
 
 .mobile-menu
-  height: 45px
+  height: 50px
 
 .menu-icon
-  padding-top: 10px
+  padding-top: 13px
 
   &:focus
     outline: none !important
