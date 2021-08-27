@@ -9,7 +9,7 @@
           :class="index % perPage === 0 ? 'thicker-user-row' :''"
       >
         <b-row class="my-3">
-          <b-col cols="4" sm="3">alias:</b-col>
+          <b-col cols="4" sm="3">alias</b-col>
           <b-col cols="8" sm="9">
             <div class="primary-text">{{ member.alias1 }}</div>
             <div class="alias secondary-text font-weight-bold">
@@ -18,7 +18,7 @@
               {{ member.alias3 }}
             </div>
           </b-col>
-          <b-col cols="4" sm="3">location:</b-col>
+          <b-col cols="4" sm="3">location</b-col>
           <b-col cols="8" sm="9">
             <div class="primary-text">
               {{ member.location[0].split(";")[0] }} -
@@ -56,12 +56,33 @@
     </b-row>
     <b-row class="justify-content-center mt-4">
       <b-col class="text-center">
+        <b-icon-chevron-double-left
+            :class="{'light-icon' : currentPage === 1}"
+            class="mx=2 p-icon"
+            @click="currentPage = 1"
+        />
+        <b-icon-chevron-left
+            :class="{'light-icon' : currentPage === 1}"
+            class="mx-2 p-icon"
+            @click="decrease()"
+        />
         <span
-            v-for="index in computedPages"
-            class="mx-3"
-            :key="'page'+index">
+            v-for="index in computedPageList"
+            class="mx-2 pagination-number"
+            :class="index === currentPage ? 'pagination-number-current' : ''"
+            :key="'page'+index"
+            @click="currentPage = index"
+        >
           {{ index }}
         </span>
+        <b-icon-chevron-right
+            :class="{'light-icon' : currentPage === computedPages}"
+            class="mx-2 p-icon"
+            @click="increase()"/>
+        <b-icon-chevron-double-right
+            :class="{'light-icon' : currentPage === computedPages}"
+            class="mx-2 p-icon"
+            @click="currentPage = computedPages"/>
       </b-col>
     </b-row>
   </div>
@@ -77,6 +98,18 @@ export default {
       perPage: 5,
     }
   },
+  methods: {
+    increase() {
+      if (this.currentPage !== this.computedPages) {
+        this.currentPage = this.currentPage + 1
+      }
+    },
+    decrease() {
+      if (this.currentPage !== 1) {
+        this.currentPage = this.currentPage - 1
+      }
+    },
+  },
   computed: {
     ...mapState({
       members: (state) => state.search.filteredMembers,
@@ -85,16 +118,36 @@ export default {
     computedMembers() {
       let x = this.perPage * (this.currentPage - 1)
       return this.members.filter((member, index) => {
-        console.log(index, index >= x && index < x + this.perPage)
         return index >= x && index < x + this.perPage
       })
     },
     computedPages() {
-      let pages = this.members.length / this.perPage
+      let pages = Math.floor(this.members.length / this.perPage)
       if (this.members.length % this.perPage !== 0) {
         pages = pages + 1
       }
       return pages
+    },
+    computedPageList() {
+      let pages = this.computedPages
+      let pageList = []
+      if (pages < 3) {
+        for (let i = 1; i <= pages; i++) {
+          pageList.push(i)
+        }
+        return pages
+      } else if (this.currentPage  === 1) {
+        pageList = [1,2,3]
+      } else if (this.currentPage === this.computedPages) {
+        pageList.push(this.currentPage - 2)
+        pageList.push(this.currentPage - 1)
+        pageList.push(this.currentPage)
+      } else {
+        pageList.push(this.currentPage - 1)
+        pageList.push(this.currentPage)
+        pageList.push(this.currentPage + 1)
+      }
+      return pageList
     }
   }
 }
@@ -131,4 +184,21 @@ export default {
   background-color: #2afec5
   padding-left: 2px
   padding-right: 2px
+
+.pagination-number-current
+  color: black !important
+
+.pagination-number
+  color: #2cfecf
+
+  &:hover
+    cursor: pointer
+    color: black
+
+.p-icon
+  &:hover
+    cursor: pointer
+
+.light-icon
+  color: lightgrey
 </style>
