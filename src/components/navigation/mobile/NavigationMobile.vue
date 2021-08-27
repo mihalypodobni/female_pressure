@@ -17,6 +17,7 @@
     <b-sidebar id="sidebar-menu"
                width="450px"
                title="Menu"
+               backdrop
     >
       <b-row>
         <b-col v-for="(item, idx) in menuItems"
@@ -43,6 +44,7 @@
     <b-sidebar id="sidebar-user"
                :title="authenticated ? 'Member Area' : 'Login'"
                right
+               backdrop
                width="450px"
     >
       <div class="px-3 py-2">
