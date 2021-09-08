@@ -530,15 +530,9 @@
 </template>
 
 <script>
-import { faq } from '@/assets/data/faq';
 import { mapMutations } from 'vuex';
 
 export default {
-  data() {
-    return {
-      faqData: faq,
-    };
-  },
   methods: {
     ...mapMutations(['SET_PAGE']),
   },
