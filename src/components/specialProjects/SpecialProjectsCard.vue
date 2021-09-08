@@ -1,20 +1,20 @@
 <template>
   <a :href="project.link" class="f-link">
     <b-card no-body class="project-card px-3 py-2">
-      <div class="card-body m-0">
-        <b-row class="p-0 justify-content-start align-items-start">
-          <b-col class="p-0 h-100"
+      <div class="card-body m-0 p-1">
+        <b-row class="p-0 justify-content-start align-items-center">
+          <b-col class="p-0 mr-2 ml-3"
                  :class="project.img === '2009-japan.svg' ? 'bottom-shift' : ''"
-                 cols="5" sm="3" md="2" lg="4">
+                 cols="3" sm="2" md="2" lg="3">
             <b-img
               :src="require('@/assets/special-projects-logos/' + project.img)"
               :alt="project.title + ' logo'"
-              class="project-img mt-1 mr-2 p-0"
+              class="project-img mt-1 my-2 p-0"
               :class="project.img === '2009-japan.svg' ? 'japan' : ''"
             />
           </b-col>
-          <b-col cols="7" class="p-0 mh-50 mb-2">
-            <div class="ml-3 mt-1 p-0">
+          <b-col cols="7" sm="7" md="9" lg="7" class="p-0 my-3">
+            <div class="p-0">
               <h4 class="m-0">
                 <b>{{ project.title }}</b>
               </h4>
@@ -27,8 +27,8 @@
             </div>
           </b-col>
         </b-row>
-        <b-row v-if="$store.state.isMobile">
-          <div class="project-text p-0">
+        <b-row class="justify-content-center align-items-center" v-if="$store.state.isMobile">
+          <div class="project-text p-2 mt-2">
             {{ project.text }}
           </div>
         </b-row>
@@ -51,11 +51,11 @@ export default {
   border-radius: 0
   border: none
 
+
 .project-img
   width: 100px
   height: 100px
-  @media screen and (max-width: 1024px)
-    margin-bottom: 20px
+  @media screen and (max-width: 850px)
     width: 80px
     height: 80px
 
@@ -75,12 +75,14 @@ export default {
   font-weight: 400
 
 .card-body
+  display:flex
+  align-items: center
   @media screen and (min-width: 992px)
-    min-height: 325px
-  @media screen and (min-width: 1200px)
-    min-height: 270px
+    min-height: 275px
+  @media screen and (min-width: 1170px)
+    min-height: 247px
   @media screen and (min-width: 1300px)
-    min-height: 305px
+    min-height: 260px
 
 .f-link
   &:hover
