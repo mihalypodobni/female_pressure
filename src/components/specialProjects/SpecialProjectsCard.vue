@@ -6,7 +6,7 @@
           <b-col class="p-0 mr-2 ml-3"
                  :class="project.img === '2009-japan.svg' ? 'bottom-shift' : ''"
                  cols="3" sm="2" md="2" lg="3">
-            <b-img
+            <b-img-lazy
               :src="require('@/assets/special-projects-logos/' + project.img)"
               :alt="project.title + ' logo'"
               class="project-img mt-1 my-2 p-0"
