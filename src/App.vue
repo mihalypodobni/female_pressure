@@ -76,7 +76,7 @@ export default {
   display: flex
   font-size: 1rem!important
   flex-direction: column
-  font-family: $font-main
+  font-family: $font-regular
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   @include background-gradient

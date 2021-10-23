@@ -7,7 +7,7 @@
     </b-col>
     <b-col v-for="(item, idx) in menuItems"
            :key="item.id + idx"
-           class="text-center menu-link link-padding font-weight-bold"
+           class="text-center menu-link link-padding"
            @click="$emit('navigate',item.id)"
            :class="[ item.id + '_nav', $route.name === item.name ? 'current-tab' : '']"
            @mouseenter="showDropdown(item.id)"
@@ -110,4 +110,8 @@ export default {
     width: calc(100vw / 7 - 30px)
   @media screen and (min-width: 1400px)
     width: 150px
+
+.login
+  &:hover
+    font-weight: bold
 </style>

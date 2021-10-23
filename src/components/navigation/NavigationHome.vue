@@ -71,16 +71,20 @@ export default {
 
 .desktop-nav /deep/ .dropdown-link
   color: black
+  font-family: $font-bold!important
+  &:hover
+    text-shadow: 0 0 .4px #333, 0 0 .4px #333
+
 
 .desktop-nav /deep/ .menu-link
   cursor: pointer
   color: black
-  font-weight: 500
+  font-weight: 300
   text-decoration: none !important
+  font-family: $font-bold!important
   &:hover
     text-decoration: none !important
-    //z-index: 10
-    //box-shadow: 0 1.8px 0.3px -5px rgba(0, 0, 0, 0.013), 0 3.6px 3.9px -5px rgba(0, 0, 0, 0.033), 0 6.2px 15.2px -5px rgba(0, 0, 0, 0.072), 0 12px 58px -5px rgba(0, 0, 0, 0.25)
+    text-shadow: 0 0 .4px #333, 0 0 .4px #333
   &.link-padding
     padding-top: 15px
     padding-bottom: 15px

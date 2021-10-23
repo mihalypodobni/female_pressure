@@ -59,8 +59,11 @@ export default {
   background: #19fe77
   color: black
   line-height: 15px
+  font-family: $font-bold
   @media screen and (max-width: 1399px)
     margin-left: calc(100vw / 7 - 130px)
   @media screen and (min-width: 1400px)
     margin-left: 60px
+  &:hover
+    text-shadow: 0 0 .4px #333, 0 0 .4px #333
 </style>

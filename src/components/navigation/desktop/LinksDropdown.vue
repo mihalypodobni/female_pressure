@@ -8,7 +8,7 @@
     no-caret
   >
     <template #button-content>
-      <div class="dropdown-link font-weight-bold"
+      <div class="dropdown-link"
            @click="$emit('navigate','links')">
         <span class="pr-2 login">links</span>
       </div>

@@ -3,7 +3,7 @@
     <template #button-content>
       <div class="dropdown-link" @click.stop="showDropdown = !showDropdown">
         <span v-if="authenticated" class="pr-2 login">member</span>
-        <span v-else class="pr-2 login font-weight-bold">login</span>
+        <span v-else class="pr-2 login">login</span>
         <font-awesome-icon icon="user-circle" size="lg"/>
       </div>
     </template>
