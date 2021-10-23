@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Header />
+    <Header>
+      links
+    </Header>
     <b-container class="mt-5 f-body-container">
       <div class="accordion" role="tablist">
         <b-card
@@ -52,7 +54,6 @@
 <script>
 import { links } from "@/assets/data/links";
 import Header from "@/components/header/Header";
-import { mapMutations } from "vuex";
 
 export default {
   data() {
@@ -71,13 +72,7 @@ export default {
   },
   components: {
     Header,
-  },
-  methods: {
-    ...mapMutations(["SET_PAGE"]),
-  },
-  mounted() {
-    this.SET_PAGE("links");
-  },
+  }
 };
 </script>
 

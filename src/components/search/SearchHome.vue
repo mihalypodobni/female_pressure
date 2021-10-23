@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Header/>
+    <Header>
+      search
+    </Header>
     <b-container class="mt-5 f-body-container">
       <b-row>
         <b-col v-if="!isMobile" cols="4">
@@ -47,7 +49,7 @@ import SideFilter from "./SideFilter";
 import MemberTable from "./MemberTable";
 import MemberTableMobile from "./MemberTableMobile";
 import Header from "@/components/header/Header";
-import {mapMutations, mapState} from "vuex";
+import {mapState} from "vuex";
 
 export default {
   components: {
@@ -60,9 +62,6 @@ export default {
     return {
       returnedMembers: 0
     }
-  },
-  methods: {
-    ...mapMutations(["SET_PAGE"]),
   },
   computed: {
     ...mapState({
@@ -77,10 +76,6 @@ export default {
     members() {
       this.returnedMembers = this.members.length
     }
-  },
-  mounted() {
-    this.SET_PAGE("search");
-    console.log(this.returnedMembers)
   }
 };
 </script>

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Header/>
+    <Header>
+      about
+    </Header>
     <b-container class="mt-5 f-body-container">
       <div class="mb-4">
         <h3>visibility</h3>
@@ -88,7 +90,8 @@
           <br>
           front end:
           <b-link class="f-link" href="https://luanes.bandcamp.com/" target="_blank">ines nogueira</b-link>
-          , alex dohm<br>
+          ,
+          <b-link class="f-link" href="http://mortasvault.com" target="_blank">alex dohm</b-link><br>
           graphic design:
           <b-link class="f-link" href="http://www.marinedrouan.eu/" target="_blank">marine drouan</b-link>
           <br>
@@ -106,17 +109,10 @@
 
 <script>
 import Header from "@/components/header/Header";
-import {mapMutations} from "vuex";
 
 export default {
   components: {
     Header,
-  },
-  methods: {
-    ...mapMutations(["SET_PAGE"]),
-  },
-  mounted() {
-    this.SET_PAGE("about");
-  },
+  }
 };
 </script>

@@ -39,8 +39,8 @@
       <hr class="divider">
       <div class="text-center mb-2 join-section">
         <span class="font-weight-normal">not a member yet? </span>
-        <b-link @click="$router.push({ name: 'Join Network' }); SET_PAGE('join');" class="f-link join-network">join the
-          network
+        <b-link @click="$router.push({ name: 'Join Network' })" class="f-link join-network">
+          join the network
         </b-link>
       </div>
     </div>
@@ -75,12 +75,10 @@ export default {
         this.showDropdown = false
         if (this.admin) {
           this.$router.push({name: 'Admin Home'})
-          this.SET_PAGE('')
         } else if (this.$route.path === '/') {
           //do nothing
         } else if (this.$route.meta.onlyLoggedOut) {
           this.$router.push({name: 'Home'})
-          this.SET_PAGE('home')
         } else {
           window.location.reload()
         }
@@ -97,7 +95,6 @@ export default {
       this.LOGOUT()
       if (!this.$route.meta.public) {
         this.$router.push({name: 'Home'})
-        this.SET_PAGE('home')
       } else if (this.$route.path === '/') {
         //do nothing
       } else {

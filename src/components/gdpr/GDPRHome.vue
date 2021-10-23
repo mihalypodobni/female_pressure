@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Header/>
+    <Header>
+      gdpr privacy notice
+    </Header>
     <b-container class="mt-5 f-body-container">
       <div class="mb-4">
         <h3>1. introduction</h3>
@@ -206,17 +208,10 @@
 
 <script>
 import Header from "@/components/header/Header";
-import {mapMutations} from "vuex";
 
 export default {
   components: {
     Header,
-  },
-  methods: {
-    ...mapMutations(["SET_PAGE"]),
-  },
-  mounted() {
-    this.SET_PAGE("gdpr");
-  },
+  }
 };
 </script>

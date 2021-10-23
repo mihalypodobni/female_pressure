@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Header />
+    <Header>
+      projects
+    </Header>
     <b-container fluid="lg" class="mt-5 px-0 f-body-container">
       <b-row class="justify-content-center w-100 mx-0 p-0">
         <!-- SHOW ALL THE PROJECTS -- ONLY WORKS IF THEY ARE MORE THAN 20 -->
@@ -44,7 +46,6 @@
 import SpecialProjectsCard from "./SpecialProjectsCard";
 import { projects } from "@/assets/data/special-projects.js";
 import Header from "@/components/header/Header";
-import { mapMutations } from "vuex";
 
 export default {
   components: {
@@ -64,10 +65,6 @@ export default {
         this.readMore = true;
       }
     },
-    ...mapMutations(["SET_PAGE"]),
-  },
-  mounted() {
-    this.SET_PAGE("projects");
-  },
+  }
 };
 </script>

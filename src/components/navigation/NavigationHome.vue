@@ -9,30 +9,26 @@
 import NavigationMobile from './mobile/NavigationMobile'
 import NavigationDesktop from './desktop/NavigationDesktop'
 import axios from "axios";
-import {mapState} from 'vuex';
 
 export default {
   data() {
     return {
       menuItems: [
-        {id: 'search', name: 'search'},
-        {id: 'projects', name: 'projects'},
-        {id: 'events', name: 'events'},
-        {id: 'links', name: 'links'},
-        {id: 'about', name: 'about'}
+        {id: 'search', name: 'Search'},
+        {id: 'projects', name: 'Projects'},
+        {id: 'events', name: 'Events'},
+        {id: 'links', name: 'Links'},
+        {id: 'about', name: 'About'}
       ]
     }
   },
-  computed: mapState([
-    'currentPage'
-  ]),
   methods: {
     logout() {
       delete axios.defaults.headers.common['Authorization']
       this.$router.push('/')
     },
     navigate(route) {
-      if (this.currentPage !== route) {
+      if (this.$route.name !== route) {
         switch (route) {
           case 'home':
             this.$router.push({name: 'Home'})

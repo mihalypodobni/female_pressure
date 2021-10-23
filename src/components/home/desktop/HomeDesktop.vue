@@ -1,6 +1,11 @@
 <template>
   <div>
-    <Header/>
+    <Header>
+      female pressure
+      <template #subtitle>
+        database of people operating in electronic music
+      </template>
+    </Header>
     <b-container class="mt-5 f-body-container">
       <h4>Testing information to go on the page</h4>
       <WorldMap/>

@@ -9,13 +9,15 @@
            :key="item.id + idx"
            class="text-center menu-link link-padding font-weight-bold"
            @click="$emit('navigate',item.id)"
-           :class="[ item.id + '_nav', currentPage === item.id ? 'current-tab' : '']"
-           @mouseenter="showDropdown(item.name)"
-           @mouseleave="hideDropdown(item.name)"
+           :class="[ item.id + '_nav', $route.name === item.name ? 'current-tab' : '']"
+           @mouseenter="showDropdown(item.id)"
+           @mouseleave="hideDropdown(item.id)"
     >
-      <ProjectsDropdown v-if="item.name==='projects'" :show-projects="showProjects" @navigate="$emit('navigate',$event)"/>
-      <LinksDropdown v-else-if="item.name==='links'" :show-links="showLinks" @navigate="$emit('navigate',$event)"/>
-      <span v-else>{{ item.name }}</span>
+      <ProjectsDropdown v-if="item.id ==='projects'" :show-projects="showProjects" @navigate="$emit('navigate',$event)"/>
+      <LinksDropdown v-else-if="item.id ==='links'" :show-links="showLinks" @navigate="$emit('navigate',$event)"/>
+      <span class="text-lowercase" v-else>
+        {{ item.name }}
+      </span>
     </b-col>
 
     <b-col class="text-center menu-link link-padding user_nav">

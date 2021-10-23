@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Header />
+    <Header>
+      merch
+    </Header>
     <b-container class="mt-5 f-body-container">
       <!-- RELAUNCH TSHIRT -->
       <div class="relaunch-tshirt mb-5">
@@ -106,17 +108,10 @@
 
 <script>
 import Header from "@/components/header/Header"
-import {mapMutations} from "vuex";
 
 export default {
   components: {
     Header
-  },
-  methods: {
-    ...mapMutations(["SET_PAGE"]),
-  },
-  mounted() {
-    this.SET_PAGE('merch')
   }
 }
 </script>

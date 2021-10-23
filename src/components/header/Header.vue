@@ -5,15 +5,17 @@
     <b-row :class="$store.state.isMobile ? 'mt-5' : 'mt-0'">
       <b-col class="text-left">
         <h1
-          :class="statePage === 'home' ? 'home-header' : 'header'"
+          :class="$route.name === 'Home' ? 'home-header' : 'header'"
           class="mb-0"
         >
-          {{ currentPage.title }}
+          <slot></slot>
         </h1>
-        <h4 class="font-italic">{{ currentPage.subtitle }}</h4>
+        <h4 class="font-italic">
+          <slot name="subtitle"></slot>
+        </h4>
       </b-col>
       <b-col class="text-right my-auto px-0" cols="auto">
-        <span v-if="statePage === 'home'">current members: 5454</span>
+        <span v-if="$route.name === 'Home'">current members: 5454</span>
         <span
           v-if="!authenticated && !$store.state.isMobile"
           class="circle text-center pt-4"
@@ -28,28 +30,14 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from "vuex";
-import { pageHeaders } from "@/assets/data/page-headers.js";
+import {mapState } from "vuex";
 
 export default {
-  data() {
-    return {
-      pageHeaders: pageHeaders,
-    };
-  },
   computed: {
-    currentPage: function () {
-      let index = this.pageHeaders.findIndex((x) => x.page === this.statePage);
-      return this.pageHeaders[index];
-    },
     ...mapState({
-      statePage: (state) => state.currentPage,
       authenticated: (state) => state.authentication.authenticated,
       admin: (state) => state.authentication.admin,
     }),
-  },
-  methods: {
-    ...mapMutations(["SET_PAGE"]),
   },
 };
 </script>

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Header/>
+    <Header>
+      faq
+    </Header>
     <b-container class="mt-5 f-body-container">
       <div class="accordion" role="tablist">
         <b-card
@@ -35,20 +37,17 @@
 
 <script>
 import {faq} from "@/assets/data/faq";
-import {mapMutations} from "vuex";
+import Header from "../header/Header";
 
 export default {
+  components: {
+    Header
+  },
   data() {
     return {
       faqData: faq,
     };
-  },
-  methods: {
-    ...mapMutations(["SET_PAGE"]),
-  },
-  mounted() {
-    this.SET_PAGE("faq");
-  },
+  }
 };
 </script>
 
