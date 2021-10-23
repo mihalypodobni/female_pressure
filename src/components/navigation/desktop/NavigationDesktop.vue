@@ -21,13 +21,12 @@
     </b-col>
 
     <b-col class="text-center menu-link link-padding user_nav">
-      <UserLogin/>
+      <UserLogin />
     </b-col>
   </b-row>
 </template>
 
 <script>
-import {mapState} from "vuex";
 import UserLogin from "./UserLoginDesktop";
 import ProjectsDropdown from "./ProjectsDropdown"
 import LinksDropdown from "./LinksDropdown";
@@ -75,10 +74,7 @@ export default {
   },
   props: {
     menuItems: Array
-  },
-  computed: mapState([
-    'currentPage'
-  ]),
+  }
 }
 </script>
 

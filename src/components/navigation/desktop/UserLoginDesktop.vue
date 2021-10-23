@@ -1,5 +1,10 @@
 <template>
-  <b-dropdown variant="link" class="p-0 w-100" ref="login" right toggle-class="text-decoration-none" no-caret >
+  <b-dropdown variant="link"
+              class="p-0 w-100"
+              ref="login"
+              right
+              toggle-class="text-decoration-none"
+              no-caret >
     <template #button-content>
       <div class="dropdown-link" @click.stop="showDropdown = !showDropdown">
         <span v-if="authenticated" class="pr-2 login">member</span>

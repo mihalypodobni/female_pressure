@@ -1,6 +1,7 @@
 <template>
   <b-dropdown variant="link"
-              class="p-0 w-100 mr-0" ref="projects-dropdown"
+              class="p-0 w-100 mr-0"
+              ref="projects-dropdown"
               left
               toggle-class="text-decoration-none"
               no-caret>
