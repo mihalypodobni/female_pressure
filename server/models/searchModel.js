@@ -14,7 +14,6 @@ const getFilterData = async function () {
     let professions = await getProfessionsAndSubProfessions();
     let genres = await getGenresAndSubgenres();
     let cities = await getCities();
-
     filterData['genres'] = [...genres]
     filterData['professions'] = [...professions]
     filterData['cities'] = [...cities]

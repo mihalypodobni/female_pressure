@@ -3,7 +3,7 @@
     <Header>
       search
     </Header>
-    <b-container class="mt-5 f-body-container">
+    <b-container class="mt-5 px-4 px-lg-0  f-body-container">
       <b-row>
         <b-col v-if="!isMobile" cols="4">
           <SideFilter/>

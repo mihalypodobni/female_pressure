@@ -17,7 +17,7 @@
                      target="_blank"
                      class="project-dropdown-item"
     >
-      <b-img :src="require('@/assets/special-projects-logos/' + project.img)"
+      <b-img-lazy :src="require('@/assets/special-projects-logos/' + project.img)"
              class="menu-project-logo mr-3"/>
       <span class="text-lowercase mr-1">{{ project.title }}</span>
       <small>[{{ project.year }}]</small>
