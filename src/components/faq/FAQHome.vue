@@ -537,6 +537,15 @@
   </div>
 </template>
 
+<script>
+import Header from "../header/Header";
+
+export default {
+  components: {
+    Header
+  }
+}
+</script>
 
 <style lang="sass" scoped>
 .accordion-container

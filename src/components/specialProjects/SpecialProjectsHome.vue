@@ -36,7 +36,7 @@
             </b-col>
           </b-row>
         </section>
-        <button class="f-button mt-5" v-on:click="loadMore">Load More</button>
+<!--        <button class="f-button mt-5" v-on:click="loadMore">Load More</button>-->
       </b-row>
     </b-container>
   </div>
