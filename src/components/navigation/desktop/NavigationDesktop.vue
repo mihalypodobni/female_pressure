@@ -13,7 +13,10 @@
            @mouseenter="showDropdown(item.id)"
            @mouseleave="hideDropdown(item.id)"
     >
-      <ProjectsDropdown v-if="item.id ==='projects'" :show-projects="showProjects" @navigate="$emit('navigate',$event)"/>
+      <ProjectsDropdown
+          v-if="item.id ==='projects'"
+          :show-projects="showProjects"
+          @navigate="$emit('navigate',$event)"/>
       <LinksDropdown v-else-if="item.id ==='links'" :show-links="showLinks" @navigate="$emit('navigate',$event)"/>
       <span class="text-lowercase" v-else>
         {{ item.name }}

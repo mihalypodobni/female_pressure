@@ -25,8 +25,7 @@
 </template>
 
 <script>
-import { links } from "@/assets/data/links";
-import {mapState} from "vuex";
+import { links } from "@/assets/data/links"
 
 export default {
   props: {
@@ -37,9 +36,6 @@ export default {
       links: links,
     };
   },
-  computed: mapState([
-    'currentTab'
-  ]),
   watch: {
     showLinks: function(val) {
       val

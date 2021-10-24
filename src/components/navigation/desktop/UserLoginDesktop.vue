@@ -48,7 +48,7 @@
       </b-dropdown-form>
       <hr class="divider">
       <b-dropdown-text class="text-center mb-2 join-section">
-        <span class="font-weight-normal">not a member yet? </span>
+        <span class="not-a-member">not a member yet? </span>
         <b-link @click="$router.push({ name: 'Join Network' })" class="f-link join-network">
           join the network
         </b-link>
@@ -193,4 +193,7 @@ export default {
 
 .join-network
   cursor: pointer !important
+
+.not-a-member
+  font-family: $font-regular
 </style>
