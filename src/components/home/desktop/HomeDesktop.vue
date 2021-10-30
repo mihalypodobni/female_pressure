@@ -7,7 +7,8 @@
       </template>
     </Header>
     <b-container class="mt-5 f-body-container">
-      <h4>Testing information to go on the page</h4>
+      <b-link @click="$router.push('/explore')">
+        Explore member globe</b-link>
     </b-container>
   </div>
 </template>

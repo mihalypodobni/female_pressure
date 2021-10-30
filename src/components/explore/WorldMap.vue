@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-show="ready" class="world-map" ref="world-map"></div>
+    <div class="world-map" ref="world-map"></div>
     <div v-if="!ready" class="world-map placeholder">
       <div class="text-center loading-text">
         <font-awesome-icon icon="cog" size="4x" class="cog" spin/>

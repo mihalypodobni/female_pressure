@@ -13,13 +13,11 @@
 <script>
 import Header from "@/components/header/Header"
 import WorldMap from '@/components/explore/WorldMap'
-import AltMap from '@/components/explore/AltMap'
 
 export default {
   components: {
     Header,
-    WorldMap,
-    AltMap
+    WorldMap
   }
 }
 </script>
