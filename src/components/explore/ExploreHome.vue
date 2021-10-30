@@ -1,23 +1,25 @@
 <template>
   <div>
     <Header>
-      female pressure
-      <template #subtitle>
-        database of people operating in electronic music
-      </template>
+      explore members
     </Header>
     <b-container class="mt-5 f-body-container">
-      <h4>Testing information to go on the page</h4>
+      <WorldMap/>
+      <alt-map v-if="0" />
     </b-container>
   </div>
 </template>
 
 <script>
 import Header from "@/components/header/Header"
+import WorldMap from '@/components/explore/WorldMap'
+import AltMap from '@/components/explore/AltMap'
 
 export default {
   components: {
-    Header
-  },
+    Header,
+    WorldMap,
+    AltMap
+  }
 }
 </script>

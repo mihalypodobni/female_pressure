@@ -95,6 +95,7 @@ export default {
         {name: "faq", page: "FAQ"},
         {name: "safe[r] space", link: "https://too-many.org/code-of-conduct/"},
         {name: "feedback", page: "Feedback"},
+        {name: "explore", page: "Explore"}
       ],
       links: [
         {icon: "twitter", link: "https://twitter.com/female_pressure", fontAwesome: true},

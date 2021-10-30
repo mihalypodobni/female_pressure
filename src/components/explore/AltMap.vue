@@ -1,6 +1,6 @@
 <template>
   <div>
-<!--    <b-button @click="mountMap">Click me to load map</b-button>-->
+    <!--    <b-button @click="mountMap">Click me to load map</b-button>-->
     <div v-show="ready" class="world-map" ref="map-two"></div>
     <div v-if="!ready" class="world-map placeholder">
       <div class="text-center loading-text">
@@ -15,6 +15,9 @@
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4maps from "@amcharts/amcharts4/maps";
 import geodata from "@amcharts/amcharts4-geodata/worldLow";
+import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+
+am4core.useTheme(am4themes_animated);
 
 export default {
   data() {
@@ -25,73 +28,83 @@ export default {
   },
   methods: {
     mountMap() {
-      console.log('create start');
-      let dd = new Date().getTime();
       let that = this
       let chart = am4core.create(this.$refs['map-two'], am4maps.MapChart);
       // Create map instance
-      chart.hiddenState.properties.opacity = 0
+      // chart.hiddenState.properties.opacity = 0
 
       // Set map definition
       chart.geodata = geodata;
 
       // Set projection
-      chart.projection = new am4maps.projections.Miller();
+      chart.projection = new am4maps.projections.Orthographic();
+      chart.panBehavior = "rotateLongLat";
+      chart.deltaLatitude = -20;
+      chart.padding(20,20,20,20);
+
+      // Add zoom control
+      chart.zoomControl = new am4maps.ZoomControl();
+      let homeButton = new am4core.Button();
+      homeButton.events.on("hit", function(){
+        chart.goHome();
+      });
+      homeButton.icon = new am4core.Sprite();
+      homeButton.padding(7, 5, 7, 5);
+      homeButton.width = 30;
+      homeButton.icon.path = "M16,8 L14,8 L14,16 L10,16 L10,10 L6,10 L6,16 L2,16 L2,8 L0,8 L8,0 L16,8 Z M16,8";
+      homeButton.marginBottom = 10;
+      homeButton.parent = chart.zoomControl;
+      homeButton.insertBefore(chart.zoomControl.plusButton);
+
+      // limits vertical rotation
+      chart.adapter.add("deltaLatitude", function(deltaLatitude){
+        return am4core.math.fitToRange(deltaLatitude, -90, 90);
+      })
+
 
       // Create map polygon series
       let polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
       polygonSeries.useGeodata = true;
-      polygonSeries.exclude = ["AQ"]; // Exclude antartica
-      polygonSeries.tooltip.fill = am4core.color("#000000");
+      // polygonSeries.mapPolygons.template.nonScalingStroke = true;
+      // polygonSeries.exclude = ["AQ"]; // Exclude antartica
+      // polygonSeries.tooltip.fill = am4core.color("#000000");
+
+      polygonSeries.dx = 2;
+      polygonSeries.dy = 2;
+
 
       let colorSet = new am4core.ColorSet()
 
       // Make map load polygon (like country names) data from GeoJSON
       let polygonTemplate = polygonSeries.mapPolygons.template;
       polygonTemplate.tooltipText = "{name} {value}";
-      polygonTemplate.togglable = true;
 
       // Add heat rule
       polygonSeries.heatRules.push({
         "property": "fill",
         "target": polygonSeries.mapPolygons.template,
-        "min": am4core.color("#ffffff"),
-        "max": am4core.color("#AAAA00")
+        "min": am4core.color("#7cffff"),
+        "max": am4core.color("#1cd182")
       });
 
       // Create hover state and set alternative fill color
       let hoverState = polygonTemplate.states.create("hover");
-      hoverState.properties.fill = colorSet.getIndex(0);
+      hoverState.properties.fill = colorSet.getIndex(1);
 
       // Center on Pacific
       chart.deltaLongitude = -154.8;
 
-      // var graticuleSeries = chart.series.push(new am4maps.GraticuleSeries());
-      // graticuleSeries.fitExtent = false;
+      var graticuleSeries = chart.series.push(new am4maps.GraticuleSeries());
+      graticuleSeries.fitExtent = false;
 
+      //click item to get info
       polygonTemplate.events.on("hit", function (ev) {
-        // get object info
         console.log(ev.target.dataItem.dataContext);
       });
 
       chart.events.on("ready", function () {
-        console.log("chart is ready")
-        console.log('create end ' + (new Date().getTime() - dd));
         that.ready = true
       });
-
-      // Create a Small map control
-
-      let smallMap = new am4maps.SmallMap();
-      chart.smallMap = smallMap;
-
-      let smallMapPolygonSeries = smallMap.series.push(new am4maps.MapPolygonSeries());
-      smallMapPolygonSeries.copyFrom(polygonSeries);
-
-      // Create a zoom control
-      let zoomControl = new am4maps.ZoomControl();
-      chart.zoomControl = zoomControl;
-      zoomControl.slider.height = 100;
 
       // Add expectancy data
       polygonSeries.data = [
@@ -283,10 +296,7 @@ export default {
   },
   beforeDestroy() {
     if (this.chart) {
-      console.log('dispose start');
-      let d = new Date().getTime();
       this.chart.dispose();
-      console.log('dispose end ' + (new Date().getTime() - d));
     }
   }
 }
