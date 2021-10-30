@@ -1,7 +1,12 @@
 <template>
   <div>
-    <div class="world-map" ref="world-map"></div>
-    <!--    <div v-if="ready === false">The chart is loading...</div>-->
+    <div v-show="ready" class="world-map" ref="world-map"></div>
+    <div v-if="!ready" class="world-map placeholder">
+      <div class="text-center loading-text">
+        <font-awesome-icon icon="cog" size="4x" class="cog" spin/>
+        <div>map is loading...</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -34,6 +39,9 @@ export default {
     chart.projection = new am4maps.projections.Orthographic();
     chart.panBehavior = "rotateLongLat";
     chart.padding(20, 20, 20, 20);
+    chart.deltaLatitude = -20;
+    // Center on Pacific
+    chart.deltaLongitude = -100;
 
     // Add zoom control
     chart.zoomControl = new am4maps.ZoomControl();
@@ -65,14 +73,29 @@ export default {
     // Configure series
     var polygonTemplate = polygonSeries.mapPolygons.template;
     polygonTemplate.tooltipText = "{name} {value}";
+    // polygonTemplate.tooltipPosition = "fixed"
+
 
     polygonTemplate.fill = am4core.color("#47c78a");
 
     polygonTemplate.adapter.add("fill", function (fill, target) {
-      if (target.dataItem.value < 70) {
-        return am4core.color("#47c78a");
+      if (target.dataItem.value < 1000 && target.dataItem.value >= 31) {
+        return am4core.color("#1cd182");
+      } else if (target.dataItem.value < 31 && target.dataItem.value >= 11){
+        return am4core.color("#00ffc7")
       } else {
         return am4core.color("#7cffff")
+      }
+    });
+
+    //data taken from design docs
+    polygonTemplate.adapter.add("fillOpacity", function (fill, target) {
+      if (target.dataItem.value < 1000 && target.dataItem.value >= 31) {
+        return 0.56 + 0.44 * ((target.dataItem.value - 31) / 969)
+      } else if (target.dataItem.value < 31 && target.dataItem.value >= 11){
+        return 0.46 + 0.54 * ((target.dataItem.value - 11) / 20)
+      } else {
+        return 0.46 + 0.54 * (target.dataItem.value / 10)
       }
     });
 
@@ -100,60 +123,69 @@ export default {
     var hs = polygonTemplate.states.create("hover");
     hs.properties.fill = colorSet.getIndex(1);
 
-    // Center on Pacific
-    chart.deltaLongitude = -154.8;
+    let animation;
+    setTimeout(function(){
+      animation = chart.animate({property:"deltaLongitude", to:100000}, 20000000);
+    }, 3000)
+
+    chart.seriesContainer.events.on("down", function(){
+      if(animation){
+        animation.stop();
+      }
+    })
+
     // Add expectancy data
     polygonSeries.data = [
-      {id: "AF", value: 60.524},
-      {id: "AQ", value: 60.524},
-      {id: "AL", value: 77.185},
-      {id: "DZ", value: 70.874},
-      {id: "AO", value: 51.498},
-      {id: "AR", value: 76.128},
-      {id: "AM", value: 74.469},
-      {id: "AU", value: 82.364},
-      {id: "AT", value: 80.965},
-      {id: "AZ", value: 70.686},
-      {id: "BH", value: 76.474},
-      {id: "BD", value: 70.258},
-      {id: "BY", value: 69.829},
-      {id: "BE", value: 80.373},
-      {id: "BJ", value: 59.165},
-      {id: "BT", value: 67.888},
-      {id: "BO", value: 66.969},
-      {id: "BA", value: 76.211},
-      {id: "BW", value: 47.152},
-      {id: "BR", value: 73.667},
-      {id: "BN", value: 78.35},
-      {id: "BG", value: 73.448},
-      {id: "BF", value: 55.932},
-      {id: "BI", value: 53.637},
-      {id: "KH", value: 71.577},
-      {id: "CM", value: 54.61},
-      {id: "CA", value: 81.323},
-      {id: "CV", value: 74.771},
-      {id: "CF", value: 49.517},
-      {id: "TD", value: 50.724},
-      {id: "CL", value: 79.691},
-      {id: "CN", value: 75.178},
-      {id: "CO", value: 73.835},
-      {id: "KM", value: 60.661},
-      {id: "CD", value: 49.643},
-      {id: "CG", value: 58.32},
-      {id: "CR", value: 79.712},
-      {id: "CI", value: 50.367},
-      {id: "HR", value: 76.881},
-      {id: "CU", value: 79.088},
-      {id: "CY", value: 79.674},
-      {id: "CZ", value: 77.552},
-      {id: "DK", value: 79.251},
-      {id: "GL", value: 79.251},
-      {id: "DJ", value: 61.319},
-      {id: "DO", value: 73.181},
-      {id: "EC", value: 76.195},
-      {id: "EG", value: 70.933},
-      {id: "SV", value: 72.361},
-      {id: "GQ", value: 52.562},
+      {id: "AF", value: 666},
+      {id: "AQ", value: 34},
+      {id: "AL", value: 45},
+      {id: "DZ", value: 3},
+      {id: "AO", value: 173},
+      {id: "AR", value: 12},
+      {id: "AM", value: 65},
+      {id: "AU", value: 34},
+      {id: "AT", value: 3},
+      {id: "AZ", value: 21},
+      {id: "BH", value: 6},
+      {id: "BD", value: 45},
+      {id: "BY", value: 76},
+      {id: "BE", value: 27},
+      {id: "BJ", value: 1},
+      {id: "BT", value: 3},
+      {id: "BO", value: 8},
+      {id: "BA", value: 34},
+      {id: "BW", value: 654},
+      {id: "BR", value: 44},
+      {id: "BN", value: 78},
+      {id: "BG", value: 32},
+      {id: "BF", value: 20},
+      {id: "BI", value: 344},
+      {id: "KH", value: 233},
+      {id: "CM", value: 12},
+      {id: "CA", value: 11},
+      {id: "CV", value: 14},
+      {id: "CF", value: 26},
+      {id: "TD", value: 54},
+      {id: "CL", value: 77},
+      {id: "CN", value: 44},
+      {id: "CO", value: 988},
+      {id: "KM", value: 3},
+      {id: "CD", value: 876},
+      {id: "CG", value: 78},
+      {id: "CR", value: 66},
+      {id: "CI", value: 34},
+      {id: "HR", value: 23},
+      {id: "CU", value: 97},
+      {id: "CY", value: 32},
+      {id: "CZ", value: 15},
+      {id: "DK", value: 465},
+      {id: "GL", value: 12},
+      {id: "DJ", value: 14},
+      {id: "DO", value: 33},
+      {id: "EC", value: 12},
+      {id: "EG", value: 76},
+      {id: "SV", value: 54},
+      {id: "GQ", value: 37},
       {id: "ER", value: 62.329},
       {id: "EE", value: 74.335},
       {id: "ET", value: 62.983},
@@ -296,4 +328,12 @@ export default {
   width: 100%
   height: 500px
 
+.placeholder
+  background-color: whitesmoke
+
+.cog
+  color: black
+
+.loading-text
+  padding-top: 200px
 </style>
