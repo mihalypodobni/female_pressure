@@ -57,6 +57,8 @@ export default {
     homeButton.parent = chart.zoomControl;
     homeButton.insertBefore(chart.zoomControl.plusButton);
 
+    // chart.exporting.menu = new am4core.ExportMenu();
+
     // limits vertical rotation
     chart.adapter.add("deltaLatitude", function (delatLatitude) {
       return am4core.math.fitToRange(delatLatitude, -90, 90);

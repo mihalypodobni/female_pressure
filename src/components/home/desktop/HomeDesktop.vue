@@ -8,8 +8,10 @@
     </Header>
     <b-container class="mt-5 f-body-container">
       <b-link @click="$router.push('/explore')">
-        Explore member globe</b-link>
+        Explore member globe
+      </b-link>
     </b-container>
+    <b-img src="@/assets/other_photos/sample_globe.svg" />
   </div>
 </template>
 
@@ -22,3 +24,8 @@ export default {
   },
 }
 </script>
+
+<style lang="sass" scoped>
+//.home-body
+  //background-image: url('./assets/other_photos/sample_globe.svg')
+</style>
