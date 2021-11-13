@@ -18,6 +18,19 @@ router.get("/filter-data", cors(), async function (req, res) {
 });
 
 /**********************************************************************
+ * GET number of members in database
+ *********************************************************************/
+router.get("/members-in-database", cors(), async function (req, res) {
+    search.getMemberCount()
+        .then((data) => {
+            res.status(200).json(data[0]);
+        })
+        .catch((err) => {
+            res.status(500).json({Error: err.message});
+        });
+});
+
+/**********************************************************************
  * GET member search
  *********************************************************************/
 router.get("/member-search/:query", cors(), async function (req, res) {

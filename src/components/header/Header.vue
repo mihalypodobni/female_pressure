@@ -15,11 +15,15 @@
         </h4>
       </b-col>
       <b-col class="text-right my-auto px-0" cols="auto">
-        <span v-if="$route.name === 'Home'">current members: 5454</span>
+        <span v-if="$route.name === 'Home'">
+          current members: {{memberCount}}
+        </span>
+      </b-col>
+      <b-col class="text-right my-auto px-0" cols="auto">
         <span
-          v-if="!authenticated && !$store.state.isMobile"
-          class="circle text-center pt-4"
-          @click="$router.push({ name: 'Join Network' })"
+            v-if="!authenticated && !$store.state.isMobile"
+            class="circle text-center pt-4"
+            @click="$router.push({ name: 'Join Network' })"
         >
           join the <br />
           network
@@ -37,6 +41,7 @@ export default {
     ...mapState({
       authenticated: (state) => state.authentication.authenticated,
       admin: (state) => state.authentication.admin,
+      memberCount: state => state.memberCount
     }),
   },
 };

@@ -1,16 +1,36 @@
 <template>
   <b-container fluid="xl">
-    <div v-if="$store.state.isMobile">mobile screen</div>
-    <HomeDesktop v-else />
+    <div class="home-body">
+      <Header>
+        female pressure
+        <template #subtitle>
+          database of people operating in electronic music
+        </template>
+      </Header>
+      <b-container class="mt-5 f-body-container">
+        <b-link @click="$router.push('/explore')">
+          Explore member globe
+        </b-link>
+      </b-container>
+    </div>
   </b-container>
 </template>
 
 <script>
-import HomeDesktop from "./desktop/HomeDesktop"
+import Header from "@/components/header/Header"
+import {mapActions} from 'vuex'
 
 export default {
   components: {
-    HomeDesktop
+    Header
+  },
+  methods: {
+    ...mapActions({
+      getMemberCount: 'getMemberCount' // map `this.add()` to `this.$store.dispatch('increment')`
+    })
+  },
+  created() {
+    this.getMemberCount()
   }
 };
 </script>

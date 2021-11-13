@@ -6,6 +6,12 @@
 const Helpers = require("../handlers/db");
 const Util = require("../handlers/util")
 
+const getMemberCount = async function () {
+    const queryString = `SELECT COUNT(*) as member_count
+    from member`;
+    return await Helpers.runQuery(queryString, []);
+}
+
 /**********************************************************************
  * get all data needed for filtering
  *********************************************************************/
@@ -284,5 +290,6 @@ module.exports = {
     memberSearch,
     getMember,
     loadMembers,
-    toggleLike
+    toggleLike,
+    getMemberCount
 };

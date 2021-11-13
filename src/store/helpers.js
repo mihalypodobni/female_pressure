@@ -2,7 +2,8 @@
 const getDefaultState = () => {
     return {
         isMobile: false,
-        isTablet: false
+        isTablet: false,
+        memberCount: 0
     }
 }
 
