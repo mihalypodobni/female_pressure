@@ -12,21 +12,6 @@
   font-weight: 500
   font-style: normal
 
-//@font-face
-//  font-family: 'Authentic Sans Light'
-//  src: url("~@/assets/fonts/Authentic_Sans_Light/AUTHENTICSans-60.eot")
-//  src: url("~@/assets/fonts/Authentic_Sans_Light/AUTHENTICSans-60.eot?#iefix") format("embedded-opentype"),url("~@/assets/fonts/Authentic_Sans_Light/AUTHENTICSans-60.woff") format('woff'), url("~@/assets/fonts/Authentic_Sans_Light/AUTHENTICSans-60.woff2") format('woff2')
-//  font-weight: 500
-//  font-style: normal
-//
-//@font-face
-//  font-family: 'Authentic Sans Bold'
-//  src: url("~@/assets/fonts/Authentic_Sans_Bold/AUTHENTICSans-130.eot")
-//  src: url("~@/assets/fonts/Authentic_Sans_Bold/AUTHENTICSans-130.eot?#iefix") format("embedded-opentype"),url("~@/assets/fonts/Authentic_Sans_Bold/AUTHENTICSans-130.woff") format('woff'), url("~@/assets/fonts/Authentic_Sans_Bold/AUTHENTICSans-130.woff2") format('woff2')
-//  font-weight: 500
-//  font-style: normal
-
-
 @mixin link
   color: black
   text-decoration: none
@@ -69,10 +54,12 @@
 
 @mixin button
   background-color: #00ffc5
-  border: none
-  padding: 5px 25px 
-  box-shadow: 6px 5px 23px 1px #747474
-  font-weight: 600
+  border: 2px solid #00ffc5
+  padding: 5px 25px
+  border-radius: 0
+  color: black
+  box-shadow: 0px 10px 23px 13px rgba(0,0,0,0.13)
+  font-family: $font-bold!important
   &:hover
     border: 2px solid #00ffc5
     color: #1fdbb7
