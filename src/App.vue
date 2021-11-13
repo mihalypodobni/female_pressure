@@ -1,6 +1,8 @@
 
 <template>
-  <div id="app">
+  <div id="app"
+        :class="$route.name === 'Home' ? 'gradient-home' : 'gradient-normal'"
+  >
     <Navigation v-if="!admin"/>
     <router-view/>
     <Footer class="footer" v-if="!admin"/>
@@ -79,10 +81,15 @@ export default {
   font-family: $font-regular
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
-  @include background-gradient
 </style>
 
 <style lang="sass" scoped>
 .footer
   margin-top: auto
+
+.gradient-normal
+  @include background-gradient
+
+.gradient-home
+  @include background-gradient-home
 </style>

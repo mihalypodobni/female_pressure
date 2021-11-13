@@ -50,6 +50,13 @@
   background-repeat: no-repeat
   background-position: bottom
 
+@mixin background-gradient-home
+  background-image: url('~@/assets/other_photos/sample_globe.svg'), linear-gradient(white, $footer)
+  background-size: 100vw calc(100vh - 300px), 100vw 450px
+  background-repeat: no-repeat, no-repeat
+  background-position: center top 50px, bottom
+
+
 @mixin card-button
   box-sizing: border-box
   border: none

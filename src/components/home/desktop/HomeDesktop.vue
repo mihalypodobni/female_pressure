@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home-body">
     <Header>
       female pressure
       <template #subtitle>
@@ -11,7 +11,7 @@
         Explore member globe
       </b-link>
     </b-container>
-    <b-img src="@/assets/other_photos/sample_globe.svg" />
+<!--    <b-img src="@/assets/other_photos/sample_globe.svg" />-->
   </div>
 </template>
 
@@ -27,5 +27,13 @@ export default {
 
 <style lang="sass" scoped>
 //.home-body
-  //background-image: url('./assets/other_photos/sample_globe.svg')
+//  background-image: url('~@/assets/other_photos/sample_globe.svg');
+//
+//  /* Full height */
+//  height: 100%
+//
+//  /* Center and scale the image nicely */
+//  background-position: center
+//  background-repeat: no-repeat
+//  background-size: cover
 </style>
