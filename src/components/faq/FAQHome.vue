@@ -565,13 +565,15 @@ export default {
 .main-card
   border: none
   background: none
-  border-radius: 0px
+  border-radius: 0
+
 
 .accordion-title
   cursor: pointer
 
 .question-title
   color: #00BB9E
+  text-transform: lowercase
 
 .link
   color: black
