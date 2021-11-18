@@ -26,7 +26,6 @@
     "pg": "^8.6.0",
     "sass-loader": "^10.1.1",
     "serve-static": "^1.14.1",
-    "topojson": "^3.0.2",
     "vue": "^2.6.11",
     "vue-typeahead-bootstrap": "^2.11.1",
     "vuex-persist": "^3.1.3"
