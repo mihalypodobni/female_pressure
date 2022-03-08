@@ -7,8 +7,8 @@ const Helpers = require("../handlers/db");
 const Util = require("../handlers/util")
 
 const getMemberCount = async function () {
-    const queryString = `SELECT COUNT(*) as member_count
-    from member`;
+    //const queryString = `SELECT COUNT(*) as member_count from member`;
+    const queryString = `SELECT COUNT(*) as member_count from fp_admin.members`;
     return await Helpers.runQuery(queryString, []);
 }
 
@@ -23,17 +23,17 @@ const getFilterData = async function () {
     filterData['genres'] = [...genres]
     filterData['professions'] = [...professions]
     filterData['cities'] = [...cities]
+    // console.log('filterData = ' + JSON.stringify(filterData));
     return filterData
 };
 
 const getGenresAndSubgenres = async function () {
-    const queryString = `SELECT genre_name, sub_genre_name
-    from genre as g
-    inner join sub_genre sg on g.genre_id = sg.genre_id
-    order by genre_name asc`;
+    // const queryString = `SELECT genre_name, sub_genre_name from genre as g inner join sub_genre sg on g.genre_id = sg.genre_id order by genre_name asc`;
+    const queryString = `SELECT name as genre_name, name as sub_genre_name from fieldsgenres order by genre_name asc`;
 
     const filter = [];
     const genreList = await Helpers.runQuery(queryString, filter);
+    // console.log('genreList ' + JSON.stringify(genreList));
     let genres = []
     let y = -1
     for (let i = 0; i < genreList.length; i++) {
@@ -134,20 +134,31 @@ const getCities = async function () {
 };
 
 const memberSearch = async function (query) {
-    const queryString = `SELECT email, alias1, alias2, alias3, city_name, country_name, primary_city
-            from member as m
-            inner join member_city mc on mc.member_id = m.member_id
-            inner join city c on c.city_id = mc.city_id
-            inner join state s on s.state_id = c.state_id
-            inner join country co on co.country_id = s.country_id
-            where (alias1 ilike $1
-            OR alias2 ilike $1
-            OR alias3 ilike $1)
-            AND primary_city = true
+    // const queryString = `SELECT email, alias1, alias2, alias3, city_name, country_name, primary_city
+    //         from member as m
+    //         inner join member_city mc on mc.member_id = m.member_id
+    //         inner join city c on c.city_id = mc.city_id
+    //         inner join state s on s.state_id = c.state_id
+    //         inner join country co on co.country_id = s.country_id
+    //         where (alias1 ilike $1
+    //         OR alias2 ilike $1
+    //         OR alias3 ilike $1)
+    //         AND primary_city = true
+    //         limit 5`;
+
+    const queryString = `SELECT name, name as alias1, city, email
+            from members
+            where (name ilike $1
+            OR email ilike $1
+            OR city ilike $1)
             limit 5`;
 
+    console.log('memberSearch query = ' + query);
+    console.log('memberSearch queryString = ' + queryString);
     const filter = ['%' + query + '%'];
-    return await Helpers.runQuery(queryString, filter);
+    const memberList = await Helpers.runQuery(queryString, filter);
+    console.log('searchModel.js memberSearch memberList = ' + JSON.stringify(memberList));
+    return memberList;
 };
 
 const getMember = async function (member_id) {
@@ -261,7 +272,7 @@ from member as m
 ` order by alias1 asc`
 
     const filter = [...professionData.filter, ...genreData.filter, ...locationData.filter, ...following.filter]
-    // console.log(queryString, filter)
+    console.log(queryString, filter)
     let res = await Helpers.runQuery(queryString, filter);
     console.timeEnd('codezup')
     return res

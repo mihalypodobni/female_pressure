@@ -17,11 +17,14 @@ const pool = new Pool(dbConfig);
  */
 async function runQuery(queryText, queryValues) {
     const query = { text: queryText, values: queryValues };
+    console.log('db.js dbConfig = ' + JSON.stringify(dbConfig));
+    console.log('db.js runQuery query = ' + JSON.stringify(query));
     const queryResult = await pool.query(query);
     if (queryResult.rowCount) {
+	console.log('db.js runQuery queryResult = ' + JSON.stringify(queryResult));
         return queryResult.rows;
     } else {
-        console.log("no results, returning 0")
+        console.log("db.js runQuery no results, returning 0")
         return 0;
     }
 }

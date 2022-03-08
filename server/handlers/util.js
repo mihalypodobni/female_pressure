@@ -9,10 +9,12 @@ const checkUserSessionExpired = function (tokenCreationDate) {
 
 const createToken = function (data) {
     let jwtDataPayload = {user: data[0].email};
-
+    console.log("util.js createToken " + JSON.stringify(jwtDataPayload));
     let dateOfIssue = new Date()
     let jwtPayload = {"data": jwtDataPayload, "doi": dateOfIssue.getTime()}
+    console.log("util.js createToken " + JSON.stringify(jwtPayload));
     let payload = Crypto.encryptObject(jwtPayload)
+    console.log("util.js createToken " + JSON.stringify(payload));
 
     return jwt.sign({payload}, config.ACCESS_TOKEN_SECRET, {
         algorithm: "HS256",

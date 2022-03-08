@@ -23,6 +23,8 @@ const router = new Router({
     }
 })
 
+console.log('router', router);
+
 router.beforeEach(async (to, from, next) => {
     let l = router.resolve(to);
     if (l.resolved.matched.length > 0) {
