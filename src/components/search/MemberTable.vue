@@ -173,11 +173,11 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.member-search-results /deep/ th
+.member-search-results ::deep th
   border-bottom: 2px solid #2afec5
   border-top: 2px solid #2afec5
 
-.member-search-results /deep/ td
+.member-search-results ::deep td
   border-bottom: 2px solid $searchBorder
 
 .primary-text

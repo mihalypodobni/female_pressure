@@ -88,7 +88,7 @@ export default {
   border: 3px solid $searchBorder
   &:hover
     border: 3px solid #00e3b9!important
-  /deep/ .form-control
+  ::deep .form-control
     border: none!important
     color: black
     &:focus

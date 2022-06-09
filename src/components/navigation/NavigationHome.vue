@@ -63,20 +63,20 @@ export default {
 .nav-container
   max-width: $page-max-width
 
-.desktop-nav /deep/ .current-tab
+.desktop-nav ::deep .current-tab
   box-shadow: 0 1.8px 0.3px -5px rgba(0, 0, 0, 0.013), 0 3.6px 3.9px -5px rgba(0, 0, 0, 0.033), 0 6.2px 15.2px -5px rgba(0, 0, 0, 0.072), 0 12px 58px -5px rgba(0, 0, 0, 0.25)
   z-index: 9
   font-weight: 500
   margin-bottom: -8px!important
 
-.desktop-nav /deep/ .dropdown-link
+.desktop-nav ::deep .dropdown-link
   color: black
   font-family: $font-bold!important
   &:hover
     text-shadow: 0 0 .4px #333, 0 0 .4px #333
 
 
-.desktop-nav /deep/ .menu-link
+.desktop-nav ::deep .menu-link
   cursor: pointer
   color: black
   font-weight: 300
