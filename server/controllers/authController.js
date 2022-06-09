@@ -16,11 +16,15 @@ router.get("/verify", cors(), async function (req, res) {
  * POST login user
  *********************************************************************/
 router.post("/login", function (req, res) {
+    // console.log('authController.js /login, req = ' + JSON.stringify(req))
+    // console.log('authController.js /login, res = ' + JSON.stringify(res))
     auth.adminLogin(req.body.password, req.body.email)
         .then((data) => {
+	    console.log('authController.js /adminLogin, data = ' + JSON.stringify(data), data === 1)
             if (data === 0) {
                 auth.login(req.body.password, req.body.email)
                     .then((data) => {
+			console.log('authController.js /login, data = ' + JSON.stringify(data))
                         if (data === 0) {
                             return res.status(401).send({auth: false, token: null, msg: "No user found"})
                         }
@@ -33,6 +37,7 @@ router.post("/login", function (req, res) {
             } else {
                 //create token
                 let token = util.createToken(data)
+		console.log('authController.js /adminLogin, token = ' + JSON.stringify(token));
                 res.status(200).json({token: token, auth: true, admin: true, user: data}).end();
             }
         })
