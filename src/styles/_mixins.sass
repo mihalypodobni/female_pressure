@@ -1,0 +1,69 @@
+$footer: #19fe77
+$font-bold: 'Gravity Bold', sans-serif
+
+@font-face
+  font-family: 'Gravity Regular'
+  src: url("~@/assets/fonts/gravity-regular/Gravity-Regular.eot")
+  src: url("~@/assets/fonts/gravity-regular/Gravity-Regular.eot?#iefix") format("embedded-opentype"),url("~@/assets/fonts/gravity-regular/Gravity-Regular.woff") format('woff'), url("~@/assets/fonts/gravity-regular/Gravity-Regular.woff2") format('woff2')
+  font-weight: 500
+  font-style: normal
+
+@font-face
+  font-family: 'Gravity Bold'
+  src: url("~@/assets/fonts/gravity-bold/Gravity-Bold.eot")
+  src: url("~@/assets/fonts/gravity-bold/Gravity-Bold.eot?#iefix") format("embedded-opentype"),url("~@/assets/fonts/gravity-bold/Gravity-Bold.woff") format('woff'), url("~@/assets/fonts/gravity-bold/Gravity-Bold.woff2") format('woff2')
+  font-weight: 500
+  font-style: normal
+
+@mixin link
+  color: black
+  text-decoration: none
+  font-weight: bold
+  &:hover
+    background-color: #2afec5
+    color: black
+    text-decoration: none
+
+@mixin footer-link
+  color: black
+  text-decoration: none
+  &:hover
+    background-color: #d8f2f6
+    color: black
+    text-decoration: none
+
+@mixin background-gradient
+  background-image: linear-gradient(white, $footer)
+  background-size: 100vw 450px
+  background-repeat: no-repeat
+  background-position: bottom
+
+@mixin background-gradient-home
+  background-image: url('~@/assets/other_photos/sample_globe.svg'), linear-gradient(white, $footer)
+  background-size: 100vw calc(100vh - 300px), 100vw 450px
+  background-repeat: no-repeat, no-repeat
+  background-position: center top 50px, bottom
+
+
+@mixin card-button
+  box-sizing: border-box
+  border: none
+  outline: 2px solid #00DFB8
+  box-shadow: 0 2.4px 6.8px rgba(0, 0, 0, 0.016),0 19px 54px rgba(0, 0, 0, 0.05)
+  color: black
+  &:hover
+      box-shadow: 0 2.3px 3.4px rgba(0, 0, 0, 0.106),0 18px 27px rgba(0, 0, 0, 0.12)
+      outline: 4px solid #3EFFC5
+
+@mixin button
+  background-color: #00ffc5
+  border: 2px solid #00ffc5
+  padding: 5px 25px
+  border-radius: 0
+  color: black
+  box-shadow: 0px 10px 23px 13px rgba(0,0,0,0.13)
+  font-family: $font-bold!important
+  &:hover
+    border: 2px solid #00ffc5
+    color: #1fdbb7
+    background-color: white

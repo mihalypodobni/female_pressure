@@ -1,0 +1,64 @@
+$body-max-width-large: calc(1400px * 5 / 7)
+$body-max-width-medium: calc(100vw * 6 / 7)
+$body-max-width-small: calc(100vw * 5 / 7)
+
+.f-body-container
+  padding-left: 15px
+  padding-right: 15px
+  @media screen and (min-width: 768px)
+    padding-left: 0
+    padding-right: 0
+    max-width: $body-max-width-medium
+  @media screen and (min-width: 1400px)
+    max-width: $body-max-width-large
+
+.f-header-container
+  @media screen and (max-width: 1399px)
+    max-width: $body-max-width-small
+  @media screen and (min-width: 1400px)
+    max-width: $body-max-width-large
+
+.f-link
+  color: black
+  text-decoration: none
+  font-weight: bold
+  &:hover
+    background-color: #2afec5
+    color: black
+    text-decoration: none
+
+
+.f-button
+  background-color: #00ffc5
+  border: 2px solid #00ffc5
+  padding: 5px 25px
+  border-radius: 0
+  color: black
+  box-shadow: 0px 10px 23px 13px rgba(0,0,0,0.13)
+  font-family:'Gravity Bold', sans-serif!important
+  &:hover
+    border: 2px solid #00ffc5
+    color: #1fdbb7
+    background-color: white
+
+//text sizes
+.f-text-normal
+  font-size: 1.0rem
+
+.f-text-small
+  font-size: 0.7rem
+
+.f-text-smaller
+  font-size: 0.55rem
+//
+//ul
+//  list-style: none
+//
+//
+//ul li::before
+//  content: "\2022"  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+//  color: #299FAC
+//  display: inline-block
+//  width: 1em
+//  margin-left: -1em
+
