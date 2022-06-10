@@ -4,7 +4,7 @@
       events
     </Header>
     <b-container class="mt-5 f-body-container">
-      <b-row class="mb-4">
+      <b-row class="w-100 mx-0 mb-4 p-0">
         <h3>next female:pressure events</h3>
       </b-row>
       <b-row class="justify-content-center w-100 mx-0 p-0">
@@ -56,8 +56,8 @@ export default {
 
 ::v-deep 
   .eventCardContainer 
-    border-bottom: 2px solid #99fcc6
+    border-bottom: 2px solid #00ffc5
     &:first-child 
-      border-top: 2px solid #99fcc6
+      border-top: 2px solid #00ffc5
 
 </style>

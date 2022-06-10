@@ -66,7 +66,7 @@
         </b-col>
       </b-row>
       <div class="text-center pt-3">
-        <b-img src="@/assets/fp-main-logo.svg" class="footer-logo"></b-img>
+        <b-img :src="require('@/assets/fp-main-logo.svg')" class="footer-logo"></b-img>
         <span class="my-auto pl-4"
         >&#169; 2021 female:pressure -
           <b-button variant="link" class="p-0 m-0 footer-link" @click="$router.push({name: 'GDPR' })">GDPR</b-button>
@@ -128,7 +128,7 @@ export default {
     background-color: #d8f2f6
     color: black
     text-decoration: none
-    
+
 .footer-logo
   width: 45px
   height: 45px

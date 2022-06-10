@@ -43,7 +43,7 @@ export default {
 .event-card
     border:none
     &:hover
-        background-color: #99fcc6
+        background-color: #00ffc5
 
 .project-img
   width: 100px

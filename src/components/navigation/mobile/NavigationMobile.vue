@@ -6,7 +6,7 @@
       </b-col>
       <b-col class="menu2">
         <div class="logo-wrapper">
-          <b-img width="80" src="@/assets/fp-main-logo-outline.svg" class="fp-logo"
+          <b-img width="80" :src="require('@/assets/fp-main-logo-outline.svg')" class="fp-logo"
                  @click="$router.push({name: 'Home'})"></b-img>
         </div>
       </b-col>
